@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Standard robots.txt for search engines and AI crawlers
+Sitemap: https://narennet.com/sitemap.xml
