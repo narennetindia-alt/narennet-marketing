@@ -57,7 +57,11 @@ function AppContent() {
             <Route path="/" element={<Navigate to="/admin" replace />} />
           )}
 
-          <Route path="/login" element={<Login />} />
+          {/* Login - Excluded in public marketing build */}
+          {!import.meta.env.VITE_PUBLIC_ONLY && (
+            <Route path="/login" element={<Login />} />
+          )}
+
           {/* Admin Routes - Excluded in public marketing build */}
           {!import.meta.env.VITE_PUBLIC_ONLY && (
             <Route
@@ -78,11 +82,6 @@ function AppContent() {
                 </ProtectedRoute>
               }
             />
-          )}
-
-          {/* Login - Excluded in public marketing build */}
-          {!import.meta.env.VITE_PUBLIC_ONLY && (
-            <Route path="/login" element={<Login />} />
           )}
         </Routes>
       </main>
