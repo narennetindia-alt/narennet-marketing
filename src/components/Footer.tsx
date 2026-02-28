@@ -1,3 +1,4 @@
+import logo from "../logo.png";
 import { Link } from 'react-router-dom';
 import { Twitter, Linkedin, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 
@@ -39,7 +40,7 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-6">
             <Link to="/" className="flex items-center gap-2 group">
               <div className="w-8 h-8 overflow-hidden rounded-lg bg-white flex items-center justify-center group-hover:rotate-12 transition-transform">
-                <img src="/src/logo.png" alt="NarenNet" className="w-full h-full object-cover" />
+                <img src={logo} alt="NarenNet" className="w-full h-full object-cover" />
               </div>
               <span className="text-xl font-bold tracking-tight">NarenNet</span>
             </Link>
