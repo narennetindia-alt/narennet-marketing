@@ -1,8 +1,9 @@
+import logo from "../logo.png";
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Send, MessageCircle, Edit3 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from "../logo.png";
+
 const navLinks = [
   { name: 'Services', path: '/solutions' },
   { name: 'About', path: '/about' },
