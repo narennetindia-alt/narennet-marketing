@@ -20,7 +20,9 @@ import Services from './pages/admin/Services';
 import Login from './pages/Login';
 import ProtectedRoute from './components/ProtectedRoute';
 import AdminLayout from './components/AdminLayout';
+import logo from "../assets/logo.png";
 
+<img src={logo} alt="NarenNet Logo" />
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
