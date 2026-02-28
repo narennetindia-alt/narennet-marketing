@@ -1,9 +1,9 @@
 import React from 'react';
 import AdminSidebar from './AdminSidebar';
 import { motion, AnimatePresence } from 'motion/react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Outlet } from 'react-router-dom';
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+export default function AdminLayout() {
     const location = useLocation();
     const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
 
@@ -47,7 +47,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                             exit={{ opacity: 0, y: -10 }}
                             transition={{ duration: 0.3 }}
                         >
-                            {children}
+                            <Outlet />
                         </motion.div>
                     </AnimatePresence>
                 </div>
