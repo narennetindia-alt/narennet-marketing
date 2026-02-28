@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -38,14 +38,26 @@ function AppContent() {
       {!isAdmin && <Navbar />}
       <main className="flex-grow">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/solutions" element={<Solutions />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:id" element={<BlogPost />} />
-          <Route path="/launches" element={<Launches />} />
+          {/* Marketing Routes - Excluded in Admin-only build */}
+          {!import.meta.env.VITE_ADMIN_ONLY && (
+            <>
+              <Route path="/" element={<Home />} />
+              <Route path="/solutions" element={<Solutions />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:id" element={<BlogPost />} />
+              <Route path="/launches" element={<Launches />} />
+            </>
+          )}
+
+          {/* Root Redirect for Admin Build */}
+          {import.meta.env.VITE_ADMIN_ONLY && (
+            <Route path="/" element={<Navigate to="/admin" replace />} />
+          )}
+
+          <Route path="/login" element={<Login />} />
           {/* Admin Routes - Excluded in public marketing build */}
           {!import.meta.env.VITE_PUBLIC_ONLY && (
             <Route
