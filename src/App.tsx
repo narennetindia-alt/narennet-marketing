@@ -49,19 +49,23 @@ function ScrollToTop() {
 function AppContent() {
   const location = useLocation();
 
+  // Robust env checks (support both boolean and string "true" from different environments)
+  const isPublicOnly = import.meta.env.VITE_PUBLIC_ONLY === true || import.meta.env.VITE_PUBLIC_ONLY === 'true';
+  const isAdminOnly = import.meta.env.VITE_ADMIN_ONLY === true || import.meta.env.VITE_ADMIN_ONLY === 'true';
+
   const isAdminRoute =
     location.pathname.startsWith("/admin") ||
     location.pathname === "/login";
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-brand-bg">
       {/* Hide navbar in admin */}
-      {!isAdminRoute && <Navbar />}
+      {!isAdminRoute && !isAdminOnly && <Navbar />}
 
       <main className="flex-grow">
         <Routes>
           {/* ================= PUBLIC WEBSITE ================= */}
-          {!import.meta.env.VITE_ADMIN_ONLY && (
+          {!isAdminOnly && (
             <>
               <Route path="/" element={<Home />} />
               <Route path="/solutions" element={<Solutions />} />
@@ -75,12 +79,12 @@ function AppContent() {
           )}
 
           {/* ================= LOGIN ================= */}
-          {!import.meta.env.VITE_PUBLIC_ONLY && (
+          {!isPublicOnly && (
             <Route path="/login" element={<Login />} />
           )}
 
           {/* ================= ADMIN ================= */}
-          {!import.meta.env.VITE_PUBLIC_ONLY && (
+          {!isPublicOnly && (
             <Route
               path="/admin"
               element={
@@ -100,17 +104,24 @@ function AppContent() {
           )}
 
           {/* ================= ADMIN BUILD ROOT REDIRECT ================= */}
-          {import.meta.env.VITE_ADMIN_ONLY && (
+          {isAdminOnly && (
             <Route path="/" element={<Navigate to="/admin" replace />} />
           )}
 
-          {/* ================= 404 FALLBACK ================= */}
-          <Route path="*" element={<Navigate to="/" replace />} />
+          {/* ================= STATIC 404 FALLBACK ================= */}
+          {/* We use a static page instead of a redirect to Home to prevent infinite loops */}
+          <Route path="*" element={
+            <div className="min-h-[60vh] flex flex-col items-center justify-center text-center p-10">
+              <h1 className="text-6xl font-black text-white mb-4">404</h1>
+              <p className="text-brand-secondary mb-8">The page you are looking for doesn't exist.</p>
+              <Navigate to="/" replace />
+            </div>
+          } />
         </Routes>
       </main>
 
       {/* Hide footer in admin */}
-      {!isAdminRoute && <Footer />}
+      {!isAdminRoute && !isAdminOnly && <Footer />}
     </div>
   );
 }
