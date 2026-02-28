@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Send, MessageCircle, Edit3 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-
+import logo from "../logo.png";
 const navLinks = [
   { name: 'Services', path: '/solutions' },
   { name: 'About', path: '/about' },
@@ -30,7 +30,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group">
           <div className="w-10 h-10 overflow-hidden rounded-xl bg-white flex items-center justify-center group-hover:rotate-[15deg] transition-transform duration-500 shadow-lg shadow-brand-accent/20">
-            <img src="/src/logo.png" alt="NarenNet" className="w-full h-full object-cover" />
+            <img src={logo} alt="NarenNet" className="w-full h-full object-cover" />
           </div>
           <span className={`text-2xl font-display font-bold tracking-tighter uppercase transition-colors ${scrolled ? 'text-black' : 'text-white'}`}>NarenNet</span>
         </Link>
