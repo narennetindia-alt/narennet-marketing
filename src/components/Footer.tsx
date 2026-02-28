@@ -40,7 +40,7 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-6">
             <Link to="/" className="flex items-center gap-2 group">
               <div className="w-8 h-8 overflow-hidden rounded-lg bg-white flex items-center justify-center group-hover:rotate-12 transition-transform">
-                <img src={logo} alt="NarenNet" className="w-full h-full object-cover" />
+                <img src={logo} alt="NarenNet Logo" />
               </div>
               <span className="text-xl font-bold tracking-tight">NarenNet</span>
             </Link>
