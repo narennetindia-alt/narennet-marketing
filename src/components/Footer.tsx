@@ -7,6 +7,7 @@ const footerLinks = [
     title: 'Company',
     links: [
       { name: 'About', path: '/about' },
+      { name: 'Founder', path: '/founder-narendhiran-c' },
       { name: 'Solutions', path: '/solutions' },
       { name: 'Pricing', path: '/pricing' },
       { name: 'Careers', path: '#' },
