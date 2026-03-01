@@ -16,4 +16,10 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
 Sitemap: https://narennet.cloud/sitemap.xml
