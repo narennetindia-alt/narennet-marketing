@@ -23,8 +23,10 @@ import {
   Smartphone
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabaseClient';
+import { useState } from 'react';
+import { faqs as allFaqs } from '../data/faqs';
+
+const homeFaqs = allFaqs.slice(0, 3);
 
 const partners = [
   'Google', 'Microsoft', 'Amazon', 'Meta', 'Netflix', 'Apple', 'Stripe', 'Spotify'
@@ -119,18 +121,6 @@ function AccordionItem({ question, answer }: AccordionProps) {
 }
 
 export default function Home() {
-  const [faqs, setFaqs] = useState<FAQ[]>([]);
-
-  useEffect(() => {
-    const fetchFaqs = async () => {
-      const { data } = await supabase
-        .from('faqs')
-        .select('question, answer')
-        .order('display_order', { ascending: true });
-      if (data) setFaqs(data);
-    };
-    fetchFaqs();
-  }, []);
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
@@ -363,9 +353,20 @@ export default function Home() {
       {/* FAQ Section */}
       <section className="section-padding bg-brand-bg">
         <div className="container-wide max-w-4xl">
-          <h2 className="text-5xl md:text-6xl font-bold mb-20 text-center text-white">FAQ</h2>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+            <div>
+              <p className="text-brand-accent font-mono text-sm uppercase tracking-[0.3em] mb-3">Got questions?</p>
+              <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tighter uppercase">Frequently Asked</h2>
+            </div>
+            <Link
+              to="/faq"
+              className="flex-shrink-0 inline-flex items-center gap-2 text-brand-accent border border-brand-accent/30 px-6 py-3 rounded-full text-sm font-bold hover:bg-brand-accent hover:text-white transition-all"
+            >
+              View all FAQs <ArrowRight size={16} />
+            </Link>
+          </div>
           <div className="space-y-2">
-            {faqs.map((faq, idx) => (
+            {homeFaqs.map((faq, idx) => (
               <AccordionItem key={idx} question={faq.question} answer={faq.answer} />
             ))}
           </div>
