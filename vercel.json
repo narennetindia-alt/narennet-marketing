@@ -1,21 +1,29 @@
 {
     "cleanUrls": true,
     "trailingSlash": false,
-    "rewrites": [
+    "routes": [
         {
-            "source": "/(.*)",
-            "destination": "/index.html"
-        }
-    ],
-    "headers": [
+            "src": "/assets/(.*)",
+            "dest": "/assets/$1"
+        },
         {
-            "source": "/(.*)",
-            "headers": [
-                {
-                    "key": "X-Content-Type-Options",
-                    "value": "nosniff"
-                }
-            ]
+            "src": "/favicon.ico",
+            "dest": "/favicon.ico"
+        },
+        {
+            "src": "/favicon.png",
+            "dest": "/favicon.png"
+        },
+        {
+            "src": "/robots.txt",
+            "dest": "/robots.txt"
+        },
+        {
+            "handle": "filesystem"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/index.html"
         }
     ]
 }

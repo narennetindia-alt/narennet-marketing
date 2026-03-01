@@ -2,6 +2,7 @@ import React from 'react';
 import AdminSidebar from './AdminSidebar';
 import { motion, AnimatePresence } from 'motion/react';
 import { useLocation, Outlet } from 'react-router-dom';
+import logo from '../logo.png';
 
 export default function AdminLayout() {
     const location = useLocation();
@@ -13,7 +14,7 @@ export default function AdminLayout() {
             <header className="md:hidden flex items-center justify-between px-6 py-4 bg-brand-card border-b border-brand-border sticky top-0 z-50">
                 <div className="flex items-center gap-3">
                     <div className="w-8 h-8 overflow-hidden rounded-lg bg-white flex items-center justify-center shadow-lg">
-                        <img src="/src/logo.png" alt="NarenNet" className="w-full h-full object-cover" />
+                        <img src={logo} alt="NarenNet" className="w-full h-full object-cover" />
                     </div>
                     <span className="font-bold text-white uppercase tracking-tighter text-sm">NarenNet Admin</span>
                 </div>

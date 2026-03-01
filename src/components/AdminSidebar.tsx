@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { supabase } from '../lib/supabaseClient';
+import logo from '../logo.png';
 
 const menuItems = [
     { icon: LayoutDashboard, label: 'Dashboard', path: '/admin' },
@@ -54,7 +55,7 @@ export default function AdminSidebar({ isOpen, setIsOpen }: { isOpen: boolean; s
             `}>
                 <div className="flex items-center gap-3 mb-12 px-2">
                     <div className="w-10 h-10 overflow-hidden rounded-xl bg-white flex items-center justify-center shadow-lg text-black font-bold text-xs ring-4 ring-brand-accent/5">
-                        <img src="/src/logo.png" alt="NarenNet" className="w-full h-full object-cover" />
+                        <img src={logo} alt="NarenNet" className="w-full h-full object-cover" />
                     </div>
                     <div>
                         <h2 className="font-bold tracking-tight text-white leading-none mb-1">NarenNet</h2>
