@@ -1,29 +1,8 @@
 {
-    "cleanUrls": true,
-    "trailingSlash": false,
-    "routes": [
+    "rewrites": [
         {
-            "src": "/assets/(.*)",
-            "dest": "/assets/$1"
-        },
-        {
-            "src": "/favicon.ico",
-            "dest": "/favicon.ico"
-        },
-        {
-            "src": "/favicon.png",
-            "dest": "/favicon.png"
-        },
-        {
-            "src": "/robots.txt",
-            "dest": "/robots.txt"
-        },
-        {
-            "handle": "filesystem"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/index.html"
+            "source": "/(.*)",
+            "destination": "/index.html"
         }
     ]
 }
