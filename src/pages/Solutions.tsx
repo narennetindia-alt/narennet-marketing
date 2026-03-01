@@ -1,23 +1,13 @@
-import { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabaseClient';
+import { services } from '../data/services';
 import * as LucideIcons from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
-interface SolutionItem {
-  id: string;
-  name: string;
-  description: string;
-  icon: string;
-  image: string;
-  category: string;
-}
-
 interface Category {
   title: string;
   description: string;
-  items: SolutionItem[];
+  items: typeof services;
 }
 
 const getIcon = (iconName: string) => {
@@ -26,45 +16,19 @@ const getIcon = (iconName: string) => {
 };
 
 export default function Solutions() {
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  // Group by category
+  const groups: { [key: string]: typeof services } = {};
+  services.forEach((item) => {
+    const cat = item.category || 'General';
+    if (!groups[cat]) groups[cat] = [];
+    groups[cat].push(item);
+  });
 
-  useEffect(() => {
-    const fetchCategories = async () => {
-      const { data, error } = await supabase
-        .from('services')
-        .select('*')
-        .eq('type', 'solution')
-        .eq('active', true);
-
-      if (data) {
-        // Group by category
-        const groups: { [key: string]: SolutionItem[] } = {};
-        data.forEach((item: any) => {
-          const cat = item.category || 'General';
-          if (!groups[cat]) groups[cat] = [];
-          groups[cat].push({
-            id: item.id,
-            name: item.title,
-            description: item.description,
-            icon: item.icon,
-            image: item.image || `https://picsum.photos/seed/${item.id}/800/450`,
-            category: cat
-          });
-        });
-
-        const categoryList: Category[] = Object.keys(groups).map(key => ({
-          title: key,
-          description: `Custom ${key} tailored for your business needs.`,
-          items: groups[key]
-        }));
-        setCategories(categoryList);
-      }
-      setIsLoading(false);
-    };
-
-    fetchCategories();
-  }, []);
+  const categories: Category[] = Object.keys(groups).map(key => ({
+    title: key,
+    description: `Professional ${key} solutions tailored for your business growth.`,
+    items: groups[key]
+  }));
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
@@ -127,7 +91,7 @@ export default function Solutions() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {category.items.map((item, itemIdx) => (
                     <motion.div
-                      key={item.name}
+                      key={item.title}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
@@ -137,20 +101,28 @@ export default function Solutions() {
                       <div className="aspect-video overflow-hidden relative">
                         <img
                           src={item.image}
-                          alt={item.name}
+                          alt={item.title}
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                           referrerPolicy="no-referrer"
                         />
                         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500" />
                         <div className="absolute top-6 left-6 w-12 h-12 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center">
-                          {getIcon(item.icon)}
+                          {getIcon(item.iconName)}
                         </div>
                       </div>
 
                       <div className="p-10 flex flex-col flex-grow">
-                        <h3 className="text-2xl font-bold mb-4 text-white">{item.name}</h3>
+                        <h3 className="text-2xl font-bold mb-4 text-white">{item.title}</h3>
                         <p className="text-brand-secondary mb-10 leading-relaxed font-light text-lg flex-grow">{item.description}</p>
-                        <a href="https://wa.me/918438966728" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] font-bold text-brand-accent group-hover:gap-6 transition-all">
+                        <ul className="mb-6 space-y-2">
+                          {item.features.slice(0, 3).map((feature, i) => (
+                            <li key={i} className="text-brand-secondary text-sm flex items-center gap-2">
+                              <div className="w-1 h-1 bg-brand-accent rounded-full" />
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                        <a href="https://wa.me/918438966728" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] font-bold text-brand-accent group-hover:gap-6 transition-all mt-auto">
                           Book a Demo <ArrowRight size={18} />
                         </a>
                       </div>

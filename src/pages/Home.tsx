@@ -13,7 +13,14 @@ import {
   CheckCircle2,
   Plus,
   Minus,
-  ChevronDown
+  ChevronDown,
+  Binary,
+  Store,
+  Utensils,
+  Globe,
+  Cpu,
+  Code2,
+  Smartphone
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -25,39 +32,32 @@ const partners = [
 
 const features = [
   {
-    title: 'POS & Billing',
-    description: 'Fast, reliable billing for any retail environment.',
-    icon: <CreditCard className="text-brand-accent" />,
-    size: 'col-span-1 row-span-1',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=600'
-  },
-  {
-    title: 'ERP & CRM',
-    description: 'Unified resource planning and customer management.',
-    icon: <LayoutDashboard className="text-brand-accent" />,
-    size: 'col-span-1 row-span-1',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600'
-  },
-  {
-    title: 'AI Analytics',
-    description: 'Predictive sales forecasting and deep customer behavior analysis.',
-    icon: <BarChart3 className="text-brand-accent" />,
+    title: 'SmartOS Suite',
+    description: 'AI-powered ERP, CRM, and HR system for enterprise-grade management.',
+    icon: <Binary className="text-brand-accent" />,
     size: 'col-span-1 md:col-span-2 row-span-1',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200'
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200'
   },
   {
-    title: 'Inventory Automation',
-    description: 'Real-time stock tracking with automated reordering.',
-    icon: <Zap className="text-brand-accent" />,
-    size: 'col-span-1 md:col-span-2 row-span-1',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200'
-  },
-  {
-    title: 'Self-Billing',
-    description: 'Modern self-checkout kiosks to reduce wait times.',
-    icon: <ShieldCheck className="text-brand-accent" />,
+    title: 'Retail POS',
+    description: 'Smart billing, barcode, and theft detection for modern stores.',
+    icon: <Store className="text-brand-accent" />,
     size: 'col-span-1 row-span-1',
     image: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80&w=600'
+  },
+  {
+    title: 'AI eCommerce',
+    description: 'Instant AI store builder with automated SEO and marketing.',
+    icon: <Globe className="text-brand-accent" />,
+    size: 'col-span-1 row-span-1',
+    image: 'https://images.unsplash.com/photo-1523474253046-2cd2c78b6ad1?auto=format&fit=crop&q=80&w=600'
+  },
+  {
+    title: 'Security & Cloud',
+    description: 'Enterprise-grade protection, firewall hardening, and server deployment.',
+    icon: <ShieldCheck className="text-brand-accent" />,
+    size: 'col-span-1 md:col-span-2 row-span-1',
+    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200'
   },
 ];
 

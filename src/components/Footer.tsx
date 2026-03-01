@@ -15,10 +15,11 @@ const footerLinks = [
   {
     title: 'Solutions',
     links: [
-      { name: 'Retail POS', path: '/solutions' },
-      { name: 'Enterprise ERP', path: '/solutions' },
-      { name: 'AI Analytics', path: '/solutions' },
-      { name: 'Self-Billing', path: '/solutions' },
+      { name: 'Enterprise SmartOS', path: '/solutions' },
+      { name: 'Retail Automation', path: '/solutions' },
+      { name: 'AI eCommerce Builder', path: '/solutions' },
+      { name: 'Security & Cloud', path: '/solutions' },
+      { name: 'SaaS Development', path: '/solutions' },
     ],
   },
   {
