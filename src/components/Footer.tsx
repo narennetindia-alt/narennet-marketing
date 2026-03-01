@@ -26,8 +26,8 @@ const footerLinks = [
     title: 'Support',
     links: [
       { name: 'Contact', path: '/contact' },
+      { name: 'FAQ', path: '/faq' },
       { name: 'Documentation', path: '#' },
-      { name: 'Help Center', path: '#' },
       { name: 'Privacy Policy', path: '#' },
     ],
   },

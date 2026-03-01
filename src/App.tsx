@@ -22,6 +22,7 @@ import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Launches from "./pages/Launches";
+import FaqPage from "./pages/Faq";
 
 /* Admin Pages */
 import Dashboard from "./pages/admin/Dashboard";
@@ -75,6 +76,7 @@ function AppContent() {
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:id" element={<BlogPost />} />
               <Route path="/launches" element={<Launches />} />
+              <Route path="/faq" element={<FaqPage />} />
             </>
           )}
 
