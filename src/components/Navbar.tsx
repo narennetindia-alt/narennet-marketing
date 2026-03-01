@@ -86,7 +86,7 @@ export default function Navbar() {
             <div className="flex items-center justify-between p-8 border-b border-white/5">
               <Link to="/" onClick={() => setIsOpen(false)} className="flex items-center gap-3">
                 <div className="w-10 h-10 overflow-hidden rounded-xl bg-white flex items-center justify-center">
-                  <img src="/src/logo.png" alt="NarenNet" className="w-full h-full object-cover" />
+                  <img src={logo} alt="NarenNet" className="w-full h-full object-cover" />
                 </div>
                 <span className="text-2xl font-display font-bold tracking-tighter uppercase text-white">NarenNet</span>
               </Link>
@@ -98,7 +98,7 @@ export default function Navbar() {
               </button>
             </div>
 
-            <div className="flex-grow flex flex-col justify-center gap-10 p-12">
+            <div className="flex-grow flex flex-col justify-center gap-6 p-8">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.name}
@@ -109,7 +109,7 @@ export default function Navbar() {
                   <Link
                     to={link.path}
                     onClick={() => setIsOpen(false)}
-                    className={`text-5xl font-bold tracking-tighter uppercase transition-all ${location.pathname === link.path ? 'text-brand-accent' : 'text-white/40 hover:text-white'}`}
+                    className={`text-3xl md:text-5xl font-bold tracking-tighter uppercase transition-all ${location.pathname === link.path ? 'text-brand-accent' : 'text-white/40 hover:text-white'}`}
                   >
                     {link.name}
                   </Link>
