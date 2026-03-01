@@ -1,49 +1,19 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import { supabase } from '../lib/supabaseClient';
-
-interface BlogPost {
-  id: string;
-  title: string;
-  image: string;
-  date: string;
-  readTime: string;
-  excerpt: string;
-  category: string;
-}
+import { blogPosts, BlogPost } from '../data/blogPosts';
 
 export default function Blog() {
-  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [subscribed, setSubscribed] = useState(false);
 
   useEffect(() => {
-    const fetchBlogs = async () => {
-      setIsLoading(true);
-      const { data, error } = await supabase
-        .from('blogs')
-        .select('*')
-        .eq('status', 'published')
-        .order('created_at', { ascending: false });
-
-      if (data) {
-        const mappedBlogs = data.map(blog => ({
-          id: blog.id,
-          title: blog.title,
-          image: blog.cover_image,
-          date: new Date(blog.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-          readTime: blog.read_time,
-          excerpt: blog.excerpt,
-          category: blog.category
-        }));
-        setBlogPosts(mappedBlogs);
-      }
+    // Simulate a brief loading state for smooth transitions
+    const timer = setTimeout(() => {
       setIsLoading(false);
-    };
-
-    fetchBlogs();
+    }, 500);
+    return () => clearTimeout(timer);
   }, []);
 
   if (isLoading) {

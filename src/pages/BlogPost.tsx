@@ -1,27 +1,11 @@
 import { useParams, Link } from 'react-router-dom';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, User, Calendar, Clock, MessageSquare, Send, CheckCircle2 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
-import { supabase } from '../lib/supabaseClient';
-
-interface BlogPost {
-  id: string;
-  title: string;
-  content: string;
-  excerpt: string;
-  category: string;
-  image: string;
-  readTime: string;
-  date: string;
-  author: {
-    name: string;
-    role: string;
-    avatar: string;
-  };
-}
+import { blogPosts, BlogPost } from '../data/blogPosts';
 import { useState, useEffect } from 'react';
 
-export default function BlogPost() {
+export default function BlogPostPage() {
   const { id } = useParams();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [recentPosts, setRecentPosts] = useState<BlogPost[]>([]);
@@ -30,61 +14,21 @@ export default function BlogPost() {
   const [subscribed, setSubscribed] = useState(false);
 
   useEffect(() => {
-    const fetchPost = async () => {
-      setIsLoading(true);
+    // Find the current post
+    const foundPost = blogPosts.find(p => p.id === id);
+    if (foundPost) {
+      setPost(foundPost);
+    }
 
-      // Fetch post with author profile
-      const { data, error } = await supabase
-        .from('blogs')
-        .select('*, profiles(full_name, role)')
-        .eq('id', id)
-        .single();
+    // Get recent posts excluding current
+    const recent = blogPosts.filter(p => p.id !== id).slice(0, 3);
+    setRecentPosts(recent);
 
-      if (data) {
-        setPost({
-          id: data.id,
-          title: data.title,
-          content: data.content,
-          excerpt: data.excerpt,
-          category: data.category,
-          image: data.cover_image,
-          readTime: data.read_time,
-          date: new Date(data.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-          author: {
-            name: data.profiles?.full_name || 'Naren Kumar',
-            role: data.profiles?.role || 'CEO, NarenNet',
-            avatar: '/ceo-naren.jpeg'
-          }
-        });
-      }
-
-      // Fetch recent posts
-      const { data: recent } = await supabase
-        .from('blogs')
-        .select('*')
-        .eq('status', 'published')
-        .neq('id', id)
-        .order('created_at', { ascending: false })
-        .limit(3);
-
-      if (recent) {
-        setRecentPosts(recent.map(r => ({
-          id: r.id,
-          title: r.title,
-          content: r.content || '',
-          category: r.category,
-          date: new Date(r.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-          image: r.cover_image,
-          readTime: r.read_time,
-          excerpt: r.excerpt,
-          author: { name: '', role: '', avatar: '' } // Not needed for sidebar
-        })));
-      }
-
+    // Simulate brief loading state for smooth transition
+    const timer = setTimeout(() => {
       setIsLoading(false);
-    };
-
-    fetchPost();
+    }, 500);
+    return () => clearTimeout(timer);
   }, [id]);
 
   if (isLoading) {
