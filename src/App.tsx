@@ -23,6 +23,7 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Launches from "./pages/Launches";
 import FaqPage from "./pages/Faq";
+import Founder from "./pages/Founder";
 
 /* Admin Pages */
 import Dashboard from "./pages/admin/Dashboard";
@@ -77,6 +78,7 @@ function AppContent() {
               <Route path="/blog/:id" element={<BlogPost />} />
               <Route path="/launches" element={<Launches />} />
               <Route path="/faq" element={<FaqPage />} />
+              <Route path="/founder-narendhiran-c" element={<Founder />} />
             </>
           )}
 
