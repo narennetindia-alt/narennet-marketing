@@ -177,7 +177,29 @@ export default function BlogPostPage() {
 
               {/* Comments List */}
               <div className="space-y-16">
-                {[1, 2, 3].map((i) => (
+                {[
+                  {
+                    name: 'Rajesh Subramaniam',
+                    role: 'IT Director',
+                    time: '2 hours ago',
+                    avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150',
+                    comment: 'This is exactly the shift we are seeing. The integration of AI into ERP systems is no longer a luxury but a necessity for scaling retail operations in India.'
+                  },
+                  {
+                    name: 'Priya Sharma',
+                    role: 'Retail Store Owner',
+                    time: '1 day ago',
+                    avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=150',
+                    comment: 'I completely agree regarding the offline billing capabilities. It is the single most important feature for our POS, given the unpredictable connectivity. Great read!'
+                  },
+                  {
+                    name: 'Anand Kumar',
+                    role: 'Systems Architect',
+                    time: '3 days ago',
+                    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150',
+                    comment: 'The point about "Vibe Coding" resonated strongly. We are moving towards a future where intent matters more than syntax. Exciting times ahead for enterprise automation.'
+                  }
+                ].map((commentData, i) => (
                   <motion.div
                     key={i}
                     initial={{ opacity: 0, x: -20 }}
@@ -187,20 +209,21 @@ export default function BlogPostPage() {
                   >
                     <div className="w-16 h-16 rounded-2xl bg-white/5 flex-shrink-0 overflow-hidden border border-brand-border">
                       <img
-                        src={`https://images.unsplash.com/photo-${1500000000000 + i * 1000000}?auto=format&fit=crop&q=80&w=100`}
-                        alt="User"
+                        src={commentData.avatar}
+                        alt={commentData.name}
                         className="w-full h-full object-cover"
                         referrerPolicy="no-referrer"
                       />
                     </div>
                     <div className="space-y-4">
                       <div className="flex items-center gap-4">
-                        <span className="font-bold text-xl text-white">User_{i}</span>
+                        <span className="font-bold text-xl text-white">{commentData.name}</span>
                         <div className="w-1 h-1 rounded-full bg-brand-border" />
-                        <span className="text-brand-secondary text-[10px] font-bold uppercase tracking-widest">2 days ago</span>
+                        <span className="text-brand-secondary text-[10px] font-bold uppercase tracking-widest">{commentData.time}</span>
                       </div>
+                      <p className="text-brand-accent text-xs font-mono uppercase tracking-widest mb-2">{commentData.role}</p>
                       <p className="text-brand-secondary text-xl font-light leading-relaxed max-w-2xl">
-                        This is a very insightful post. The integration of AI into business ecosystems is definitely the way forward. Looking forward to more updates!
+                        {commentData.comment}
                       </p>
                       <button className="text-brand-accent text-[10px] font-bold uppercase tracking-widest hover:underline">Reply</button>
                     </div>
