@@ -148,14 +148,20 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-[14vw] md:text-[12vw] lg:text-[7vw] font-bold leading-[0.8] md:leading-[0.85] tracking-tighter uppercase mb-12 text-white"
+              className="text-[12vw] md:text-[10vw] lg:text-[6vw] font-bold leading-[0.8] md:leading-[0.85] tracking-tighter uppercase mb-6 text-white"
             >
-              Testing <br />
-              The <br />
-              Software <br />
-              For Your <br />
-              <span className="text-brand-accent">Business</span>
+              NarenNet <br />
+              <span className="text-brand-accent">Technologies</span>
             </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.15 }}
+              className="text-lg md:text-xl text-brand-secondary font-light max-w-2xl mb-12 leading-relaxed"
+            >
+              NarenNet Technologies is a Chennai-based AI and enterprise software company founded by Narendhiran C. We build robust ERP platforms, smart POS solutions, and scalable SaaS infrastructure.
+            </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
