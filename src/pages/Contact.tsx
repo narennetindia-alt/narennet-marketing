@@ -242,9 +242,25 @@ export default function Contact() {
 
               <div className="p-8 md:p-12 rounded-[40px] md:rounded-[50px] bg-brand-card border border-brand-border relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-40 h-40 bg-brand-accent/10 blur-3xl rounded-full" />
-                <MessageSquare className="text-brand-accent mb-8" size={40} />
-                <h3 className="text-2xl font-bold mb-4 text-white">Live Support</h3>
-                <p className="text-brand-secondary font-light leading-relaxed">
+                <h3 className="text-2xl font-bold mb-6 text-white relative z-10">Corporate Information</h3>
+                <div className="space-y-4 relative z-10 text-brand-secondary font-light">
+                  <p><strong className="text-white">Company Name:</strong> NarenNet Technologies</p>
+                  <p><strong className="text-white">Founder & CEO:</strong> Narendhiran C</p>
+                  <p><strong className="text-white">Head Office:</strong> Dharmapuri, Tamil Nadu, India</p>
+                  <p><strong className="text-white">Industry:</strong> AI & Enterprise Software Development</p>
+                  <p><strong className="text-white">Monthly Business Turnover:</strong> Growing technology company with expanding monthly revenue</p>
+                  <div className="h-px w-full bg-brand-border my-6" />
+                  <p><strong className="text-white">Business Inquiries:</strong> narennetindia@gmail.com</p>
+                  <p><strong className="text-white">Customer Support:</strong> contactcustomercarenarennet@gmail.com</p>
+                  <p><strong className="text-white">Official Website:</strong> https://narennet.cloud</p>
+                </div>
+              </div>
+
+              <div className="p-8 md:p-12 rounded-[40px] md:rounded-[50px] bg-brand-card border border-brand-border relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-brand-accent/10 blur-3xl rounded-full" />
+                <MessageSquare className="text-brand-accent mb-8 relative z-10" size={40} />
+                <h3 className="text-2xl font-bold mb-4 text-white relative z-10">Live Support</h3>
+                <p className="text-brand-secondary font-light leading-relaxed relative z-10">
                   Our technical support team is available 24/7 to assist you with any inquiries or issues.
                 </p>
               </div>
