@@ -64,4 +64,19 @@ export const faqs: FAQ[] = [
         answer:
             'You can contact us through our website, schedule a consultation, and our team will analyze your business requirements to propose a customized digital solution tailored to your growth goals.',
     },
+    {
+        question: 'What is a Business Ecosystem Platform?',
+        answer:
+            'A Business Ecosystem Platform is an all-in-one software solution that integrates every aspect of your company—from CRM and ERP to HR, project management, and automated workflows—into a single, unified system.',
+    },
+    {
+        question: 'How is a Company Operating System different from traditional software?',
+        answer:
+            'Unlike traditional fragmented software where you use different apps for different tasks, a Company Operating System provides a seamless, interconnected environment where data flows freely across all departments, enhancing efficiency and reducing operational silos.',
+    },
+    {
+        question: 'Who benefits most from Enterprise Management Software?',
+        answer:
+            'Enterprise Management Software is ideal for growing businesses, mid-market companies, and large enterprises that need to streamline complex operations, automate repetitive tasks, and gain real-time visibility across their entire organization.',
+    },
 ];
