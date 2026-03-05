@@ -412,9 +412,12 @@ export default function BusinessEcosystem() {
                                     ))}
                                 </ul>
 
-                                <button className={`w-full py-5 rounded-full font-bold transition-all ${plan.popular ? 'bg-white text-black hover:scale-105' : 'bg-white/5 text-white hover:bg-white/10'}`}>
+                                <a
+                                    href={`mailto:narennetindia@gmail.com?subject=Free Trial Request: ${plan.name} Plan&body=Hi NarenNet Team,%0D%0A%0D%0AI would like to start a free trial for the ${plan.name} plan.%0D%0A%0D%0APlease let me know the next steps.`}
+                                    className={`w-full py-5 rounded-full font-bold transition-all text-center inline-block ${plan.popular ? 'bg-white text-black hover:scale-105' : 'bg-white/5 text-white hover:bg-white/10'}`}
+                                >
                                     Start Free Trial
-                                </button>
+                                </a>
                             </div>
                         ))}
                     </div>
