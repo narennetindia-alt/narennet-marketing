@@ -25,6 +25,7 @@ import Launches from "./pages/Launches";
 import FaqPage from "./pages/Faq";
 import Founder from "./pages/Founder";
 import BusinessEcosystem from "./pages/BusinessEcosystem";
+import SuperBusinessApp from "./pages/SuperBusinessApp";
 
 /* Admin Pages */
 import Dashboard from "./pages/admin/Dashboard";
@@ -81,6 +82,7 @@ function AppContent() {
               <Route path="/faq" element={<FaqPage />} />
               <Route path="/founder-narendhiran-c" element={<Founder />} />
               <Route path="/business-ecosystem" element={<BusinessEcosystem />} />
+              <Route path="/super-business-app" element={<SuperBusinessApp />} />
             </>
           )}
 
