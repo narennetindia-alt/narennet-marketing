@@ -1,11 +1,18 @@
 import logo from "../logo.png";
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Send, MessageCircle, Edit3 } from 'lucide-react';
+import { Menu, X, Send, MessageCircle, Edit3, ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const navLinks = [
-  { name: 'Products', path: '/business-ecosystem' },
+  {
+    name: 'Products',
+    path: '#',
+    dropdown: [
+      { name: 'Business Ecosystem', path: '/business-ecosystem' },
+      { name: 'Super Business App', path: '/super-business-app' }
+    ]
+  },
   { name: 'Services', path: '/solutions' },
   { name: 'About', path: '/about' },
   { name: 'Blog', path: '/blog' },
@@ -16,6 +23,7 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -40,13 +48,45 @@ export default function Navbar() {
         {/* Desktop Nav Links */}
         <div className="hidden md:flex items-center gap-12">
           {navLinks.map((link) => (
-            <Link
+            <div
               key={link.name}
-              to={link.path}
-              className={`text-[11px] uppercase tracking-[0.2em] font-bold transition-all hover:text-brand-accent ${location.pathname === link.path ? 'text-brand-accent' : (scrolled ? 'text-gray-500' : 'text-gray-600')}`}
+              className="relative group/nav"
+              onMouseEnter={() => link.dropdown && setActiveDropdown(link.name)}
+              onMouseLeave={() => setActiveDropdown(null)}
             >
-              {link.name}
-            </Link>
+              <Link
+                to={link.path}
+                className={`text-[11px] uppercase tracking-[0.2em] font-bold transition-all hover:text-brand-accent flex items-center gap-1 ${(location.pathname === link.path || link.dropdown?.some(d => d.path === location.pathname)) ? 'text-brand-accent' : (scrolled ? 'text-gray-500' : 'text-gray-600')
+                  }`}
+              >
+                {link.name}
+                {link.dropdown && <ChevronDown size={12} className={`transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
+              </Link>
+
+              {/* Dropdown Menu */}
+              {link.dropdown && (
+                <AnimatePresence>
+                  {activeDropdown === link.name && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      className="absolute top-full left-0 mt-4 w-64 bg-white/95 backdrop-blur-xl border border-gray-100 rounded-2xl shadow-2xl p-4 flex flex-col gap-2"
+                    >
+                      {link.dropdown.map((subItem) => (
+                        <Link
+                          key={subItem.name}
+                          to={subItem.path}
+                          className="px-4 py-3 rounded-xl hover:bg-gray-50 text-[10px] uppercase tracking-widest font-bold text-gray-500 hover:text-brand-accent transition-all"
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              )}
+            </div>
           ))}
         </div>
 
@@ -99,21 +139,48 @@ export default function Navbar() {
               </button>
             </div>
 
-            <div className="flex-grow flex flex-col justify-center gap-6 p-8">
+            <div className="flex-grow flex flex-col justify-center gap-6 p-8 overflow-y-auto">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.name}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.1 }}
+                  className="flex flex-col gap-4"
                 >
-                  <Link
-                    to={link.path}
-                    onClick={() => setIsOpen(false)}
-                    className={`text-3xl md:text-5xl font-bold tracking-tighter uppercase transition-all ${location.pathname === link.path ? 'text-brand-accent' : 'text-white/40 hover:text-white'}`}
-                  >
-                    {link.name}
-                  </Link>
+                  <div className="flex items-center justify-between">
+                    <Link
+                      to={link.path}
+                      onClick={() => !link.dropdown && setIsOpen(false)}
+                      className={`text-3xl md:text-5xl font-bold tracking-tighter uppercase transition-all ${(location.pathname === link.path || link.dropdown?.some(d => d.path === location.pathname)) ? 'text-brand-accent' : 'text-white/40 hover:text-white'
+                        }`}
+                    >
+                      {link.name}
+                    </Link>
+                    {link.dropdown && (
+                      <button
+                        onClick={() => setActiveDropdown(activeDropdown === link.name ? null : link.name)}
+                        className="p-2 text-white/40"
+                      >
+                        <ChevronDown size={32} className={`transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />
+                      </button>
+                    )}
+                  </div>
+
+                  {link.dropdown && activeDropdown === link.name && (
+                    <div className="flex flex-col gap-4 pl-6 border-l border-white/10">
+                      {link.dropdown.map((subItem) => (
+                        <Link
+                          key={subItem.name}
+                          to={subItem.path}
+                          onClick={() => setIsOpen(false)}
+                          className={`text-xl font-bold tracking-wider uppercase transition-all ${location.pathname === subItem.path ? 'text-brand-accent' : 'text-white/40 hover:text-white'}`}
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </motion.div>
               ))}
             </div>
