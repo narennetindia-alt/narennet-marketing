@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const navLinks = [
+  { name: 'Products', path: '/business-ecosystem' },
   { name: 'Services', path: '/solutions' },
   { name: 'About', path: '/about' },
   { name: 'Blog', path: '/blog' },
