@@ -1,3 +1,9 @@
+import { seoBlogs1 } from './blogs/seoBlogs1';
+import { seoBlogs2 } from './blogs/seoBlogs2';
+import { seoBlogs3 } from './blogs/seoBlogs3';
+import { seoBlogs4 } from './blogs/seoBlogs4';
+import { seoBlogs5 } from './blogs/seoBlogs5';
+
 export interface BlogPost {
   id: string;
   title: string;
@@ -329,5 +335,10 @@ A Business Ecosystem Platform is the evolution of both. It breaks down the wall 
     readTime: '5 min read',
     category: 'Software Comparison',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200'
-  }
+  },
+  ...seoBlogs1,
+  ...seoBlogs2,
+  ...seoBlogs3,
+  ...seoBlogs4,
+  ...seoBlogs5
 ];
