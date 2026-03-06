@@ -152,7 +152,7 @@ A: DaVinci Resolve, CapCut, and iMovie can all handle raw 4K edits effortlessly,
     date: 'March 6, 2026',
     readTime: '7 min read',
     category: 'Video Editing',
-    image: 'https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&q=80&w=1200'
+    image: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&q=80&w=1200'
   },
   {
     id: 'best-antivirus-software-windows-pcs',

@@ -1,11 +1,11 @@
 import { BlogPost } from '../blogPosts';
 
 export const seoBlogs4: BlogPost[] = [
-    {
-        id: 'choosing-reliable-antivirus-protection',
-        title: 'How to Choose Reliable Antivirus Protection for Home Computers',
-        excerpt: 'Stop relying on blind luck. Learn exactly how to evaluate, test, and choose the most reliable antivirus protection for your family computers to prevent identity theft and ransomware.',
-        content: `
+  {
+    id: 'choosing-reliable-antivirus-protection',
+    title: 'How to Choose Reliable Antivirus Protection for Home Computers',
+    excerpt: 'Stop relying on blind luck. Learn exactly how to evaluate, test, and choose the most reliable antivirus protection for your family computers to prevent identity theft and ransomware.',
+    content: `
 # How to Choose Reliable Antivirus Protection for Home Computers
 
 In the modern digital household, the "family computer" is the central nervous system of daily life. From online banking and tax filing to children finishing school projects and downloading video games, to parents unwinding with streaming services—every digital touchpoint runs through the home PC.
@@ -119,13 +119,13 @@ A: Rarely. If you have chosen reliable software and configured it properly durin
     date: 'March 6, 2026',
     readTime: '7 min read',
     category: 'Cybersecurity',
-    image: 'https://images.unsplash.com/photo-1614064641913-6d11e592676b?auto=format&fit=crop&q=80&w=1200'
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200'
   },
   {
-        id: 'best-accounting-software-for-freelancers-in-india',
-        title: 'Best Accounting Software for Freelancers in India Under GST',
-        excerpt: 'Simplify your freelance taxes. Review the top accounting and invoicing software tailored specifically for Indian freelancers managing GST, TDS, and multiple client currencies.',
-        content: `
+    id: 'best-accounting-software-for-freelancers-in-india',
+    title: 'Best Accounting Software for Freelancers in India Under GST',
+    excerpt: 'Simplify your freelance taxes. Review the top accounting and invoicing software tailored specifically for Indian freelancers managing GST, TDS, and multiple client currencies.',
+    content: `
 # Best Accounting Software for Freelancers in India Under GST
 
 The freelance economy in India is exploding. From independent software developers working from high-rises in Bengaluru to freelance content writers in Pune drafting articles for global clients, independence from the corporate 9-to-5 is the new standard. 

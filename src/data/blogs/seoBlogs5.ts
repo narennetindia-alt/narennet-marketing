@@ -1,11 +1,11 @@
 import { BlogPost } from '../blogPosts';
 
 export const seoBlogs5: BlogPost[] = [
-    {
-        id: 'best-document-creation-tools-small-teams',
-        title: 'Top Document Creation Tools for Real-Time Small Team Collaboration',
-        excerpt: 'Ditch the confusing massive email attachments. Discover the absolute best modern document creation tools specifically designed for seamless remote team collaboration and cloud storage.',
-        content: `
+  {
+    id: 'best-document-creation-tools-small-teams',
+    title: 'Top Document Creation Tools for Real-Time Small Team Collaboration',
+    excerpt: 'Ditch the confusing massive email attachments. Discover the absolute best modern document creation tools specifically designed for seamless remote team collaboration and cloud storage.',
+    content: `
 # Top Document Creation Tools for Real-Time Small Team Collaboration
 
 In the era of massive remote work and distributed small business teams, the phrase "Please find attached document v4_final_revised.docx" should be permanently banned from the corporate vocabulary. 
@@ -141,10 +141,10 @@ A: Yes, Notion has an incredibly generous free tier for individuals and small te
     image: 'https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&q=80&w=1200'
   },
   {
-        id: 'best-project-management-software-small-businesses',
-        title: 'Best Project Management Software Specifically for Small Businesses',
-        excerpt: 'Stop drowning in sticky notes and emails. Implement the best project management software designed to scale your small business without the enterprise-level learning curve or price tag.',
-        content: `
+    id: 'best-project-management-software-small-businesses',
+    title: 'Best Project Management Software Specifically for Small Businesses',
+    excerpt: 'Stop drowning in sticky notes and emails. Implement the best project management software designed to scale your small business without the enterprise-level learning curve or price tag.',
+    content: `
 # Best Project Management Software Specifically for Small Businesses
 
 A small business operating without project management software is entirely reliant on the memories of its founders and the stability of its email inbox. When the business is just two people, sticky notes on a monitor work fine. When the business scales to five, ten, or twenty employees, that system violently breaks down.
@@ -261,6 +261,6 @@ A: Yes. Major reputable platforms like Asana, Basecamp, and Monday.com utilize e
     date: 'March 6, 2026',
     readTime: '6 min read',
     category: 'Project Management',
-    image: 'https://images.unsplash.com/photo-1512758117926-5711b4ba43fc?auto=format&fit=crop&q=80&w=1200'
+    image: 'https://images.unsplash.com/photo-1523474253046-2cd2c78b6ad1?auto=format&fit=crop&q=80&w=1200'
   }
 ];
