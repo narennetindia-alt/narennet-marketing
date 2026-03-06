@@ -143,7 +143,16 @@ A: Companies like Blackmagic Design use DaVinci Resolve as a gateway to sell ext
 
 **Q: Can these free editors handle 4K drone footage or gaming captures?**
 A: DaVinci Resolve, CapCut, and iMovie can all handle raw 4K edits effortlessly, provided your computer's processor and RAM meet the necessary hardware requirements. Clipchamp currently limits final exports to 1080p on its free plan.
-`
+`,
+    author: {
+      name: 'Narendhiran C',
+      role: 'Content Strategist',
+      avatar: '/favicon.png'
+    },
+    date: 'March 6, 2026',
+    readTime: '7 min read',
+    category: 'Video Editing',
+    image: 'https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&q=80&w=1200'
   },
   {
     id: 'best-antivirus-software-windows-pcs',
@@ -278,6 +287,15 @@ A: Free antiviruses (like the free version of Bitdefender or Avast) offer decent
 
 **Q: Can I run two different antiviruses at the same time for double protection?**
 A: Absolutely not. Running two traditional antiviruses (like Norton and Bitdefender) simultaneously will cause them to fiercely compete for system resources, resulting in extreme computer stuttering, crashing, and actually *lowering* your security. (The only exception is Malwarebytes, which is uniquely coded to run alongside others).
-`
+`,
+    author: {
+      name: 'Narendhiran C',
+      role: 'Content Strategist',
+      avatar: '/favicon.png'
+    },
+    date: 'March 6, 2026',
+    readTime: '6 min read',
+    category: 'Cybersecurity',
+    image: 'https://images.unsplash.com/photo-1563206767-5b18f218e8de?auto=format&fit=crop&q=80&w=1200'
   }
 ];

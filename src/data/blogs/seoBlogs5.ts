@@ -129,9 +129,18 @@ A: Both Google Docs and Word Online have offline modes, though they require some
 
 **Q: Is Notion free?**
 A: Yes, Notion has an incredibly generous free tier for individuals and small teams.
-`
+`,
+    author: {
+      name: 'Narendhiran C',
+      role: 'Content Strategist',
+      avatar: '/favicon.png'
     },
-    {
+    date: 'March 6, 2026',
+    readTime: '7 min read',
+    category: 'Collaboration Tools',
+    image: 'https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&q=80&w=1200'
+  },
+  {
         id: 'best-project-management-software-small-businesses',
         title: 'Best Project Management Software Specifically for Small Businesses',
         excerpt: 'Stop drowning in sticky notes and emails. Implement the best project management software designed to scale your small business without the enterprise-level learning curve or price tag.',
@@ -243,6 +252,15 @@ A: Trello is a fantastic, highly visual Kanban board and is great for extremely 
 
 **Q: Are these software platforms secure for storing confidential client files?**
 A: Yes. Major reputable platforms like Asana, Basecamp, and Monday.com utilize enterprise-grade 256-bit encryption in transit and at rest, and heavily employ multi-factor authentication to secure your massive data deeply.
-`
-    }
+`,
+    author: {
+      name: 'Narendhiran C',
+      role: 'Content Strategist',
+      avatar: '/favicon.png'
+    },
+    date: 'March 6, 2026',
+    readTime: '6 min read',
+    category: 'Project Management',
+    image: 'https://images.unsplash.com/photo-1512758117926-5711b4ba43fc?auto=format&fit=crop&q=80&w=1200'
+  }
 ];

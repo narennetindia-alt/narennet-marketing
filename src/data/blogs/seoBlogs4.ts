@@ -110,9 +110,18 @@ A: Yes. Companies like Avast, AVG, and Bitdefender offer highly respectable, com
 
 **Q: How often do I need to manually run a virus scan?**
 A: Rarely. If you have chosen reliable software and configured it properly during installation, it operates in "Real-Time Protection" mode. It scans every file exactly when you double-click or download it. You only need to manually run a full scan if you suspect the PC is acting strangely or running unusually slowly.
-`
+`,
+    author: {
+      name: 'Narendhiran C',
+      role: 'Content Strategist',
+      avatar: '/favicon.png'
     },
-    {
+    date: 'March 6, 2026',
+    readTime: '7 min read',
+    category: 'Cybersecurity',
+    image: 'https://images.unsplash.com/photo-1614064641913-6d11e592676b?auto=format&fit=crop&q=80&w=1200'
+  },
+  {
         id: 'best-accounting-software-for-freelancers-in-india',
         title: 'Best Accounting Software for Freelancers in India Under GST',
         excerpt: 'Simplify your freelance taxes. Review the top accounting and invoicing software tailored specifically for Indian freelancers managing GST, TDS, and multiple client currencies.',
@@ -241,6 +250,15 @@ A: You can, but it is heavily discouraged unless ninety percent of your massive 
 
 **Q: Will Zoho Books directly file my taxes for me?**
 A: No, accounting software does not technically file the taxes directly without human oversight. Zoho Books perfectly prepares the massive, complex JSON files and specific summaries required, which you (or your accountant) then securely upload to the official massive Government GST Portal.
-`
-    }
+`,
+    author: {
+      name: 'Narendhiran C',
+      role: 'Content Strategist',
+      avatar: '/favicon.png'
+    },
+    date: 'March 6, 2026',
+    readTime: '6 min read',
+    category: 'Financial Software',
+    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1200'
+  }
 ];

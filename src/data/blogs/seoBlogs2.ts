@@ -138,7 +138,16 @@ A: Absolutely. The "Big Four" are highly competitive and all offer native, one-c
 
 **Q: Do these tools integrate with my current billing or messaging software?**
 A: Yes. All four software platforms have massive integration libraries. You can easily connect them to Slack, Microsoft Teams, Google Drive, Zoom, and hundreds of other applications using native integrations or Zapier.
-`
+`,
+    author: {
+      name: 'Narendhiran C',
+      role: 'Content Strategist',
+      avatar: '/favicon.png'
+    },
+    date: 'March 6, 2026',
+    readTime: '7 min read',
+    category: 'Project Management',
+    image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&q=80&w=1200'
   },
   {
     id: 'best-graphic-design-software-for-beginners',
@@ -275,6 +284,15 @@ A: That is the beauty of beginner software! Both Canva and Adobe Express have pr
 
 **Q: Are the stock photos in Canva and Adobe Express really free to use for my business?**
 A: Generally, yes. Software like Canva provides royalty-free assets that you can legally use in social media posts and digital marketing. However, you cannot usually trademark a logo if it heavily relies on a basic stock template or icon provided by these platforms. Always read the specific licensing agreement if you are creating a permanent brand identity.
-`
+`,
+    author: {
+      name: 'Narendhiran C',
+      role: 'Content Strategist',
+      avatar: '/favicon.png'
+    },
+    date: 'March 6, 2026',
+    readTime: '6 min read',
+    category: 'Graphic Design',
+    image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=1200'
   }
 ];

@@ -341,6 +341,15 @@ Video content is a powerful marketing engine, but it’s only one part of a succ
 
 ** Q: What happens when the video editing trial expires ?**
   A : This depends on the software.Adobe Premiere Pro will lock you out and stop opening until you subscribe.Final Cut Pro will similarly block access to the timeline.Tools like Filmora allow you to keep using the software indefinitely, but you won't be able to export clean video without a large watermark.
-    `
+    `,
+    author: {
+      name: 'Narendhiran C',
+      role: 'Content Strategist',
+      avatar: '/favicon.png'
+    },
+    date: 'March 6, 2026',
+    readTime: '6 min read',
+    category: 'Video Editing',
+    image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&q=80&w=1200'
   }
 ];
