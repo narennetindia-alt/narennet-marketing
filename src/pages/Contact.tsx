@@ -216,7 +216,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-brand-secondary text-sm uppercase tracking-widest mb-2 font-bold">Email us</p>
-                      <p className="text-2xl font-medium text-white">narennetindia@gmail.com</p>
+                      <p className="text-xl md:text-2xl font-medium text-white break-all">hello@narennet.cloud</p>
+                      <p className="text-xl md:text-2xl font-medium text-white break-all">support@narennet.cloud</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-6 group">
@@ -250,8 +251,9 @@ export default function Contact() {
                   <p><strong className="text-white">Industry:</strong> AI & Enterprise Software Development</p>
                   <p><strong className="text-white">Monthly Business Turnover:</strong> Growing technology company with expanding monthly revenue</p>
                   <div className="h-px w-full bg-brand-border my-6" />
-                  <p><strong className="text-white">Business Inquiries:</strong> narennetindia@gmail.com</p>
-                  <p><strong className="text-white">Customer Support:</strong> contactcustomercarenarennet@gmail.com</p>
+                  <p><strong className="text-white">Business Inquiries:</strong> hello@narennet.cloud</p>
+                  <p><strong className="text-white">Customer Support:</strong> support@narennet.cloud</p>
+                  <p><strong className="text-white">Founder:</strong> founder@narennet.cloud</p>
                   <p><strong className="text-white">Official Website:</strong> https://narennet.cloud</p>
                 </div>
               </div>

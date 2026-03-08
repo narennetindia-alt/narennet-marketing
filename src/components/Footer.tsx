@@ -87,9 +87,17 @@ export default function Footer() {
               <MapPin size={14} />
               <span>India, TamilNadu, Dharmapuri, Karimangalam</span>
             </a>
-            <a href="mailto:narennetindia@gmail.com" className="flex items-center gap-2 text-brand-secondary text-sm hover:text-brand-accent transition-colors">
+            <a href="mailto:hello@narennet.cloud" className="flex items-center gap-2 text-brand-secondary text-sm hover:text-brand-accent transition-colors">
               <Mail size={14} />
-              <span>narennetindia@gmail.com</span>
+              <span>hello@narennet.cloud</span>
+            </a>
+            <a href="mailto:support@narennet.cloud" className="flex items-center gap-2 text-brand-secondary text-sm hover:text-brand-accent transition-colors">
+              <Mail size={14} />
+              <span>support@narennet.cloud</span>
+            </a>
+            <a href="mailto:founder@narennet.cloud" className="flex items-center gap-2 text-brand-secondary text-sm hover:text-brand-accent transition-colors">
+              <Mail size={14} />
+              <span>founder@narennet.cloud</span>
             </a>
             <a href="tel:+918438966728" className="flex items-center gap-2 text-brand-secondary text-sm hover:text-brand-accent transition-colors">
               <Phone size={14} />
