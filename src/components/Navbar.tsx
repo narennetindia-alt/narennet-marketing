@@ -50,7 +50,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav Links */}
-        <div className="hidden lg:flex items-center gap-4 xl:gap-8">
+        <div className={`hidden lg:flex items-center gap-1 xl:gap-2 rounded-full px-3 py-2 border transition-all ${scrolled ? 'bg-black/5 border-black/5' : 'bg-white/5 border-white/10'} backdrop-blur-md shadow-sm`}>
           {navLinks.map((link) => (
             <div
               key={link.name}
@@ -60,7 +60,10 @@ export default function Navbar() {
             >
               <Link
                 to={link.path}
-                className={`text-[11px] uppercase tracking-[0.2em] font-bold transition-all hover:text-brand-accent flex items-center gap-1 ${(location.pathname === link.path || link.dropdown?.some(d => d.path === location.pathname)) ? 'text-brand-accent' : (scrolled ? 'text-gray-500' : 'text-gray-600')
+                className={`px-4 py-2 rounded-full text-[11px] uppercase tracking-[0.2em] font-bold transition-all flex items-center gap-1 ${
+                  (location.pathname === link.path || link.dropdown?.some(d => d.path === location.pathname)) 
+                    ? 'text-brand-accent bg-brand-accent/10' 
+                    : (scrolled ? 'text-gray-600 hover:bg-black/5 hover:text-black' : 'text-gray-200 hover:bg-white/10 hover:text-white')
                   }`}
               >
                 {link.name}
@@ -118,94 +121,111 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Nav */}
+      {/* Mobile Nav Drawer */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-40 lg:hidden bg-brand-bg/95 backdrop-blur-2xl flex flex-col"
-          >
-            <div className="flex items-center justify-between p-8 border-b border-white/5">
-              <Link to="/" onClick={() => setIsOpen(false)} className="flex items-center gap-3">
-                <div className="w-10 h-10 overflow-hidden rounded-xl bg-white flex items-center justify-center">
-                  <img src={logo} alt="NarenNet" className="w-full h-full object-cover" />
-                </div>
-                <span className="text-2xl font-display font-bold tracking-tighter uppercase text-white">NarenNet</span>
-              </Link>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/5"
-              >
-                <X size={24} />
-              </button>
-            </div>
-
-            <div className="flex-grow flex flex-col justify-center gap-6 p-8 overflow-y-auto">
-              {navLinks.map((link, i) => (
-                <motion.div
-                  key={link.name}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  className="flex flex-col gap-4"
+          <>
+            {/* Backdrop */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm lg:hidden"
+            />
+            
+            {/* Drawer */}
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 30, stiffness: 250 }}
+              className="fixed inset-y-0 right-0 z-50 w-[85vw] max-w-sm bg-white shadow-2xl flex flex-col lg:hidden"
+            >
+              <div className="flex items-center justify-between p-6 border-b border-gray-100">
+                <span className="text-xl font-display font-bold tracking-tighter text-black uppercase">Menu</span>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:bg-gray-100 hover:text-black transition-colors"
                 >
-                  <div className="flex items-center justify-between">
-                    <Link
-                      to={link.path}
-                      onClick={(e) => {
-                        if (link.dropdown) {
-                          e.preventDefault();
-                          setActiveDropdown(activeDropdown === link.name ? null : link.name);
-                        } else {
-                          setIsOpen(false);
-                        }
-                      }}
-                      className={`text-3xl md:text-5xl font-bold tracking-tighter uppercase transition-all ${(location.pathname === link.path || link.dropdown?.some(d => d.path === location.pathname)) ? 'text-brand-accent' : 'text-white/40 hover:text-white'
+                  <X size={20} />
+                </button>
+              </div>
+
+              <div className="flex-grow flex flex-col py-6 overflow-y-auto px-6 gap-2">
+                {navLinks.map((link) => (
+                  <div key={link.name} className="flex flex-col">
+                    <div className="flex items-center justify-between">
+                      <Link
+                        to={link.path}
+                        onClick={(e) => {
+                          if (link.dropdown) {
+                            e.preventDefault();
+                            setActiveDropdown(activeDropdown === link.name ? null : link.name);
+                          } else {
+                            setIsOpen(false);
+                          }
+                        }}
+                        className={`flex-grow py-4 text-base font-bold tracking-wide uppercase transition-colors ${
+                          (location.pathname === link.path || link.dropdown?.some(d => d.path === location.pathname)) 
+                            ? 'text-brand-accent' 
+                            : 'text-gray-900 hover:text-brand-accent'
                         }`}
-                    >
-                      {link.name}
-                    </Link>
-                    {link.dropdown && (
-                      <button
-                        onClick={() => setActiveDropdown(activeDropdown === link.name ? null : link.name)}
-                        className="p-2 text-white/40"
                       >
-                        <ChevronDown size={32} className={`transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />
-                      </button>
-                    )}
-                  </div>
-
-                  {link.dropdown && activeDropdown === link.name && (
-                    <div className="flex flex-col gap-4 pl-6 border-l border-white/10">
-                      {link.dropdown.map((subItem) => (
-                        <Link
-                          key={subItem.name}
-                          to={subItem.path}
-                          onClick={() => setIsOpen(false)}
-                          className={`text-xl font-bold tracking-wider uppercase transition-all ${location.pathname === subItem.path ? 'text-brand-accent' : 'text-white/40 hover:text-white'}`}
+                        {link.name}
+                      </Link>
+                      {link.dropdown && (
+                        <button
+                          onClick={() => setActiveDropdown(activeDropdown === link.name ? null : link.name)}
+                          className={`p-4 text-gray-400 transition-transform ${activeDropdown === link.name ? 'rotate-180 text-brand-accent' : ''}`}
                         >
-                          {subItem.name}
-                        </Link>
-                      ))}
+                          <ChevronDown size={20} />
+                        </button>
+                      )}
                     </div>
-                  )}
-                </motion.div>
-              ))}
-            </div>
 
-            <div className="p-12 border-t border-white/5">
-              <Link
-                to="/contact"
-                onClick={() => setIsOpen(false)}
-                className="flex items-center justify-between bg-brand-accent text-white px-10 py-6 rounded-2xl font-bold uppercase tracking-widest text-sm shadow-xl shadow-brand-accent/20"
-              >
-                Get in touch <Edit3 size={20} />
-              </Link>
-            </div>
-          </motion.div>
+                    {/* Submenu */}
+                    <AnimatePresence>
+                      {link.dropdown && activeDropdown === link.name && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="flex flex-col gap-1 pb-4 pl-4 border-l-2 border-gray-100 ml-2">
+                            {link.dropdown.map((subItem) => (
+                              <Link
+                                key={subItem.name}
+                                to={subItem.path}
+                                onClick={() => setIsOpen(false)}
+                                className={`py-3 text-xs font-bold tracking-widest uppercase transition-colors ${
+                                  location.pathname === subItem.path ? 'text-brand-accent' : 'text-gray-500 hover:text-black'
+                                }`}
+                              >
+                                {subItem.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ))}
+              </div>
+
+              <div className="p-6 border-t border-gray-100 bg-gray-50">
+                <Link
+                  to="/contact"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-between w-full bg-brand-accent text-white px-6 py-4 rounded-xl font-bold uppercase tracking-widest text-sm shadow-lg shadow-brand-accent/20"
+                >
+                  <span>Get in touch</span>
+                  <Edit3 size={18} />
+                </Link>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </nav>
