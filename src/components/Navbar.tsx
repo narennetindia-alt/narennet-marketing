@@ -9,9 +9,11 @@ const navLinks = [
     name: 'Ecosystem',
     path: '#',
     dropdown: [
+      { name: 'Business Ecosystem Master', path: '/business-ecosystem' },
+      { name: 'Super Business App', path: '/super-business-app' },
       { name: 'Hospitals', path: '/ecosystem/hospitals' },
       { name: 'Supermarkets', path: '/ecosystem/supermarkets' },
-      { name: 'Mobile Apps', path: '/ecosystem/mobile-apps' }
+      { name: 'Mobile Apps Engine', path: '/ecosystem/mobile-apps' }
     ]
   },
   { name: 'Platform', path: '/platform' },
