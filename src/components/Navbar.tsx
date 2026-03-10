@@ -42,7 +42,7 @@ export default function Navbar() {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-white/80 backdrop-blur-xl border-b border-gray-100 py-4' : 'bg-transparent py-8'}`}>
       <div className="container-wide flex items-center justify-between px-6">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 group">
+        <Link to="/" className="flex items-center gap-3 group shrink-0">
           <div className="w-10 h-10 overflow-hidden rounded-xl bg-white flex items-center justify-center group-hover:rotate-[15deg] transition-transform duration-500 shadow-lg shadow-brand-accent/20">
             <img src={logo} alt="NarenNet" className="w-full h-full object-cover" />
           </div>
@@ -50,7 +50,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav Links */}
-        <div className="hidden md:flex items-center gap-12">
+        <div className="hidden lg:flex items-center gap-4 xl:gap-8">
           {navLinks.map((link) => (
             <div
               key={link.name}
@@ -95,7 +95,7 @@ export default function Navbar() {
         </div>
 
         {/* Right Actions */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-4 xl:gap-6 shrink-0">
           <div className={`flex items-center gap-6 transition-colors ${scrolled ? 'text-gray-500' : 'text-gray-600'}`}>
             <a href="#" className="hover:text-brand-accent transition-colors"><Send size={18} /></a>
             <a href="#" className="hover:text-brand-accent transition-colors"><MessageCircle size={18} /></a>
@@ -111,7 +111,7 @@ export default function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden p-2 rounded-xl bg-brand-accent/10 text-brand-accent hover:bg-brand-accent/20 transition-colors"
+          className="lg:hidden p-2 rounded-xl bg-brand-accent/10 text-brand-accent hover:bg-brand-accent/20 transition-colors"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -126,7 +126,7 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-40 md:hidden bg-brand-bg/95 backdrop-blur-2xl flex flex-col"
+            className="fixed inset-0 z-40 lg:hidden bg-brand-bg/95 backdrop-blur-2xl flex flex-col"
           >
             <div className="flex items-center justify-between p-8 border-b border-white/5">
               <Link to="/" onClick={() => setIsOpen(false)} className="flex items-center gap-3">
@@ -155,7 +155,14 @@ export default function Navbar() {
                   <div className="flex items-center justify-between">
                     <Link
                       to={link.path}
-                      onClick={() => !link.dropdown && setIsOpen(false)}
+                      onClick={(e) => {
+                        if (link.dropdown) {
+                          e.preventDefault();
+                          setActiveDropdown(activeDropdown === link.name ? null : link.name);
+                        } else {
+                          setIsOpen(false);
+                        }
+                      }}
                       className={`text-3xl md:text-5xl font-bold tracking-tighter uppercase transition-all ${(location.pathname === link.path || link.dropdown?.some(d => d.path === location.pathname)) ? 'text-brand-accent' : 'text-white/40 hover:text-white'
                         }`}
                     >
