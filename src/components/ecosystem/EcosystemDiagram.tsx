@@ -39,16 +39,24 @@ export default function EcosystemDiagram() {
         <div className="relative w-full max-w-4xl mx-auto aspect-square md:aspect-video rounded-3xl border border-white/10 bg-black/50 overflow-hidden flex items-center justify-center p-8">
           {/* Animated SVG Connections */}
           <svg className="absolute inset-0 w-full h-full opacity-30" style={{ filter: 'drop-shadow(0 0 8px rgba(56,189,248,0.5))' }}>
-            <motion.path 
-              d="M 50% 50% L 50% 20% M 50% 50% L 85% 35% M 50% 50% L 80% 75% M 50% 50% L 50% 80% M 50% 50% L 20% 75% M 50% 50% L 15% 35%" 
-              stroke="#38BDF8" 
-              strokeWidth="2" 
-              strokeDasharray="10 10"
-              fill="none"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              transition={{ duration: 2, ease: "easeInOut" }}
-            />
+            {/* Top Node */}
+            <motion.line x1="50%" y1="50%" x2="50%" y2="20%" stroke="#38BDF8" strokeWidth="2" strokeDasharray="10 10"
+              initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
+            {/* Top Right */}
+            <motion.line x1="50%" y1="50%" x2="85%" y2="35%" stroke="#38BDF8" strokeWidth="2" strokeDasharray="10 10"
+              initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
+            {/* Bottom Right */}
+            <motion.line x1="50%" y1="50%" x2="80%" y2="75%" stroke="#38BDF8" strokeWidth="2" strokeDasharray="10 10"
+              initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
+            {/* Bottom */}
+            <motion.line x1="50%" y1="50%" x2="50%" y2="80%" stroke="#38BDF8" strokeWidth="2" strokeDasharray="10 10"
+              initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
+            {/* Bottom Left */}
+            <motion.line x1="50%" y1="50%" x2="20%" y2="75%" stroke="#38BDF8" strokeWidth="2" strokeDasharray="10 10"
+              initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
+            {/* Top Left */}
+            <motion.line x1="50%" y1="50%" x2="15%" y2="35%" stroke="#38BDF8" strokeWidth="2" strokeDasharray="10 10"
+              initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
           </svg>
 
           {/* Center Hub */}

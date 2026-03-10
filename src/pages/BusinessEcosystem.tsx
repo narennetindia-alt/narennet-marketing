@@ -260,32 +260,54 @@ export default function BusinessEcosystem() {
                                     <div className="px-8 py-4 rounded-2xl bg-white/10 border border-white/20 text-center relative z-10 w-48 shadow-[0_0_30px_rgba(255,255,255,0.1)]">
                                         <p className="font-bold text-lg">CEO</p>
                                     </div>
-                                    {/* Connectors */}
-                                    <div className="w-full h-12 border-t-2 border-l-2 border-r-2 border-brand-accent/30 rounded-t-xl relative -mt-10 mb-2 z-0 max-w-[80%]" />
+                                    
+                                    {/* Line down from CEO */}
+                                    <div className="w-[2px] h-6 lg:h-8 bg-brand-accent/50" />
 
-                                    {/* Level 2 */}
-                                    <div className="flex justify-between w-full max-w-lg gap-4 relative z-10">
-                                        <div className="flex-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-center">
-                                            <p className="font-bold">COO</p>
+                                    {/* Level 2 Branch */}
+                                    <div className="w-full flex flex-col items-center">
+                                        <div className="w-[calc(100%-8rem)] md:w-[calc(100%-12rem)] border-t-2 border-brand-accent/50 flex justify-between relative">
+                                            <div className="w-[2px] h-6 bg-brand-accent/50" />
+                                            <div className="w-[2px] h-6 bg-brand-accent/50" />
                                         </div>
-                                        <div className="flex-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-center">
-                                            <p className="font-bold">HR Manager</p>
-                                        </div>
-                                    </div>
 
-                                    {/* Connectors */}
-                                    <div className="w-full h-12 border-t-2 border-l-2 border-r-2 border-[#9b87f5]/30 rounded-t-xl relative -mt-6 mb-2 z-0 max-w-[90%]" />
+                                        <div className="flex justify-between w-full gap-4 md:gap-8">
+                                            {/* COO Branch */}
+                                            <div className="flex-[1.2] flex flex-col items-center">
+                                                <div className="w-full px-2 md:px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-center relative z-10">
+                                                    <p className="font-bold text-sm md:text-base text-brand-accent/90">COO</p>
+                                                </div>
+                                                
+                                                {/* Split for Level 3 */}
+                                                <div className="w-[2px] h-6 bg-brand-accent/30" />
+                                                <div className="w-[calc(100%-4rem)] border-t-2 border-brand-accent/30 flex justify-between relative">
+                                                    <div className="w-[2px] h-6 bg-brand-accent/30" />
+                                                    <div className="w-[2px] h-6 bg-brand-accent/30" />
+                                                </div>
+                                                
+                                                <div className="flex justify-between w-full gap-2 relative z-10">
+                                                    <div className="flex-1 px-1 md:px-2 py-3 rounded-xl bg-white/5 border border-white/10 text-center text-xs md:text-sm">
+                                                        <p className="text-brand-secondary truncate">Project Mgr</p>
+                                                    </div>
+                                                    <div className="flex-1 px-1 md:px-2 py-3 rounded-xl bg-white/5 border border-white/10 text-center text-xs md:text-sm">
+                                                        <p className="text-brand-secondary truncate">Sales Mgr</p>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                    {/* Level 3 */}
-                                    <div className="flex justify-between w-full gap-2 relative z-10">
-                                        <div className="flex-1 px-2 py-3 rounded-xl bg-white/5 border border-white/10 text-center text-sm">
-                                            <p className="text-brand-secondary">Project Mgr</p>
-                                        </div>
-                                        <div className="flex-1 px-2 py-3 rounded-xl bg-white/5 border border-white/10 text-center text-sm">
-                                            <p className="text-brand-secondary">Sales Mgr</p>
-                                        </div>
-                                        <div className="flex-1 px-2 py-3 rounded-xl bg-white/5 border border-white/10 text-center text-sm">
-                                            <p className="text-brand-secondary">Team Leads</p>
+                                            {/* HR Manager Branch */}
+                                            <div className="flex-[0.8] flex flex-col items-center">
+                                                <div className="w-full px-2 md:px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-center relative z-10">
+                                                    <p className="font-bold text-sm md:text-base text-[#9b87f5]/90">HR Manager</p>
+                                                </div>
+                                                
+                                                {/* Single line down for Level 3 HR */}
+                                                <div className="w-[2px] h-12 bg-[#9b87f5]/30" />
+                                                
+                                                <div className="w-[90%] md:w-[80%] px-1 md:px-2 py-3 rounded-xl bg-white/5 border border-white/10 text-center text-xs md:text-sm relative z-10">
+                                                    <p className="text-brand-secondary truncate">Team Leads</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
