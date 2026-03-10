@@ -40,7 +40,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-white/80 backdrop-blur-xl border-b border-gray-100 py-4' : 'bg-transparent py-8'}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-white/80 backdrop-blur-xl border-b border-gray-100 py-3 lg:py-4' : 'bg-transparent py-4 lg:py-8'}`}>
         <div className="container-wide flex items-center justify-between px-6">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group shrink-0">
