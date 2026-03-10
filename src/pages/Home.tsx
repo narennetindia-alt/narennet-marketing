@@ -133,8 +133,8 @@ export default function Home() {
         </div>
 
         <div className="container-wide px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Content */}
-          <div className="lg:col-span-7 relative">
+          {/* Left Content (Desktop) / Bottom Content (Mobile) */}
+          <div className="lg:col-span-7 relative flex flex-col justify-end md:justify-start min-h-[50vh] md:min-h-0 z-20 order-2 lg:order-1 pt-10 md:pt-0">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -144,58 +144,61 @@ export default function Home() {
               01.
             </motion.div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-[12vw] md:text-[10vw] lg:text-[6vw] font-bold leading-[0.8] md:leading-[0.85] tracking-tighter uppercase mb-6 text-white"
-            >
-              NarenNet <br />
-              <span className="text-brand-accent">Technologies</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.15 }}
-              className="text-lg md:text-xl text-brand-secondary font-light max-w-2xl mb-12 leading-relaxed"
-            >
-              NarenNet Technologies is a Chennai-based AI and enterprise software company founded by Narendhiran C. We build robust ERP platforms, smart POS solutions, and scalable SaaS infrastructure.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex flex-wrap items-center gap-8"
-            >
-              <div className="flex items-center gap-3 group cursor-pointer">
-                <span className="text-brand-secondary text-lg font-medium group-hover:text-brand-accent transition-colors">Services</span>
-                <div className="w-5 h-5 rounded-full border border-brand-border flex items-center justify-center group-hover:border-brand-accent transition-colors">
-                  <ChevronDown size={12} className="group-hover:translate-y-0.5 transition-transform" />
-                </div>
-              </div>
-
-              <Link
-                to="/contact"
-                className="group relative flex items-center bg-brand-accent text-white pl-8 pr-2 py-2 rounded-2xl overflow-hidden hover:pr-4 transition-all duration-300 shadow-xl shadow-brand-accent/20"
+            {/* Glass Card on Mobile, Transparent on Desktop */}
+            <div className="bg-brand-card/60 backdrop-blur-2xl md:bg-transparent md:backdrop-blur-none p-8 md:p-0 rounded-t-[40px] md:rounded-none border-t border-brand-border md:border-none -mx-6 md:mx-0 shadow-[0_-20px_40px_rgba(0,0,0,0.2)] md:shadow-none">
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+                className="text-[12vw] md:text-[10vw] lg:text-[6vw] font-bold leading-[0.8] md:leading-[0.85] tracking-tighter uppercase mb-6 text-white"
               >
-                <span className="font-bold uppercase tracking-widest text-sm mr-6">Get in touch</span>
-                <div className="w-12 h-12 bg-black/20 rounded-xl flex items-center justify-center group-hover:bg-black/40 transition-colors">
-                  <ArrowRight size={20} className="-rotate-45 group-hover:rotate-0 transition-transform" />
+                NarenNet <br />
+                <span className="text-brand-accent">Technologies</span>
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.15 }}
+                className="text-base md:text-xl text-brand-secondary font-light max-w-2xl mb-8 md:mb-12 leading-relaxed"
+              >
+                NarenNet Technologies is a Chennai-based AI and enterprise software company founded by Narendhiran C. We build robust ERP platforms, smart POS solutions, and scalable SaaS infrastructure.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="flex flex-col sm:flex-row sm:items-center gap-6 md:gap-8"
+              >
+                <Link
+                  to="/contact"
+                  className="group relative flex items-center justify-between bg-brand-accent text-white pl-8 pr-2 py-2 rounded-2xl overflow-hidden shadow-xl shadow-brand-accent/20 w-full sm:w-auto"
+                >
+                  <span className="font-bold uppercase tracking-widest text-sm mr-6">Get in touch</span>
+                  <div className="w-12 h-12 bg-black/20 rounded-xl flex items-center justify-center group-hover:bg-black/40 transition-colors">
+                    <ArrowRight size={20} className="-rotate-45 group-hover:rotate-0 transition-transform" />
+                  </div>
+                </Link>
+
+                <div className="flex items-center justify-center gap-3 group cursor-pointer w-full sm:w-auto pb-4 md:pb-0">
+                  <span className="text-brand-secondary text-sm md:text-lg font-medium group-hover:text-brand-accent transition-colors uppercase tracking-widest">Explore Services</span>
+                  <div className="w-5 h-5 rounded-full border border-brand-border flex items-center justify-center group-hover:border-brand-accent transition-colors">
+                    <ChevronDown size={12} className="group-hover:translate-y-0.5 transition-transform" />
+                  </div>
                 </div>
-              </Link>
-            </motion.div>
+              </motion.div>
+            </div>
           </div>
 
           {/* Right Visuals */}
-          <div className="lg:col-span-5 relative h-[500px] lg:h-[700px] flex items-center justify-center">
+          <div className="lg:col-span-5 relative h-[400px] md:h-[500px] lg:h-[700px] flex items-center justify-center order-1 lg:order-2 md:mt-0 mt-8 mb-[-40px] md:mb-0 scale-90 md:scale-100">
             {/* 3D Sphere Placeholder */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
-              className="relative w-full max-w-[450px] aspect-square rounded-full bg-gradient-to-br from-brand-accent/10 to-transparent border border-brand-border flex items-center justify-center"
+              className="relative w-full max-w-[300px] md:max-w-[450px] aspect-square rounded-full bg-gradient-to-br from-brand-accent/10 to-transparent border border-brand-border flex items-center justify-center"
             >
               <div className="absolute inset-0 rounded-full border border-brand-border animate-pulse" />
               <div className="absolute inset-4 rounded-full border border-brand-border animate-spin-slow" />
@@ -207,32 +210,32 @@ export default function Home() {
               <motion.div
                 animate={{ y: [0, -20, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-10 -left-10 w-20 h-20 rounded-full bg-white/5 backdrop-blur-md border border-brand-border shadow-sm"
+                className="absolute -top-10 -left-10 w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/5 backdrop-blur-md border border-brand-border shadow-sm"
               />
               <motion.div
                 animate={{ y: [0, 30, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute top-1/4 -right-12 w-12 h-12 rounded-full bg-white/5 backdrop-blur-md border border-brand-border shadow-sm"
+                className="absolute top-1/4 -right-8 md:-right-12 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 backdrop-blur-md border border-brand-border shadow-sm"
               />
               <motion.div
                 animate={{ y: [0, -15, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute bottom-10 left-1/4 w-16 h-16 rounded-full bg-white/5 backdrop-blur-md border border-brand-border shadow-sm"
+                className="absolute bottom-10 left-1/4 w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/5 backdrop-blur-md border border-brand-border shadow-sm"
               />
             </motion.div>
 
-            {/* Widgets */}
+            {/* Widgets - Hidden on smallest mobile screens for cleaner layout */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="absolute top-10 right-0 w-48 p-4 bg-brand-card/80 backdrop-blur-xl border border-brand-border rounded-2xl shadow-xl z-20"
+              className="hidden sm:block absolute top-10 right-0 w-40 md:w-48 p-4 bg-brand-card/80 backdrop-blur-xl border border-brand-border rounded-2xl shadow-xl z-20"
             >
               <div className="flex items-center justify-between mb-4">
                 <span className="text-[10px] uppercase tracking-widest text-brand-secondary font-bold">Analysis...</span>
                 <div className="w-2 h-2 bg-brand-accent rounded-full animate-pulse" />
               </div>
-              <div className="h-12 flex items-end gap-1">
+              <div className="h-10 md:h-12 flex items-end gap-1">
                 {[40, 70, 45, 90, 65, 80, 50].map((h, i) => (
                   <motion.div
                     key={i}
@@ -249,19 +252,17 @@ export default function Home() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="absolute bottom-10 right-4 w-64 p-6 bg-brand-card/80 backdrop-blur-xl border border-brand-border rounded-2xl shadow-xl z-20"
+              className="absolute bottom-10 md:bottom-10 right-0 w-56 md:w-64 p-4 md:p-6 bg-brand-card/80 backdrop-blur-xl border border-brand-border rounded-2xl shadow-xl z-20"
             >
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-[10px] uppercase tracking-widest text-brand-secondary font-bold">Testing...</span>
-                <span className="text-[10px] text-brand-accent font-mono">v2.4.0</span>
+              <div className="flex items-center justify-between mb-2 md:mb-4">
+                <span className="text-[9px] md:text-[10px] uppercase tracking-widest text-brand-secondary font-bold">Testing...</span>
+                <span className="text-[9px] md:text-[10px] text-brand-accent font-mono">v2.4.0</span>
               </div>
-              <div className="space-y-2 font-mono text-[10px] text-brand-secondary">
-                <p className="text-brand-accent">// Initialize starting index</p>
+              <div className="space-y-1 md:space-y-2 font-mono text-[9px] md:text-[10px] text-brand-secondary">
+                <p className="text-brand-accent">// Init index</p>
                 <p>end = block_size - 1</p>
-                <p className="text-brand-accent">// Initialize ending index</p>
+                <p className="text-brand-accent">// Init ending list</p>
                 <p>start = 0</p>
-                <p>---</p>
-                <p>Function sort(length(array)) //</p>
               </div>
             </motion.div>
           </div>
@@ -296,7 +297,8 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Horizontal Scrolling on Mobile, Grid on Desktop */}
+          <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory hide-scrollbar grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 pb-8 md:pb-0 -mx-6 md:mx-0 px-6 md:px-0">
             {features.map((feature, idx) => (
               <motion.div
                 key={feature.title}
@@ -304,22 +306,27 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className={`${feature.size} p-10 rounded-[40px] bg-brand-card border border-brand-border card-glow group relative overflow-hidden flex flex-col justify-end min-h-[300px]`}
+                className={`${feature.size} min-w-[85vw] md:min-w-0 snap-center shrink-0 p-8 md:p-10 rounded-[30px] md:rounded-[40px] bg-brand-card border border-brand-border card-glow group relative overflow-hidden flex flex-col justify-end min-h-[350px] md:min-h-[300px] shadow-2xl md:shadow-none`}
               >
                 <img
                   src={(feature as any).image}
                   alt={feature.title}
-                  className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-700"
+                  className="absolute inset-0 w-full h-full object-cover opacity-30 md:opacity-20 group-hover:opacity-40 transition-opacity duration-700"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-card via-brand-card/80 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-card via-brand-card/90 md:via-brand-card/80 to-transparent" />
 
                 <div className="relative z-10">
-                  <div className="w-14 h-14 rounded-2xl bg-brand-accent/10 flex items-center justify-center mb-10 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-brand-accent/10 flex items-center justify-center mb-6 md:mb-10 lg:group-hover:scale-110 transition-transform hidden md:flex">
                     {feature.icon}
                   </div>
-                  <h3 className="text-3xl font-bold mb-4 text-white">{feature.title}</h3>
-                  <p className="text-brand-secondary text-lg leading-relaxed font-light">{feature.description}</p>
+                  <div className="flex items-center gap-3 md:block mb-3 md:mb-4">
+                     <div className="w-10 h-10 rounded-xl bg-brand-accent/20 flex items-center justify-center md:hidden shrink-0">
+                       {feature.icon}
+                     </div>
+                     <h3 className="text-2xl md:text-3xl font-bold text-white shrink-0">{feature.title}</h3>
+                  </div>
+                  <p className="text-brand-secondary text-base md:text-lg leading-relaxed font-light">{feature.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -330,8 +337,11 @@ export default function Home() {
       {/* Process Section */}
       <section className="section-padding bg-brand-card/30 border-y border-brand-border">
         <div className="container-wide">
-          <h2 className="text-5xl md:text-6xl font-bold mb-24 text-center text-white">Our process</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <h2 className="text-5xl md:text-6xl font-bold mb-16 md:mb-24 text-center text-white">Our process</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 relative">
+            {/* Mobile Vertical Timeline Line */}
+            <div className="absolute left-6 top-8 bottom-8 w-px bg-brand-border md:hidden z-0" />
+            
             {processSteps.map((step, idx) => (
               <motion.div
                 key={step.number}
@@ -339,14 +349,17 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="relative"
+                className="relative pl-20 md:pl-0"
               >
-                <div className="text-8xl font-display font-bold text-brand-accent/5 absolute -top-10 -left-4">
+                {/* Mobile Timeline Node */}
+                <div className="absolute left-4 top-1 w-5 h-5 rounded-full bg-brand-card border-4 border-brand-accent md:hidden z-10 shadow-[0_0_15px_rgba(255,87,34,0.4)]" />
+
+                <div className="text-6xl md:text-8xl font-display font-bold text-brand-accent/10 md:text-brand-accent/5 absolute top-0 md:-top-10 left-16 md:-left-4 md:block">
                   {step.number}
                 </div>
-                <div className="relative z-10">
-                  <h3 className="text-2xl font-bold mb-6 text-white">{step.title}</h3>
-                  <p className="text-brand-secondary leading-relaxed font-light">
+                <div className="relative z-10 mt-1 md:mt-0">
+                  <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-6 text-white">{step.title}</h3>
+                  <p className="text-brand-secondary leading-relaxed font-light text-sm md:text-base">
                     {step.description}
                   </p>
                 </div>
