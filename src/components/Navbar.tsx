@@ -6,13 +6,15 @@ import { Link, useLocation } from 'react-router-dom';
 
 const navLinks = [
   {
-    name: 'Products',
+    name: 'Ecosystem',
     path: '#',
     dropdown: [
-      { name: 'Business Ecosystem', path: '/business-ecosystem' },
-      { name: 'Super Business App', path: '/super-business-app' }
+      { name: 'Hospitals', path: '/ecosystem/hospitals' },
+      { name: 'Supermarkets', path: '/ecosystem/supermarkets' },
+      { name: 'Mobile Apps', path: '/ecosystem/mobile-apps' }
     ]
   },
+  { name: 'Platform', path: '/platform' },
   { name: 'Services', path: '/solutions' },
   { name: 'About', path: '/about' },
   { name: 'Blog', path: '/blog' },

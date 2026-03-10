@@ -27,6 +27,12 @@ import Founder from "./pages/Founder";
 import BusinessEcosystem from "./pages/BusinessEcosystem";
 import SuperBusinessApp from "./pages/SuperBusinessApp";
 
+/* Ecosystem Pages */
+import Hospitals from "./pages/ecosystem/Hospitals";
+import Supermarkets from "./pages/ecosystem/Supermarkets";
+import MobileApps from "./pages/ecosystem/MobileApps";
+import Platform from "./pages/Platform";
+
 /* Admin Pages */
 import Dashboard from "./pages/admin/Dashboard";
 import Blogs from "./pages/admin/Blogs";
@@ -83,6 +89,12 @@ function AppContent() {
               <Route path="/founder-narendhiran-c" element={<Founder />} />
               <Route path="/business-ecosystem" element={<BusinessEcosystem />} />
               <Route path="/super-business-app" element={<SuperBusinessApp />} />
+
+              {/* Ecosystem & Platform */}
+              <Route path="/ecosystem/hospitals" element={<Hospitals />} />
+              <Route path="/ecosystem/supermarkets" element={<Supermarkets />} />
+              <Route path="/ecosystem/mobile-apps" element={<MobileApps />} />
+              <Route path="/platform" element={<Platform />} />
             </>
           )}
 
