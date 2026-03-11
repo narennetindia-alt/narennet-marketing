@@ -3,12 +3,12 @@ import { Network, Database, Brain, Smartphone, Activity, Code, Settings } from '
 
 export default function EcosystemDiagram() {
   const nodes = [
-    { label: 'AI Analytics', icon: Brain, delay: 0.2, pos: 'top-10 left-1/2 -translate-x-1/2' },
-    { label: 'Mobile Apps', icon: Smartphone, delay: 0.3, pos: 'top-1/4 right-[10%]' },
-    { label: 'Business Ops', icon: Settings, delay: 0.4, pos: 'bottom-1/4 right-[15%]' },
-    { label: 'Database', icon: Database, delay: 0.5, pos: 'bottom-10 left-1/2 -translate-x-1/2' },
-    { label: 'APIs', icon: Code, delay: 0.6, pos: 'bottom-1/4 left-[15%]' },
-    { label: 'Real-time', icon: Activity, delay: 0.7, pos: 'top-1/4 left-[10%]' },
+    { label: 'AI Analytics', icon: Brain, delay: 0.2, left: '50%', top: '20%' },
+    { label: 'Mobile Apps', icon: Smartphone, delay: 0.3, left: '85%', top: '35%' },
+    { label: 'Business Ops', icon: Settings, delay: 0.4, left: '80%', top: '75%' },
+    { label: 'Database', icon: Database, delay: 0.5, left: '50%', top: '80%' },
+    { label: 'APIs', icon: Code, delay: 0.6, left: '20%', top: '75%' },
+    { label: 'Real-time', icon: Activity, delay: 0.7, left: '15%', top: '35%' },
   ];
 
   return (
@@ -80,10 +80,11 @@ export default function EcosystemDiagram() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: node.delay, type: 'spring', stiffness: 100 }}
-              className={`absolute ${node.pos} z-10 w-20 h-20 md:w-28 md:h-28 rounded-full bg-white/5 border border-white/20 backdrop-blur-xl flex flex-col items-center justify-center hover:bg-white/10 hover:border-brand-accent transition-all cursor-pointer group`}
+              style={{ left: node.left, top: node.top }}
+              className="absolute -translate-x-1/2 -translate-y-1/2 z-10 w-20 h-20 md:w-28 md:h-28 rounded-full bg-white/5 border border-white/20 backdrop-blur-xl flex flex-col items-center justify-center hover:bg-white/10 hover:border-brand-accent transition-all cursor-pointer group text-center"
             >
               <node.icon className="w-6 h-6 md:w-8 md:h-8 text-brand-secondary group-hover:text-brand-accent transition-colors mb-2" />
-              <span className="text-[10px] md:text-xs font-bold text-white tracking-widest uppercase">{node.label}</span>
+              <span className="text-[9px] md:text-xs font-bold text-white tracking-widest uppercase leading-tight px-1">{node.label}</span>
             </motion.div>
           ))}
         </div>
