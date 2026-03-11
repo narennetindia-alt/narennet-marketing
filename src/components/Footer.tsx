@@ -38,8 +38,8 @@ export default function Footer() {
   return (
     <footer className="bg-brand-bg border-t border-brand-border pt-24 pb-12">
       <div className="container-wide px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-20">
-          <div className="lg:col-span-2 space-y-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-x-8 gap-y-12 mb-20">
+          <div className="lg:col-span-3 space-y-6 pr-0 lg:pr-12">
             <Link to="/" className="flex items-center gap-2 group">
               <div className="w-8 h-8 overflow-hidden rounded-lg bg-white flex items-center justify-center group-hover:rotate-12 transition-transform">
                 <img src={logo} alt="NarenNet Logo" />
@@ -63,7 +63,7 @@ export default function Footer() {
           </div>
 
           {footerLinks.map((section) => (
-            <div key={section.title} className="space-y-6">
+            <div key={section.title} className="space-y-6 lg:col-span-1">
               <h4 className="font-semibold text-white">{section.title}</h4>
               <ul className="space-y-4">
                 {section.links.map((link) => (
@@ -78,11 +78,11 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="pt-12 border-t border-brand-border flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-brand-secondary text-sm">
+        <div className="pt-12 border-t border-brand-border flex flex-col xl:flex-row xl:items-center justify-between gap-8">
+          <p className="text-brand-secondary text-sm shrink-0">
             © {new Date().getFullYear()} NarenNet. All rights reserved.
           </p>
-          <div className="flex flex-wrap items-center gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-4 gap-x-6">
             <a href="#" className="flex items-center gap-2 text-brand-secondary text-sm hover:text-brand-accent transition-colors">
               <MapPin size={14} />
               <span>India, TamilNadu, Dharmapuri, Karimangalam</span>
