@@ -7,11 +7,12 @@ interface HeroSectionProps {
   description?: string;
   primaryCta: string;
   secondaryCta?: string;
+  secondaryCtaLink?: string;
   badge?: string;
   children?: React.ReactNode;
 }
 
-export default function HeroSection({ title, subtitle, description, primaryCta, secondaryCta, badge, children }: HeroSectionProps) {
+export default function HeroSection({ title, subtitle, description, primaryCta, secondaryCta, secondaryCtaLink, badge, children }: HeroSectionProps) {
   return (
     <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
       {/* Background Elements */}
@@ -76,9 +77,15 @@ export default function HeroSection({ title, subtitle, description, primaryCta, 
             {primaryCta}
           </button>
           {secondaryCta && (
-            <button className="w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 text-white rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-white/10 transition-all">
-              {secondaryCta}
-            </button>
+            secondaryCtaLink ? (
+              <a href={secondaryCtaLink} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 text-white rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-white/10 transition-all text-center">
+                {secondaryCta}
+              </a>
+            ) : (
+              <button className="w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 text-white rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-white/10 transition-all">
+                {secondaryCta}
+              </button>
+            )
           )}
         </motion.div>
 

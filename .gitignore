@@ -30,3 +30,4 @@ dist-ssr/
 # os
 .DS_Store
 Thumbs.db
+.vercel

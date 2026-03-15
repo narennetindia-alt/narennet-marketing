@@ -72,48 +72,20 @@ export default function Hospitals() {
           subtitle="AI-powered hospital ERP and healthcare management platform."
           description="A complete SaaS ecosystem for hospitals including patient management, pharmacy automation, AI insights, and secure digital medical records."
           primaryCta="Request Demo"
-          secondaryCta="View Dashboard"
+          secondaryCta="See Demo"
+          secondaryCtaLink="https://hospitaldemo-narennet.netlify.app"
           badge="AI Healthcare SaaS"
         >
           <div className="relative mx-auto max-w-5xl">
-            <div className="rounded-2xl border border-white/10 bg-[#0A0A0A] aspect-[16/9] overflow-hidden shadow-2xl glass p-4">
-              <div className="absolute inset-0 bg-gradient-to-tr from-brand-accent/5 to-transparent pointer-events-none" />
-              
-              {/* Mock Dashboard UI */}
-              <div className="h-full flex flex-col gap-4">
-                {/* Header */}
-                <div className="h-12 border-b border-white/5 flex items-center justify-between px-4">
-                  <div className="flex gap-2">
-                    <div className="w-3 h-3 rounded-full bg-red-500/50" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
-                    <div className="w-3 h-3 rounded-full bg-green-500/50" />
-                  </div>
-                  <div className="h-6 w-32 rounded bg-white/5" />
-                </div>
-                
-                {/* Stats */}
-                <div className="grid grid-cols-4 gap-4 px-4">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="h-20 rounded-xl bg-white/5 border border-white/5 flex flex-col justify-center px-4">
-                      <div className="h-3 w-12 rounded bg-white/10 mb-2" />
-                      <div className="h-5 w-20 rounded bg-white/20" />
-                    </div>
-                  ))}
-                </div>
-                
-                {/* Main Content */}
-                <div className="flex-1 flex gap-4 px-4 pb-4">
-                  <div className="flex-[2] rounded-xl bg-white/5 border border-white/5 relative overflow-hidden">
-                    <svg className="absolute bottom-0 w-full h-1/2 opacity-20" preserveAspectRatio="none" viewBox="0 0 100 100">
-                      <path d="M0,100 L0,50 Q25,20 50,60 T100,30 L100,100 Z" fill="#F27D26" />
-                    </svg>
-                  </div>
-                  <div className="flex-1 flex flex-col gap-4">
-                    <div className="flex-1 rounded-xl bg-white/5 border border-white/5" />
-                    <div className="flex-1 rounded-xl bg-white/5 border border-white/5" />
-                  </div>
-                </div>
-              </div>
+            <div className="relative rounded-2xl border border-white/10 bg-[#0A0A0A] aspect-[16/9] overflow-hidden shadow-2xl glass group">
+               <iframe 
+                 src="https://hospitaldemo-narennet.netlify.app" 
+                 title="Hospital Demo Dashboard"
+                 className="absolute top-0 left-0 w-[125%] h-[125%] border-0 opacity-80 group-hover:opacity-100 transition-opacity duration-500" 
+                 style={{ transform: 'scale(0.8)', transformOrigin: 'top left', pointerEvents: 'none' }} 
+               />
+               <div className="absolute inset-0 ring-1 ring-inset ring-brand-accent/20 rounded-2xl pointer-events-none" />
+               <div className="absolute inset-0 bg-gradient-to-tr from-brand-bg/80 via-transparent to-transparent pointer-events-none" />
             </div>
 
             {/* Floating Elements */}
@@ -154,26 +126,16 @@ export default function Hospitals() {
                 </div>
               </div>
               
-              <div className="relative rounded-2xl border border-white/10 bg-[#0A0A0A] aspect-[4/3] overflow-hidden shadow-2xl">
-                 <div className="absolute inset-0 bg-gradient-to-tr from-brand-accent/10 to-transparent" />
-                 {/* Mock UI elements for the dashboard */}
-                 <div className="absolute inset-4 rounded-xl border border-white/5 bg-white/5 p-6 flex flex-col gap-4">
-                    <div className="flex gap-4 mb-4">
-                      <div className="h-24 flex-1 rounded-lg bg-green-500/20 border border-green-500/30 flex px-4 items-center">
-                        <div className="h-2 w-2 rounded-full bg-green-500 mr-2 animate-pulse"/>
-                        <span className="text-green-500 font-bold">12 Active ICUs</span>
-                      </div>
-                      <div className="h-24 flex-1 rounded-lg bg-brand-accent/20 border border-brand-accent/30 flex px-4 items-center">
-                        <div className="h-2 w-2 rounded-full bg-brand-accent mr-2"/>
-                         <span className="text-brand-accent font-bold">45 Bed Available</span>
-                      </div>
-                    </div>
-                    <div className="flex-1 rounded-lg border border-white/5 bg-white/5 relative overflow-hidden">
-                       <svg className="absolute bottom-0 w-full h-1/2 opacity-30" preserveAspectRatio="none" viewBox="0 0 100 100">
-                         <path d="M0,100 L0,50 Q25,20 50,60 T100,30 L100,100 Z" fill="#38BDF8" />
-                       </svg>
-                    </div>
-                 </div>
+              <div className="relative rounded-2xl border border-white/10 bg-[#0A0A0A] aspect-[4/3] overflow-hidden shadow-2xl group">
+                 <iframe 
+                   src="https://hospitaldemo-narennet.netlify.app" 
+                   title="Hospital Real-time Dashboard Demo"
+                   loading="lazy"
+                   className="absolute top-0 left-0 w-[150%] h-[150%] border-0 opacity-70 group-hover:opacity-100 transition-opacity duration-500" 
+                   style={{ transform: 'scale(0.666)', transformOrigin: 'top left', pointerEvents: 'none' }} 
+                 />
+                 <div className="absolute inset-0 bg-gradient-to-tr from-brand-bg/80 via-transparent to-brand-accent/10 pointer-events-none" />
+                 <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
               </div>
             </div>
           </div>
@@ -216,23 +178,17 @@ export default function Hospitals() {
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="relative rounded-2xl border border-white/10 bg-[#0A0A0A] aspect-square overflow-hidden shadow-2xl glass p-8"
+                className="relative rounded-2xl border border-white/10 bg-[#0A0A0A] aspect-square lg:aspect-[4/3] overflow-hidden shadow-2xl glass group"
               >
-                 <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/10 to-transparent" />
-                 <div className="h-full border border-white/5 rounded-xl bg-white/5 flex flex-col p-6 overflow-hidden">
-                    <div className="flex justify-between items-center mb-6">
-                      <div className="h-4 w-32 rounded bg-white/20" />
-                      <div className="h-8 w-8 rounded-full bg-brand-accent/20 border border-brand-accent/40" />
-                    </div>
-                    <div className="space-y-4">
-                      {[1, 2, 3, 4].map(i => (
-                        <div key={i} className="h-12 w-full rounded-lg bg-white/5 border border-white/5 flex items-center px-4">
-                          <div className="h-2 w-2 rounded-full bg-green-500 mr-4" />
-                          <div className="h-2 w-24 rounded bg-white/10" />
-                        </div>
-                      ))}
-                    </div>
-                 </div>
+                 <iframe 
+                   src="https://hospitaldemo-narennet.netlify.app" 
+                   title="Hospital ERP Demo"
+                   loading="lazy"
+                   className="absolute top-0 left-0 w-[150%] h-[150%] border-0 opacity-70 group-hover:opacity-100 transition-opacity duration-500" 
+                   style={{ transform: 'scale(0.666)', transformOrigin: 'top left', pointerEvents: 'none' }} 
+                 />
+                 <div className="absolute inset-0 bg-gradient-to-bl from-brand-bg/80 via-transparent to-transparent pointer-events-none" />
+                 <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
               </motion.div>
             </div>
           </div>
@@ -246,24 +202,17 @@ export default function Hospitals() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="order-2 lg:order-1 relative rounded-2xl border border-white/10 bg-[#0A0A0A] aspect-video overflow-hidden shadow-2xl glass p-8"
+                className="order-2 lg:order-1 relative rounded-2xl border border-white/10 bg-[#0A0A0A] aspect-video overflow-hidden shadow-2xl glass group"
               >
-                <div className="grid grid-cols-2 gap-4 h-full">
-                  <div className="rounded-xl border border-white/5 bg-brand-accent/5 p-4 flex flex-col justify-between">
-                    <Pill className="w-8 h-8 text-brand-accent" />
-                    <div className="space-y-2">
-                       <div className="h-2 w-full rounded bg-brand-accent/20" />
-                       <div className="h-2 w-2/3 rounded bg-brand-accent/20" />
-                    </div>
-                  </div>
-                  <div className="rounded-xl border border-white/5 bg-white/5 p-4 flex flex-col justify-between">
-                    <Activity className="w-8 h-8 text-brand-secondary" />
-                    <div className="space-y-2">
-                       <div className="h-2 w-full rounded bg-white/10" />
-                       <div className="h-2 w-2/3 rounded bg-white/10" />
-                    </div>
-                  </div>
-                </div>
+                 <iframe 
+                   src="https://hospitaldemo-narennet.netlify.app" 
+                   title="Smart Pharmacy Demo"
+                   loading="lazy"
+                   className="absolute top-0 left-0 w-[150%] h-[150%] border-0 opacity-70 group-hover:opacity-100 transition-opacity duration-500" 
+                   style={{ transform: 'scale(0.666)', transformOrigin: 'top left', pointerEvents: 'none' }} 
+                 />
+                 <div className="absolute inset-0 bg-gradient-to-tr from-[#050505]/80 via-transparent to-transparent pointer-events-none" />
+                 <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
               </motion.div>
               <div className="order-1 lg:order-2">
                 <motion.div 
@@ -362,16 +311,16 @@ export default function Hospitals() {
                  viewport={{ once: true }}
                  className="relative"
               >
-                 <div className="rounded-2xl border border-white/10 bg-[#0A0A0A] aspect-video overflow-hidden shadow-2xl glass p-4 flex items-center justify-center">
-                    <div className="w-full max-w-sm space-y-4">
-                       <div className="h-4 w-3/4 rounded bg-white/20" />
-                       <div className="h-4 w-1/2 rounded bg-white/10" />
-                       <div className="grid grid-cols-3 gap-2">
-                          <div className="h-20 rounded-lg bg-white/5 border border-white/5" />
-                          <div className="h-20 rounded-lg bg-white/5 border border-white/5" />
-                          <div className="h-20 rounded-lg bg-white/5 border border-white/5" />
-                       </div>
-                    </div>
+                 <div className="rounded-2xl border border-white/10 bg-[#0A0A0A] aspect-[4/3] lg:aspect-[16/9] overflow-hidden shadow-2xl glass group relative">
+                    <iframe 
+                      src="https://hospitaldemo-narennet.netlify.app" 
+                      title="Digital Medical Records Demo"
+                      loading="lazy"
+                      className="absolute top-0 left-0 w-[150%] h-[150%] border-0 opacity-70 group-hover:opacity-100 transition-opacity duration-500" 
+                      style={{ transform: 'scale(0.666)', transformOrigin: 'top left', pointerEvents: 'none' }} 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-tr from-brand-bg/80 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
                  </div>
                  {/* Decorative elements */}
                  <div className="absolute -top-10 -right-10 w-40 h-40 bg-brand-accent/10 blur-[60px] rounded-full" />
@@ -415,12 +364,16 @@ export default function Hospitals() {
                      transition={{ delay: i * 0.1 }}
                      className="p-8 rounded-3xl bg-white/5 border border-white/10 glass card-glow relative"
                    >
-                     <div className="aspect-[9/16] rounded-2xl border border-white/10 bg-black mb-8 overflow-hidden relative group">
-                        <div className="absolute inset-0 bg-gradient-to-t from-brand-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                           <Smartphone className="w-12 h-12 text-brand-accent mb-4" />
-                           <span className="text-white font-bold uppercase text-xs tracking-tighter">{app.title}</span>
-                        </div>
+                     <div className="aspect-[9/16] rounded-2xl border border-white/10 bg-[#0A0A0A] mb-8 overflow-hidden relative group">
+                        <iframe 
+                           src="https://hospitaldemo-narennet.netlify.app" 
+                           title={app.title}
+                           loading="lazy"
+                           className="absolute top-0 left-0 w-[150%] h-[150%] border-0 opacity-80 group-hover:opacity-100 transition-opacity duration-500" 
+                           style={{ transform: 'scale(0.666)', transformOrigin: 'top left', pointerEvents: 'none' }} 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
                      </div>
                      <h3 className="text-2xl font-bold text-white mb-2 uppercase">{app.title}</h3>
                      <p className="text-brand-secondary text-sm">{app.desc}</p>
