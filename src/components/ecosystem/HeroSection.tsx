@@ -4,12 +4,14 @@ import { LucideIcon } from 'lucide-react';
 interface HeroSectionProps {
   title: string;
   subtitle: string;
+  description?: string;
   primaryCta: string;
   secondaryCta?: string;
   badge?: string;
+  children?: React.ReactNode;
 }
 
-export default function HeroSection({ title, subtitle, primaryCta, secondaryCta, badge }: HeroSectionProps) {
+export default function HeroSection({ title, subtitle, description, primaryCta, secondaryCta, badge, children }: HeroSectionProps) {
   return (
     <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
       {/* Background Elements */}
@@ -48,16 +50,27 @@ export default function HeroSection({ title, subtitle, primaryCta, secondaryCta,
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-lg md:text-xl text-brand-secondary max-w-3xl mx-auto mb-12"
+          className="text-2xl md:text-3xl font-display font-medium text-white mb-4"
         >
           {subtitle}
         </motion.p>
+
+        {description && (
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25 }}
+            className="text-lg md:text-xl text-brand-secondary max-w-3xl mx-auto mb-12"
+          >
+            {description}
+          </motion.p>
+        )}
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
         >
           <button className="w-full sm:w-auto px-8 py-4 bg-brand-accent text-white rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-brand-accent/90 transition-all shadow-lg shadow-brand-accent/25">
             {primaryCta}
@@ -68,6 +81,17 @@ export default function HeroSection({ title, subtitle, primaryCta, secondaryCta,
             </button>
           )}
         </motion.div>
+
+        {children && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="relative"
+          >
+            {children}
+          </motion.div>
+        )}
       </div>
     </section>
   );
