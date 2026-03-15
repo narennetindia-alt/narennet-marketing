@@ -90,43 +90,160 @@ export default function Hospitals() {
           badge="AI Healthcare SaaS"
         >
           <div className="relative mx-auto max-w-5xl">
-            <div className="rounded-2xl border border-white/10 bg-[#0A0A0A] aspect-[16/9] overflow-hidden shadow-2xl glass p-4">
-              <div className="absolute inset-0 bg-gradient-to-tr from-brand-accent/5 to-transparent pointer-events-none" />
+            <div className="rounded-2xl border-[6px] border-[#1a1a1a] bg-[#0B0F15] aspect-[16/9] overflow-hidden shadow-2xl flex flex-col mx-auto w-full relative z-10">
+              {/* Browser/Window Header */}
+              <div className="h-8 bg-[#1a1a1a] flex items-center px-4 gap-2">
+                <div className="flex gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
+                </div>
+                <div className="flex-1 flex justify-center">
+                  <div className="h-4 w-64 bg-white/5 rounded text-[9px] text-gray-500 flex items-center justify-center font-mono tracking-wider">
+                     narennet.cloud/hospital-erp
+                  </div>
+                </div>
+              </div>
               
-              {/* Mock Dashboard UI */}
-              <div className="h-full flex flex-col gap-4">
-                {/* Header */}
-                <div className="h-12 border-b border-white/5 flex items-center justify-between px-4">
-                  <div className="flex gap-2">
-                    <div className="w-3 h-3 rounded-full bg-red-500/50" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
-                    <div className="w-3 h-3 rounded-full bg-green-500/50" />
-                  </div>
-                  <div className="h-6 w-32 rounded bg-white/5" />
-                </div>
-                
-                {/* Stats */}
-                <div className="grid grid-cols-4 gap-4 px-4">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="h-20 rounded-xl bg-white/5 border border-white/5 flex flex-col justify-center px-4">
-                      <div className="h-3 w-12 rounded bg-white/10 mb-2" />
-                      <div className="h-5 w-20 rounded bg-white/20" />
+              {/* SaaS App Layout */}
+              <div className="flex flex-1 overflow-hidden relative">
+                 <div className="absolute inset-0 bg-gradient-to-tr from-brand-accent/5 to-transparent pointer-events-none z-0" />
+                 
+                 {/* Sidebar */}
+                 <div className="w-48 xl:w-56 border-r border-white/5 bg-[#0A0A0A]/80 backdrop-blur-md flex flex-col py-4 px-3 z-10 hidden md:flex">
+                    <div className="flex items-center gap-2 px-2 mb-8">
+                       <Building2 className="w-6 h-6 text-brand-accent" />
+                       <span className="text-white font-bold tracking-wide">NarenNet ERP</span>
                     </div>
-                  ))}
-                </div>
-                
-                {/* Main Content */}
-                <div className="flex-1 flex gap-4 px-4 pb-4">
-                  <div className="flex-[2] rounded-xl bg-white/5 border border-white/5 relative overflow-hidden">
-                    <svg className="absolute bottom-0 w-full h-1/2 opacity-20" preserveAspectRatio="none" viewBox="0 0 100 100">
-                      <path d="M0,100 L0,50 Q25,20 50,60 T100,30 L100,100 Z" fill="#F27D26" />
-                    </svg>
-                  </div>
-                  <div className="flex-1 flex flex-col gap-4">
-                    <div className="flex-1 rounded-xl bg-white/5 border border-white/5" />
-                    <div className="flex-1 rounded-xl bg-white/5 border border-white/5" />
-                  </div>
-                </div>
+                    <div className="space-y-1">
+                       <div className="flex items-center gap-3 px-3 py-2 rounded-lg bg-brand-accent/10 border border-brand-accent/20 text-brand-accent cursor-pointer">
+                          <LayoutDashboard className="w-4 h-4" />
+                          <span className="text-sm font-medium">Dashboard</span>
+                       </div>
+                       {[
+                         { icon: Users, label: 'Patient Directory' },
+                         { icon: Calendar, label: 'Appointments' },
+                         { icon: HardDrive, label: 'Medical Records' },
+                         { icon: Pill, label: 'Pharmacy' },
+                         { icon: DollarSign, label: 'Billing & Finance' },
+                         { icon: BarChart3, label: 'Analytics' },
+                       ].map((item, i) => (
+                          <div key={i} className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors cursor-pointer">
+                             <item.icon className="w-4 h-4" />
+                             <span className="text-sm font-medium">{item.label}</span>
+                          </div>
+                       ))}
+                    </div>
+                    <div className="mt-auto px-3 py-3 rounded-xl bg-gradient-to-br from-brand-accent/20 to-purple-500/20 border border-white/10 flex flex-col gap-2 relative overflow-hidden group">
+                       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20" />
+                       <Zap className="w-5 h-5 text-yellow-400 drop-shadow mb-1 relative z-10" />
+                       <div className="text-white text-xs font-bold relative z-10">AI Copilot Active</div>
+                       <div className="text-brand-secondary text-[10px] relative z-10">Analyzing 1,240 records</div>
+                    </div>
+                 </div>
+
+                 {/* Main Content Area */}
+                 <div className="flex-1 flex flex-col z-10 bg-[#0B0F15]/90 overflow-hidden">
+                    {/* Topbar */}
+                    <div className="h-14 border-b border-white/5 flex items-center justify-between px-6 bg-white/5 backdrop-blur-md">
+                       <div className="text-white font-bold text-sm lg:text-base">Good Morning, Admin</div>
+                       <div className="flex items-center gap-4">
+                          <div className="relative">
+                             <Search className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                             <input type="text" placeholder="Search patients, doctors..." className="bg-black/50 border border-white/10 rounded-full py-1.5 pl-9 pr-4 text-xs text-white outline-none focus:border-brand-accent/50 w-64 hidden xl:block" />
+                          </div>
+                          <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center relative bg-black/50 cursor-pointer hover:bg-white/10">
+                             <Bell className="w-4 h-4 text-gray-300" />
+                             <div className="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-red-500" />
+                          </div>
+                          <div className="flex items-center gap-2 cursor-pointer">
+                             <div className="w-8 h-8 rounded-full overflow-hidden border border-brand-accent/30">
+                                <img src="/ceo-naren.jpeg" alt="Profile" className="w-full h-full object-cover" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+
+                    {/* Dashboard Widgets */}
+                    <div className="p-4 lg:p-6 flex-1 flex flex-col gap-4 lg:gap-6 overflow-hidden relative">
+                       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 shrink-0">
+                          {[
+                            { title: 'Total Patients', value: '2,845', change: '+12%', up: true, icon: Users, color: 'text-blue-400', bg: 'bg-blue-500/10' },
+                            { title: 'Appointments', value: '184', change: '+5%', up: true, icon: Calendar, color: 'text-purple-400', bg: 'bg-purple-500/10' },
+                            { title: 'ER Capacity', value: '82%', change: '-3%', up: false, icon: Activity, color: 'text-orange-400', bg: 'bg-orange-500/10' },
+                            { title: 'Revenue (MTD)', value: '$452K', change: '+18%', up: true, icon: DollarSign, color: 'text-green-400', bg: 'bg-green-500/10' },
+                          ].map((stat, i) => (
+                             <div key={i} className="bg-[#12161f] border border-white/5 rounded-xl p-3 lg:p-4 flex flex-col gap-2 lg:gap-3 shadow-lg hover:border-white/10 transition-colors">
+                                <div className="flex justify-between items-start">
+                                   <div className={`p-1.5 lg:p-2 rounded-lg ${stat.bg}`}>
+                                      <stat.icon className={`w-3.5 h-3.5 lg:w-4 lg:h-4 ${stat.color}`} />
+                                   </div>
+                                   <span className={`text-[9px] lg:text-[10px] font-bold px-1.5 py-0.5 rounded ${stat.up ? 'text-green-400 bg-green-500/10' : 'text-red-400 bg-red-500/10'}`}>
+                                      {stat.change}
+                                   </span>
+                                </div>
+                                <div>
+                                   <div className="text-xl lg:text-2xl font-bold text-white tracking-tight">{stat.value}</div>
+                                   <div className="text-[10px] lg:text-xs text-gray-400">{stat.title}</div>
+                                </div>
+                             </div>
+                          ))}
+                       </div>
+
+                       <div className="flex gap-4 flex-1 overflow-hidden min-h-[150px]">
+                          <div className="flex-[2] bg-[#12161f] border border-white/5 rounded-xl p-4 flex flex-col relative shadow-lg overflow-hidden group">
+                             <div className="flex justify-between items-center mb-4 relative z-10 w-full">
+                                <div className="text-white text-xs lg:text-sm font-bold">Hospital Admission Trend</div>
+                                <select className="bg-black/50 border border-white/10 rounded-md text-[10px] lg:text-xs text-brand-secondary outline-none px-2 py-1">
+                                   <option>This Week</option>
+                                </select>
+                             </div>
+                             <div className="flex-1 relative w-full h-full mt-2">
+                               <svg className="absolute inset-x-0 bottom-0 w-full h-full opacity-60 group-hover:opacity-100 transition-opacity duration-700" preserveAspectRatio="none" viewBox="0 0 100 100">
+                                 <path d="M0,100 L0,70 Q10,60 20,80 T40,40 T60,60 T80,30 L100,50 L100,100 Z" fill="url(#hero-gradient)" />
+                                 <path d="M0,70 Q10,60 20,80 T40,40 T60,60 T80,30 L100,50" fill="none" stroke="#38BDF8" strokeWidth="2" className="drop-shadow-[0_4px_12px_rgba(56,189,248,0.8)]" />
+                                 <defs>
+                                    <linearGradient id="hero-gradient" x1="0" y1="0" x2="0" y2="1">
+                                       <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.4" />
+                                       <stop offset="100%" stopColor="#38BDF8" stopOpacity="0" />
+                                    </linearGradient>
+                                 </defs>
+                               </svg>
+                               {/* Grid lines */}
+                               <div className="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20">
+                                  <div className="w-full h-px bg-white/20" />
+                                  <div className="w-full h-px bg-white/20" />
+                                  <div className="w-full h-px bg-white/20" />
+                                  <div className="w-full h-px bg-white/20" />
+                                  <div className="w-full h-px bg-white/20" />
+                               </div>
+                             </div>
+                          </div>
+                          
+                          <div className="flex-1 bg-[#12161f] border border-white/5 rounded-xl p-4 flex flex-col relative shadow-lg hidden md:flex">
+                             <div className="text-white text-xs lg:text-sm font-bold mb-4">Department Load</div>
+                             <div className="flex-1 flex flex-col justify-center gap-3 lg:gap-4">
+                                {[
+                                  { dept: 'Cardiology', load: 85, color: 'bg-red-500' },
+                                  { dept: 'Neurology', load: 60, color: 'bg-purple-500' },
+                                  { dept: 'Orthopedics', load: 45, color: 'bg-blue-500' },
+                                  { dept: 'Pediatrics', load: 30, color: 'bg-green-500' }
+                                ].map((item, i) => (
+                                   <div key={i}>
+                                      <div className="flex justify-between text-[9px] lg:text-[10px] text-gray-400 mb-1">
+                                         <span>{item.dept}</span>
+                                         <span>{item.load}%</span>
+                                      </div>
+                                      <div className="h-1.5 lg:h-2 w-full bg-black/50 rounded-full overflow-hidden">
+                                         <div className={`h-full ${item.color} rounded-full`} style={{ width: `${item.load}%` }} />
+                                      </div>
+                                   </div>
+                                ))}
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
               </div>
             </div>
 
