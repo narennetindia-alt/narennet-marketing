@@ -40,24 +40,28 @@ export default function BusinessEcosystem() {
             icon: <BarChart3 className="w-6 h-6 text-white" />,
             title: "Owner Dashboard App",
             features: ["Revenue analytics", "Business insights", "Notifications"],
+            theme: "bg-orange-600",
             mockupColor: "from-brand-accent/80 to-brand-accent"
         },
         {
             icon: <Briefcase className="w-6 h-6 text-white" />,
             title: "Employee App",
             features: ["Task management", "Attendance tracking", "Project updates"],
+            theme: "bg-blue-600",
             mockupColor: "from-brand-card to-[#111]"
         },
         {
             icon: <Target className="w-6 h-6 text-white" />,
             title: "Sales Team App",
             features: ["Lead tracking", "Client communication", "Deal updates"],
+            theme: "bg-emerald-600",
             mockupColor: "from-[#222] to-black"
         },
         {
             icon: <Users className="w-6 h-6 text-white" />,
             title: "Client Portal App",
             features: ["Orders", "Invoices", "Support requests"],
+            theme: "bg-violet-600",
             mockupColor: "from-[#1a1a1a] to-[#0a0a0a]"
         }
     ];
@@ -369,16 +373,68 @@ export default function BusinessEcosystem() {
                                                 <div className="w-8 h-1 bg-white/10 rounded-full" />
                                             </div>
                                             
-                                            {/* Live Mobile View inside Iframe */}
-                                            <div className="flex-1 relative w-full h-full">
-                                                {/* Dark gradient overlay matching mockup color for seamless branding blend */}
-                                                <div className={`absolute inset-0 bg-gradient-to-b ${app.mockupColor} opacity-20 pointer-events-none z-10`} />
-                                                <iframe 
-                                                    src="https://businessecosystem-narennet.netlify.app/mobile"
-                                                    className="absolute inset-0 w-full h-full border-0 pointer-events-none"
-                                                    title={`${app.title} live demo`}
-                                                    scrolling="yes"
-                                                />
+                                            {/* Live Mobile View inside Iframe - REMOVED */}
+                                            {/* Recreated Custom Mockups from Demo Site */}
+                                            <div className="flex-1 relative w-full h-full bg-[#f4f4f5] font-sans flex flex-col">
+                                                {/* Header Section */}
+                                                <div className={`w-full pt-10 pb-6 px-4 ${app.theme} text-white rounded-b-[20px] shadow-sm flex flex-col items-center justify-center shrink-0 relative z-10`}>
+                                                    <div className="w-8 h-8 rounded-md bg-white/20 flex items-center justify-center mb-2">
+                                                        {app.icon}
+                                                    </div>
+                                                    <h4 className="font-bold text-lg mb-0.5">{app.title}</h4>
+                                                    <p className="text-white/80 text-xs">Welcome back</p>
+                                                </div>
+
+                                                {/* Scrollable Content */}
+                                                <div className="flex-1 w-full px-4 pt-4 pb-16 overflow-hidden flex flex-col gap-3">
+                                                    {idx === 0 ? (
+                                                        <>
+                                                            {/* Owner Dashboard Specific Content */}
+                                                            <div className="bg-white rounded-xl p-4 shadow-sm w-full border border-gray-100 shrink-0">
+                                                                <div className="flex justify-between items-center mb-2 text-xs">
+                                                                    <span className="text-gray-500 font-medium tracking-wide">Total Revenue</span>
+                                                                    <span className="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full font-bold">↗ +12.5%</span>
+                                                                </div>
+                                                                <div className="text-2xl font-bold text-gray-900">$124,500</div>
+                                                            </div>
+                                                            <div className="bg-[#ea580c] rounded-xl p-4 shadow-sm w-full text-white shrink-0 mt-1">
+                                                                <div className="flex items-center gap-2 mb-2">
+                                                                    <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
+                                                                        <Zap size={12} className="text-white" />
+                                                                    </div>
+                                                                    <span className="font-bold text-xs tracking-wider uppercase">AI Insight</span>
+                                                                </div>
+                                                                <p className="text-white/90 text-[11px] leading-relaxed">
+                                                                    Q4 revenue is trending 15% higher. Consider increasing inventory for top items.
+                                                                </p>
+                                                            </div>
+                                                        </>
+                                                    ) : (
+                                                        <>
+                                                            {/* Generic App Module List Content */}
+                                                            {app.features.map((feature, fIdx) => (
+                                                                <div key={fIdx} className="w-full bg-white rounded-xl shadow-sm border border-gray-100 p-3 flex items-center gap-3 shrink-0">
+                                                                    <div className={`w-10 h-10 rounded-lg ${app.theme.replace('600', '100').replace('500', '100')} flex items-center justify-center shrink-0`}>
+                                                                        {fIdx === 0 && <CheckCircle2 size={16} className={`text-[${app.theme.replace('bg-', '')}] opacity-80`} />}
+                                                                        {fIdx === 1 && <BarChart3 size={16} className={`text-[${app.theme.replace('bg-', '')}] opacity-80`} />}
+                                                                        {fIdx === 2 && <MessageSquare size={16} className={`text-[${app.theme.replace('bg-', '')}] opacity-80`} />}
+                                                                    </div>
+                                                                    <div className="flex flex-col">
+                                                                        <span className="font-semibold text-gray-800 text-sm leading-tight">{feature}</span>
+                                                                        <div className="w-10 h-1 bg-gray-200 mt-1.5 rounded-full" />
+                                                                    </div>
+                                                                </div>
+                                                            ))}
+                                                        </>
+                                                    )}
+                                                </div>
+
+                                                {/* Bottom Tab Bar */}
+                                                <div className="absolute bottom-0 inset-x-0 h-12 bg-white flex items-center justify-around px-6 border-t border-gray-100 rounded-b-[24px] md:rounded-b-[26px]">
+                                                    <div className="w-4 h-4 rounded-full bg-gray-300" />
+                                                    <div className="w-4 h-4 rounded-full bg-gray-400" />
+                                                    <div className="w-4 h-4 rounded-full bg-gray-300" />
+                                                </div>
                                             </div>
                                             
                                             {/* Home indicator */}
