@@ -125,12 +125,14 @@ export default function BusinessEcosystem() {
                         transition={{ duration: 0.8, delay: 0.4 }}
                         className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
                     >
-                        <Link
-                            to="/contact"
+                        <a
+                            href="https://businessecosystem-narennet.netlify.app/"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="w-full sm:w-auto px-10 py-5 bg-white text-black rounded-full font-bold text-lg hover:scale-105 transition-all flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(255,255,255,0.3)]"
                         >
                             View Demo <ArrowRight size={20} />
-                        </Link>
+                        </a>
                         <Link
                             to="/contact"
                             className="w-full sm:w-auto px-10 py-5 bg-white/5 border border-white/10 text-white rounded-full font-bold text-lg hover:bg-white/10 transition-colors flex items-center justify-center"
@@ -287,35 +289,77 @@ export default function BusinessEcosystem() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.1 }}
-                                className="group p-10 rounded-[40px] bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition-all duration-300 relative overflow-hidden flex flex-col h-full"
+                                className="group p-8 md:p-10 rounded-[40px] bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition-all duration-300 relative overflow-hidden flex flex-col h-full"
                             >
                                 {/* Decorative background element */}
                                 <div className="absolute top-0 right-0 w-64 h-64 bg-brand-accent/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 opacity-0 transition-opacity group-hover:opacity-100" />
                                 
-                                <div className="relative z-10">
-                                    <div className="flex items-center gap-6 mb-8">
-                                        <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10">
-                                            {product.icon}
+                                <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_200px] gap-8 h-full">
+                                    <div className="flex flex-col h-full">
+                                        <div className="flex items-center gap-6 mb-8">
+                                            <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 shrink-0">
+                                                {product.icon}
+                                            </div>
+                                            <h3 className="text-3xl font-bold text-white normal-case tracking-normal">{product.title}</h3>
                                         </div>
-                                        <h3 className="text-3xl font-bold text-white normal-case tracking-normal">{product.title}</h3>
+                                        
+                                        <p className="text-brand-secondary mb-8 text-lg font-light leading-relaxed">{product.description}</p>
+                                        
+                                        <ul className="space-y-4 mb-10 flex-1">
+                                            {product.features.map((item, i) => (
+                                                <li key={i} className="flex items-center gap-4 text-brand-secondary font-light text-lg">
+                                                    <CheckCircle2 size={20} className="text-brand-accent shrink-0" />
+                                                    {item}
+                                                </li>
+                                            ))}
+                                        </ul>
+
+                                        <div className="mt-auto relative z-10 pt-4">
+                                            <a 
+                                                href="https://businessecosystem-narennet.netlify.app/" 
+                                                target="_blank" 
+                                                rel="noopener noreferrer"
+                                                className="w-full py-5 rounded-full border border-white/10 text-white font-bold hover:bg-white hover:text-black transition-colors flex items-center justify-center gap-2"
+                                            >
+                                                View Demo <ArrowRight size={18} />
+                                            </a>
+                                        </div>
                                     </div>
-                                    
-                                    <p className="text-brand-secondary mb-8 text-lg font-light leading-relaxed">{product.description}</p>
-                                    
-                                    <ul className="space-y-4 mb-10 flex-1">
-                                        {product.features.map((item, i) => (
-                                            <li key={i} className="flex items-center gap-4 text-brand-secondary font-light text-lg">
-                                                <CheckCircle2 size={20} className="text-brand-accent shrink-0" />
-                                                {item}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                                
-                                <div className="mt-auto relative z-10 pt-4">
-                                    <Link to="/contact" className="w-full py-5 rounded-full border border-white/10 text-white font-bold hover:bg-white hover:text-black transition-colors flex items-center justify-center gap-2">
-                                        View Demo <ArrowRight size={18} />
-                                    </Link>
+
+                                    {/* Abstract UI Mockup */}
+                                    <div className="hidden lg:block relative w-full h-full min-h-[300px] rounded-3xl border border-white/10 bg-black overflow-hidden shadow-2xl skew-y-6 group-hover:skew-y-3 transition-transform duration-500 scale-[1.2] translate-x-10 translate-y-10 group-hover:translate-x-8 group-hover:translate-y-8">
+                                        <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/20 to-transparent opacity-50" />
+                                        <div className="w-full h-full flex flex-col p-4 gap-3 relative z-10">
+                                            {/* Mockup Top Bar */}
+                                            <div className="w-full h-8 flex items-center gap-2 border-b border-white/10 pb-3">
+                                                <div className="w-2 h-2 rounded-full bg-red-500" />
+                                                <div className="w-2 h-2 rounded-full bg-yellow-500" />
+                                                <div className="w-2 h-2 rounded-full bg-green-500" />
+                                                <div className="ml-auto w-10 h-3 bg-white/20 rounded-full" />
+                                            </div>
+                                            <div className="flex gap-3 h-full">
+                                                {/* Mockup Sidebar */}
+                                                <div className="w-12 h-full flex flex-col gap-2">
+                                                    <div className="w-full h-8 bg-brand-accent/40 rounded border border-brand-accent/50" />
+                                                    <div className="w-full h-8 bg-white/10 rounded" />
+                                                    <div className="w-full h-8 bg-white/10 rounded" />
+                                                    <div className="w-full h-8 bg-white/10 rounded" />
+                                                </div>
+                                                {/* Mockup Content */}
+                                                <div className="flex-1 flex flex-col gap-3">
+                                                    <div className="flex gap-2 w-full h-12">
+                                                        <div className="flex-1 bg-white/10 rounded" />
+                                                        <div className="flex-1 bg-brand-accent/30 rounded" />
+                                                    </div>
+                                                    <div className="w-full flex-1 bg-white/5 border border-white/10 rounded flex items-end justify-center p-3 gap-2 overflow-hidden">
+                                                        {[...Array(6)].map((_, i) => (
+                                                            <div key={i} className="w-4 bg-brand-accent/50 rounded-t" style={{ height: `${20 + Math.random() * 80}%` }} />
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </motion.div>
                         ))}
