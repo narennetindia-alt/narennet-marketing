@@ -221,52 +221,52 @@ export default function BusinessEcosystem() {
                     </div>
 
                     {/* Visual Architecture Diagram */}
-                    <div className="relative max-w-5xl mx-auto h-[600px] md:h-[700px] flex items-center justify-center">
-                        <div className="absolute inset-0 bg-brand-card rounded-[40px] shadow-2xl border border-white/5 overflow-hidden">
-                            {/* Animated connecting lines (svg) */}
-                            <svg className="absolute inset-0 w-full h-full pointer-events-none">
-                                <motion.circle cx="50%" cy="50%" r="20%" stroke="#F27D26" strokeWidth="2" fill="none" strokeDasharray="8 8" 
-                                    animate={{ rotate: 360 }} transition={{ duration: 40, repeat: Infinity, ease: "linear" }} opacity="0.3" />
-                                <motion.circle cx="50%" cy="50%" r="35%" stroke="#F27D26" strokeWidth="1" fill="none" strokeDasharray="4 12" 
-                                    animate={{ rotate: -360 }} transition={{ duration: 60, repeat: Infinity, ease: "linear" }} opacity="0.1" />
-                            </svg>
+                    <div className="relative max-w-4xl mx-auto aspect-square md:aspect-video rounded-[40px] border border-white/5 bg-black/50 overflow-hidden flex items-center justify-center p-8 shadow-2xl">
+                        {/* Animated connecting lines (svg) */}
+                        <svg className="absolute inset-0 w-full h-full opacity-30" style={{ filter: 'drop-shadow(0 0 8px rgba(242, 125, 38, 0.5))' }}>
+                            <motion.line x1="50%" y1="50%" x2="50%" y2="15%" stroke="#F27D26" strokeWidth="2" strokeDasharray="10 10" initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
+                            <motion.line x1="50%" y1="50%" x2="85%" y2="30%" stroke="#F27D26" strokeWidth="2" strokeDasharray="10 10" initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
+                            <motion.line x1="50%" y1="50%" x2="85%" y2="70%" stroke="#F27D26" strokeWidth="2" strokeDasharray="10 10" initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
+                            <motion.line x1="50%" y1="50%" x2="50%" y2="85%" stroke="#F27D26" strokeWidth="2" strokeDasharray="10 10" initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
+                            <motion.line x1="50%" y1="50%" x2="15%" y2="70%" stroke="#F27D26" strokeWidth="2" strokeDasharray="10 10" initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
+                            <motion.line x1="50%" y1="50%" x2="15%" y2="30%" stroke="#F27D26" strokeWidth="2" strokeDasharray="10 10" initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
+                        </svg>
 
-                            {/* Center Node */}
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-                                <motion.div 
-                                    animate={{ boxShadow: ['0 0 0 0 rgba(242, 125, 38, 0.4)', '0 0 0 30px rgba(242, 125, 38, 0)'] }}
-                                    transition={{ duration: 2, repeat: Infinity }}
-                                    className="w-32 h-32 md:w-40 md:h-40 bg-gradient-to-br from-brand-accent/80 to-brand-accent rounded-full flex flex-col items-center justify-center text-white shadow-2xl border-2 border-white/20 backdrop-blur-md"
-                                >
-                                    <CloudLightning size={48} className="mb-2" />
-                                    <span className="font-bold text-center leading-tight">NarenNet<br/>Cloud</span>
-                                </motion.div>
+                        {/* Center Hub */}
+                        <motion.div 
+                            initial={{ scale: 0 }}
+                            whileInView={{ scale: 1 }}
+                            viewport={{ once: true }}
+                            className="absolute z-20 w-32 h-32 md:w-48 md:h-48 rounded-full bg-brand-accent/20 border-2 border-brand-accent flex items-center justify-center backdrop-blur-md shadow-[0_0_50px_rgba(242,125,38,0.3)] filter backdrop-brightness-125 text-white"
+                        >
+                            <div className="w-24 h-24 md:w-36 md:h-36 rounded-full bg-brand-accent/30 flex flex-col items-center justify-center animate-pulse duration-3000">
+                                <CloudLightning className="w-10 h-10 md:w-16 md:h-16 text-white mb-2" />
+                                <span className="text-white font-bold text-sm md:text-base hidden sm:block text-center leading-tight">NarenNet<br/>Cloud</span>
                             </div>
+                        </motion.div>
 
-                            {/* Surrounding Nodes */}
-                            {[
-                                { name: "CRM System", icon: <Users size={24} />, pos: "top-[10%] left-1/2 -translate-x-1/2" },
-                                { name: "ERP System", icon: <Database size={24} />, pos: "top-[25%] right-[10%] md:right-[20%]" },
-                                { name: "HR Management", icon: <Briefcase size={24} />, pos: "bottom-[25%] right-[10%] md:right-[20%]" },
-                                { name: "Sales Auto", icon: <Zap size={24} />, pos: "bottom-[10%] left-1/2 -translate-x-1/2" },
-                                { name: "Finance", icon: <CreditCard size={24} />, pos: "bottom-[25%] left-[10%] md:left-[20%]" },
-                                { name: "Analytics", icon: <PieChart size={24} />, pos: "top-[25%] left-[10%] md:left-[20%]" }
-                            ].map((node, i) => (
-                                <motion.div 
-                                    key={i}
-                                    initial={{ opacity: 0, scale: 0.5 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: i * 0.1 + 0.5, type: "spring" }}
-                                    className={`absolute ${node.pos} bg-white/[0.03] backdrop-blur-xl px-4 py-3 md:px-6 md:py-4 rounded-2xl shadow-lg border border-white/10 flex flex-col items-center gap-2 z-10 min-w[120px] hover:scale-105 hover:bg-white/[0.08] transition-all cursor-default group`}
-                                >
-                                    <div className="p-3 bg-brand-accent/20 text-brand-accent rounded-xl group-hover:bg-brand-accent group-hover:text-white transition-colors">
-                                        {node.icon}
-                                    </div>
-                                    <span className="font-bold text-white text-sm md:text-base text-center">{node.name}</span>
-                                </motion.div>
-                            ))}
-                        </div>
+                        {/* Satellites */}
+                        {[
+                            { name: "CRM System", icon: Users, delay: 0.2, left: "50%", top: "15%" },
+                            { name: "ERP System", icon: Database, delay: 0.3, left: "85%", top: "30%" },
+                            { name: "HR Management", icon: Briefcase, delay: 0.4, left: "85%", top: "70%" },
+                            { name: "Sales Auto", icon: Zap, delay: 0.5, left: "50%", top: "85%" },
+                            { name: "Finance", icon: CreditCard, delay: 0.6, left: "15%", top: "70%" },
+                            { name: "Analytics", icon: PieChart, delay: 0.7, left: "15%", top: "30%" }
+                        ].map((node, i) => (
+                            <motion.div 
+                                key={i}
+                                initial={{ opacity: 0, scale: 0 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: node.delay, type: 'spring', stiffness: 100 }}
+                                style={{ left: node.left, top: node.top }}
+                                className="absolute -translate-x-1/2 -translate-y-1/2 z-10 w-24 h-24 md:w-32 md:h-32 bg-white/[0.03] backdrop-blur-xl rounded-full md:rounded-[2rem] shadow-lg border border-white/10 flex flex-col items-center justify-center gap-2 hover:scale-110 hover:bg-white/[0.08] hover:border-brand-accent transition-all cursor-default group text-center p-2"
+                            >
+                                <node.icon className="w-6 h-6 md:w-8 md:h-8 text-brand-secondary group-hover:text-brand-accent transition-colors" />
+                                <span className="font-bold text-white text-[10px] md:text-sm leading-tight px-1">{node.name}</span>
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
             </section>
