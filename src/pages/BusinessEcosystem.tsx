@@ -138,6 +138,75 @@ export default function BusinessEcosystem() {
                             Book Free Consultation
                         </Link>
                     </motion.div>
+
+                    {/* Hero Visual Mockup */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95, y: 40 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        transition={{ duration: 1, delay: 0.5 }}
+                        className="w-full max-w-6xl mt-24 relative"
+                    >
+                        {/* Gradient mask at the bottom to blend into the next section */}
+                        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-brand-bg to-transparent z-20 pointer-events-none" />
+                        
+                        <div className="aspect-[16/9] rounded-[40px] border border-white/10 bg-brand-card overflow-hidden shadow-2xl relative p-2">
+                            {/* Minimalist Dashboard Mockup */}
+                            <div className="w-full h-full rounded-[32px] border border-white/5 bg-[#0a0a0a] overflow-hidden flex flex-col relative z-10">
+                                {/* Top Bar */}
+                                <div className="h-16 border-b border-white/5 flex items-center px-8 gap-4 bg-white/[0.02]">
+                                    <div className="flex gap-2">
+                                        <div className="w-3 h-3 rounded-full bg-red-500/50" />
+                                        <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
+                                        <div className="w-3 h-3 rounded-full bg-green-500/50" />
+                                    </div>
+                                    <div className="ml-8 w-64 h-8 bg-white/5 rounded-xl border border-white/5" />
+                                    <div className="ml-auto w-8 h-8 bg-brand-accent/20 rounded-full border border-brand-accent/30" />
+                                </div>
+                                {/* Main Canvas */}
+                                <div className="flex-1 flex p-8 gap-8">
+                                    {/* Sidebar */}
+                                    <div className="w-64 flex flex-col gap-4">
+                                        <div className="h-10 bg-brand-accent/20 border border-brand-accent/20 rounded-xl w-full" />
+                                        <div className="h-10 bg-white/5 rounded-xl w-full" />
+                                        <div className="h-10 bg-white/5 rounded-xl w-full" />
+                                        <div className="h-10 bg-white/5 rounded-xl w-full" />
+                                    </div>
+                                    {/* Content area splitting */}
+                                    <div className="flex-1 flex flex-col gap-8">
+                                        <div className="flex gap-8 h-48">
+                                            {/* Card 1 */}
+                                            <div className="flex-1 bg-white/5 border border-white/5 rounded-3xl p-6 relative overflow-hidden">
+                                                <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 blur-3xl rounded-full" />
+                                                <div className="w-32 h-6 bg-white/10 rounded mb-4" />
+                                                <div className="w-48 h-12 bg-white/20 rounded" />
+                                            </div>
+                                            {/* Card 2 (Active/Brand) */}
+                                            <div className="flex-1 bg-white/5 border border-brand-accent/20 rounded-3xl p-6 relative overflow-hidden">
+                                                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-accent/10 blur-3xl rounded-full" />
+                                                <div className="w-32 h-6 bg-white/10 rounded mb-4" />
+                                                <div className="w-24 h-12 bg-brand-accent/80 rounded" />
+                                            </div>
+                                            {/* Card 3 */}
+                                            <div className="flex-1 bg-white/5 border border-white/5 rounded-3xl p-6 relative overflow-hidden">
+                                                <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 blur-3xl rounded-full" />
+                                                <div className="w-32 h-6 bg-white/10 rounded mb-4" />
+                                                <div className="w-32 h-12 bg-white/20 rounded" />
+                                            </div>
+                                        </div>
+                                        {/* Chart Area */}
+                                        <div className="flex-1 bg-white/5 border border-white/5 rounded-3xl p-8 relative overflow-hidden">
+                                            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-brand-accent/5 to-transparent blur-xl" />
+                                            <div className="w-full h-full border border-white/5 rounded-xl flex items-end p-8 gap-4 relative z-10">
+                                                {[40, 70, 45, 90, 65, 80, 55, 100].map((height, i) => (
+                                                    <div key={i} className="flex-1 bg-gradient-to-t from-brand-accent/40 to-brand-accent rounded-t-md hover:from-brand-accent/60 transition-colors" style={{ height: `${height}%` }} />
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
                 </div>
             </section>
 
