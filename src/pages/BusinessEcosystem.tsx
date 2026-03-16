@@ -151,60 +151,32 @@ export default function BusinessEcosystem() {
                         {/* Gradient mask at the bottom to blend into the next section */}
                         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-brand-bg to-transparent z-20 pointer-events-none" />
                         
-                        <div className="aspect-[16/9] rounded-[40px] border border-white/10 bg-brand-card overflow-hidden shadow-2xl relative p-2">
-                            {/* Minimalist Dashboard Mockup */}
-                            <div className="w-full h-full rounded-[32px] border border-white/5 bg-[#0a0a0a] overflow-hidden flex flex-col relative z-10">
+                        <div className="aspect-[16/9] rounded-[40px] border border-white/10 bg-[#050505] overflow-hidden shadow-[0_0_100px_rgba(242,125,38,0.15)] relative p-2 md:p-4">
+                            {/* Minimalist Dashboard Mockup Header */}
+                            <div className="w-full h-full rounded-[24px] md:rounded-[32px] border border-white/10 bg-[#0a0a0a] overflow-hidden flex flex-col relative z-10">
                                 {/* Top Bar */}
-                                <div className="h-16 border-b border-white/5 flex items-center px-8 gap-4 bg-white/[0.02]">
-                                    <div className="flex gap-2">
-                                        <div className="w-3 h-3 rounded-full bg-red-500/50" />
-                                        <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
-                                        <div className="w-3 h-3 rounded-full bg-green-500/50" />
+                                <div className="h-10 md:h-14 border-b border-white/10 flex items-center px-4 md:px-6 gap-4 bg-white/[0.02]">
+                                    <div className="flex gap-1.5 md:gap-2">
+                                        <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#FF5F56]" />
+                                        <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#FFBD2E]" />
+                                        <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#27C93F]" />
                                     </div>
-                                    <div className="ml-8 w-64 h-8 bg-white/5 rounded-xl border border-white/5" />
-                                    <div className="ml-auto w-8 h-8 bg-brand-accent/20 rounded-full border border-brand-accent/30" />
+                                    <div className="mx-auto flex items-center justify-center px-4 md:px-32 w-full max-w-lg">
+                                        <div className="w-full bg-white/5 border border-white/10 rounded-md md:rounded-lg h-6 md:h-8 flex items-center justify-center">
+                                            <span className="text-[10px] md:text-sm font-mono text-white/30 truncate">businessecosystem-narennet.netlify.app</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                {/* Main Canvas */}
-                                <div className="flex-1 flex p-8 gap-8">
-                                    {/* Sidebar */}
-                                    <div className="w-64 flex flex-col gap-4">
-                                        <div className="h-10 bg-brand-accent/20 border border-brand-accent/20 rounded-xl w-full" />
-                                        <div className="h-10 bg-white/5 rounded-xl w-full" />
-                                        <div className="h-10 bg-white/5 rounded-xl w-full" />
-                                        <div className="h-10 bg-white/5 rounded-xl w-full" />
-                                    </div>
-                                    {/* Content area splitting */}
-                                    <div className="flex-1 flex flex-col gap-8">
-                                        <div className="flex gap-8 h-48">
-                                            {/* Card 1 */}
-                                            <div className="flex-1 bg-white/5 border border-white/5 rounded-3xl p-6 relative overflow-hidden">
-                                                <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 blur-3xl rounded-full" />
-                                                <div className="w-32 h-6 bg-white/10 rounded mb-4" />
-                                                <div className="w-48 h-12 bg-white/20 rounded" />
-                                            </div>
-                                            {/* Card 2 (Active/Brand) */}
-                                            <div className="flex-1 bg-white/5 border border-brand-accent/20 rounded-3xl p-6 relative overflow-hidden">
-                                                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-accent/10 blur-3xl rounded-full" />
-                                                <div className="w-32 h-6 bg-white/10 rounded mb-4" />
-                                                <div className="w-24 h-12 bg-brand-accent/80 rounded" />
-                                            </div>
-                                            {/* Card 3 */}
-                                            <div className="flex-1 bg-white/5 border border-white/5 rounded-3xl p-6 relative overflow-hidden">
-                                                <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 blur-3xl rounded-full" />
-                                                <div className="w-32 h-6 bg-white/10 rounded mb-4" />
-                                                <div className="w-32 h-12 bg-white/20 rounded" />
-                                            </div>
-                                        </div>
-                                        {/* Chart Area */}
-                                        <div className="flex-1 bg-white/5 border border-white/5 rounded-3xl p-8 relative overflow-hidden">
-                                            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-brand-accent/5 to-transparent blur-xl" />
-                                            <div className="w-full h-full border border-white/5 rounded-xl flex items-end p-8 gap-4 relative z-10">
-                                                {[40, 70, 45, 90, 65, 80, 55, 100].map((height, i) => (
-                                                    <div key={i} className="flex-1 bg-gradient-to-t from-brand-accent/40 to-brand-accent rounded-t-md hover:from-brand-accent/60 transition-colors" style={{ height: `${height}%` }} />
-                                                ))}
-                                            </div>
-                                        </div>
-                                    </div>
+                                {/* Full Live Iframe Canvas */}
+                                <div className="flex-1 bg-[#050505] relative cursor-default">
+                                    <iframe 
+                                        src="https://businessecosystem-narennet.netlify.app/"
+                                        className="w-full h-full border-0 absolute inset-0 pointer-events-none opacity-90 transition-opacity hover:opacity-100"
+                                        title="NarenNet Platform live demo"
+                                        scrolling="yes"
+                                    />
+                                    {/* Subtle vignette/overlay */}
+                                    <div className="absolute inset-0 shadow-[inset_0_0_50px_rgba(0,0,0,0.5)] pointer-events-none" />
                                 </div>
                             </div>
                         </div>
@@ -326,37 +298,26 @@ export default function BusinessEcosystem() {
                                         </div>
                                     </div>
 
-                                    {/* Abstract UI Mockup */}
-                                    <div className="hidden lg:block relative w-full h-full min-h-[300px] rounded-3xl border border-white/10 bg-black overflow-hidden shadow-2xl skew-y-6 group-hover:skew-y-3 transition-transform duration-500 scale-[1.2] translate-x-10 translate-y-10 group-hover:translate-x-8 group-hover:translate-y-8">
-                                        <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/20 to-transparent opacity-50" />
-                                        <div className="w-full h-full flex flex-col p-4 gap-3 relative z-10">
+                                    {/* Interactive Live Mockup */}
+                                    <div className="hidden lg:block relative w-full h-full min-h-[300px] rounded-3xl border border-white/10 bg-[#0a0a0a] overflow-hidden shadow-2xl skew-y-6 group-hover:skew-y-3 transition-transform duration-500 scale-[1.2] translate-x-10 translate-y-10 group-hover:translate-x-8 group-hover:translate-y-8">
+                                        <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/10 to-transparent opacity-50 pointer-events-none z-20" />
+                                        
+                                        <div className="w-full h-full flex flex-col relative z-10">
                                             {/* Mockup Top Bar */}
-                                            <div className="w-full h-8 flex items-center gap-2 border-b border-white/10 pb-3">
-                                                <div className="w-2 h-2 rounded-full bg-red-500" />
-                                                <div className="w-2 h-2 rounded-full bg-yellow-500" />
-                                                <div className="w-2 h-2 rounded-full bg-green-500" />
-                                                <div className="ml-auto w-10 h-3 bg-white/20 rounded-full" />
+                                            <div className="w-full h-8 flex items-center gap-2 border-b border-white/10 px-4 bg-black">
+                                                <div className="w-2 h-2 rounded-full bg-[#FF5F56]" />
+                                                <div className="w-2 h-2 rounded-full bg-[#FFBD2E]" />
+                                                <div className="w-2 h-2 rounded-full bg-[#27C93F]" />
+                                                <div className="ml-auto w-32 h-3 bg-white/10 rounded-full" />
                                             </div>
-                                            <div className="flex gap-3 h-full">
-                                                {/* Mockup Sidebar */}
-                                                <div className="w-12 h-full flex flex-col gap-2">
-                                                    <div className="w-full h-8 bg-brand-accent/40 rounded border border-brand-accent/50" />
-                                                    <div className="w-full h-8 bg-white/10 rounded" />
-                                                    <div className="w-full h-8 bg-white/10 rounded" />
-                                                    <div className="w-full h-8 bg-white/10 rounded" />
-                                                </div>
-                                                {/* Mockup Content */}
-                                                <div className="flex-1 flex flex-col gap-3">
-                                                    <div className="flex gap-2 w-full h-12">
-                                                        <div className="flex-1 bg-white/10 rounded" />
-                                                        <div className="flex-1 bg-brand-accent/30 rounded" />
-                                                    </div>
-                                                    <div className="w-full flex-1 bg-white/5 border border-white/10 rounded flex items-end justify-center p-3 gap-2 overflow-hidden">
-                                                        {[...Array(6)].map((_, i) => (
-                                                            <div key={i} className="w-4 bg-brand-accent/50 rounded-t" style={{ height: `${20 + Math.random() * 80}%` }} />
-                                                        ))}
-                                                    </div>
-                                                </div>
+                                            
+                                            {/* Embed Frame */}
+                                            <div className="flex-1 relative bg-[#050505] overflow-hidden">
+                                                <iframe 
+                                                    src="https://businessecosystem-narennet.netlify.app/"
+                                                    className="w-full h-full border-0 absolute inset-0 pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity"
+                                                    title={`${product.title} Demo`}
+                                                />
                                             </div>
                                         </div>
                                     </div>
@@ -399,26 +360,29 @@ export default function BusinessEcosystem() {
                                     ))}
                                 </div>
 
-                                {/* Abstract Phone Mockup inside the card */}
+                                {/* Phone Mockup inside the card */}
                                 <div className="relative w-full aspect-[9/16] mt-4 z-10 translate-y-8 group-hover:translate-y-4 transition-transform duration-500">
-                                    <div className="absolute inset-0 bg-black rounded-[32px] p-2 border border-white/20 shadow-2xl">
-                                        <div className={`w-full h-full rounded-[24px] bg-gradient-to-b ${app.mockupColor} flex flex-col p-4 relative overflow-hidden`}>
-                                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-4 bg-black rounded-b-xl z-20" />
-                                            {/* UI Mockup Elements */}
-                                            <div className="h-8 flex justify-between items-center mb-6 mt-4">
-                                                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-md">
-                                                    {app.icon}
-                                                </div>
-                                                <div className="w-16 h-2 bg-white/20 rounded-full" />
+                                    <div className="absolute inset-0 bg-black rounded-[32px] p-1.5 md:p-2 border border-white/20 shadow-[0_0_30px_rgba(0,0,0,0.8)]">
+                                        <div className="w-full h-full rounded-[24px] md:rounded-[26px] bg-[#050505] flex flex-col relative overflow-hidden">
+                                            {/* iPhone Notch */}
+                                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[40%] h-[20px] bg-black rounded-b-2xl z-20 flex justify-center items-end pb-1">
+                                                <div className="w-8 h-1 bg-white/10 rounded-full" />
                                             </div>
-                                            <div className="flex-1 flex flex-col gap-3">
-                                                <div className="w-full h-24 bg-white/10 rounded-xl backdrop-blur-sm" />
-                                                <div className="w-full flex gap-3">
-                                                    <div className="flex-1 h-16 bg-white/10 rounded-xl backdrop-blur-sm" />
-                                                    <div className="flex-1 h-16 bg-white/10 rounded-xl backdrop-blur-sm" />
-                                                </div>
-                                                <div className="w-full flex-1 bg-white/10 rounded-xl backdrop-blur-sm mt-2" />
+                                            
+                                            {/* Live Mobile View inside Iframe */}
+                                            <div className="flex-1 relative w-full h-full">
+                                                {/* Dark gradient overlay matching mockup color for seamless branding blend */}
+                                                <div className={`absolute inset-0 bg-gradient-to-b ${app.mockupColor} opacity-20 pointer-events-none z-10`} />
+                                                <iframe 
+                                                    src="https://businessecosystem-narennet.netlify.app/"
+                                                    className="absolute inset-0 w-full h-full border-0 pointer-events-none"
+                                                    title={`${app.title} live demo`}
+                                                    scrolling="no"
+                                                />
                                             </div>
+                                            
+                                            {/* Home indicator */}
+                                            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-1/3 h-1 rounded-full bg-white/30 z-20" />
                                         </div>
                                     </div>
                                 </div>
