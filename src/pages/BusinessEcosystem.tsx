@@ -374,10 +374,10 @@ export default function BusinessEcosystem() {
                                                 {/* Dark gradient overlay matching mockup color for seamless branding blend */}
                                                 <div className={`absolute inset-0 bg-gradient-to-b ${app.mockupColor} opacity-20 pointer-events-none z-10`} />
                                                 <iframe 
-                                                    src="https://businessecosystem-narennet.netlify.app/"
+                                                    src="https://businessecosystem-narennet.netlify.app/mobile"
                                                     className="absolute inset-0 w-full h-full border-0 pointer-events-none"
                                                     title={`${app.title} live demo`}
-                                                    scrolling="no"
+                                                    scrolling="yes"
                                                 />
                                             </div>
                                             
