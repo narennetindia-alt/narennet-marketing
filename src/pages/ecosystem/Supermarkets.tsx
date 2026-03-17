@@ -15,8 +15,6 @@ import {
   Settings,
   FileText,
   Zap,
-  ShieldCheck,
-  Smartphone,
   CheckCircle2,
   ArrowRight,
   PlayCircle,
@@ -64,6 +62,45 @@ export default function Supermarkets() {
     { title: 'Barcode Generation', desc: 'Create and print custom barcodes for loose items or local products.', icon: ScanBarcode },
   ];
 
+  const tabFeatures: Record<string, string[]> = {
+    billing: [
+      "2-second fast POS checkout",
+      "Offline bill generation & queuing",
+      "Multi-counter synchronization",
+      "Built-in barcode generation & scanning"
+    ],
+    inventory: [
+      "Real-time live stock tracking",
+      "Predictive low-stock automated alerts",
+      "Expiry date management & warnings",
+      "Supplier purchase order automation"
+    ],
+    crm: [
+      "Point-based dynamic loyalty programs",
+      "Automated WhatsApp promotion blasts",
+      "Customer purchasing habits analytics",
+      "Tiered membership & tiered pricing levels"
+    ],
+    analytics: [
+      "Real-time gross margin & revenue tracking",
+      "Store peak hours and foot-traffic analysis",
+      "Individual cashier performance metrics",
+      "Automated daily, weekly, & monthly email reports"
+    ],
+    admin: [
+      "Multi-branch and multi-store centralization",
+      "Role-based granular staff access control",
+      "Real-time dynamic remote pricing updates",
+      "Secure tamper-proof audit logs for operations"
+    ],
+    erp: [
+      "Automated Tally and Zoho accounting synchronization",
+      "REST JSON API for legacy system hooks",
+      "Third-party delivery app integrations (Zomato/Swiggy)",
+      "Unified global financial dashboard"
+    ]
+  };
+
   return (
     <>
       <Helmet>
@@ -71,7 +108,7 @@ export default function Supermarkets() {
         <meta name="description" content="Premium supermarket billing software that never stops. Offline-first, auto-sync, and high-speed POS." />
       </Helmet>
 
-      <div className="min-h-screen bg-[#060C1B] selection:bg-brand-accent/30 selection:text-brand-accent text-white font-sans overflow-x-hidden pt-20">
+      <div className="min-h-screen bg-brand-bg selection:bg-brand-accent/30 selection:text-brand-accent text-white font-sans overflow-x-hidden pt-20">
         
         {/* Floating WhatsApp CTA */}
         <a 
@@ -123,7 +160,7 @@ export default function Supermarkets() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-lg md:text-2xl text-blue-100/70 font-light max-w-3xl mx-auto mb-12 leading-relaxed"
+              className="text-lg md:text-2xl text-brand-secondary font-light max-w-3xl mx-auto mb-12 leading-relaxed"
             >
               Experience seamless offline billing with auto-sync capability. No internet? No problem. Keep your queues moving without losing a single transaction.
             </motion.p>
@@ -139,14 +176,14 @@ export default function Supermarkets() {
                 target="_blank"
                 rel="noreferrer"
                 onClick={trackDemoClick}
-                className="group w-full sm:w-auto flex items-center justify-center gap-3 bg-brand-accent text-white px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-[#060C1B] transition-all shadow-lg shadow-brand-accent/25 hover:shadow-xl hover:shadow-brand-accent/40"
+                className="group w-full sm:w-auto flex items-center justify-center gap-3 bg-brand-accent text-white px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-black transition-all shadow-lg shadow-brand-accent/25 hover:shadow-xl hover:shadow-brand-accent/40"
               >
                 <PlayCircle size={22} className="group-hover:scale-110 transition-transform" />
                 View Live Demo
               </a>
               <Link 
                 to="/contact" 
-                className="group w-full sm:w-auto flex items-center justify-center gap-3 bg-white/5 border border-white/10 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-colors backdrop-blur-sm"
+                className="group w-full sm:w-auto flex items-center justify-center gap-3 bg-white/5 border border-brand-border text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-colors backdrop-blur-sm"
               >
                 Get Started <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -162,12 +199,12 @@ export default function Supermarkets() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
-              className="relative rounded-2xl md:rounded-[40px] border border-white/10 bg-[#0B1221] shadow-2xl overflow-hidden group"
+              className="relative rounded-2xl md:rounded-[40px] border border-brand-border bg-brand-card shadow-2xl overflow-hidden group"
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-[#060C1B] via-transparent to-transparent z-10 opacity-60" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-transparent to-transparent z-10 opacity-60" />
               
               {/* Mockup Top Bar */}
-              <div className="bg-[#131B2F] border-b border-white/5 p-4 flex items-center gap-4">
+              <div className="bg-brand-card border-b border-brand-border p-4 flex items-center gap-4">
                 <div className="flex gap-2">
                   <div className="w-3 h-3 rounded-full bg-red-500/80" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
@@ -182,7 +219,7 @@ export default function Supermarkets() {
 
               {/* Mockup Dashboard Content */}
               <div className="p-8 aspect-video md:aspect-[21/9] bg-cover bg-center relative" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=2000)' }}>
-                 <div className="absolute inset-0 bg-[#060C1B]/80 backdrop-blur-sm flex items-center justify-center">
+                 <div className="absolute inset-0 bg-brand-bg/80 backdrop-blur-sm flex items-center justify-center">
                     <a 
                       href="https://narennetstoredemo.netlify.app/"
                       target="_blank"
@@ -199,7 +236,7 @@ export default function Supermarkets() {
         </section>
 
         {/* Offline Billing System */}
-        <section className="py-24 bg-[#0A101D] border-y border-white/5 relative overflow-hidden">
+        <section className="py-24 bg-brand-bg/90 border-y border-brand-border relative overflow-hidden">
           <div className="container-wide px-6 max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               
@@ -207,7 +244,7 @@ export default function Supermarkets() {
                 <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
                   <span className="text-brand-accent">Unstoppable</span> Offline Billing
                 </h2>
-                <p className="text-lg text-blue-100/70 mb-8 leading-relaxed">
+                <p className="text-lg text-brand-secondary mb-8 leading-relaxed">
                   Internet down? Don't sweat it. Our local-first architecture ensures your checkout counters never freeze. Bills are saved locally using IndexedDB technology and automatically synced via a secure queue exactly when your connection returns.
                 </p>
                 <ul className="space-y-4 mb-10">
@@ -215,21 +252,21 @@ export default function Supermarkets() {
                     <CheckCircle2 className="text-brand-accent shrink-0 mt-1" size={24} />
                     <div>
                       <h4 className="font-bold text-white text-lg">Zero Data Loss</h4>
-                      <p className="text-blue-100/50 text-sm">Every transaction is securely encrypted and stored locally.</p>
+                      <p className="text-brand-secondary text-sm">Every transaction is securely encrypted and stored locally.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-4">
                     <CheckCircle2 className="text-brand-accent shrink-0 mt-1" size={24} />
                     <div>
                       <h4 className="font-bold text-white text-lg">Instant Auto-Sync</h4>
-                      <p className="text-blue-100/50 text-sm">Background sync queue pushes data seamlessly upon reconnection.</p>
+                      <p className="text-brand-secondary text-sm">Background sync queue pushes data seamlessly upon reconnection.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-4">
                     <CheckCircle2 className="text-brand-accent shrink-0 mt-1" size={24} />
                     <div>
                       <h4 className="font-bold text-white text-lg">Independent Working</h4>
-                      <p className="text-blue-100/50 text-sm">Continue generating bills, searching products, and printing receipts.</p>
+                      <p className="text-brand-secondary text-sm">Continue generating bills, searching products, and printing receipts.</p>
                     </div>
                   </li>
                 </ul>
@@ -238,7 +275,7 @@ export default function Supermarkets() {
               {/* Visual Illustration */}
               <div className="relative">
                 <div className="absolute inset-0 bg-brand-accent/5 blur-[100px] rounded-full" />
-                <div className="relative bg-[#131B2F] border border-white/10 rounded-[32px] p-8 md:p-12 shadow-2xl flex flex-col items-center justify-center min-h-[400px]">
+                <div className="relative bg-brand-card border border-brand-border rounded-[32px] p-8 md:p-12 shadow-2xl flex flex-col items-center justify-center min-h-[400px]">
                   
                   {/* Status indicator */}
                   <motion.div 
@@ -280,7 +317,7 @@ export default function Supermarkets() {
                     </div>
 
                     {/* Cloud Server */}
-                    <div className="p-6 rounded-2xl bg-black/40 border border-white/10 flex flex-col items-center gap-3 z-10">
+                    <div className="p-6 rounded-2xl bg-black/40 border border-brand-border flex flex-col items-center gap-3 z-10">
                       <Database size={40} className="text-blue-400" />
                       <span className="text-xs font-bold text-white/70">Cloud DB</span>
                     </div>
@@ -297,7 +334,7 @@ export default function Supermarkets() {
           <div className="container-wide max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Everything You Need to Scale</h2>
-              <p className="text-blue-100/70 text-lg max-w-2xl mx-auto">From single stores to national chains, our comprehensive module suite handles every aspect of retail operations.</p>
+              <p className="text-brand-secondary text-lg max-w-2xl mx-auto">From single stores to national chains, our comprehensive module suite handles every aspect of retail operations.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -308,13 +345,13 @@ export default function Supermarkets() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className="bg-white/[0.02] border border-white/5 p-8 rounded-[24px] hover:bg-white/[0.04] transition-colors group cursor-default"
+                  className="bg-brand-card/30 border border-brand-border p-8 rounded-[24px] hover:bg-brand-card/60 transition-colors group cursor-default shadow-sm hover:shadow-lg hover:border-brand-accent/20"
                 >
                   <div className="w-14 h-14 rounded-2xl bg-brand-accent/10 flex items-center justify-center mb-6 group-hover:bg-brand-accent group-hover:text-white transition-colors">
                     <feature.icon size={28} className="text-brand-accent group-hover:text-white transition-colors" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
-                  <p className="text-blue-100/60 leading-relaxed text-sm font-light">
+                  <p className="text-brand-secondary leading-relaxed text-sm font-light">
                     {feature.desc}
                   </p>
                 </motion.div>
@@ -324,7 +361,7 @@ export default function Supermarkets() {
         </section>
 
         {/* Modules Interactive Tabs */}
-        <section className="py-24 bg-[#0A101D] border-y border-white/5">
+        <section className="py-24 bg-brand-bg/90 border-y border-brand-border">
           <div className="container-wide max-w-6xl mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white">Explore the Architecture</h2>
@@ -340,7 +377,7 @@ export default function Supermarkets() {
                     className={`flex items-center gap-4 p-4 rounded-xl font-bold text-left transition-all ${
                       activeTab === tab.id 
                         ? 'bg-brand-accent text-white shadow-lg shadow-brand-accent/20' 
-                        : 'bg-white/5 text-blue-100/60 hover:bg-white/10 hover:text-white border border-transparent'
+                        : 'bg-brand-card text-brand-secondary hover:bg-white/10 hover:text-white border border-brand-border'
                     }`}
                   >
                     <tab.icon size={20} />
@@ -358,15 +395,17 @@ export default function Supermarkets() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.3 }}
-                    className="bg-[#131B2F] border border-white/10 p-8 md:p-12 rounded-[32px] min-h-[400px] flex flex-col justify-center shadow-xl"
+                    className="bg-brand-card border border-brand-border p-8 md:p-12 rounded-[32px] min-h-[400px] flex flex-col justify-center shadow-xl relative overflow-hidden"
                   >
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-brand-accent/5 rounded-full blur-[80px] pointer-events-none" />
+                    
                     {tabs.filter(t => t.id === activeTab).map(tab => (
-                      <div key={tab.id}>
+                      <div key={tab.id} className="relative z-10">
                         <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mb-8 border border-white/10">
                            <tab.icon size={32} className="text-brand-accent" />
                         </div>
                         <h3 className="text-3xl font-bold text-white mb-4">{tab.label} Module</h3>
-                        <p className="text-blue-100/70 text-lg leading-relaxed mb-8">
+                        <p className="text-brand-secondary text-lg leading-relaxed mb-8">
                            {tab.id === 'billing' && "Accelerate checkout lanes with keyboard shortcuts, barcode scanner integrations, and a clean, clutter-free POS interface designed for high-stress environments."}
                            {tab.id === 'inventory' && "Track thousands of SKUs in real-time. Automatically generate purchase orders when stock levels hit predictive thresholds, and completely eliminate overstocking."}
                            {tab.id === 'crm' && "Capture customer phone numbers seamlessly at checkout to allocate loyalty points. Send automated WhatsApp campaigns for birthdays, festivals, and targeted discounts."}
@@ -374,11 +413,12 @@ export default function Supermarkets() {
                            {tab.id === 'admin' && "Run your empire from your phone. Tweak pricing schemas, update product catalogs across all branches simultaneously, and manage employee access levels securely."}
                            {tab.id === 'erp' && "Seamlessly sink data with popular accounting software like Tally, Zoho Books, or custom legacy systems via our flexible REST APIs."}
                         </p>
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                          {[1,2,3,4].map(idx => (
+                        
+                        <ul className="grid grid-cols-1 gap-4">
+                          {tabFeatures[tab.id].map((feat, idx) => (
                             <li key={idx} className="flex items-center gap-3">
-                              <CheckCircle2 size={18} className="text-brand-accent" />
-                              <span className="text-white/80 font-medium text-sm">Premium Feature {idx}</span>
+                              <CheckCircle2 size={18} className="text-brand-accent shrink-0" />
+                              <span className="text-white font-medium text-sm">{feat}</span>
                             </li>
                           ))}
                         </ul>
@@ -396,7 +436,7 @@ export default function Supermarkets() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brand-accent/5 pointer-events-none" />
           <div className="container-wide max-w-5xl mx-auto text-center relative z-10">
             <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">Ready for Premium Performance?</h2>
-            <p className="text-xl text-blue-100/70 max-w-2xl mx-auto mb-14">
+            <p className="text-xl text-brand-secondary max-w-2xl mx-auto mb-14">
               Join top retailers upgrading to NarenNet's lightning-fast, highly scalable, offline-first ecosystem. Setup takes less than 24 hours.
             </p>
             
@@ -412,7 +452,7 @@ export default function Supermarkets() {
                 href="https://wa.me/919025556209" 
                 target="_blank" 
                 rel="noreferrer"
-                className="group flex items-center justify-center gap-3 bg-white/5 border border-white/10 text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-white/10 transition-colors"
+                className="group flex items-center justify-center gap-3 bg-white/5 border border-brand-border text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-white/10 transition-colors"
               >
                 <MessageCircle size={22} className="text-[#25D366]" /> Talk to an Expert
               </a>
