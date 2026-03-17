@@ -21,10 +21,14 @@ import {
   MessageCircle,
   Monitor
 } from 'lucide-react';
+import TrustBadges from '../../components/TrustBadges';
+import LeadCaptureModal from '../../components/LeadCaptureModal';
 
 export default function Supermarkets() {
   const [activeTab, setActiveTab] = useState('billing');
   const [isOnline, setIsOnline] = useState(true);
+  const [isLeadModalOpen, setIsLeadModalOpen] = useState(false);
+  const [hasShownModal, setHasShownModal] = useState(false);
 
   // Future logic note:
   // Offline system using:
@@ -37,6 +41,33 @@ export default function Supermarkets() {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
+
+  // Conversion Triggers: Timer (15s) and Scroll (50%)
+  useEffect(() => {
+    if (hasShownModal) return;
+
+    const timer = setTimeout(() => {
+      setIsLeadModalOpen(true);
+      setHasShownModal(true);
+    }, 15000);
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      
+      if (scrollY + windowHeight > documentHeight / 2) {
+        setIsLeadModalOpen(true);
+        setHasShownModal(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [hasShownModal]);
 
   const trackDemoClick = () => {
     // Future: Demo tracking (who clicks demo)
@@ -190,6 +221,11 @@ export default function Supermarkets() {
             </motion.div>
           </div>
         </section>
+
+        {/* Global Trust Marquee */}
+        <div className="mt-[-80px] relative z-[30]">
+           <TrustBadges />
+        </div>
 
         {/* Demo Dashboard Mockup Section */}
         <section className="pb-32 relative z-20 px-6 mt-[-60px]">
@@ -731,6 +767,11 @@ export default function Supermarkets() {
         </section>
 
       </div>
+
+      <LeadCaptureModal 
+        isOpen={isLeadModalOpen} 
+        onClose={() => setIsLeadModalOpen(false)} 
+      />
     </>
   );
 }
