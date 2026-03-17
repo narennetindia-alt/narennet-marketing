@@ -6,6 +6,7 @@ import {
     Mail, Zap, Network, Building2, Briefcase, PieChart, Send, Target
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import DashboardMockup from '../components/mockups/DashboardMockup';
 
 export default function BusinessEcosystem() {
     const products = [
@@ -156,31 +157,27 @@ export default function BusinessEcosystem() {
                         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-brand-bg to-transparent z-20 pointer-events-none" />
                         
                         <div className="aspect-[16/9] rounded-[40px] border border-white/10 bg-[#050505] overflow-hidden shadow-[0_0_100px_rgba(242,125,38,0.15)] relative p-2 md:p-4">
-                            {/* Minimalist Dashboard Mockup Header */}
-                            <div className="w-full h-full rounded-[24px] md:rounded-[32px] border border-white/10 bg-[#0a0a0a] overflow-hidden flex flex-col relative z-10">
-                                {/* Top Bar */}
-                                <div className="h-10 md:h-14 border-b border-white/10 flex items-center px-4 md:px-6 gap-4 bg-white/[0.02]">
+                            {/* Dashboard Mockup Layout */}
+                            <div className="w-full h-full rounded-[24px] md:rounded-[32px] border border-white/10 bg-[#0a0a0a] overflow-hidden flex flex-col relative z-10 shadow-2xl">
+                                {/* Browser Chrome / Header UI */}
+                                <div className="h-10 md:h-12 border-b border-white/10 flex items-center px-4 md:px-6 gap-4 bg-white/[0.02]">
                                     <div className="flex gap-1.5 md:gap-2">
-                                        <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#FF5F56]" />
-                                        <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#FFBD2E]" />
-                                        <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#27C93F]" />
+                                        <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#FF5F56] shadow-[0_0_5px_rgba(255,95,86,0.3)]" />
+                                        <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#FFBD2E] shadow-[0_0_5px_rgba(255,189,46,0.3)]" />
+                                        <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#27C93F] shadow-[0_0_5px_rgba(39,201,63,0.3)]" />
                                     </div>
-                                    <div className="mx-auto flex items-center justify-center px-4 md:px-32 w-full max-w-lg">
-                                        <div className="w-full bg-white/5 border border-white/10 rounded-md md:rounded-lg h-6 md:h-8 flex items-center justify-center">
-                                            <span className="text-[10px] md:text-sm font-mono text-white/30 truncate">businessecosystem-narennet.netlify.app</span>
+                                    <div className="mx-auto flex items-center justify-center w-full max-w-md hidden sm:flex">
+                                        <div className="w-full bg-white/5 border border-white/10 rounded-lg h-7 flex items-center px-4">
+                                            <div className="w-3 h-3 rounded-full bg-brand-accent/40 mr-3 shrink-0" />
+                                            <span className="text-[10px] md:text-xs font-mono text-white/40 truncate tracking-wide">cloud.narennet.com/ecosystem/dashboard</span>
                                         </div>
                                     </div>
                                 </div>
-                                {/* Full Live Iframe Canvas */}
-                                <div className="flex-1 bg-[#050505] relative cursor-default">
-                                    <iframe 
-                                        src="https://businessecosystem-narennet.netlify.app/"
-                                        className="w-full h-full border-0 absolute inset-0 pointer-events-none opacity-90 transition-opacity hover:opacity-100"
-                                        title="NarenNet Platform live demo"
-                                        scrolling="yes"
-                                    />
-                                    {/* Subtle vignette/overlay */}
-                                    <div className="absolute inset-0 shadow-[inset_0_0_50px_rgba(0,0,0,0.5)] pointer-events-none" />
+                                {/* The Actual Mockup Component */}
+                                <div className="flex-1 bg-[#050505] relative overflow-hidden">
+                                     <DashboardMockup />
+                                     {/* Subtle glass overlay for that premium feel */}
+                                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
                                 </div>
                             </div>
                         </div>
@@ -302,26 +299,95 @@ export default function BusinessEcosystem() {
                                         </div>
                                     </div>
 
-                                    {/* Interactive Live Mockup */}
-                                    <div className="hidden lg:block relative w-full h-full min-h-[300px] rounded-3xl border border-white/10 bg-[#0a0a0a] overflow-hidden shadow-2xl skew-y-6 group-hover:skew-y-3 transition-transform duration-500 scale-[1.2] translate-x-10 translate-y-10 group-hover:translate-x-8 group-hover:translate-y-8">
-                                        <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/10 to-transparent opacity-50 pointer-events-none z-20" />
+                                    {/* Interactive Native CSS Mockup */}
+                                    <div className="hidden lg:block relative w-full h-full min-h-[350px] rounded-3xl border border-white/10 bg-[#0a0a0a] overflow-hidden shadow-2xl skew-y-3 group-hover:skew-y-0 transition-transform duration-700 scale-[1.3] translate-x-12 translate-y-12 group-hover:translate-x-10 group-hover:translate-y-10 group-hover:scale-[1.35]">
+                                        <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/5 to-transparent pointer-events-none z-20" />
                                         
                                         <div className="w-full h-full flex flex-col relative z-10">
                                             {/* Mockup Top Bar */}
-                                            <div className="w-full h-8 flex items-center gap-2 border-b border-white/10 px-4 bg-black">
-                                                <div className="w-2 h-2 rounded-full bg-[#FF5F56]" />
-                                                <div className="w-2 h-2 rounded-full bg-[#FFBD2E]" />
-                                                <div className="w-2 h-2 rounded-full bg-[#27C93F]" />
-                                                <div className="ml-auto w-32 h-3 bg-white/10 rounded-full" />
+                                            <div className="w-full h-10 flex items-center gap-2 border-b border-white/10 px-4 bg-black/50">
+                                                <div className="w-2 h-2 rounded-full bg-[#FF5F56] opacity-60" />
+                                                <div className="w-2 h-2 rounded-full bg-[#FFBD2E] opacity-60" />
+                                                <div className="w-2 h-2 rounded-full bg-[#27C93F] opacity-60" />
+                                                <div className="ml-auto w-24 h-2 bg-white/5 rounded-full" />
                                             </div>
                                             
-                                            {/* Embed Frame */}
-                                            <div className="flex-1 relative bg-[#050505] overflow-hidden">
-                                                <iframe 
-                                                    src="https://businessecosystem-narennet.netlify.app/"
-                                                    className="w-full h-full border-0 absolute inset-0 pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity"
-                                                    title={`${product.title} Demo`}
-                                                />
+                                            {/* Specialized Mini-Screens */}
+                                            <div className="flex-1 relative bg-[#050505] overflow-hidden p-4">
+                                                {idx === 0 && ( // CRM
+                                                    <div className="space-y-3">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="h-4 w-20 bg-brand-accent/20 rounded border border-brand-accent/30" />
+                                                            <div className="h-3 w-10 bg-white/10 rounded" />
+                                                        </div>
+                                                        <div className="grid grid-cols-2 gap-2">
+                                                            <div className="h-16 bg-white/5 rounded-xl border border-white/5 px-2 py-1">
+                                                                <div className="w-8 h-1 bg-white/10 rounded mb-2" />
+                                                                <div className="w-12 h-3 bg-white/80 rounded" />
+                                                            </div>
+                                                            <div className="h-16 bg-brand-accent/10 rounded-xl border border-brand-accent/20 px-2 py-1">
+                                                                <div className="w-8 h-1 bg-brand-accent/40 rounded mb-2" />
+                                                                <div className="w-12 h-3 bg-white rounded" />
+                                                            </div>
+                                                        </div>
+                                                        <div className="space-y-1.5 pt-2">
+                                                            {[1, 2, 3].map(i => (
+                                                                <div key={i} className="h-6 bg-white/5 rounded-lg border border-white/5 flex items-center px-2 gap-2">
+                                                                    <div className="w-2 h-2 rounded-full bg-brand-accent" />
+                                                                    <div className="w-16 h-1 bg-white/20 rounded" />
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                )}
+                                                {idx === 1 && ( // ERP
+                                                    <div className="flex flex-col gap-3">
+                                                        <div className="h-20 bg-brand-accent/5 rounded-xl border border-brand-accent/20 flex items-center justify-center gap-4">
+                                                            <div className="w-8 h-8 rounded-full border-2 border-brand-accent border-t-transparent" />
+                                                            <div className="space-y-1">
+                                                                <div className="w-12 h-2 bg-white/80 rounded" />
+                                                                <div className="w-8 h-1 bg-white/20 rounded" />
+                                                            </div>
+                                                        </div>
+                                                        <div className="space-y-2">
+                                                            <div className="h-8 bg-white/5 rounded-lg border border-white/10" />
+                                                            <div className="h-8 bg-white/5 rounded-lg border border-white/10" />
+                                                            <div className="h-8 bg-white/5 rounded-lg border border-white/10" />
+                                                        </div>
+                                                    </div>
+                                                )}
+                                                {idx === 2 && ( // HR
+                                                     <div className="space-y-3">
+                                                        <div className="flex items-center gap-3 mb-4">
+                                                            <div className="w-10 h-10 rounded-full bg-white/10" />
+                                                            <div className="space-y-1">
+                                                                <div className="w-16 h-2 bg-white/80 rounded" />
+                                                                <div className="w-10 h-1 bg-white/20 rounded" />
+                                                            </div>
+                                                        </div>
+                                                        <div className="grid grid-cols-3 gap-2">
+                                                            {[1, 2, 3].map(i => (
+                                                                <div key={i} className="h-12 bg-white/5 rounded-lg border border-white/5" />
+                                                            ))}
+                                                        </div>
+                                                        <div className="h-12 bg-white/5 rounded-lg border border-white/5 flex items-center px-3 justify-between">
+                                                            <div className="w-12 h-1.5 bg-brand-accent rounded" />
+                                                            <div className="w-6 h-6 rounded-full bg-brand-accent/20" />
+                                                        </div>
+                                                    </div>
+                                                )}
+                                                {idx === 3 && ( // Billing
+                                                    <div className="space-y-4">
+                                                       <div className="h-24 bg-gradient-to-br from-brand-accent/20 to-transparent rounded-2xl border border-brand-accent/20 flex flex-col justify-center px-4">
+                                                            <div className="w-10 h-1 bg-white/20 rounded mb-2" />
+                                                            <div className="w-20 h-5 bg-white rounded" />
+                                                       </div>
+                                                       <div className="grid grid-cols-2 gap-3">
+                                                            <div className="h-20 bg-white/5 rounded-xl border border-white/5" />
+                                                            <div className="h-20 bg-white/5 rounded-xl border border-white/5" />
+                                                       </div>
+                                                    </div>
+                                                )}
                                             </div>
                                         </div>
                                     </div>
@@ -375,65 +441,139 @@ export default function BusinessEcosystem() {
                                             
                                             {/* Live Mobile View inside Iframe - REMOVED */}
                                             {/* Recreated Custom Mockups from Demo Site */}
-                                            <div className="flex-1 relative w-full h-full bg-[#f4f4f5] font-sans flex flex-col">
+                                            {/* Specialized Mobile Screens */}
+                                            <div className="flex-1 relative w-full h-full bg-[#f8fafc] font-sans flex flex-col group/screen overflow-hidden">
                                                 {/* Header Section */}
-                                                <div className={`w-full pt-10 pb-6 px-4 ${app.theme} text-white rounded-b-[20px] shadow-sm flex flex-col items-center justify-center shrink-0 relative z-10`}>
-                                                    <div className="w-8 h-8 rounded-md bg-white/20 flex items-center justify-center mb-2">
+                                                <div className={`w-full pt-10 pb-5 px-4 ${app.theme} text-white rounded-b-[24px] shadow-lg flex flex-col items-center justify-center shrink-0 relative z-10`}>
+                                                    <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center mb-2 shadow-inner border border-white/10">
                                                         {app.icon}
                                                     </div>
-                                                    <h4 className="font-bold text-lg mb-0.5">{app.title}</h4>
-                                                    <p className="text-white/80 text-xs">Welcome back</p>
+                                                    <h4 className="font-bold text-sm tracking-tight mb-0.5">{app.title}</h4>
+                                                    <div className="flex items-center gap-1.5">
+                                                        <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
+                                                        <p className="text-white/70 text-[10px] uppercase font-bold tracking-widest">Active System</p>
+                                                    </div>
                                                 </div>
 
-                                                {/* Scrollable Content */}
-                                                <div className="flex-1 w-full px-4 pt-4 pb-16 overflow-hidden flex flex-col gap-3">
-                                                    {idx === 0 ? (
+                                                {/* App Content */}
+                                                <div className="flex-1 w-full p-4 overflow-hidden flex flex-col gap-3">
+                                                    {idx === 0 && ( // Owner Dashboard
                                                         <>
-                                                            {/* Owner Dashboard Specific Content */}
-                                                            <div className="bg-white rounded-xl p-4 shadow-sm w-full border border-gray-100 shrink-0">
-                                                                <div className="flex justify-between items-center mb-2 text-xs">
-                                                                    <span className="text-gray-500 font-medium tracking-wide">Total Revenue</span>
-                                                                    <span className="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full font-bold">↗ +12.5%</span>
+                                                            <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+                                                                <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Today's Profit</div>
+                                                                <div className="text-xl font-black text-slate-900 tracking-tighter">₹84,250.00</div>
+                                                                <div className="mt-2 h-1 w-full bg-slate-100 rounded-full overflow-hidden">
+                                                                    <div className="h-full w-[85%] bg-orange-500 rounded-full" />
                                                                 </div>
-                                                                <div className="text-2xl font-bold text-gray-900">$124,500</div>
                                                             </div>
-                                                            <div className="bg-[#ea580c] rounded-xl p-4 shadow-sm w-full text-white shrink-0 mt-1">
-                                                                <div className="flex items-center gap-2 mb-2">
-                                                                    <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
-                                                                        <Zap size={12} className="text-white" />
+                                                            <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+                                                                <div className="flex items-center gap-2 mb-3">
+                                                                    <div className="w-4 h-4 rounded bg-orange-100 flex items-center justify-center">
+                                                                        <Zap size={10} className="text-orange-600" />
                                                                     </div>
-                                                                    <span className="font-bold text-xs tracking-wider uppercase">AI Insight</span>
+                                                                    <span className="text-[10px] font-bold text-slate-900 tracking-tight">AI Sales Forecast</span>
                                                                 </div>
-                                                                <p className="text-white/90 text-[11px] leading-relaxed">
-                                                                    Q4 revenue is trending 15% higher. Consider increasing inventory for top items.
-                                                                </p>
+                                                                <div className="flex items-end gap-1.5 h-12">
+                                                                    {[40, 60, 30, 80, 50, 90].map((h, i) => (
+                                                                        <div key={i} className="flex-1 bg-orange-100 rounded-t-sm relative group/bar">
+                                                                            <div style={{ height: `${h}%` }} className="absolute bottom-0 w-full bg-orange-500 rounded-t-sm" />
+                                                                        </div>
+                                                                    ))}
+                                                                </div>
                                                             </div>
                                                         </>
-                                                    ) : (
+                                                    )}
+                                                    {idx === 1 && ( // Employee App
                                                         <>
-                                                            {/* Generic App Module List Content */}
-                                                            {app.features.map((feature, fIdx) => (
-                                                                <div key={fIdx} className="w-full bg-white rounded-xl shadow-sm border border-gray-100 p-3 flex items-center gap-3 shrink-0">
-                                                                    <div className={`w-10 h-10 rounded-lg ${app.theme.replace('600', '100').replace('500', '100')} flex items-center justify-center shrink-0`}>
-                                                                        {fIdx === 0 && <CheckCircle2 size={16} className={`text-[${app.theme.replace('bg-', '')}] opacity-80`} />}
-                                                                        {fIdx === 1 && <BarChart3 size={16} className={`text-[${app.theme.replace('bg-', '')}] opacity-80`} />}
-                                                                        {fIdx === 2 && <MessageSquare size={16} className={`text-[${app.theme.replace('bg-', '')}] opacity-80`} />}
-                                                                    </div>
-                                                                    <div className="flex flex-col">
-                                                                        <span className="font-semibold text-gray-800 text-sm leading-tight">{feature}</span>
-                                                                        <div className="w-10 h-1 bg-gray-200 mt-1.5 rounded-full" />
+                                                            <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 mb-1">
+                                                                <div className="flex justify-between items-center mb-3">
+                                                                    <span className="text-[10px] font-bold text-slate-900">Today's Tasks</span>
+                                                                    <span className="text-[10px] text-blue-600 font-bold">4 Left</span>
+                                                                </div>
+                                                                <div className="space-y-2">
+                                                                    {[1, 2].map(i => (
+                                                                        <div key={i} className="flex items-center gap-2 group/task">
+                                                                            <div className="w-4 h-4 rounded border-2 border-slate-200" />
+                                                                            <div className="flex-1 h-3 bg-slate-50 rounded" />
+                                                                        </div>
+                                                                    ))}
+                                                                    <div className="flex items-center gap-2">
+                                                                        <div className="w-4 h-4 rounded bg-blue-600 flex items-center justify-center">
+                                                                            <CheckCircle2 size={10} className="text-white" />
+                                                                        </div>
+                                                                        <div className="flex-1 h-3 bg-slate-200 rounded line-through" />
                                                                     </div>
                                                                 </div>
-                                                            ))}
+                                                            </div>
+                                                            <div className="bg-blue-600 rounded-2xl p-4 text-white">
+                                                                <div className="text-[10px] font-bold opacity-80 uppercase tracking-widest mb-1">Shift Timer</div>
+                                                                <div className="text-xl font-bold tracking-tight">04:32:15</div>
+                                                            </div>
                                                         </>
+                                                    )}
+                                                    {idx === 2 && ( // Sales App
+                                                        <div className="space-y-3">
+                                                            <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+                                                                <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Deal Pipeline</div>
+                                                                <div className="space-y-3">
+                                                                    {[
+                                                                        { label: 'Hot Leads', val: '₹12L', color: 'bg-emerald-500' },
+                                                                        { label: 'In Proposal', val: '₹4.5L', color: 'bg-emerald-300' }
+                                                                    ].map((deal, i) => (
+                                                                        <div key={i}>
+                                                                            <div className="flex justify-between text-[10px] font-bold mb-1">
+                                                                                <span className="text-slate-900">{deal.label}</span>
+                                                                                <span className="text-emerald-600">{deal.val}</span>
+                                                                            </div>
+                                                                            <div className="h-1.5 w-full bg-slate-100 rounded-full">
+                                                                                <div className={`h-full ${deal.color} rounded-full`} style={{ width: i === 0 ? '75%' : '40%' }} />
+                                                                            </div>
+                                                                        </div>
+                                                                    ))}
+                                                                </div>
+                                                            </div>
+                                                            <div className="flex items-center gap-2 p-3 bg-emerald-50 rounded-xl border border-emerald-100">
+                                                                <Users size={14} className="text-emerald-700" />
+                                                                <span className="text-[10px] font-bold text-emerald-800 tracking-tight">12 New Leads Assigned</span>
+                                                            </div>
+                                                        </div>
+                                                    )}
+                                                    {idx === 3 && ( // Client Portal
+                                                        <div className="space-y-4">
+                                                            <div className="flex gap-2 pb-2 border-b border-slate-100 overflow-x-auto hide-scrollbar">
+                                                                {['Orders', 'Invoices', 'Support'].map((tab, i) => (
+                                                                    <div key={i} className={`px-3 py-1 rounded-full text-[9px] font-bold whitespace-nowrap ${i === 0 ? 'bg-violet-600 text-white' : 'bg-slate-200 text-slate-500'}`}>
+                                                                        {tab}
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                            <div className="space-y-3">
+                                                                {[1, 2, 3].map(i => (
+                                                                    <div key={i} className="bg-white p-3 rounded-xl border border-slate-100 flex justify-between items-center shadow-sm">
+                                                                        <div className="flex items-center gap-3">
+                                                                            <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center">
+                                                                                <Briefcase size={12} className="text-slate-400" />
+                                                                            </div>
+                                                                            <div>
+                                                                                <div className="h-3 w-16 bg-slate-100 rounded mb-1" />
+                                                                                <div className="h-2 w-10 bg-slate-50 rounded" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div className="h-4 w-12 bg-green-100 rounded-full" />
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        </div>
                                                     )}
                                                 </div>
 
-                                                {/* Bottom Tab Bar */}
-                                                <div className="absolute bottom-0 inset-x-0 h-12 bg-white flex items-center justify-around px-6 border-t border-gray-100 rounded-b-[24px] md:rounded-b-[26px]">
-                                                    <div className="w-4 h-4 rounded-full bg-gray-300" />
-                                                    <div className="w-4 h-4 rounded-full bg-gray-400" />
-                                                    <div className="w-4 h-4 rounded-full bg-gray-300" />
+                                                {/* Bottom Navigation */}
+                                                <div className="mt-auto h-14 bg-white border-t border-slate-100 flex items-center justify-around px-4 rounded-b-[32px] md:rounded-b-[26px]">
+                                                    {[LayoutDashboard, Users, Smartphone, Settings].map((Icon, i) => (
+                                                        <div key={i} className={`p-2 rounded-xl ${i === 0 ? `${app.theme.replace('600', '100')} ${app.theme.replace('bg-', 'text-')}` : 'text-slate-300'}`}>
+                                                            <Icon size={18} />
+                                                        </div>
+                                                    ))}
                                                 </div>
                                             </div>
                                             
