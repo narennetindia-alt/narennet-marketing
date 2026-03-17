@@ -1,10 +1,12 @@
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
+import { useState, useEffect } from 'react';
 import { 
   Users, Briefcase, CreditCard, 
   BarChart3, LayoutDashboard, Settings, 
   Zap, Smartphone, CheckCircle2,
   Package, LineChart, TrendingUp,
-  Search, Bell, Signal, Battery, Clock
+  Search, Bell, Signal, Battery, Clock,
+  ChevronRight
 } from 'lucide-react';
 
 export type AppPersona = 'owner' | 'employee' | 'sales' | 'client' | 'customer';
@@ -20,7 +22,16 @@ export default function MobileAppMockup({
   theme = 'bg-brand-accent', 
   appName 
 }: MobileAppMockupProps) {
+  const [ticker, setTicker] = useState(0);
   
+  // Simulation loop for animations
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTicker(prev => (prev + 1) % 100);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   const getAppTitle = () => {
     if (appName) return appName;
     switch (persona) {
@@ -69,7 +80,14 @@ export default function MobileAppMockup({
           <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center mb-3 shadow-inner border border-white/10">
             <Icon />
           </div>
-          <h4 className="font-bold text-sm tracking-tight mb-0.5">{getAppTitle()}</h4>
+          <motion.h4 
+            key={persona}
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="font-bold text-sm tracking-tight mb-0.5"
+          >
+            {getAppTitle()}
+          </motion.h4>
           <div className="flex items-center gap-1.5 opacity-80">
             <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
             <p className="text-[10px] uppercase font-bold tracking-widest">Active System</p>
@@ -83,32 +101,50 @@ export default function MobileAppMockup({
             <>
               <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
                 <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Total Sales today</div>
-                <div className="text-2xl font-black text-slate-900 tracking-tighter">₹1,42,850.00</div>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-sm font-bold text-slate-900">₹</span>
+                  <motion.div 
+                    key={ticker % 5}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-2xl font-black text-slate-900 tracking-tighter"
+                  >
+                    {(142850 + (ticker % 5) * 450).toLocaleString()}
+                  </motion.div>
+                </div>
                 <div className="mt-2 h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
                   <motion.div 
-                    initial={{ width: 0 }}
-                    animate={{ width: '85%' }}
+                    animate={{ width: `${75 + (ticker % 4) * 5}%` }}
                     className="h-full bg-orange-500 rounded-full" 
                   />
                 </div>
               </div>
-              <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 flex-1">
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="w-5 h-5 rounded-lg bg-orange-100 flex items-center justify-center">
-                    <Zap size={12} className="text-orange-600" />
+              <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 flex-1 overflow-hidden">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-2">
+                    <div className="w-5 h-5 rounded-lg bg-orange-100 flex items-center justify-center">
+                      <Zap size={12} className="text-orange-600" />
+                    </div>
+                    <span className="text-[11px] font-bold text-slate-900">Store Traffic</span>
                   </div>
-                  <span className="text-[11px] font-bold text-slate-900">Real-time Traffic</span>
+                  <span className="text-[10px] font-bold text-orange-600">Live</span>
                 </div>
                 <div className="flex items-end gap-2 h-24">
                   {[40, 70, 30, 90, 60, 50, 80].map((h, i) => (
                     <motion.div 
                       key={i} 
-                      className="flex-1 bg-orange-100 rounded-t-sm relative"
-                      initial={{ height: 0 }}
-                      animate={{ height: `${h}%` }}
-                      transition={{ delay: i * 0.1 }}
+                      className="flex-1 rounded-t-sm relative"
+                      animate={{ 
+                        height: ticker % 2 === 0 ? `${h}%` : `${Math.min(100, h + 15)}%`,
+                        backgroundColor: i === (ticker % 7) ? '#f97316' : '#ffedd5'
+                      }}
                     >
-                      <div className="absolute inset-0 bg-orange-500 rounded-t-sm opacity-80" />
+                      {i === (ticker % 7) && (
+                        <motion.div 
+                          layoutId="active-bar"
+                          className="absolute inset-0 bg-orange-500 rounded-t-sm" 
+                        />
+                      )}
                     </motion.div>
                   ))}
                 </div>
@@ -118,18 +154,50 @@ export default function MobileAppMockup({
 
           {persona === 'employee' && (
             <>
-              <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+              <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 flex-1">
                  <div className="flex justify-between items-center mb-4">
-                    <span className="text-xs font-bold text-slate-900">Task Overview</span>
-                    <span className="text-[10px] bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full font-bold">12 Active</span>
+                    <span className="text-xs font-bold text-slate-900">Active Tasks</span>
+                    <motion.span 
+                      key={ticker % 3}
+                      initial={{ scale: 0.8 }}
+                      animate={{ scale: 1 }}
+                      className="text-[10px] bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full font-bold"
+                    >
+                      {12 - (ticker % 3)} Left
+                    </motion.span>
                  </div>
-                 <div className="space-y-3">
-                    {[1, 2, 3].map(i => (
+                 <div className="space-y-4">
+                    {[0, 1, 2].map(i => (
                       <div key={i} className="flex items-center gap-3">
-                        <div className={`w-5 h-5 rounded-lg flex items-center justify-center ${i === 3 ? 'bg-blue-600' : 'border-2 border-slate-100'}`}>
-                          {i === 3 && <CheckCircle2 size={12} className="text-white" />}
+                        <motion.div 
+                          animate={{ 
+                            backgroundColor: (i <= ticker % 3) ? '#2563eb' : '#fff',
+                            borderColor: (i <= ticker % 3) ? '#2563eb' : '#e2e8f0'
+                          }}
+                          className="w-6 h-6 rounded-lg border-2 flex items-center justify-center shrink-0"
+                        >
+                          <AnimatePresence>
+                            {(i <= ticker % 3) && (
+                              <motion.div
+                                initial={{ scale: 0, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                exit={{ scale: 0, opacity: 0 }}
+                              >
+                                <CheckCircle2 size={14} className="text-white" />
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </motion.div>
+                        <div className="flex-1 space-y-2">
+                           <motion.div 
+                              animate={{ opacity: (i <= ticker % 3) ? 0.4 : 1 }}
+                              className="h-3 bg-slate-100 rounded w-3/4" 
+                           />
+                           <motion.div 
+                              animate={{ opacity: (i <= ticker % 3) ? 0.4 : 1 }}
+                              className="h-2 bg-slate-50 rounded w-1/2" 
+                           />
                         </div>
-                        <div className={`flex-1 h-3 rounded ${i === 3 ? 'bg-slate-100' : 'bg-slate-50'}`} />
                       </div>
                     ))}
                  </div>
@@ -137,7 +205,14 @@ export default function MobileAppMockup({
               <div className="bg-blue-600 rounded-[24px] p-5 text-white flex flex-col justify-center items-center gap-2 shadow-lg shadow-blue-500/20">
                  <Clock size={24} className="opacity-60" />
                  <div className="text-[10px] font-bold uppercase tracking-widest opacity-80">Shift Remaining</div>
-                 <div className="text-2xl font-black tabular-nums">04:12:05</div>
+                 <div className="text-2xl font-black tabular-nums">
+                   04:12:<motion.span 
+                     key={ticker}
+                     animate={{ opacity: [1, 0.5, 1] }}
+                   >
+                     {(60 - (ticker % 60)).toString().padStart(2, '0')}
+                   </motion.span>
+                 </div>
               </div>
             </>
           )}
@@ -145,24 +220,50 @@ export default function MobileAppMockup({
           {persona === 'customer' && (
             <>
               <div className="h-32 bg-gradient-to-br from-orange-400 to-red-500 rounded-2xl p-5 flex flex-col justify-end text-white overflow-hidden relative">
-                 <div className="absolute -top-4 -right-4 w-24 h-24 bg-white/20 rounded-full blur-2xl" />
-                 <span className="text-2xl font-black mb-1">50% OFF</span>
+                 <motion.div 
+                    animate={{ 
+                      scale: [1, 1.2, 1],
+                      opacity: [0.2, 0.4, 0.2]
+                    }}
+                    transition={{ duration: 4, repeat: Infinity }}
+                    className="absolute -top-4 -right-4 w-24 h-24 bg-white rounded-full blur-2xl" 
+                 />
+                 <motion.span 
+                   animate={{ y: [0, -2, 0] }}
+                   transition={{ duration: 2, repeat: Infinity }}
+                   className="text-2xl font-black mb-1"
+                 >
+                   50% OFF
+                 </motion.span>
                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-90">Flash Sale Ending Soon</p>
               </div>
               <div className="grid grid-cols-2 gap-3 flex-1 overflow-hidden">
                  {[1, 2, 3, 4].map(i => (
-                   <div key={i} className="bg-white rounded-2xl p-3 border border-slate-100 shadow-sm flex flex-col">
-                      <div className="flex-1 bg-slate-50 rounded-xl mb-2" />
+                   <motion.div 
+                     key={i} 
+                     whileHover={{ scale: 1.05 }}
+                     className="bg-white rounded-2xl p-3 border border-slate-100 shadow-sm flex flex-col"
+                   >
+                      <div className="flex-1 bg-slate-50 rounded-xl mb-2 relative overflow-hidden">
+                        {i === 1 && (
+                          <motion.div 
+                            initial={{ x: '-100%' }}
+                            animate={{ x: '100%' }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent"
+                          />
+                        )}
+                      </div>
                       <div className="h-2 w-12 bg-slate-100 rounded mb-1.5" />
                       <div className="h-1.5 w-8 bg-orange-100 rounded" />
-                   </div>
+                   </motion.div>
                  ))}
               </div>
             </>
           )}
 
           {persona === 'sales' && (
-            <div className="space-y-4">
+            <div className="space-y-4 flex-1 flex flex-col">
               <div className="bg-white rounded-2xl p-5 shadow-sm border border-slate-100">
                 <div className="flex justify-between items-center mb-4">
                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Leads Pipeline</span>
@@ -170,18 +271,17 @@ export default function MobileAppMockup({
                 </div>
                 <div className="space-y-4">
                   {[
-                    { label: 'High Priority', val: 75, color: 'bg-emerald-500' },
-                    { label: 'Under Review', val: 45, color: 'bg-emerald-300' }
+                    { label: 'Hot Leads', val: 75, color: 'bg-emerald-500' },
+                    { label: 'Closing', val: 45, color: 'bg-emerald-300' }
                   ].map((item, i) => (
                     <div key={i}>
                       <div className="flex justify-between text-[10px] font-bold mb-1.5">
                          <span className="text-slate-600">{item.label}</span>
-                         <span className="text-slate-900">₹{item.val}k</span>
+                         <span className="text-slate-900">₹{item.val + (ticker % 5)}k</span>
                       </div>
-                      <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+                      <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
                         <motion.div 
-                          initial={{ width: 0 }}
-                          animate={{ width: `${item.val}%` }}
+                          animate={{ width: `${item.val + (ticker % 10)}%` }}
                           className={`h-full ${item.color}`} 
                         />
                       </div>
@@ -189,42 +289,93 @@ export default function MobileAppMockup({
                   ))}
                 </div>
               </div>
-              <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-4 flex items-center gap-4">
-                 <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center">
-                    <Users size={18} className="text-emerald-600" />
-                 </div>
-                 <div className="flex flex-col">
-                    <span className="text-xs font-bold text-slate-900">Lead Matcher Active</span>
-                    <span className="text-[10px] text-emerald-600 font-bold">14 New Potential Deals</span>
-                 </div>
+              
+              <div className="flex-1 flex flex-col gap-2 overflow-hidden">
+                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Live Feed</p>
+                <div className="space-y-2 flex-1 overflow-hidden relative">
+                  <AnimatePresence mode="popLayout">
+                    <motion.div 
+                      key={ticker % 4}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: 20 }}
+                      className="bg-emerald-50 border border-emerald-100 rounded-xl p-3 flex items-center gap-3"
+                    >
+                      <div className="w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0">
+                        <Users size={14} className="text-emerald-600" />
+                      </div>
+                      <div className="flex flex-col flex-1 min-w-0">
+                        <span className="text-[10px] font-bold text-slate-900 truncate">New Lead: John D.</span>
+                        <span className="text-[9px] text-emerald-600 font-bold uppercase tracking-wider">Assigned 2m ago</span>
+                      </div>
+                    </motion.div>
+                    
+                    <motion.div 
+                      key={(ticker + 1) % 4}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 0.6, x: 0 }}
+                      className="bg-white border border-slate-100 rounded-xl p-3 flex items-center gap-3"
+                    >
+                      <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
+                        <Users size={14} className="text-slate-400" />
+                      </div>
+                      <div className="flex flex-col flex-1 min-w-0">
+                        <span className="text-[10px] font-bold text-slate-400 truncate">Lead: Sarah W.</span>
+                        <span className="text-[9px] text-slate-300 font-bold">In Progress</span>
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
               </div>
             </div>
           )}
 
           {persona === 'client' && (
-            <div className="space-y-3">
+            <div className="space-y-3 flex-1 flex flex-col">
               <div className="flex gap-2 pb-1 overflow-x-auto hide-scrollbar">
-                {['Transactions', 'Quotes', 'Analytics'].map((tab, i) => (
-                  <div key={tab} className={`px-4 py-1.5 rounded-full text-[10px] font-bold whitespace-nowrap ${i === 0 ? 'bg-violet-600 text-white' : 'bg-slate-100 text-slate-500'}`}>
+                {['Transactions', 'Quotes', 'Support'].map((tab, i) => (
+                  <motion.div 
+                    key={tab} 
+                    animate={{ 
+                      backgroundColor: i === (ticker % 3) ? '#7c3aed' : '#f1f5f9',
+                      color: i === (ticker % 3) ? '#fff' : '#64748b'
+                    }}
+                    className="px-4 py-1.5 rounded-full text-[10px] font-bold whitespace-nowrap cursor-pointer"
+                  >
                     {tab}
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-              <div className="flex-1 flex flex-col gap-3">
-                {[1, 2, 3, 4].map(i => (
-                  <div key={i} className="bg-white p-4 rounded-[20px] border border-slate-100 shadow-sm flex items-center justify-between">
-                     <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center">
-                           <CreditCard size={18} className="text-slate-400" />
-                        </div>
-                        <div className="flex flex-col">
-                           <div className="h-3 w-16 bg-slate-100 rounded mb-1.5" />
-                           <div className="h-2 w-10 bg-slate-50 rounded" />
-                        </div>
-                     </div>
-                     <div className="w-12 h-4 bg-emerald-100 rounded-full" />
-                  </div>
-                ))}
+              <div className="flex-1 flex flex-col gap-3 overflow-hidden">
+                <AnimatePresence mode="popLayout">
+                  {[0, 1, 2, 3].map(i => {
+                    const itemTicker = (ticker + i) % 8;
+                    return (
+                      <motion.div 
+                        key={itemTicker}
+                        layout
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        className="bg-white p-3 rounded-[20px] border border-slate-100 shadow-sm flex items-center justify-between"
+                      >
+                         <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center">
+                               <CreditCard size={18} className="text-slate-400" />
+                            </div>
+                            <div className="flex flex-col">
+                               <div className="h-3 w-20 bg-slate-100 rounded mb-1.5" />
+                               <div className="h-2 w-12 bg-slate-50 rounded" />
+                            </div>
+                         </div>
+                         <div className="flex flex-col items-end gap-1">
+                            <div className="text-[10px] font-black tabular-nums">₹{(450 + itemTicker * 120).toLocaleString()}</div>
+                            <div className="w-8 h-2 bg-emerald-100 rounded-full" />
+                         </div>
+                      </motion.div>
+                    );
+                  })}
+                </AnimatePresence>
               </div>
             </div>
           )}
@@ -234,9 +385,16 @@ export default function MobileAppMockup({
         {/* Navigation Bar */}
         <div className="mt-auto h-16 bg-white border-t border-slate-100 flex items-center justify-around px-6 rounded-b-[40px] shrink-0">
           {[Icon, Search, Bell, Settings].map((I, i) => (
-            <div key={i} className={`p-2.5 rounded-xl ${i === 0 ? `${theme.replace('bg-', 'text-')} ${theme.replace('bg-', 'bg-')}/10` : 'text-slate-300'}`}>
-              {i === 0 ? <I size={20} /> : <I size={20} />}
-            </div>
+            <motion.div 
+              key={i} 
+              animate={{ 
+                color: i === (ticker % 4) ? '#252528' : '#e2e8f0',
+                scale: i === (ticker % 4) ? 1.1 : 1
+              }}
+              className={`p-2.5 rounded-xl ${i === 0 ? `${theme.replace('bg-', 'text-')} ${theme.replace('bg-', 'bg-')}/10` : ''}`}
+            >
+              <I size={20} />
+            </motion.div>
           ))}
         </div>
       </div>
