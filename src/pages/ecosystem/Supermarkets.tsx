@@ -218,13 +218,100 @@ export default function Supermarkets() {
               </div>
 
               {/* Mockup Dashboard Content */}
-              <div className="p-8 aspect-video md:aspect-[21/9] bg-cover bg-center relative" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=2000)' }}>
-                 <div className="absolute inset-0 bg-brand-bg/80 backdrop-blur-sm flex items-center justify-center">
+              <div className="p-4 md:p-8 aspect-[4/3] md:aspect-[21/9] bg-[#0A101D] relative flex overflow-hidden">
+                {/* Sidebar Mockup */}
+                <div className="hidden md:flex flex-col w-48 border-r border-brand-border h-full gap-4 pr-4">
+                  <div className="h-8 bg-brand-card rounded-lg mb-2 flex items-center px-3">
+                    <div className="h-3 w-20 bg-white/10 rounded"></div>
+                  </div>
+                  <div className="h-10 bg-brand-accent/20 rounded-lg border border-brand-accent/30 flex items-center px-3 gap-2">
+                    <div className="h-4 w-4 bg-brand-accent rounded"></div>
+                    <div className="h-2 w-16 bg-brand-accent rounded"></div>
+                  </div>
+                  <div className="h-10 bg-brand-card hover:bg-white/5 rounded-lg flex items-center px-3 gap-2">
+                    <div className="h-4 w-4 bg-white/20 rounded"></div>
+                    <div className="h-2 w-20 bg-white/20 rounded"></div>
+                  </div>
+                  <div className="h-10 bg-brand-card hover:bg-white/5 rounded-lg flex items-center px-3 gap-2">
+                    <div className="h-4 w-4 bg-white/20 rounded"></div>
+                    <div className="h-2 w-14 bg-white/20 rounded"></div>
+                  </div>
+                  <div className="mt-auto h-10 bg-brand-card rounded-lg flex items-center px-3 gap-2">
+                    <div className="h-4 w-4 bg-white/20 rounded"></div>
+                    <div className="h-2 w-16 bg-white/20 rounded"></div>
+                  </div>
+                </div>
+
+                {/* Main Content Area */}
+                <div className="flex-1 md:pl-6 flex flex-col gap-4">
+                  {/* Top Header/Search */}
+                  <div className="flex gap-4">
+                    <div className="flex-1 h-12 bg-brand-card border border-brand-border rounded-xl flex items-center px-4">
+                      <div className="w-5 h-5 rounded-full bg-brand-secondary/30"></div>
+                      <div className="w-32 h-2 ml-3 bg-brand-secondary/20 rounded"></div>
+                    </div>
+                    <div className="w-12 h-12 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center">
+                       <div className="w-5 h-5 bg-brand-accent/50 rounded-full"></div>
+                    </div>
+                  </div>
+
+                  {/* Products Grid & Cart */}
+                  <div className="flex-1 flex gap-4 overflow-hidden">
+                    {/* Products Grid */}
+                    <div className="flex-[2] grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-max overflow-hidden">
+                      {[...Array(8)].map((_, i) => (
+                        <div key={i} className="bg-brand-card border border-brand-border rounded-xl p-3 flex flex-col gap-3 h-[140px] shadow-sm">
+                           <div className="flex-1 bg-white/5 rounded-lg w-full"></div>
+                           <div className="h-2 w-2/3 bg-brand-secondary/40 rounded"></div>
+                           <div className="h-2 w-1/3 bg-brand-accent rounded"></div>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    {/* Cart / Checkout Pane */}
+                    <div className="hidden md:flex flex-1 bg-brand-card border border-brand-border rounded-xl flex-col p-5 shadow-lg relative overflow-hidden">
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-brand-accent/5 rounded-full blur-[40px] -z-10" />
+                      
+                      <div className="flex justify-between items-center mb-5 border-b border-brand-border pb-3">
+                         <div className="h-3 w-20 bg-white/40 rounded"></div>
+                         <div className="h-3 w-10 bg-white/20 rounded"></div>
+                      </div>
+                      <div className="flex-1 flex flex-col gap-4">
+                        {[...Array(3)].map((_, i) => (
+                          <div key={i} className="flex gap-3 items-center">
+                            <div className="w-10 h-10 bg-white/5 rounded-md"></div>
+                            <div className="flex-1 flex flex-col gap-2">
+                              <div className="h-2 w-3/4 bg-brand-secondary/50 rounded"></div>
+                              <div className="h-2 w-1/3 bg-brand-secondary/30 rounded"></div>
+                            </div>
+                            <div className="h-2 w-8 bg-brand-secondary/50 rounded"></div>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="mt-4 pt-4 border-t border-brand-border flex flex-col gap-3">
+                         <div className="flex justify-between">
+                           <div className="h-2 w-12 bg-white/20 rounded"></div>
+                           <div className="h-2 w-10 bg-white/20 rounded"></div>
+                         </div>
+                         <div className="flex justify-between items-center mt-1">
+                           <div className="h-4 w-16 bg-white rounded"></div>
+                           <div className="h-4 w-16 bg-brand-accent rounded"></div>
+                         </div>
+                         <div className="h-12 w-full bg-brand-accent rounded-xl mt-3 flex items-center justify-center">
+                           <div className="h-3 w-20 bg-white/80 rounded"></div>
+                         </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                 {/* Foreground CTA Overlay */}
+                 <div className="absolute inset-0 bg-brand-bg/40 backdrop-blur-[3px] flex items-center justify-center z-20">
                     <a 
                       href="https://narennetstoredemo.netlify.app/"
                       target="_blank"
                       rel="noreferrer"
-                      className="bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-3 transition-all hover:scale-105 z-20"
+                      className="bg-brand-card/90 hover:bg-brand-card border border-brand-accent/20 backdrop-blur-xl text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-3 transition-all hover:scale-105 shadow-[0_0_40px_rgba(var(--brand-accent-rgb),0.3)]"
                     >
                       <PlayCircle size={24} className="text-brand-accent" />
                       Open Full Interactive Demo
@@ -361,6 +448,189 @@ export default function Supermarkets() {
         </section>
 
         {/* Modules Interactive Tabs */}
+        
+        {/* Mobile Apps Mockups */}
+        <section className="py-24 px-6 relative overflow-hidden bg-brand-card/20">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-accent/5 blur-[150px] rounded-full pointer-events-none" />
+          <div className="container-wide max-w-6xl mx-auto relative z-10">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Powerful Mobile Apps</h2>
+              <p className="text-brand-secondary text-lg max-w-2xl mx-auto">Native iOS and Android apps for your store managers to track inventory, and a branded app for your customers.</p>
+            </div>
+
+            <div className="flex flex-col md:flex-row items-center justify-center gap-16 md:gap-24">
+              
+              {/* Store Manager App Mockup */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="relative group"
+              >
+                <div className="absolute inset-0 bg-blue-500/20 blur-[80px] rounded-full pointer-events-none group-hover:bg-blue-500/30 transition-colors" />
+                <div className="relative w-[280px] h-[580px] bg-brand-bg border-[6px] border-[#2A2A2A] rounded-[40px] shadow-2xl flex flex-col overflow-hidden">
+                  {/* Notch */}
+                  <div className="absolute top-0 inset-x-0 h-6 flex justify-center z-20">
+                    <div className="w-32 h-6 bg-[#2A2A2A] rounded-b-xl"></div>
+                  </div>
+                  
+                  {/* App Content */}
+                  <div className="flex-1 bg-brand-bg pt-10 px-4 pb-6 flex flex-col gap-4">
+                    {/* Header */}
+                    <div className="flex justify-between items-center mb-2">
+                       <div className="flex items-center gap-2">
+                         <div className="w-8 h-8 rounded-full bg-brand-accent/20 flex items-center justify-center">
+                           <Settings size={16} className="text-brand-accent" />
+                         </div>
+                         <div className="text-white font-bold text-sm">Owner Admin</div>
+                       </div>
+                       <div className="w-8 h-8 rounded-full bg-brand-card border border-brand-border flex items-center justify-center">
+                          <div className="w-2 h-2 rounded-full bg-brand-secondary"></div>
+                       </div>
+                    </div>
+                    
+                    {/* Stats */}
+                    <div className="grid grid-cols-2 gap-3 mb-2">
+                      <div className="bg-brand-card border border-brand-border rounded-xl p-3">
+                         <div className="h-2 w-12 bg-brand-secondary/50 rounded mb-2"></div>
+                         <div className="text-xl font-bold text-white mt-1">₹48.2K</div>
+                         <div className="text-[10px] text-green-400 mt-1 flex items-center gap-1">+12% today</div>
+                      </div>
+                      <div className="bg-brand-card border border-brand-border rounded-xl p-3">
+                         <div className="h-2 w-16 bg-brand-secondary/50 rounded mb-2"></div>
+                         <div className="text-xl font-bold text-white mt-1">452</div>
+                         <div className="text-[10px] text-green-400 mt-1 flex items-center gap-1">+5% today</div>
+                      </div>
+                    </div>
+
+                    {/* Chart area */}
+                    <div className="h-32 bg-brand-card border border-brand-border rounded-xl p-3 flex flex-col justify-end gap-1">
+                      <div className="text-xs font-bold text-white/50 mb-2">Weekly Revenue</div>
+                      <div className="flex items-end justify-between h-20 gap-2">
+                        {[40, 70, 45, 90, 60, 30, 80].map((h, i) => (
+                           <div key={i} className="w-full bg-brand-accent/60 rounded-t-sm hover:bg-brand-accent transition-colors" style={{ height: `${h}%` }}></div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Recent Orders List */}
+                    <div className="flex-1 flex flex-col gap-3 mt-2">
+                      <div className="text-sm font-bold text-white">Recent Transactions</div>
+                      {[...Array(4)].map((_, i) => (
+                        <div key={i} className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center">
+                             <ScanBarcode size={16} className="text-brand-secondary" />
+                          </div>
+                          <div className="flex-1">
+                           <div className="text-xs font-bold text-white mb-1">Invoice #{1042 + i}</div>
+                            <div className="h-2 w-16 bg-brand-secondary/40 rounded"></div>
+                          </div>
+                          <div className="text-xs font-bold text-green-400">+₹{(Math.random() * 500 + 100).toFixed(0)}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* Bottom Nav */}
+                  <div className="h-16 bg-brand-card border-t border-brand-border px-6 flex justify-between items-center z-10 pb-2">
+                    <div className="w-6 h-6 flex justify-center"><LineChart size={20} className="text-brand-accent" /></div>
+                    <div className="w-6 h-6 flex justify-center"><Package size={20} className="text-brand-secondary/50" /></div>
+                    <div className="w-6 h-6 flex justify-center"><Users size={20} className="text-brand-secondary/50" /></div>
+                    <div className="w-6 h-6 flex justify-center"><Settings size={20} className="text-brand-secondary/50" /></div>
+                  </div>
+                </div>
+                
+                {/* Decoration text */}
+                 <div className="mt-8 text-center text-white">
+                   <h4 className="font-bold text-lg">Admin App</h4>
+                   <p className="text-brand-secondary text-sm">Real-time store metrics</p>
+                 </div>
+              </motion.div>
+
+              {/* Customer App Mockup */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="relative group"
+              >
+                <div className="absolute inset-0 bg-orange-500/10 blur-[80px] rounded-full pointer-events-none group-hover:bg-orange-500/20 transition-colors" />
+                <div className="relative w-[280px] h-[580px] bg-brand-bg border-[6px] border-[#2A2A2A] rounded-[40px] shadow-2xl flex flex-col overflow-hidden">
+                  {/* Notch */}
+                  <div className="absolute top-0 inset-x-0 h-6 flex justify-center z-20">
+                    <div className="w-32 h-6 bg-[#2A2A2A] rounded-b-xl"></div>
+                  </div>
+                  
+                  {/* App Content */}
+                  <div className="flex-1 bg-brand-bg pt-10 px-4 pb-0 flex flex-col gap-4">
+                    {/* Header */}
+                    <div className="flex justify-between items-center mb-2">
+                       <div className="text-white font-bold text-sm">My Supermarket</div>
+                       <div className="flex gap-2">
+                         <div className="w-8 h-8 rounded-full bg-brand-card border border-brand-border flex items-center justify-center">
+                            <div className="w-3 h-3 bg-brand-secondary/50 rounded-full"></div>
+                         </div>
+                       </div>
+                    </div>
+
+                    {/* Banner */}
+                    <div className="h-32 bg-gradient-to-br from-brand-accent to-orange-500 rounded-2xl p-4 flex flex-col justify-end relative overflow-hidden">
+                       <div className="absolute top-0 right-0 w-24 h-24 bg-white/20 rounded-full -mt-10 -mr-10 blur-xl"></div>
+                       <div className="text-white font-bold text-lg shadow-lg relative z-10">50% OFF</div>
+                       <div className="text-white/90 text-xs shadow-lg relative z-10">On everyday essentials</div>
+                    </div>
+
+                    {/* Categories */}
+                    <div className="flex gap-3 overflow-x-hidden pt-2 pb-1 scrollbar-hide">
+                      {['Veg', 'Fruits', 'Dairy', 'Snacks'].map((cat, i) => (
+                        <div key={i} className="flex flex-col items-center gap-2 shrink-0">
+                          <div className="w-14 h-14 rounded-full bg-brand-card border border-brand-border flex items-center justify-center hover:border-brand-accent transition-colors">
+                            <Package className="w-6 h-6 text-brand-secondary/60" />
+                          </div>
+                          <div className="text-[10px] text-white/70 font-medium">{cat}</div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Products Grid */}
+                    <div className="flex-1 mt-2 pb-20">
+                      <div className="text-sm font-bold text-white mb-3">Popular Items</div>
+                      <div className="grid grid-cols-2 gap-3 pb-6">
+                        {[...Array(4)].map((_, i) => (
+                          <div key={i} className="bg-brand-card border border-brand-border rounded-xl p-2 flex flex-col gap-2">
+                             <div className="h-20 bg-white/5 rounded-lg w-full flex flex-col"></div>
+                             <div className="text-xs font-bold text-white mt-1">Fresh Item {i+1}</div>
+                             <div className="text-[10px] text-brand-secondary">₹{(Math.random() * 50 + 20).toFixed(0)} / kg</div>
+                             <div className="h-6 w-full bg-brand-accent/20 rounded text-brand-accent flex items-center justify-center text-[10px] font-bold mt-auto cursor-pointer hover:bg-brand-accent/30">+ Add</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Customer Bottom Nav */}
+                  <div className="absolute bottom-0 inset-x-0 h-16 bg-brand-card/90 backdrop-blur-md border-t border-brand-border px-6 flex justify-between items-center z-10 pb-2">
+                    <div className="w-6 h-6 flex justify-center"><div className="w-4 h-4 bg-brand-accent rounded"></div></div>
+                    <div className="w-6 h-6 flex justify-center"><div className="w-4 h-4 bg-brand-secondary/50 rounded"></div></div>
+                    <div className="w-6 h-6 flex justify-center relative">
+                      <div className="w-4 h-4 bg-brand-secondary/50 rounded"></div>
+                      <div className="absolute -top-1 -right-1 w-2 h-2 bg-brand-accent rounded-full"></div>
+                    </div>
+                  </div>
+                </div>
+                
+                 {/* Decoration text */}
+                 <div className="mt-8 text-center text-white">
+                   <h4 className="font-bold text-lg">Customer App</h4>
+                   <p className="text-brand-secondary text-sm">Loyalty & Ordering</p>
+                 </div>
+              </motion.div>
+
+            </div>
+          </div>
+        </section>
+        
         <section className="py-24 bg-brand-bg/90 border-y border-brand-border">
           <div className="container-wide max-w-6xl mx-auto px-6">
             <div className="text-center mb-16">
