@@ -25,6 +25,7 @@ import {
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { faqs as allFaqs } from '../data/faqs';
+import TrustBadges from '../components/TrustBadges';
 
 const homeFaqs = allFaqs.slice(0, 3);
 
@@ -269,18 +270,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Marquee Section */}
-      <section className="py-20 border-y border-brand-border overflow-hidden">
-        <div className="mask-fade">
-          <div className="flex animate-marquee whitespace-nowrap gap-20 items-center">
-            {[...partners, ...partners].map((partner, idx) => (
-              <span key={idx} className="text-4xl font-display font-bold text-brand-secondary/30 hover:text-brand-accent transition-colors cursor-default">
-                {partner}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Trust Badges Section */}
+      <TrustBadges />
 
       {/* Bento Grid Features */}
       <section className="section-padding bg-brand-bg">
