@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import DashboardMockup from '../components/mockups/DashboardMockup';
+import MobileAppMockup, { AppPersona } from '../components/mockups/MobileAppMockup';
 
 export default function BusinessEcosystem() {
     const products = [
@@ -441,141 +442,12 @@ export default function BusinessEcosystem() {
                                             
                                             {/* Live Mobile View inside Iframe - REMOVED */}
                                             {/* Recreated Custom Mockups from Demo Site */}
-                                            {/* Specialized Mobile Screens */}
-                                            <div className="flex-1 relative w-full h-full bg-[#f8fafc] font-sans flex flex-col group/screen overflow-hidden">
-                                                {/* Header Section */}
-                                                <div className={`w-full pt-10 pb-5 px-4 ${app.theme} text-white rounded-b-[24px] shadow-lg flex flex-col items-center justify-center shrink-0 relative z-10`}>
-                                                    <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center mb-2 shadow-inner border border-white/10">
-                                                        {app.icon}
-                                                    </div>
-                                                    <h4 className="font-bold text-sm tracking-tight mb-0.5">{app.title}</h4>
-                                                    <div className="flex items-center gap-1.5">
-                                                        <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
-                                                        <p className="text-white/70 text-[10px] uppercase font-bold tracking-widest">Active System</p>
-                                                    </div>
-                                                </div>
-
-                                                {/* App Content */}
-                                                <div className="flex-1 w-full p-4 overflow-hidden flex flex-col gap-3">
-                                                    {idx === 0 && ( // Owner Dashboard
-                                                        <>
-                                                            <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
-                                                                <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Today's Profit</div>
-                                                                <div className="text-xl font-black text-slate-900 tracking-tighter">₹84,250.00</div>
-                                                                <div className="mt-2 h-1 w-full bg-slate-100 rounded-full overflow-hidden">
-                                                                    <div className="h-full w-[85%] bg-orange-500 rounded-full" />
-                                                                </div>
-                                                            </div>
-                                                            <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
-                                                                <div className="flex items-center gap-2 mb-3">
-                                                                    <div className="w-4 h-4 rounded bg-orange-100 flex items-center justify-center">
-                                                                        <Zap size={10} className="text-orange-600" />
-                                                                    </div>
-                                                                    <span className="text-[10px] font-bold text-slate-900 tracking-tight">AI Sales Forecast</span>
-                                                                </div>
-                                                                <div className="flex items-end gap-1.5 h-12">
-                                                                    {[40, 60, 30, 80, 50, 90].map((h, i) => (
-                                                                        <div key={i} className="flex-1 bg-orange-100 rounded-t-sm relative group/bar">
-                                                                            <div style={{ height: `${h}%` }} className="absolute bottom-0 w-full bg-orange-500 rounded-t-sm" />
-                                                                        </div>
-                                                                    ))}
-                                                                </div>
-                                                            </div>
-                                                        </>
-                                                    )}
-                                                    {idx === 1 && ( // Employee App
-                                                        <>
-                                                            <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 mb-1">
-                                                                <div className="flex justify-between items-center mb-3">
-                                                                    <span className="text-[10px] font-bold text-slate-900">Today's Tasks</span>
-                                                                    <span className="text-[10px] text-blue-600 font-bold">4 Left</span>
-                                                                </div>
-                                                                <div className="space-y-2">
-                                                                    {[1, 2].map(i => (
-                                                                        <div key={i} className="flex items-center gap-2 group/task">
-                                                                            <div className="w-4 h-4 rounded border-2 border-slate-200" />
-                                                                            <div className="flex-1 h-3 bg-slate-50 rounded" />
-                                                                        </div>
-                                                                    ))}
-                                                                    <div className="flex items-center gap-2">
-                                                                        <div className="w-4 h-4 rounded bg-blue-600 flex items-center justify-center">
-                                                                            <CheckCircle2 size={10} className="text-white" />
-                                                                        </div>
-                                                                        <div className="flex-1 h-3 bg-slate-200 rounded line-through" />
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div className="bg-blue-600 rounded-2xl p-4 text-white">
-                                                                <div className="text-[10px] font-bold opacity-80 uppercase tracking-widest mb-1">Shift Timer</div>
-                                                                <div className="text-xl font-bold tracking-tight">04:32:15</div>
-                                                            </div>
-                                                        </>
-                                                    )}
-                                                    {idx === 2 && ( // Sales App
-                                                        <div className="space-y-3">
-                                                            <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
-                                                                <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Deal Pipeline</div>
-                                                                <div className="space-y-3">
-                                                                    {[
-                                                                        { label: 'Hot Leads', val: '₹12L', color: 'bg-emerald-500' },
-                                                                        { label: 'In Proposal', val: '₹4.5L', color: 'bg-emerald-300' }
-                                                                    ].map((deal, i) => (
-                                                                        <div key={i}>
-                                                                            <div className="flex justify-between text-[10px] font-bold mb-1">
-                                                                                <span className="text-slate-900">{deal.label}</span>
-                                                                                <span className="text-emerald-600">{deal.val}</span>
-                                                                            </div>
-                                                                            <div className="h-1.5 w-full bg-slate-100 rounded-full">
-                                                                                <div className={`h-full ${deal.color} rounded-full`} style={{ width: i === 0 ? '75%' : '40%' }} />
-                                                                            </div>
-                                                                        </div>
-                                                                    ))}
-                                                                </div>
-                                                            </div>
-                                                            <div className="flex items-center gap-2 p-3 bg-emerald-50 rounded-xl border border-emerald-100">
-                                                                <Users size={14} className="text-emerald-700" />
-                                                                <span className="text-[10px] font-bold text-emerald-800 tracking-tight">12 New Leads Assigned</span>
-                                                            </div>
-                                                        </div>
-                                                    )}
-                                                    {idx === 3 && ( // Client Portal
-                                                        <div className="space-y-4">
-                                                            <div className="flex gap-2 pb-2 border-b border-slate-100 overflow-x-auto hide-scrollbar">
-                                                                {['Orders', 'Invoices', 'Support'].map((tab, i) => (
-                                                                    <div key={i} className={`px-3 py-1 rounded-full text-[9px] font-bold whitespace-nowrap ${i === 0 ? 'bg-violet-600 text-white' : 'bg-slate-200 text-slate-500'}`}>
-                                                                        {tab}
-                                                                    </div>
-                                                                ))}
-                                                            </div>
-                                                            <div className="space-y-3">
-                                                                {[1, 2, 3].map(i => (
-                                                                    <div key={i} className="bg-white p-3 rounded-xl border border-slate-100 flex justify-between items-center shadow-sm">
-                                                                        <div className="flex items-center gap-3">
-                                                                            <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center">
-                                                                                <Briefcase size={12} className="text-slate-400" />
-                                                                            </div>
-                                                                            <div>
-                                                                                <div className="h-3 w-16 bg-slate-100 rounded mb-1" />
-                                                                                <div className="h-2 w-10 bg-slate-50 rounded" />
-                                                                            </div>
-                                                                        </div>
-                                                                        <div className="h-4 w-12 bg-green-100 rounded-full" />
-                                                                    </div>
-                                                                ))}
-                                                            </div>
-                                                        </div>
-                                                    )}
-                                                </div>
-
-                                                {/* Bottom Navigation */}
-                                                <div className="mt-auto h-14 bg-white border-t border-slate-100 flex items-center justify-around px-4 rounded-b-[32px] md:rounded-b-[26px]">
-                                                    {[LayoutDashboard, Users, Smartphone, Settings].map((Icon, i) => (
-                                                        <div key={i} className={`p-2 rounded-xl ${i === 0 ? `${app.theme.replace('600', '100')} ${app.theme.replace('bg-', 'text-')}` : 'text-slate-300'}`}>
-                                                            <Icon size={18} />
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            </div>
+                                            {/* Unified Premium Mobile App Mockup */}
+                                            <MobileAppMockup 
+                                                persona={['owner', 'employee', 'sales', 'client'][idx] as AppPersona} 
+                                                theme={app.theme}
+                                                appName={app.title}
+                                            />
                                             
                                             {/* Home indicator */}
                                             <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-1/3 h-1 rounded-full bg-white/30 z-20" />

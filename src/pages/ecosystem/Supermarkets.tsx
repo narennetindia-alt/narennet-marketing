@@ -23,6 +23,7 @@ import {
 } from 'lucide-react';
 import TrustBadges from '../../components/TrustBadges';
 import LeadCaptureModal from '../../components/LeadCaptureModal';
+import MobileAppMockup from '../../components/mockups/MobileAppMockup';
 
 export default function Supermarkets() {
   const [activeTab, setActiveTab] = useState('billing');
@@ -504,82 +505,14 @@ export default function Supermarkets() {
                 className="relative group"
               >
                 <div className="absolute inset-0 bg-blue-500/20 blur-[80px] rounded-full pointer-events-none group-hover:bg-blue-500/30 transition-colors" />
-                <div className="relative w-[280px] h-[580px] bg-brand-bg border-[6px] border-[#2A2A2A] rounded-[40px] shadow-2xl flex flex-col overflow-hidden">
-                  {/* Notch */}
-                  <div className="absolute top-0 inset-x-0 h-6 flex justify-center z-20">
-                    <div className="w-32 h-6 bg-[#2A2A2A] rounded-b-xl"></div>
-                  </div>
-                  
-                  {/* App Content */}
-                  <div className="flex-1 bg-brand-bg pt-10 px-4 pb-6 flex flex-col gap-4">
-                    {/* Header */}
-                    <div className="flex justify-between items-center mb-2">
-                       <div className="flex items-center gap-2">
-                         <div className="w-8 h-8 rounded-full bg-brand-accent/20 flex items-center justify-center">
-                           <Settings size={16} className="text-brand-accent" />
-                         </div>
-                         <div className="text-white font-bold text-sm">Owner Admin</div>
-                       </div>
-                       <div className="w-8 h-8 rounded-full bg-brand-card border border-brand-border flex items-center justify-center">
-                          <div className="w-2 h-2 rounded-full bg-brand-secondary"></div>
-                       </div>
-                    </div>
-                    
-                    {/* Stats */}
-                    <div className="grid grid-cols-2 gap-3 mb-2">
-                      <div className="bg-brand-card border border-brand-border rounded-xl p-3">
-                         <div className="h-2 w-12 bg-brand-secondary/50 rounded mb-2"></div>
-                         <div className="text-xl font-bold text-white mt-1">₹48.2K</div>
-                         <div className="text-[10px] text-green-400 mt-1 flex items-center gap-1">+12% today</div>
-                      </div>
-                      <div className="bg-brand-card border border-brand-border rounded-xl p-3">
-                         <div className="h-2 w-16 bg-brand-secondary/50 rounded mb-2"></div>
-                         <div className="text-xl font-bold text-white mt-1">452</div>
-                         <div className="text-[10px] text-green-400 mt-1 flex items-center gap-1">+5% today</div>
-                      </div>
-                    </div>
-
-                    {/* Chart area */}
-                    <div className="h-32 bg-brand-card border border-brand-border rounded-xl p-3 flex flex-col justify-end gap-1">
-                      <div className="text-xs font-bold text-white/50 mb-2">Weekly Revenue</div>
-                      <div className="flex items-end justify-between h-20 gap-2">
-                        {[40, 70, 45, 90, 60, 30, 80].map((h, i) => (
-                           <div key={i} className="w-full bg-brand-accent/60 rounded-t-sm hover:bg-brand-accent transition-colors" style={{ height: `${h}%` }}></div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Recent Orders List */}
-                    <div className="flex-1 flex flex-col gap-3 mt-2">
-                      <div className="text-sm font-bold text-white">Recent Transactions</div>
-                      {[...Array(4)].map((_, i) => (
-                        <div key={i} className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center">
-                             <ScanBarcode size={16} className="text-brand-secondary" />
-                          </div>
-                          <div className="flex-1">
-                           <div className="text-xs font-bold text-white mb-1">Invoice #{1042 + i}</div>
-                            <div className="h-2 w-16 bg-brand-secondary/40 rounded"></div>
-                          </div>
-                          <div className="text-xs font-bold text-green-400">+₹{(Math.random() * 500 + 100).toFixed(0)}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  {/* Bottom Nav */}
-                  <div className="h-16 bg-brand-card border-t border-brand-border px-6 flex justify-between items-center z-10 pb-2">
-                    <div className="w-6 h-6 flex justify-center"><LineChart size={20} className="text-brand-accent" /></div>
-                    <div className="w-6 h-6 flex justify-center"><Package size={20} className="text-brand-secondary/50" /></div>
-                    <div className="w-6 h-6 flex justify-center"><Users size={20} className="text-brand-secondary/50" /></div>
-                    <div className="w-6 h-6 flex justify-center"><Settings size={20} className="text-brand-secondary/50" /></div>
-                  </div>
+                <div className="relative w-[300px] h-[600px] group">
+                   <MobileAppMockup persona="owner" theme="bg-blue-600" appName="Store Manager" />
                 </div>
                 
-                {/* Decoration text */}
+                {/* Decoration text - Removing static version in favor of component internal labels or keeping it for external context if needed */}
                  <div className="mt-8 text-center text-white">
-                   <h4 className="font-bold text-lg">Admin App</h4>
-                   <p className="text-brand-secondary text-sm">Real-time store metrics</p>
+                   <h4 className="font-bold text-lg text-brand-accent">Live Dashboard</h4>
+                   <p className="text-brand-secondary text-sm">Real-time inventory tracking</p>
                  </div>
               </motion.div>
 
@@ -591,75 +524,14 @@ export default function Supermarkets() {
                 transition={{ delay: 0.2 }}
                 className="relative group"
               >
-                <div className="absolute inset-0 bg-orange-500/10 blur-[80px] rounded-full pointer-events-none group-hover:bg-orange-500/20 transition-colors" />
-                <div className="relative w-[280px] h-[580px] bg-brand-bg border-[6px] border-[#2A2A2A] rounded-[40px] shadow-2xl flex flex-col overflow-hidden">
-                  {/* Notch */}
-                  <div className="absolute top-0 inset-x-0 h-6 flex justify-center z-20">
-                    <div className="w-32 h-6 bg-[#2A2A2A] rounded-b-xl"></div>
-                  </div>
-                  
-                  {/* App Content */}
-                  <div className="flex-1 bg-brand-bg pt-10 px-4 pb-0 flex flex-col gap-4">
-                    {/* Header */}
-                    <div className="flex justify-between items-center mb-2">
-                       <div className="text-white font-bold text-sm">My Supermarket</div>
-                       <div className="flex gap-2">
-                         <div className="w-8 h-8 rounded-full bg-brand-card border border-brand-border flex items-center justify-center">
-                            <div className="w-3 h-3 bg-brand-secondary/50 rounded-full"></div>
-                         </div>
-                       </div>
-                    </div>
-
-                    {/* Banner */}
-                    <div className="h-32 bg-gradient-to-br from-brand-accent to-orange-500 rounded-2xl p-4 flex flex-col justify-end relative overflow-hidden">
-                       <div className="absolute top-0 right-0 w-24 h-24 bg-white/20 rounded-full -mt-10 -mr-10 blur-xl"></div>
-                       <div className="text-white font-bold text-lg shadow-lg relative z-10">50% OFF</div>
-                       <div className="text-white/90 text-xs shadow-lg relative z-10">On everyday essentials</div>
-                    </div>
-
-                    {/* Categories */}
-                    <div className="flex gap-3 overflow-x-hidden pt-2 pb-1 scrollbar-hide">
-                      {['Veg', 'Fruits', 'Dairy', 'Snacks'].map((cat, i) => (
-                        <div key={i} className="flex flex-col items-center gap-2 shrink-0">
-                          <div className="w-14 h-14 rounded-full bg-brand-card border border-brand-border flex items-center justify-center hover:border-brand-accent transition-colors">
-                            <Package className="w-6 h-6 text-brand-secondary/60" />
-                          </div>
-                          <div className="text-[10px] text-white/70 font-medium">{cat}</div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Products Grid */}
-                    <div className="flex-1 mt-2 pb-20">
-                      <div className="text-sm font-bold text-white mb-3">Popular Items</div>
-                      <div className="grid grid-cols-2 gap-3 pb-6">
-                        {[...Array(4)].map((_, i) => (
-                          <div key={i} className="bg-brand-card border border-brand-border rounded-xl p-2 flex flex-col gap-2">
-                             <div className="h-20 bg-white/5 rounded-lg w-full flex flex-col"></div>
-                             <div className="text-xs font-bold text-white mt-1">Fresh Item {i+1}</div>
-                             <div className="text-[10px] text-brand-secondary">₹{(Math.random() * 50 + 20).toFixed(0)} / kg</div>
-                             <div className="h-6 w-full bg-brand-accent/20 rounded text-brand-accent flex items-center justify-center text-[10px] font-bold mt-auto cursor-pointer hover:bg-brand-accent/30">+ Add</div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Customer Bottom Nav */}
-                  <div className="absolute bottom-0 inset-x-0 h-16 bg-brand-card/90 backdrop-blur-md border-t border-brand-border px-6 flex justify-between items-center z-10 pb-2">
-                    <div className="w-6 h-6 flex justify-center"><div className="w-4 h-4 bg-brand-accent rounded"></div></div>
-                    <div className="w-6 h-6 flex justify-center"><div className="w-4 h-4 bg-brand-secondary/50 rounded"></div></div>
-                    <div className="w-6 h-6 flex justify-center relative">
-                      <div className="w-4 h-4 bg-brand-secondary/50 rounded"></div>
-                      <div className="absolute -top-1 -right-1 w-2 h-2 bg-brand-accent rounded-full"></div>
-                    </div>
-                  </div>
+                <div className="relative w-[300px] h-[600px] group">
+                   <MobileAppMockup persona="customer" theme="bg-brand-accent" appName="Store Shopping" />
                 </div>
                 
-                 {/* Decoration text */}
+                {/* Decoration text */}
                  <div className="mt-8 text-center text-white">
-                   <h4 className="font-bold text-lg">Customer App</h4>
-                   <p className="text-brand-secondary text-sm">Loyalty & Ordering</p>
+                   <h4 className="font-bold text-lg text-brand-accent">Customer App</h4>
+                   <p className="text-brand-secondary text-sm">Rewards & Quick Ordering</p>
                  </div>
               </motion.div>
 
