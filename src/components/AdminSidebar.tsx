@@ -50,16 +50,16 @@ export default function AdminSidebar({ isOpen, setIsOpen }: { isOpen: boolean; s
             </AnimatePresence>
 
             <aside className={`
-                fixed inset-y-0 left-0 w-72 bg-brand-card border-r border-brand-border z-50 flex flex-col p-6 transition-transform duration-300 md:relative md:translate-x-0
+                fixed inset-y-0 left-0 w-80 bg-brand-deep border-r border-white/5 z-50 flex flex-col p-8 transition-transform duration-500 md:relative md:translate-x-0
                 ${isOpen ? 'translate-x-0' : '-translate-x-full'}
             `}>
-                <div className="flex items-center gap-3 mb-12 px-2">
-                    <div className="w-10 h-10 overflow-hidden rounded-xl bg-white flex items-center justify-center shadow-lg text-black font-bold text-xs ring-4 ring-brand-accent/5">
+                <div className="flex items-center gap-4 mb-16 px-2">
+                    <div className="w-12 h-12 overflow-hidden rounded-2xl bg-white flex items-center justify-center shadow-2xl ring-4 ring-white/5 group hover:rotate-3 transition-transform">
                         <img src={logo} alt="NarenNet" className="w-full h-full object-cover" />
                     </div>
                     <div>
-                        <h2 className="font-bold tracking-tight text-white leading-none mb-1">NarenNet</h2>
-                        <p className="text-[10px] text-brand-secondary uppercase font-bold tracking-widest leading-none">Admin Console</p>
+                        <h2 className="font-black tracking-tighter text-white leading-none mb-1.5 text-xl uppercase">NarenNet</h2>
+                        <p className="text-[10px] text-white/40 uppercase font-black tracking-widest leading-none">Admin Console</p>
                     </div>
                 </div>
 
@@ -71,28 +71,39 @@ export default function AdminSidebar({ isOpen, setIsOpen }: { isOpen: boolean; s
                                 key={item.path}
                                 to={item.path}
                                 onClick={() => setIsOpen(false)}
-                                className={`flex items-center justify-between p-4 rounded-2xl transition-all group ${isActive
-                                    ? 'bg-brand-accent text-white shadow-lg shadow-brand-accent/20'
-                                    : 'text-brand-secondary hover:bg-white/5 hover:text-white'
+                                className={`flex items-center justify-between p-4 px-5 rounded-2xl transition-all group ${isActive
+                                    ? 'bg-brand-accent text-white shadow-2xl shadow-brand-accent/30 scale-[1.02]'
+                                    : 'text-white/40 hover:bg-white/5 hover:text-white'
                                     }`}
                             >
                                 <div className="flex items-center gap-4">
-                                    <item.icon size={20} className={isActive ? 'text-white' : 'text-gray-500 group-hover:text-brand-accent'} />
-                                    <span className="font-medium text-sm">{item.label}</span>
+                                    <item.icon size={22} className={isActive ? 'text-white' : 'text-white/20 group-hover:text-brand-accent transition-colors'} />
+                                    <span className={`text-sm tracking-tight ${isActive ? 'font-black' : 'font-medium'}`}>{item.label}</span>
                                 </div>
-                                <ChevronRight size={14} className={`transition-transform ${isActive ? 'translate-x-0 opacity-100' : '-translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100'}`} />
+                                <ChevronRight size={16} className={`transition-all duration-300 ${isActive ? 'translate-x-0 opacity-100' : '-translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-60'}`} />
                             </Link>
                         );
                     })}
                 </nav>
 
-                <button
-                    onClick={handleLogout}
-                    className="mt-8 flex items-center gap-4 p-4 text-brand-secondary hover:text-red-500 transition-colors group border-t border-brand-border pt-8"
-                >
-                    <LogOut size={20} className="group-hover:rotate-12 transition-transform" />
-                    <span className="font-medium text-sm">Logout</span>
-                </button>
+                <div className="mt-8 pt-8 border-t border-white/5">
+                    <button
+                        onClick={handleLogout}
+                        className="w-full flex items-center gap-4 p-4 px-5 rounded-2xl text-white/40 hover:bg-red-500/10 hover:text-red-400 transition-all group"
+                    >
+                        <LogOut size={22} className="group-hover:rotate-12 transition-transform opacity-30 group-hover:opacity-100" />
+                        <span className="font-black text-sm tracking-widest uppercase">Logout</span>
+                    </button>
+                    
+                    <div className="mt-8 p-6 rounded-2xl bg-white/5 border border-white/5 relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 w-24 h-24 bg-brand-accent/10 blur-2xl rounded-full -translate-y-1/2 translate-x-1/2" />
+                        <h4 className="text-[10px] font-black uppercase tracking-widest text-white/40 mb-2 relative z-10">System Status</h4>
+                        <div className="flex items-center gap-2 relative z-10">
+                            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                            <span className="text-xs font-black text-white/80">All Systems Operational</span>
+                        </div>
+                    </div>
+                </div>
             </aside>
         </>
     );

@@ -36,59 +36,67 @@ export default function Login() {
     };
 
     return (
-        <div className="min-h-screen bg-brand-bg flex items-center justify-center p-6">
+        <div className="min-h-screen bg-brand-bg flex items-center justify-center p-6 relative overflow-hidden">
+            {/* Background Gradients */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-brand-accent/10 blur-[120px] rounded-full" />
-                <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-blue-600/10 blur-[100px] rounded-full" />
+                <div className="absolute top-1/4 left-1/4 w-[800px] h-[800px] bg-brand-accent/10 blur-[130px] rounded-full translate-x-1/2 -translate-y-1/2" />
+                <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-brand-accent/5 blur-[100px] rounded-full translate-x-1/2 translate-y-1/2" />
             </div>
 
             <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="w-full max-w-md relative z-10"
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                className="w-full max-w-xl relative z-10"
             >
-                <div className="bg-brand-card border border-brand-border p-12 rounded-[40px] shadow-2xl card-glow">
-                    <div className="flex justify-center mb-10">
-                        <div className="w-20 h-20 rounded-3xl bg-brand-accent/10 flex items-center justify-center">
-                            <ShieldCheck size={40} className="text-brand-accent" />
+                <div className="bg-brand-deep border border-white/5 p-12 md:p-20 rounded-[64px] shadow-2xl relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-brand-accent/10 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2" />
+                    
+                    <div className="flex justify-center mb-12 relative z-10">
+                        <div className="w-24 h-24 rounded-[32px] bg-white flex items-center justify-center shadow-2xl ring-8 ring-white/5">
+                            <ShieldCheck size={48} className="text-brand-deep" />
                         </div>
                     </div>
 
-                    <h1 className="text-4xl font-bold text-center mb-4 tracking-tighter uppercase text-white">Admin Access</h1>
-                    <p className="text-brand-secondary text-center mb-12 font-light">Secure login for NarenNet Business Control</p>
+                    <h1 className="text-4xl md:text-5xl font-black text-center mb-4 tracking-tighter uppercase text-white leading-none">Admin Access</h1>
+                    <p className="text-white/40 text-center mb-16 font-light text-lg">Secure login for NarenNet Business Control</p>
 
                     {error && (
-                        <div className="bg-red-500/10 border border-red-500/20 text-red-500 p-4 rounded-2xl mb-8 text-sm text-center">
+                        <motion.div 
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            className="bg-red-500/10 border border-red-500/20 text-red-400 p-6 rounded-2xl mb-12 text-sm text-center font-bold uppercase tracking-widest"
+                        >
                             {error}
-                        </div>
+                        </motion.div>
                     )}
 
-                    <form onSubmit={handleLogin} className="space-y-6">
-                        <div className="space-y-2">
-                            <label className="text-[10px] font-bold uppercase tracking-widest text-brand-secondary ml-4">Email Address</label>
-                            <div className="relative">
-                                <Mail className="absolute left-6 top-1/2 -translate-y-1/2 text-brand-secondary" size={18} />
+                    <form onSubmit={handleLogin} className="space-y-8 relative z-10">
+                        <div className="space-y-3">
+                            <label className="text-[10px] font-black uppercase tracking-[0.3em] text-white/30 ml-6">Email Address</label>
+                            <div className="relative group">
+                                <Mail className="absolute left-8 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-brand-accent transition-colors" size={20} />
                                 <input
                                     type="email"
                                     required
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="w-full bg-white/5 border border-brand-border rounded-2xl pl-14 pr-6 py-4 focus:outline-none focus:border-brand-accent transition-all text-white placeholder:text-gray-500"
+                                    className="w-full bg-white/5 border border-white/10 rounded-2xl pl-16 pr-8 py-5 text-white focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-all text-lg font-medium placeholder:text-white/10"
                                     placeholder="admin@narennet.in"
                                 />
                             </div>
                         </div>
 
-                        <div className="space-y-2">
-                            <label className="text-[10px] font-bold uppercase tracking-widest text-brand-secondary ml-4">Password</label>
-                            <div className="relative">
-                                <Lock className="absolute left-6 top-1/2 -translate-y-1/2 text-brand-secondary" size={18} />
+                        <div className="space-y-3">
+                            <label className="text-[10px] font-black uppercase tracking-[0.3em] text-white/30 ml-6">Password</label>
+                            <div className="relative group">
+                                <Lock className="absolute left-8 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-brand-accent transition-colors" size={20} />
                                 <input
                                     type="password"
                                     required
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    className="w-full bg-white/5 border border-brand-border rounded-2xl pl-14 pr-6 py-4 focus:outline-none focus:border-brand-accent transition-all text-white placeholder:text-gray-500"
+                                    className="w-full bg-white/5 border border-white/10 rounded-2xl pl-16 pr-8 py-5 text-white focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-all text-lg font-medium placeholder:text-white/10"
                                     placeholder="••••••••"
                                 />
                             </div>
@@ -97,21 +105,21 @@ export default function Login() {
                         <button
                             type="submit"
                             disabled={isLoading}
-                            className="w-full bg-brand-accent text-white py-5 rounded-[24px] font-bold text-lg hover:bg-opacity-90 transition-all flex items-center justify-center gap-3 disabled:opacity-50 mt-8"
+                            className="w-full bg-brand-accent text-white py-6 rounded-[32px] font-black text-xl hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-4 disabled:opacity-50 mt-12 shadow-2xl shadow-brand-accent/20"
                         >
                             {isLoading ? (
-                                <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                <div className="w-8 h-8 border-4 border-white/30 border-t-white rounded-full animate-spin" />
                             ) : (
-                                <>Sign In <LogIn size={20} /></>
+                                <>Sign In <LogIn size={24} /></>
                             )}
                         </button>
                     </form>
 
                     <button
                         onClick={() => navigate('/')}
-                        className="w-full text-[10px] font-bold uppercase tracking-widest text-brand-secondary mt-10 hover:text-white transition-colors"
+                        className="w-full text-[10px] font-black uppercase tracking-[0.4em] text-white/20 mt-16 hover:text-white transition-colors flex items-center justify-center gap-2 group"
                     >
-                        Back to public site
+                        <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" /> Back to public site
                     </button>
                 </div>
             </motion.div>

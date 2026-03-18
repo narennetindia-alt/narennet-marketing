@@ -1,16 +1,16 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, ExternalLink, Shield, Cpu, Code2, Globe2 } from "lucide-react";
+import { ArrowLeft, ExternalLink, Shield, Cpu, Code2, Globe2, Quote } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Founder() {
     return (
-        <div className="bg-brand-bg min-h-screen pt-24 pb-16">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-brand-bg min-h-screen pt-32 pb-16 text-brand-primary">
+            <div className="max-w-5xl mx-auto px-6 lg:px-8">
 
                 {/* Back Link */}
                 <Link
                     to="/about"
-                    className="inline-flex items-center text-brand-secondary hover:text-white transition-colors mb-8"
+                    className="inline-flex items-center text-brand-secondary hover:text-brand-accent transition-colors mb-12 font-bold text-sm uppercase tracking-widest"
                 >
                     <ArrowLeft className="w-4 h-4 mr-2" />
                     Back to About Us
@@ -21,125 +21,143 @@ export default function Founder() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="mb-16"
+                    className="mb-24"
                 >
-                    <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
-                        {/* Elegant text block rather than an image avatar, since we don't have a source image */}
-                        <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center shrink-0">
-                            <span className="text-4xl text-brand-accent font-bold">NC</span>
+                    <div className="flex flex-col md:flex-row gap-12 items-start md:items-center">
+                        <div className="relative group">
+                            <div className="absolute -inset-4 bg-brand-accent/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                            <div className="w-32 h-32 sm:w-48 sm:h-48 rounded-[40px] bg-brand-deep border-4 border-white shadow-2xl flex items-center justify-center shrink-0 relative z-10 overflow-hidden">
+                                <span className="text-5xl sm:text-7xl text-white font-black">NC</span>
+                                <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/20 to-transparent" />
+                            </div>
                         </div>
 
-                        <div>
-                            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 tracking-tight">
+                        <div className="flex-grow">
+                            <motion.div 
+                                initial={{ opacity: 0, x: 20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.2 }}
+                                className="inline-block px-4 py-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-brand-accent text-xs font-black uppercase tracking-widest mb-6"
+                            >
+                                Visionary & Architect
+                            </motion.div>
+                            <h1 className="text-5xl sm:text-7xl font-black text-brand-primary mb-6 tracking-tighter leading-none">
                                 Narendhiran C
                             </h1>
-                            <p className="text-xl text-brand-accent font-medium mb-4">
-                                Founder & CEO, NarenNet Technologies
+                            <p className="text-2xl text-brand-secondary font-light mb-8 max-w-xl">
+                                Founder & CEO of <span className="text-brand-accent font-black">NarenNet Technologies</span>
                             </p>
-                            <div className="flex gap-4">
-                                <a href="https://www.linkedin.com/in/narennet" target="_blank" rel="noopener noreferrer" className="text-brand-secondary hover:text-white transition-colors flex items-center">
-                                    LinkedIn <ExternalLink className="w-3 h-3 ml-1" />
+                            <div className="flex gap-8">
+                                <a href="https://www.linkedin.com/in/narennet" target="_blank" rel="noopener noreferrer" className="text-brand-secondary hover:text-brand-accent transition-all flex items-center gap-2 font-bold uppercase tracking-widest text-[11px]">
+                                    <span className="w-8 h-8 rounded-lg bg-brand-card flex items-center justify-center border border-brand-border"><ExternalLink size={14} /></span> LinkedIn
                                 </a>
-                                <a href="https://twitter.com/Narennetindia" target="_blank" rel="noopener noreferrer" className="text-brand-secondary hover:text-white transition-colors flex items-center">
-                                    Twitter <ExternalLink className="w-3 h-3 ml-1" />
+                                <a href="https://twitter.com/Narennetindia" target="_blank" rel="noopener noreferrer" className="text-brand-secondary hover:text-brand-accent transition-all flex items-center gap-2 font-bold uppercase tracking-widest text-[11px]">
+                                    <span className="w-8 h-8 rounded-lg bg-brand-card flex items-center justify-center border border-brand-border"><ExternalLink size={14} /></span> Twitter
                                 </a>
                             </div>
                         </div>
                     </div>
                 </motion.div>
 
-                {/* Content Sections */}
-                <div className="space-y-12 text-brand-secondary leading-relaxed text-lg">
+                {/* Content Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                    <div className="lg:col-span-8 space-y-20">
+                        <motion.section
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="relative"
+                        >
+                            <div className="flex items-center gap-4 mb-8">
+                                <div className="w-12 h-12 rounded-2xl bg-brand-accent/10 flex items-center justify-center text-brand-accent">
+                                    <Globe2 className="w-6 h-6" />
+                                </div>
+                                <h2 className="text-3xl font-black text-brand-primary tracking-tight">The Vision</h2>
+                            </div>
+                            <div className="text-xl text-brand-secondary leading-relaxed font-light space-y-6">
+                                <p>
+                                    I founded NarenNet with a singular, unyielding vision: to democratize enterprise-grade technology for businesses of all scales. In a rapidly evolving digital landscape, true competitive advantage shouldn't be gated behind massive IT budgets. My goal has always been to build solutions that bridge the gap—bringing advanced automation, robust infrastructure, and intelligent software to the forefront of everyday business operations.
+                                </p>
+                                <p>
+                                    We are not just writing code; we are engineering efficiency, removing operational bottlenecks, and enabling founders and operational leaders to focus on scaling remarkable businesses.
+                                </p>
+                            </div>
+                        </motion.section>
 
-                    <motion.section
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
-                            <Globe2 className="w-6 h-6 mr-3 text-brand-accent" />
-                            The Vision
-                        </h2>
-                        <p className="mb-4">
-                            I founded NarenNet with a singular, unyielding vision: to democratize enterprise-grade technology for businesses of all scales. In a rapidly evolving digital landscape, true competitive advantage shouldn't be gated behind massive IT budgets. My goal has always been to build solutions that bridge the gap—bringing advanced automation, robust infrastructure, and intelligent software to the forefront of everyday business operations.
-                        </p>
-                        <p>
-                            We are not just writing code; we are engineering efficiency, removing operational bottlenecks, and enabling founders and operational leaders to focus on scaling remarkable businesses.
-                        </p>
-                    </motion.section>
+                        <motion.section
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="p-12 rounded-[40px] bg-brand-deep text-white shadow-2xl relative overflow-hidden group"
+                        >
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-accent/10 blur-[100px] rounded-full" />
+                            <Quote className="text-brand-accent mb-8 opacity-40 group-hover:opacity-100 transition-opacity" size={48} />
+                            <p className="text-2xl md:text-3xl italic font-light leading-relaxed relative z-10 mb-8">
+                                "Our ambition is to embed AI so seamlessly into our ERP and CRM offerings that it becomes an invisible, massive multiplier of human capital."
+                            </p>
+                            <div className="w-12 h-1 bg-brand-accent rounded-full" />
+                        </motion.section>
 
-                    <motion.section
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
-                            <Code2 className="w-6 h-6 mr-3 text-brand-accent" />
-                            Our Software Ecosystem
-                        </h2>
-                        <p className="mb-4">
-                            At NarenNet, our ecosystem is designed to be cohesive rather than disjointed. From high-throughput Retail POS systems running in active supermarkets, to sophisticated multi-tenant SaaS platforms, the underlying architecture is built on principles of modularity and supreme reliability.
-                        </p>
-                        <p>
-                            Our ERP solutions are tailored. We recognized early on that off-the-shelf software forces businesses to change their workflows. Our approach is the opposite: we build scalable, adaptive ecosystems—handling everything from GST billing and massive inventory syncs to real-time BI dashboards—that map perfectly to the unique operational DNA of our clients.
-                        </p>
-                    </motion.section>
+                        <motion.section
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                        >
+                            <div className="flex items-center gap-4 mb-8">
+                                <div className="w-12 h-12 rounded-2xl bg-brand-accent/10 flex items-center justify-center text-brand-accent">
+                                    <Code2 className="w-6 h-6" />
+                                </div>
+                                <h2 className="text-3xl font-black text-brand-primary tracking-tight">Our Software Ecosystem</h2>
+                            </div>
+                            <div className="text-xl text-brand-secondary leading-relaxed font-light space-y-6">
+                                <p>
+                                    At NarenNet, our ecosystem is designed to be cohesive rather than disjointed. From high-throughput Retail POS systems running in active supermarkets, to sophisticated multi-tenant SaaS platforms, the underlying architecture is built on principles of modularity and supreme reliability.
+                                </p>
+                                <p>
+                                    Our approach is the opposite of traditional off-the-shelf software: we build scalable, adaptive ecosystems—handling everything from GST billing and massive inventory syncs to real-time BI dashboards—that map perfectly to the unique operational DNA of our clients.
+                                </p>
+                            </div>
+                        </motion.section>
+                    </div>
 
-                    <motion.section
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
-                            <Cpu className="w-6 h-6 mr-3 text-brand-accent" />
-                            AI Ambitions
-                        </h2>
-                        <p className="mb-4">
-                            Artificial Intelligence is the defining technological shift of our generation, and integrating it into practical business workflows is my primary technical obsession. We are moving beyond simple chatbots into the realm of truly agentic business intelligence.
-                        </p>
-                        <p>
-                            I envision an ecosystem where NarenNet's AI agents handle predictive inventory forecasting, automate first-line customer resolution, and intelligently parse thousands of data points to deliver actionable insights directly to business owners. Our ambition is to embed AI so seamlessly into our ERP and CRM offerings that it becomes an invisible, massive multiplier of human capital.
-                        </p>
-                    </motion.section>
-
-                    <motion.section
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
-                            <Shield className="w-6 h-6 mr-3 text-brand-accent" />
-                            Security Expertise
-                        </h2>
-                        <p className="mb-4">
-                            In modern software, trust is the ultimate currency. With extensive experience in cloud infrastructure and cybersecurity hardening, I've embedded a "security-first" culture into NarenNet's engineering DNA.
-                        </p>
-                        <p>
-                            Whether we are deploying a local cloud network for a healthcare provider or a highly available backend for a consumer application, we implement rigorous defenses. From strict Zero Trust configurations and penetration testing to automated database backups and real-time threat monitoring, we ensure that our partners' data remains impenetrable. Building great software is pointless if it isn't safe.
-                        </p>
-                    </motion.section>
-
+                    {/* Sidebar Values */}
+                    <div className="lg:col-span-4 space-y-8">
+                         <div className="p-8 rounded-[32px] bg-white border border-brand-border shadow-sm">
+                             <Cpu className="text-brand-accent mb-6" size={32} />
+                             <h3 className="text-xl font-black mb-4 tracking-tight">AI Ambitions</h3>
+                             <p className="text-brand-secondary text-sm leading-relaxed font-light">
+                                 We are moving beyond simple chatbots into truly agentic business intelligence, where AI handles predictive forecasting and customer resolution.
+                             </p>
+                         </div>
+                         <div className="p-8 rounded-[32px] bg-white border border-brand-border shadow-sm">
+                             <Shield className="text-brand-accent mb-6" size={32} />
+                             <h3 className="text-xl font-black mb-4 tracking-tight">Security First</h3>
+                             <p className="text-brand-secondary text-sm leading-relaxed font-light">
+                                 From Zero Trust configurations to penetration testing, we ensure that our partners' data remains impenetrable. Trust is our ultimate currency.
+                             </p>
+                         </div>
+                    </div>
                 </div>
 
-                {/* CTA */}
+                {/* CTA — DARK CARD */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="mt-16 p-8 rounded-2xl border border-brand-secondary/20 bg-brand-surface/50 text-center"
+                    transition={{ duration: 0.8 }}
+                    className="mt-32 p-12 md:p-20 rounded-[60px] bg-brand-deep border border-white/5 text-center relative overflow-hidden group shadow-2xl text-white"
                 >
-                    <h3 className="text-2xl font-bold text-white mb-4">Let's build something remarkable.</h3>
-                    <p className="text-brand-secondary mb-6">
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-brand-accent/10 blur-[130px] rounded-full -z-10 group-hover:bg-brand-accent/15 transition-colors duration-700" />
+                    <h3 className="text-4xl md:text-5xl font-black mb-8 tracking-tighter text-white uppercase">Let's build something remarkable.</h3>
+                    <p className="text-white/50 mb-12 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
                         Looking for a digital transformation partner that understands both robust engineering and business scale?
                     </p>
                     <Link
                         to="/contact"
-                        className="inline-flex h-12 items-center justify-center rounded-lg bg-white px-8 font-medium text-black transition-colors hover:bg-neutral-200"
+                        className="inline-flex h-16 items-center justify-center rounded-2xl bg-brand-accent px-12 font-black text-white transition-all hover:scale-105 shadow-2xl shadow-brand-accent/30 text-xl"
                     >
                         Connect with NarenNet
                     </Link>

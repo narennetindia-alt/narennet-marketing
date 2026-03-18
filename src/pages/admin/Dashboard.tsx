@@ -72,72 +72,85 @@ export default function Dashboard() {
     }, []);
 
     const statCards = [
-        { label: 'Total Blogs', value: stats.blogs, change: '+1', icon: FileText, color: 'text-blue-500' },
-        { label: 'New Leads', value: stats.leads, change: `+${stats.leads}`, icon: MessageSquare, color: 'text-green-500' },
-        { label: 'Our Services', value: stats.services, change: '0', icon: Briefcase, color: 'text-purple-500' },
+        { label: 'Total Blogs', value: stats.blogs, change: '+1', icon: FileText, color: 'text-brand-accent' },
+        { label: 'New Leads', value: stats.leads, change: `+${stats.leads}`, icon: MessageSquare, color: 'text-emerald-500' },
+        { label: 'Our Services', value: stats.services, change: '0', icon: Briefcase, color: 'text-blue-500' },
         { label: 'Help FAQs', value: stats.faqs, change: '0', icon: HelpCircle, color: 'text-orange-500' },
     ];
 
     return (
-        <div className="space-y-10">
-            <div className="mb-10">
-                <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2 text-white">Welcome Back, Admin</h1>
-                <p className="text-brand-secondary text-sm md:text-base font-light">Here's what's happening with NarenNet today.</p>
+        <div className="space-y-12">
+            <div className="mb-12">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div>
+                        <h1 className="text-4xl md:text-5xl font-black tracking-tighter mb-3 text-brand-primary uppercase">Console <span className="text-brand-accent">Overview</span></h1>
+                        <p className="text-brand-secondary text-lg font-light leading-none">Intelligence and operations at a glance.</p>
+                    </div>
+                    <div className="flex items-center gap-4 bg-white border border-brand-border p-2 pr-6 rounded-2xl shadow-sm">
+                        <div className="w-10 h-10 rounded-xl bg-brand-accent/10 flex items-center justify-center text-brand-accent">
+                            <Clock size={18} />
+                        </div>
+                        <span className="text-xs font-black uppercase tracking-widest text-brand-secondary">Last Sync: Just Now</span>
+                    </div>
+                </div>
             </div>
 
-            {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Stats Grid — LIGHT CARDS */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {statCards.map((stat, idx) => (
                     <motion.div
                         key={stat.label}
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 25 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: idx * 0.1 }}
-                        className="bg-brand-card border border-brand-border p-6 md:p-8 rounded-[24px] md:rounded-[32px] card-glow text-white"
+                        transition={{ duration: 0.6, delay: idx * 0.1 }}
+                        className="bg-white border border-brand-border p-8 rounded-[40px] shadow-sm hover:shadow-2xl hover:border-brand-accent/30 transition-all group"
                     >
-                        <div className="flex items-start justify-between mb-4 md:mb-6">
-                            <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-white/5 flex items-center justify-center ${stat.color}`}>
-                                <stat.icon size={20} />
+                        <div className="flex items-start justify-between mb-8">
+                            <div className={`w-14 h-14 rounded-2xl bg-brand-bg border border-brand-border flex items-center justify-center ${stat.color} group-hover:scale-110 transition-transform`}>
+                                <stat.icon size={24} />
                             </div>
-                            <span className="text-[10px] font-bold text-green-500 flex items-center gap-1 bg-green-500/10 px-3 py-1 rounded-full">
-                                {stat.change} <ArrowUpRight size={10} />
+                            <span className="text-[10px] font-black text-emerald-600 flex items-center gap-1 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-100">
+                                {stat.change} <ArrowUpRight size={12} />
                             </span>
                         </div>
-                        <p className="text-brand-secondary text-xs md:text-sm font-medium mb-1">{stat.label}</p>
-                        <p className="text-2xl md:text-3xl font-bold">{isLoading ? '...' : stat.value}</p>
+                        <p className="text-brand-secondary text-xs font-black uppercase tracking-widest mb-2 opacity-50">{stat.label}</p>
+                        <p className="text-4xl font-black text-brand-primary tracking-tight">{isLoading ? '...' : stat.value}</p>
                     </motion.div>
                 ))}
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                {/* Recent Leads */}
-                <div className="bg-brand-card border border-brand-border rounded-[32px] md:rounded-[40px] p-6 md:p-10 card-glow text-white">
-                    <div className="flex items-center justify-between mb-8">
-                        <h2 className="text-lg md:text-xl font-bold">Latest Leads</h2>
-                        <Link to="/admin/leads" className="text-brand-accent text-xs font-bold flex items-center gap-2 hover:gap-3 transition-all">
-                            View All <ArrowRight size={14} />
+                {/* Recent Leads — LIGHT */}
+                <div className="bg-white border border-brand-border rounded-[48px] p-8 md:p-12 shadow-sm relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-brand-accent/5 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2" />
+                    
+                    <div className="flex items-center justify-between mb-10 relative z-10">
+                        <h2 className="text-2xl font-black text-brand-primary uppercase tracking-tighter">Latest <span className="text-brand-accent">Leads</span></h2>
+                        <Link to="/admin/leads" className="w-10 h-10 rounded-full border border-brand-border flex items-center justify-center text-brand-primary hover:bg-brand-deep hover:text-white hover:border-brand-deep transition-all">
+                            <ArrowRight size={18} />
                         </Link>
                     </div>
-                    <div className="space-y-6">
+                    
+                    <div className="space-y-6 relative z-10">
                         {isLoading ? (
-                            <div className="py-10 text-center text-brand-secondary italic">Loading leads...</div>
+                            <div className="py-20 text-center text-brand-secondary font-light">Synthesizing lead data...</div>
                         ) : recentLeads.length === 0 ? (
-                            <div className="py-10 text-center text-brand-secondary italic">No leads found.</div>
+                            <div className="py-20 text-center text-brand-secondary font-light italic">No incoming intelligence findings.</div>
                         ) : recentLeads.map((lead) => (
-                            <div key={lead.id} className="flex items-center gap-4 md:gap-6 p-3 md:p-4 rounded-2xl md:rounded-3xl hover:bg-white/5 transition-colors group">
-                                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-brand-accent/10 flex items-center justify-center text-brand-accent font-bold text-sm md:text-base">
+                            <div key={lead.id} className="flex items-center gap-6 p-4 rounded-3xl hover:bg-brand-bg border border-transparent hover:border-brand-border transition-all group">
+                                <div className="w-14 h-14 rounded-2xl bg-brand-deep text-white flex items-center justify-center font-black text-lg shadow-lg group-hover:bg-brand-accent transition-colors">
                                     {lead.name[0]}
                                 </div>
                                 <div className="flex-grow min-w-0">
-                                    <p className="font-bold text-sm md:text-base truncate">{lead.name}</p>
-                                    <p className="text-[10px] md:text-xs text-brand-secondary truncate">{lead.email}</p>
+                                    <p className="font-black text-brand-primary text-lg tracking-tight truncate">{lead.name}</p>
+                                    <p className="text-xs text-brand-secondary font-medium truncate uppercase tracking-widest opacity-60">{lead.email}</p>
                                 </div>
                                 <div className="text-right flex-shrink-0">
-                                    <span className={`text-[8px] md:text-[10px] font-bold uppercase tracking-widest px-2 md:px-3 py-0.5 md:py-1 rounded-full ${lead.status === 'new' ? 'bg-brand-accent/10 text-brand-accent' : 'bg-green-500/10 text-green-500'}`}>
+                                    <span className={`text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full border ${lead.status === 'new' ? 'bg-brand-accent/10 border-brand-accent/20 text-brand-accent' : 'bg-emerald-50 border-emerald-100 text-emerald-600'}`}>
                                         {lead.status}
                                     </span>
-                                    <p className="text-[8px] md:text-[10px] text-brand-secondary mt-1 md:mt-2 flex items-center justify-end gap-1">
-                                        <Clock size={8} /> {new Date(lead.created_at).toLocaleDateString()}
+                                    <p className="text-[10px] text-brand-secondary mt-3 font-bold uppercase tracking-widest opacity-40 flex items-center justify-end gap-2">
+                                        <Clock size={10} /> {new Date(lead.created_at).toLocaleDateString()}
                                     </p>
                                 </div>
                             </div>
@@ -145,36 +158,39 @@ export default function Dashboard() {
                     </div>
                 </div>
 
-                {/* Recent Activity / Blogs */}
-                <div className="bg-brand-card border border-brand-border rounded-[40px] p-10 card-glow text-white">
-                    <div className="flex items-center justify-between mb-8">
-                        <h2 className="text-xl font-bold">Recent Blogs</h2>
-                        <Link to="/admin/blogs" className="text-brand-accent text-sm font-bold flex items-center gap-2 hover:gap-3 transition-all">
-                            Manage <ArrowRight size={16} />
+                {/* Recent Blogs — LIGHT */}
+                <div className="bg-white border border-brand-border rounded-[48px] p-8 md:p-12 shadow-sm relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-brand-accent/5 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2" />
+                    
+                    <div className="flex items-center justify-between mb-10 relative z-10">
+                        <h2 className="text-2xl font-black text-brand-primary uppercase tracking-tighter">Recent <span className="text-brand-accent">Insights</span></h2>
+                        <Link to="/admin/blogs" className="w-10 h-10 rounded-full border border-brand-border flex items-center justify-center text-brand-primary hover:bg-brand-deep hover:text-white hover:border-brand-deep transition-all">
+                            <ArrowRight size={18} />
                         </Link>
                     </div>
-                    <div className="space-y-6">
+
+                    <div className="space-y-6 relative z-10">
                         {isLoading ? (
-                            <div className="py-10 text-center text-brand-secondary italic">Loading blogs...</div>
+                            <div className="py-20 text-center text-brand-secondary font-light">Parsing content archive...</div>
                         ) : recentBlogs.length === 0 ? (
-                            <div className="py-10 text-center text-brand-secondary italic">No blog posts found.</div>
+                            <div className="py-20 text-center text-brand-secondary font-light italic">Blog archive is currently empty.</div>
                         ) : recentBlogs.map((blog) => (
-                            <div key={blog.id} className="flex items-start gap-6 p-4 rounded-3xl hover:bg-white/5 transition-colors group">
-                                <div className="w-20 h-20 rounded-2xl bg-white/5 overflow-hidden flex-shrink-0 border border-brand-border">
+                            <div key={blog.id} className="flex items-center gap-6 p-4 rounded-3xl hover:bg-brand-bg border border-transparent hover:border-brand-border transition-all group">
+                                <div className="w-24 h-16 rounded-2xl bg-brand-bg overflow-hidden flex-shrink-0 border border-brand-border shadow-sm">
                                     <img
                                         src={blog.cover_image || 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=200&h=200&fit=crop'}
                                         alt="blog"
-                                        className="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity"
+                                        className="w-full h-full object-cover transition-transform group-hover:scale-110"
                                     />
                                 </div>
                                 <div className="flex-grow min-w-0">
-                                    <h3 className="font-bold mb-2 group-hover:text-brand-accent transition-colors truncate">{blog.title}</h3>
+                                    <h3 className="font-black text-brand-primary mb-2 group-hover:text-brand-accent transition-colors truncate tracking-tight uppercase text-sm">{blog.title}</h3>
                                     <div className="flex items-center gap-4">
-                                        <span className={`text-[10px] font-bold uppercase tracking-widest ${blog.status === 'published' ? 'text-green-500' : 'text-yellow-500'}`}>
+                                        <span className={`text-[10px] font-black uppercase tracking-widest ${blog.status === 'published' ? 'text-emerald-600' : 'text-orange-500'}`}>
                                             {blog.status}
                                         </span>
-                                        <span className="text-[10px] text-brand-secondary">•</span>
-                                        <span className="text-[10px] text-brand-secondary flex items-center gap-1">
+                                        <div className="w-1 h-1 rounded-full bg-brand-border" />
+                                        <span className="text-[10px] text-brand-secondary font-black uppercase tracking-widest opacity-40 flex items-center gap-2">
                                             <Clock size={10} /> {new Date(blog.created_at).toLocaleDateString()}
                                         </span>
                                     </div>

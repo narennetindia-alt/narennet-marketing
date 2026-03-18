@@ -23,19 +23,6 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-// ─── Design tokens (Midnight Sapphire palette) ───────────────────────────────
-const S = {
-  navy:       '#0B1F3A',   // Midnight Sapphire — dark sections, headings
-  navyLight:  '#0F2849',   // Slightly lighter navy for cards on dark bg
-  cyan:       '#0EA5E9',   // Bright sky-blue CTA accent
-  cyanDark:   '#0284C7',   // Darker cyan for hover states
-  slate50:    '#F8FAFC',   // Near-white light section bg
-  slate100:   '#F1F5F9',   // Light card bg
-  slate200:   '#E2E8F0',   // Borders on light sections
-  slate600:   '#475569',   // Body text on light bg
-  slate800:   '#1E293B',   // Deep heading on light bg
-};
-
 // ─────────────────────────── DATA ────────────────────────────────────────────
 
 const stats = [
@@ -66,7 +53,7 @@ const painPoints = [
   },
   {
     icon: <Package size={26} />,
-    iconColor: S.cyan,
+    iconColor: 'var(--color-brand-accent)',
     title: 'Inventory Confusion',
     description: 'Overstocking and stockouts happen when inventory tracking is manual.',
   },
@@ -175,9 +162,9 @@ function SectionLabel({ children, dark = false }: { children: string; dark?: boo
   return (
     <span
       className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] mb-4"
-      style={{ color: dark ? 'rgba(255,255,255,0.6)' : S.cyan }}
+      style={{ color: dark ? 'rgba(255,255,255,0.6)' : 'var(--color-brand-accent)' }}
     >
-      <span className="w-4 h-px" style={{ backgroundColor: dark ? 'rgba(255,255,255,0.4)' : S.cyan }} />
+      <span className="w-4 h-px" style={{ backgroundColor: dark ? 'rgba(255,255,255,0.4)' : 'var(--color-brand-accent)' }} />
       {children}
     </span>
   );
@@ -197,36 +184,29 @@ const WhatsAppIcon = ({ cls = 'w-4 h-4' }: { cls?: string }) => (
 
 export default function Home() {
   return (
-    <div className="flex flex-col overflow-hidden">
+    <div className="flex flex-col overflow-hidden bg-brand-bg">
 
-      {/* ══════════════════════════════════════════════════════
-          1. HERO — DARK (Midnight Sapphire)
-      ══════════════════════════════════════════════════════ */}
+      {/* 1. HERO — DARK */}
       <section
         className="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden"
-        style={{ background: `linear-gradient(135deg, ${S.navy} 0%, #0F2D52 60%, #0D2340 100%)` }}
+        style={{ background: 'linear-gradient(135deg, var(--color-brand-deep) 0%, #0F2D52 60%, #0D2340 100%)' }}
       >
-        {/* Subtle grid texture */}
         <div
           className="absolute inset-0 pointer-events-none opacity-[0.04]"
           style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '36px 36px' }}
         />
-        {/* Glow orbs */}
-        <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] rounded-full pointer-events-none" style={{ background: `radial-gradient(circle, ${S.cyan}18 0%, transparent 70%)` }} />
-        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(14,165,233,0.08) 0%, transparent 70%)' }} />
+        <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, var(--color-brand-accent)18 0%, transparent 70%)' }} />
 
         <div className="container-wide relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
 
-            {/* Left — Copy */}
             <div>
-              {/* Badge */}
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.4 }}
                 className="inline-flex items-center gap-2 border px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-6"
-                style={{ borderColor: `${S.cyan}40`, color: S.cyan, background: `${S.cyan}12` }}
+                style={{ borderColor: 'rgba(14,165,233, 0.4)', color: 'var(--color-brand-accent)', background: 'rgba(14,165,233, 0.12)' }}
               >
                 <WifiOff size={12} />
                 Offline Mode + Auto Sync
@@ -235,19 +215,18 @@ export default function Home() {
               <motion.h1
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.1 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
                 className="text-[clamp(2.4rem,5.5vw,4.2rem)] font-bold leading-[1.05] tracking-tight text-white mb-6 normal-case"
               >
                 All-in-One ERP & CRM for{' '}
-                <span style={{ color: S.cyan }}>Growing Businesses</span>
+                <span className="text-brand-accent">Growing Businesses</span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-                className="text-lg leading-relaxed max-w-xl mb-10"
-                style={{ color: 'rgba(255,255,255,0.7)' }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-lg leading-relaxed max-w-xl mb-10 text-white/70"
               >
                 Manage billing, inventory, customers, and analytics in one powerful
                 system —{' '}
@@ -257,82 +236,70 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
                 className="flex flex-col sm:flex-row gap-4"
               >
-                {/* Primary CTA */}
                 <Link
                   to="/contact"
-                  className="group flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-bold text-sm uppercase tracking-wider text-white transition-all hover:scale-[1.02]"
-                  style={{ background: `linear-gradient(135deg, ${S.cyan}, ${S.cyanDark})`, boxShadow: `0 8px 32px ${S.cyan}40` }}
+                  className="group flex items-center justify-center gap-3 px-10 py-5 rounded-2xl font-bold text-sm uppercase tracking-wider text-white transition-all hover:scale-[1.02] bg-brand-accent shadow-[0_8px_32px_rgba(14,165,233,0.4)] hover:bg-white hover:text-brand-primary hover:shadow-none"
                 >
                   View Live Demo
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
-                {/* Secondary CTA */}
                 <a
                   href={waLink}
                   target="_blank"
                   rel="noreferrer"
-                  className="group flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-bold text-sm uppercase tracking-wider text-white transition-all"
-                  style={{ border: '1.5px solid rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.07)' }}
-                  onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.12)')}
-                  onMouseLeave={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.07)')}
+                  className="group flex items-center justify-center gap-3 px-10 py-5 rounded-2xl font-bold text-sm uppercase tracking-wider text-white transition-all border border-white/20 bg-white/5 hover:bg-white/10"
                 >
                   <WhatsAppIcon cls="w-4 h-4 text-green-400" />
                   Chat on WhatsApp
                 </a>
               </motion.div>
 
-              {/* Stats strip */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.7, delay: 0.5 }}
-                className="flex items-center gap-8 mt-12 pt-10"
-                style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="flex items-center gap-8 mt-12 pt-10 border-t border-white/10"
               >
                 {stats.map((s) => (
                   <div key={s.label}>
                     <div className="text-2xl font-bold text-white">{s.value}</div>
-                    <div className="text-[10px] uppercase tracking-widest mt-0.5" style={{ color: 'rgba(255,255,255,0.5)' }}>{s.label}</div>
+                    <div className="text-[10px] uppercase tracking-widest mt-0.5 text-white/50">{s.label}</div>
                   </div>
                 ))}
               </motion.div>
             </div>
 
-            {/* Right — Dashboard Mockup */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.9, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
               className="relative hidden lg:block"
             >
               <div
-                className="relative rounded-3xl p-6 shadow-2xl"
-                style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(20px)' }}
+                className="relative rounded-3xl p-6 shadow-2xl bg-white/5 border border-white/10 backdrop-blur-3xl"
               >
-                {/* Top bar */}
                 <div className="flex items-center justify-between mb-6">
                   <div>
-                    <p className="text-[10px] uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.4)' }}>Sales Dashboard</p>
+                    <p className="text-[10px] uppercase tracking-widest mb-1 text-white/40">Sales Dashboard</p>
                     <p className="text-white font-bold text-lg">Today's Overview</p>
                   </div>
-                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-full" style={{ background: 'rgba(34,197,94,0.12)', border: '1px solid rgba(34,197,94,0.25)' }}>
+                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/25">
                     <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                    <span style={{ color: '#4ade80' }} className="text-xs font-bold">Offline Ready</span>
+                    <span className="text-[#4ade80] text-xs font-bold">Offline Ready</span>
                   </div>
                 </div>
 
-                {/* KPI Row */}
                 <div className="grid grid-cols-3 gap-3 mb-6">
                   {[
                     { label: 'Revenue', val: '₹48,230', up: true },
                     { label: 'Orders', val: '142', up: true },
                     { label: 'Stock Items', val: '1,847', up: false },
                   ].map((kpi) => (
-                    <div key={kpi.label} className="rounded-2xl p-4" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
-                      <p className="text-[9px] uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.4)' }}>{kpi.label}</p>
+                    <div key={kpi.label} className="rounded-2xl p-4 bg-white/5 border border-white/10">
+                      <p className="text-[9px] uppercase tracking-widest mb-1 text-white/40">{kpi.label}</p>
                       <p className="text-white font-bold text-lg">{kpi.val}</p>
                       <p className="text-[9px] font-bold mt-1" style={{ color: kpi.up ? '#4ade80' : 'rgba(255,255,255,0.35)' }}>
                         {kpi.up ? '↑ +12.4%' : '→ Stable'}
@@ -341,9 +308,8 @@ export default function Home() {
                   ))}
                 </div>
 
-                {/* Mini bar chart */}
                 <div className="mb-6">
-                  <p className="text-[9px] uppercase tracking-widest mb-3" style={{ color: 'rgba(255,255,255,0.4)' }}>Weekly Revenue</p>
+                  <p className="text-[9px] uppercase tracking-widest mb-3 text-white/40">Weekly Revenue</p>
                   <div className="h-16 flex items-end gap-1.5">
                     {[55, 72, 48, 88, 65, 92, 76].map((h, i) => (
                       <motion.div
@@ -352,23 +318,22 @@ export default function Home() {
                         animate={{ height: `${h}%` }}
                         transition={{ duration: 1, delay: 0.6 + i * 0.08, ease: 'easeOut' }}
                         className="flex-1 rounded-t-md"
-                        style={{ background: i === 5 ? S.cyan : `${S.cyan}35` }}
+                        style={{ background: i === 5 ? 'var(--color-brand-accent)' : 'rgba(14,165,233, 0.35)' }}
                       />
                     ))}
                   </div>
                 </div>
 
-                {/* Transactions */}
                 <div className="space-y-2">
                   {[
                     { name: 'Invoice #4821', amount: '₹1,240', time: '2 min ago', paid: true },
                     { name: 'Invoice #4820', amount: '₹3,890', time: '18 min ago', paid: true },
                     { name: 'Invoice #4819', amount: '₹640', time: '1 hr ago', paid: false },
                   ].map((tx) => (
-                    <div key={tx.name} className="flex items-center justify-between p-3 rounded-xl" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}>
+                    <div key={tx.name} className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10">
                       <div>
                         <p className="text-white text-[11px] font-bold">{tx.name}</p>
-                        <p className="text-[9px]" style={{ color: 'rgba(255,255,255,0.4)' }}>{tx.time}</p>
+                        <p className="text-[9px] text-white/40">{tx.time}</p>
                       </div>
                       <div className="text-right">
                         <p className="text-white text-[11px] font-bold">{tx.amount}</p>
@@ -381,12 +346,10 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Floating badges */}
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -top-4 -right-6 px-4 py-3 flex items-center gap-2 rounded-2xl shadow-xl"
-                style={{ background: 'rgba(15,40,73,0.95)', border: '1px solid rgba(74,222,128,0.3)' }}
+                className="absolute -top-4 -right-6 px-4 py-3 flex items-center gap-2 rounded-2xl shadow-xl bg-brand-deep/95 border border-green-500/30"
               >
                 <RefreshCw size={14} className="text-green-400 animate-spin" style={{ animationDuration: '2s' }} />
                 <span className="text-green-400 text-xs font-bold">Auto-syncing…</span>
@@ -394,10 +357,9 @@ export default function Home() {
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                className="absolute -bottom-4 -left-6 px-4 py-3 flex items-center gap-2 rounded-2xl shadow-xl"
-                style={{ background: 'rgba(15,40,73,0.95)', border: '1px solid rgba(255,255,255,0.12)' }}
+                className="absolute -bottom-4 -left-6 px-4 py-3 flex items-center gap-2 rounded-2xl shadow-xl bg-brand-deep/95 border border-white/10"
               >
-                <ShieldCheck size={14} style={{ color: S.cyan }} />
+                <ShieldCheck size={14} className="text-brand-accent" />
                 <span className="text-white text-xs font-bold">Works Offline</span>
               </motion.div>
             </motion.div>
@@ -405,53 +367,47 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          2. TRUST BAR — WHITE
-      ══════════════════════════════════════════════════════ */}
-      <section className="py-14 bg-white border-b" style={{ borderColor: S.slate200 }}>
+      {/* 2. TRUST BAR — WHITE */}
+      <section className="py-14 bg-white border-b border-brand-border">
         <div className="container-wide">
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-center text-xs font-bold uppercase tracking-[0.3em] mb-8"
-            style={{ color: S.slate600 }}
+            className="text-center text-xs font-bold uppercase tracking-[0.3em] mb-8 text-brand-secondary"
           >
             Trusted by growing businesses across India
           </motion.p>
           <div className="relative overflow-hidden mask-fade">
             <div className="animate-marquee flex gap-12 whitespace-nowrap">
               {clients.map((c, i) => (
-                <span key={i} className="text-sm font-bold uppercase tracking-widest shrink-0" style={{ color: S.navy + '55' }}>
+                <span key={i} className="text-sm font-bold uppercase tracking-widest shrink-0 text-brand-primary/30">
                   {c}
                 </span>
               ))}
             </div>
           </div>
-          {/* Stats row */}
-          <div className="flex justify-center gap-12 mt-12 pt-12" style={{ borderTop: `1px solid ${S.slate200}` }}>
+          <div className="flex justify-center gap-12 mt-12 pt-12 border-t border-brand-border">
             {stats.map((s) => (
               <div key={s.label} className="text-center">
-                <div className="text-3xl font-bold" style={{ color: S.navy }}>{s.value}</div>
-                <div className="text-xs uppercase tracking-widest mt-1" style={{ color: S.slate600 }}>{s.label}</div>
+                <div className="text-3xl font-bold text-brand-primary">{s.value}</div>
+                <div className="text-xs uppercase tracking-widest mt-1 text-brand-secondary">{s.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          3. PROBLEM — LIGHT GRAY
-      ══════════════════════════════════════════════════════ */}
-      <section className="py-24 px-6 md:py-32 md:px-12 lg:px-24" style={{ background: S.slate50 }}>
+      {/* 3. PROBLEM — LIGHT GRAY */}
+      <section className="py-24 px-6 md:py-32 md:px-12 lg:px-24 bg-brand-card">
         <div className="container-wide">
           <div className="max-w-3xl mx-auto text-center mb-14">
             <SectionLabel>The Problem</SectionLabel>
-            <h2 className="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-tight normal-case mb-4" style={{ color: S.navy }}>
+            <h2 className="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-tight normal-case mb-4 text-brand-primary">
               Running your business shouldn't{' '}
-              <span style={{ color: S.cyan }}>be this hard</span>
+              <span className="text-brand-accent">be this hard</span>
             </h2>
-            <p className="text-lg" style={{ color: S.slate600 }}>
+            <p className="text-lg text-brand-secondary">
               Most businesses are stuck with outdated tools, manual processes, and no real-time visibility.
             </p>
           </div>
@@ -463,42 +419,38 @@ export default function Home() {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="group p-7 rounded-2xl bg-white transition-all hover:shadow-lg"
-                style={{ border: `1px solid ${S.slate200}` }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                className="group p-7 rounded-2xl bg-white border border-brand-border transition-all hover:shadow-lg hover:border-brand-accent/30"
               >
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-transform group-hover:scale-110"
                   style={{ background: `${pt.iconColor}14`, color: pt.iconColor }}>
                   {pt.icon}
                 </div>
-                <h3 className="font-bold text-base normal-case mb-2" style={{ color: S.navy }}>{pt.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: S.slate600 }}>{pt.description}</p>
+                <h3 className="font-bold text-base normal-case mb-2 text-brand-primary">{pt.title}</h3>
+                <p className="text-sm leading-relaxed text-brand-secondary">{pt.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          4. SOLUTION — WHITE
-      ══════════════════════════════════════════════════════ */}
+      {/* 4. SOLUTION — WHITE */}
       <section className="section-padding bg-white">
         <div className="container-wide">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <SectionLabel>The Solution</SectionLabel>
-              <h2 className="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-tight normal-case mb-4" style={{ color: S.navy }}>
+              <h2 className="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-tight normal-case mb-4 text-brand-primary">
                 Everything you need in{' '}
-                <span style={{ color: S.cyan }}>one system</span>
+                <span className="text-brand-accent">one system</span>
               </h2>
-              <p className="text-lg leading-relaxed mb-8" style={{ color: S.slate600 }}>
+              <p className="text-lg leading-relaxed mb-8 text-brand-secondary">
                 NarenNet gives you a complete business operating system — billing, inventory, CRM,
                 analytics, and admin — all communicating in real time, all within one platform.
               </p>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-wider hover:gap-4 transition-all"
-                style={{ color: S.cyan }}
+                className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-wider text-brand-accent hover:gap-4 transition-all"
               >
                 Get a personalized demo <ArrowRight size={16} />
               </Link>
@@ -511,19 +463,17 @@ export default function Home() {
                   initial={{ opacity: 0, x: 30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.08 }}
-                  className="group flex items-start gap-4 p-5 rounded-2xl bg-white transition-all hover:shadow-md"
-                  style={{ border: `1px solid ${S.slate200}` }}
+                  transition={{ duration: 0.4, delay: idx * 0.08 }}
+                  className="group flex items-start gap-5 p-6 rounded-2xl bg-white border border-brand-border transition-all hover:shadow-md hover:border-brand-accent/20"
                 >
-                  <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform"
-                    style={{ background: `${S.cyan}14`, color: S.cyan }}>
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-brand-accent group-hover:text-white transition-all bg-brand-accent/10 text-brand-accent">
                     {f.icon}
                   </div>
                   <div className="flex-grow">
-                    <h3 className="font-bold text-sm normal-case mb-0.5" style={{ color: S.navy }}>{f.title}</h3>
-                    <p className="text-sm leading-relaxed" style={{ color: S.slate600 }}>{f.description}</p>
+                    <h3 className="font-bold text-sm normal-case mb-1 text-brand-primary">{f.title}</h3>
+                    <p className="text-sm leading-relaxed text-brand-secondary">{f.description}</p>
                   </div>
-                  <ChevronRight size={14} className="mt-1 shrink-0 transition-colors group-hover:translate-x-1 transition-transform" style={{ color: S.slate200 }} />
+                  <ChevronRight size={14} className="mt-1 shrink-0 text-brand-border group-hover:translate-x-1 transition-transform group-hover:text-brand-accent" />
                 </motion.div>
               ))}
             </div>
@@ -531,36 +481,32 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          5. USP — DARK (Midnight Sapphire)
-      ══════════════════════════════════════════════════════ */}
+      {/* 5. USP — DARK */}
       <section
         className="py-24 px-6 md:py-32 md:px-12 lg:px-24 relative overflow-hidden"
-        style={{ background: `linear-gradient(135deg, ${S.navy} 0%, #0F2D52 100%)` }}
+        style={{ background: 'linear-gradient(135deg, var(--color-brand-deep) 0%, #0F2D52 100%)' }}
       >
         <div
           className="absolute inset-0 pointer-events-none opacity-[0.04]"
           style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '36px 36px' }}
         />
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full pointer-events-none" style={{ background: `radial-gradient(circle, ${S.cyan}15 0%, transparent 70%)` }} />
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, var(--color-brand-accent)15 0%, transparent 70%)' }} />
 
         <div className="container-wide relative z-10">
           <div className="max-w-4xl mx-auto">
-            <div className="rounded-[32px] p-10 md:p-16 text-center" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <div className="rounded-[40px] p-10 md:p-16 text-center bg-white/5 border border-white/10 backdrop-blur-md">
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="relative inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-8 mx-auto"
-                style={{ background: `${S.cyan}18`, border: `1px solid ${S.cyan}40` }}
+                transition={{ duration: 0.5 }}
+                className="relative inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-8 mx-auto bg-brand-accent/20 border border-brand-accent/40"
               >
-                <WifiOff size={36} style={{ color: S.cyan }} />
+                <WifiOff size={36} className="text-brand-accent" />
                 <motion.div
                   animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0, 0.3] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="absolute inset-0 rounded-2xl"
-                  style={{ border: `1px solid ${S.cyan}60` }}
+                  className="absolute inset-0 rounded-2xl border border-brand-accent/60"
                 />
               </motion.div>
 
@@ -570,34 +516,33 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-[clamp(2rem,5vw,3.5rem)] font-bold text-white leading-tight normal-case mb-4"
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="text-[clamp(2rem,5vw,3.5rem)] font-bold text-white leading-tight normal-case mb-6"
               >
                 Works even{' '}
-                <span style={{ color: S.cyan }}>without internet</span>
+                <span className="text-brand-accent">without internet</span>
               </motion.h2>
 
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-xl leading-relaxed max-w-xl mx-auto mb-12"
-                style={{ color: 'rgba(255,255,255,0.65)' }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="text-xl leading-relaxed max-w-xl mx-auto mb-12 text-white/60"
               >
                 Continue billing, managing stock, and serving customers even when the internet is
                 down. Once reconnected, everything{' '}
                 <strong className="text-white font-semibold">automatically syncs</strong> to the cloud.
               </motion.p>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
                 {[
                   { icon: <CheckCircle2 size={18} />, label: 'Full offline billing' },
                   { icon: <RefreshCw size={18} />, label: 'Auto-sync on reconnect' },
                   { icon: <DatabaseZap size={18} />, label: 'Zero data loss' },
                 ].map((item) => (
                   <div key={item.label} className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: 'rgba(74,222,128,0.1)', color: '#4ade80', border: '1px solid rgba(74,222,128,0.2)' }}>
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-green-500/10 text-green-400 border border-green-500/20">
                       {item.icon}
                     </div>
                     <span className="text-white font-medium">{item.label}</span>
@@ -609,44 +554,39 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          6. DEMO — LIGHT GRAY
-      ══════════════════════════════════════════════════════ */}
-      <section className="section-padding" style={{ background: S.slate50 }}>
+      {/* 6. DEMO — LIGHT CARD */}
+      <section className="section-padding bg-brand-bg">
         <div className="container-wide">
           <div className="text-center mb-14">
             <SectionLabel>Live Demos</SectionLabel>
-            <h2 className="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-tight normal-case mb-4" style={{ color: S.navy }}>
+            <h2 className="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-tight normal-case mb-4 text-brand-primary">
               See it in action
             </h2>
-            <p className="text-lg max-w-xl mx-auto" style={{ color: S.slate600 }}>
+            <p className="text-lg max-w-xl mx-auto text-brand-secondary">
               Explore industry-specific demos crafted for your exact business type.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {demos.map((demo, idx) => (
               <motion.div
                 key={demo.industry}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="group flex flex-col p-8 rounded-3xl bg-white transition-all hover:shadow-xl"
-                style={{ border: `1px solid ${S.slate200}` }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                className="group flex flex-col p-8 rounded-[32px] bg-brand-card border border-brand-border transition-all hover:shadow-xl hover:bg-white hover:border-brand-accent/30"
               >
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
-                  style={{ background: `${S.cyan}14`, color: S.cyan, border: `1px solid ${S.cyan}25` }}>
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-brand-accent group-hover:text-white transition-all bg-brand-accent/10 text-brand-accent">
                   {demo.icon}
                 </div>
-                <h3 className="font-bold text-xl normal-case mb-3" style={{ color: S.navy }}>{demo.industry}</h3>
-                <p className="text-sm leading-relaxed flex-grow mb-8" style={{ color: S.slate600 }}>
+                <h3 className="font-bold text-xl normal-case mb-3 text-brand-primary">{demo.industry}</h3>
+                <p className="text-sm leading-relaxed flex-grow mb-8 text-brand-secondary">
                   {demo.description}
                 </p>
                 <Link
                   to={demo.link}
-                  className="self-start flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold uppercase tracking-wider text-white transition-all hover:opacity-90 hover:gap-3"
-                  style={{ background: `linear-gradient(135deg, ${S.cyan}, ${S.cyanDark})` }}
+                  className="self-start flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold uppercase tracking-wider text-white transition-all hover:gap-4 bg-brand-accent shadow-lg shadow-brand-accent/20"
                 >
                   View Demo <ArrowRight size={14} />
                 </Link>
@@ -656,22 +596,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          7. HOW IT WORKS — WHITE
-      ══════════════════════════════════════════════════════ */}
+      {/* 7. HOW IT WORKS — WHITE */}
       <section className="section-padding bg-white">
         <div className="container-wide">
           <div className="text-center mb-16">
             <SectionLabel>How It Works</SectionLabel>
-            <h2 className="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-tight normal-case mb-4" style={{ color: S.navy }}>
+            <h2 className="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-tight normal-case mb-4 text-brand-primary">
               Up and running in{' '}
-              <span style={{ color: S.cyan }}>3 simple steps</span>
+              <span className="text-brand-accent">3 simple steps</span>
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-            {/* Connector line */}
-            <div className="hidden md:block absolute top-10 left-[calc(33.33%+1rem)] right-[calc(33.33%+1rem)] h-px" style={{ background: `linear-gradient(to right, ${S.cyan}40, ${S.cyan}, ${S.cyan}40)` }} />
+            <div className="hidden md:block absolute top-10 left-[calc(33.33%+1rem)] right-[calc(33.33%+1rem)] h-px bg-brand-accent/30" />
 
             {steps.map((step, idx) => (
               <motion.div
@@ -679,19 +616,17 @@ export default function Home() {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.15 }}
+                transition={{ duration: 0.4, delay: idx * 0.15 }}
                 className="relative text-center"
               >
-                <div className="relative inline-flex w-20 h-20 items-center justify-center rounded-full mb-6 mx-auto"
-                  style={{ background: S.slate50, border: `2px solid ${S.cyan}50` }}>
-                  <span className="font-mono font-bold text-xl" style={{ color: S.cyan }}>{step.number}</span>
-                  <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center"
-                    style={{ background: 'white', border: `1px solid ${S.slate200}`, color: S.cyan }}>
+                <div className="relative inline-flex w-20 h-20 items-center justify-center rounded-3xl mb-8 mx-auto bg-brand-card border-2 border-brand-accent/30">
+                  <span className="font-mono font-bold text-2xl text-brand-accent">{step.number}</span>
+                  <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center bg-white border border-brand-border text-brand-accent shadow-sm">
                     {step.icon}
                   </div>
                 </div>
-                <h3 className="font-bold text-lg normal-case mb-3" style={{ color: S.navy }}>{step.title}</h3>
-                <p className="text-sm leading-relaxed max-w-xs mx-auto" style={{ color: S.slate600 }}>
+                <h3 className="font-bold text-xl normal-case mb-4 text-brand-primary">{step.title}</h3>
+                <p className="text-sm leading-relaxed max-w-xs mx-auto text-brand-secondary">
                   {step.description}
                 </p>
               </motion.div>
@@ -700,40 +635,37 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          8. TESTIMONIALS — LIGHT GRAY
-      ══════════════════════════════════════════════════════ */}
-      <section className="section-padding" style={{ background: S.slate50 }}>
+      {/* 8. TESTIMONIALS — LIGHT GRAY */}
+      <section className="section-padding bg-brand-card">
         <div className="container-wide">
           <div className="text-center mb-14">
             <SectionLabel>Testimonials</SectionLabel>
-            <h2 className="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-tight normal-case mb-4" style={{ color: S.navy }}>
+            <h2 className="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-tight normal-case mb-4 text-brand-primary">
               Businesses love NarenNet
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((t, idx) => (
               <motion.div
                 key={t.name}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="flex flex-col gap-5 p-8 rounded-3xl bg-white hover:shadow-lg transition-all"
-                style={{ border: `1px solid ${S.slate200}` }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                className="flex flex-col gap-6 p-8 rounded-[32px] bg-white border border-brand-border hover:shadow-xl transition-all"
               >
                 <div className="flex gap-1">
                   {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} size={14} style={{ color: S.cyan, fill: S.cyan }} />
+                    <Star key={i} size={14} className="text-brand-accent fill-brand-accent" />
                   ))}
                 </div>
-                <p className="leading-relaxed text-base flex-grow" style={{ color: S.slate800 }}>
+                <p className="leading-relaxed text-lg flex-grow italic text-brand-primary">
                   "{t.result}"
                 </p>
-                <div className="pt-5" style={{ borderTop: `1px solid ${S.slate200}` }}>
-                  <p className="font-bold text-sm" style={{ color: S.navy }}>{t.name}</p>
-                  <p className="text-xs mt-1" style={{ color: S.slate600 }}>{t.business}</p>
+                <div className="pt-6 border-t border-brand-border">
+                  <p className="font-bold text-sm text-brand-primary">{t.name}</p>
+                  <p className="text-xs mt-1 text-brand-secondary uppercase tracking-widest">{t.business}</p>
                 </div>
               </motion.div>
             ))}
@@ -741,9 +673,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          9. FINAL CTA — DARK (Midnight Sapphire)
-      ══════════════════════════════════════════════════════ */}
+      {/* 9. FINAL CTA — DARK */}
       <section className="section-padding bg-white">
         <div className="container-wide">
           <motion.div
@@ -751,24 +681,21 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="relative rounded-[40px] overflow-hidden p-12 md:p-20 text-center"
-            style={{ background: `linear-gradient(135deg, ${S.navy} 0%, #0F2D52 60%, #082035 100%)` }}
+            className="relative rounded-[48px] overflow-hidden p-12 md:p-24 text-center bg-brand-deep text-white shadow-2xl"
           >
-            <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 30% 50%, rgba(14,165,233,0.12) 0%, transparent 60%)' }} />
-            <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 80% 20%, rgba(14,165,233,0.06) 0%, transparent 50%)' }} />
+            <div className="absolute inset-0 pointer-events-none opacity-[0.08]" style={{ background: 'radial-gradient(ellipse at 30% 50%, #0EA5E9 0%, transparent 60%)' }} />
 
             <div className="relative z-10">
-              <h2 className="text-[clamp(1.8rem,5vw,3.8rem)] font-bold text-white leading-tight normal-case mb-4">
+              <h2 className="text-[clamp(1.8rem,5vw,3.8rem)] font-bold text-white leading-tight normal-case mb-6">
                 Start managing your business smarter today
               </h2>
-              <p className="text-xl max-w-xl mx-auto mb-10" style={{ color: 'rgba(255,255,255,0.65)' }}>
+              <p className="text-xl max-w-xl mx-auto mb-12 text-white/60">
                 Join 50+ businesses that already trust NarenNet to power their daily operations.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/contact"
-                  className="group flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-bold text-sm uppercase tracking-wider text-white transition-all hover:scale-[1.02]"
-                  style={{ background: `linear-gradient(135deg, ${S.cyan}, ${S.cyanDark})`, boxShadow: `0 8px 24px ${S.cyan}40` }}
+                  className="group flex items-center justify-center gap-3 px-10 py-5 rounded-2xl font-bold text-sm uppercase tracking-wider text-white transition-all hover:scale-[1.05] bg-brand-accent shadow-[0_8px_24px_rgba(14,165,233,0.4)]"
                 >
                   Get Free Demo <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
@@ -776,10 +703,7 @@ export default function Home() {
                   href={waDemoLink}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-bold text-sm uppercase tracking-wider text-white transition-all"
-                  style={{ border: '1.5px solid rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.07)' }}
-                  onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.13)')}
-                  onMouseLeave={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.07)')}
+                  className="flex items-center justify-center gap-3 px-10 py-5 rounded-2xl font-bold text-sm uppercase tracking-wider text-white transition-all border border-white/20 bg-white/5 hover:bg-white/10"
                 >
                   <WhatsAppIcon cls="w-4 h-4 text-green-400" />
                   Talk on WhatsApp

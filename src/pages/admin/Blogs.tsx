@@ -147,12 +147,12 @@ export default function Admin() {
     };
 
     return (
-        <div className="space-y-10">
+        <div className="space-y-12">
             {/* Header */}
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
                 <div>
-                    <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2 text-white">Blog Management</h1>
-                    <p className="text-brand-secondary text-sm md:text-base font-light">
+                    <h1 className="text-4xl md:text-5xl font-black tracking-tighter mb-3 text-brand-primary uppercase">Blog <span className="text-brand-accent">Management</span></h1>
+                    <p className="text-brand-secondary text-lg font-light">
                         {view === 'list' ? 'Manage your corporate publications.' : 'Create or edit enterprise insights.'}
                     </p>
                 </div>
@@ -161,14 +161,14 @@ export default function Admin() {
                     {view === 'list' ? (
                         <button
                             onClick={() => { resetForm(); setView('editor'); }}
-                            className="w-full md:w-auto px-6 md:px-8 py-3 md:py-4 rounded-[16px] md:rounded-[20px] bg-brand-accent text-white font-bold flex items-center justify-center gap-3 hover:scale-105 transition-all shadow-xl shadow-brand-accent/20 text-sm md:text-base"
+                            className="w-full md:w-auto px-8 py-5 rounded-2xl bg-brand-deep text-white font-black uppercase tracking-widest text-xs flex items-center justify-center gap-3 hover:scale-105 transition-all shadow-2xl shadow-brand-deep/20"
                         >
                             <Plus size={18} /> Create Post
                         </button>
                     ) : (
                         <button
                             onClick={() => setView('list')}
-                            className="w-full md:w-auto px-6 md:px-8 py-3 md:py-4 rounded-[16px] md:rounded-[20px] bg-white/5 border border-brand-border text-white font-bold flex items-center justify-center gap-3 hover:bg-white/10 transition-all text-sm md:text-base"
+                            className="w-full md:w-auto px-8 py-5 rounded-2xl bg-white border border-brand-border text-brand-primary font-black uppercase tracking-widest text-xs flex items-center justify-center gap-3 hover:bg-brand-bg transition-all"
                         >
                             <ArrowLeft size={18} /> Back to List
                         </button>
@@ -183,17 +183,17 @@ export default function Admin() {
                         key="list"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="bg-brand-card border border-brand-border rounded-[40px] overflow-hidden card-glow"
+                        exit={{ opacity: 0, scale: 0.98 }}
+                        className="bg-white border border-brand-border rounded-[48px] overflow-hidden shadow-sm"
                     >
-                        <div className="p-8 border-b border-brand-border flex flex-col md:flex-row justify-between gap-6 bg-white/[0.02]">
-                            <div className="flex items-center gap-4 bg-white/5 px-6 py-3 rounded-2xl border border-brand-border flex-grow max-w-md">
-                                <Search size={18} className="text-gray-500" />
-                                <input type="text" placeholder="Search posts..." className="bg-transparent border-none outline-none text-white text-sm w-full" />
+                        <div className="p-8 md:p-12 border-b border-brand-border flex flex-col md:flex-row justify-between gap-8 bg-brand-bg/50">
+                            <div className="flex items-center gap-4 bg-white px-6 py-4 rounded-2xl border border-brand-border flex-grow max-w-xl shadow-sm focus-within:border-brand-accent transition-colors">
+                                <Search size={20} className="text-brand-secondary/40" />
+                                <input type="text" placeholder="Search insights..." className="bg-transparent border-none outline-none text-brand-primary text-sm w-full font-medium placeholder:text-brand-secondary/30" />
                             </div>
                             <div className="flex items-center gap-4">
-                                <button className="p-3 rounded-xl bg-white/5 border border-brand-border text-brand-secondary hover:text-white transition-colors">
-                                    <Filter size={18} />
+                                <button className="p-4 rounded-2xl bg-white border border-brand-border text-brand-secondary hover:text-brand-primary hover:border-brand-primary transition-all shadow-sm">
+                                    <Filter size={20} />
                                 </button>
                             </div>
                         </div>
@@ -201,63 +201,63 @@ export default function Admin() {
                         <div className="hidden md:block overflow-x-auto">
                             <table className="w-full text-left border-collapse">
                                 <thead>
-                                    <tr className="border-b border-brand-border text-[10px] uppercase tracking-[0.2em] text-brand-secondary font-bold">
-                                        <th className="px-8 py-6">Article</th>
-                                        <th className="px-8 py-6">Category</th>
-                                        <th className="px-8 py-6">Status</th>
-                                        <th className="px-8 py-6">Created</th>
-                                        <th className="px-8 py-6 text-right">Actions</th>
+                                    <tr className="border-b border-brand-border text-[10px] uppercase tracking-[0.3em] text-brand-secondary font-black bg-brand-bg/30">
+                                        <th className="px-10 py-8">Article</th>
+                                        <th className="px-10 py-8">Category</th>
+                                        <th className="px-10 py-8">Status</th>
+                                        <th className="px-10 py-8">Created</th>
+                                        <th className="px-10 py-8 text-right">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody className="divide-y divide-brand-border">
                                     {isFetching ? (
                                         <tr>
-                                            <td colSpan={5} className="px-8 py-20 text-center">
-                                                <div className="w-8 h-8 border-2 border-brand-accent/30 border-t-brand-accent rounded-full animate-spin mx-auto" />
+                                            <td colSpan={5} className="px-10 py-32 text-center">
+                                                <div className="w-10 h-10 border-4 border-brand-accent/10 border-t-brand-accent rounded-full animate-spin mx-auto" />
                                             </td>
                                         </tr>
                                     ) : blogs.length === 0 ? (
                                         <tr>
-                                            <td colSpan={5} className="px-8 py-20 text-center text-brand-secondary">
-                                                No blog posts found.
+                                            <td colSpan={5} className="px-10 py-32 text-center text-brand-secondary font-light italic">
+                                                No blog posts discovered in the archive.
                                             </td>
                                         </tr>
                                     ) : blogs.map((blog) => (
-                                        <tr key={blog.id} className="group hover:bg-white/[0.02] transition-colors">
-                                            <td className="px-8 py-6">
-                                                <div className="flex items-center gap-4">
-                                                    <div className="w-12 h-12 rounded-xl bg-brand-border overflow-hidden">
-                                                        <img src={blog.cover_image || '/placeholder.png'} alt="" className="w-full h-full object-cover" />
+                                        <tr key={blog.id} className="group hover:bg-brand-bg transition-colors">
+                                            <td className="px-10 py-8">
+                                                <div className="flex items-center gap-6">
+                                                    <div className="w-16 h-12 rounded-xl bg-brand-bg overflow-hidden border border-brand-border shadow-sm flex-shrink-0">
+                                                        <img src={blog.cover_image || '/placeholder.png'} alt="" className="w-full h-full object-cover group-hover:scale-110 transition-transform" />
                                                     </div>
-                                                    <div>
-                                                        <p className="font-bold text-white mb-1 group-hover:text-brand-accent transition-colors">{blog.title}</p>
-                                                        <p className="text-xs text-brand-secondary">{blog.slug}</p>
+                                                    <div className="min-w-0">
+                                                        <p className="font-black text-brand-primary mb-1 group-hover:text-brand-accent transition-colors truncate text-base uppercase tracking-tight">{blog.title}</p>
+                                                        <p className="text-[10px] text-brand-secondary font-bold uppercase tracking-widest opacity-40 truncate">{blog.slug}</p>
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td className="px-8 py-6">
-                                                <span className="text-[10px] font-bold uppercase tracking-widest text-brand-secondary">{blog.category}</span>
+                                            <td className="px-10 py-8">
+                                                <span className="text-[10px] font-black uppercase tracking-widest text-brand-secondary bg-brand-bg px-3 py-1 rounded-full border border-brand-border">{blog.category}</span>
                                             </td>
-                                            <td className="px-8 py-6">
-                                                <span className={`text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full ${blog.status === 'published' ? 'bg-green-500/10 text-green-500' : 'bg-yellow-500/10 text-yellow-500'
+                                            <td className="px-10 py-8">
+                                                <span className={`text-[10px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border ${blog.status === 'published' ? 'bg-emerald-50 border-emerald-100 text-emerald-600' : 'bg-orange-50 border-orange-100 text-orange-600'
                                                     }`}>
                                                     {blog.status}
                                                 </span>
                                             </td>
-                                            <td className="px-8 py-6 text-brand-secondary text-xs">
+                                            <td className="px-10 py-8 text-brand-secondary text-xs font-bold uppercase tracking-widest opacity-40">
                                                 {new Date(blog.created_at).toLocaleDateString()}
                                             </td>
-                                            <td className="px-8 py-6 text-right">
-                                                <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <td className="px-10 py-8 text-right">
+                                                <div className="flex items-center justify-end gap-3 opacity-0 group-hover:opacity-100 transition-all translate-x-4 group-hover:translate-x-0">
                                                     <button
                                                         onClick={() => handleEdit(blog)}
-                                                        className="p-2 rounded-lg bg-blue-500/10 text-blue-500 hover:bg-blue-500 hover:text-white transition-all"
+                                                        className="p-3 rounded-xl bg-brand-bg border border-brand-border text-brand-primary hover:bg-brand-deep hover:text-white hover:border-brand-deep transition-all shadow-sm"
                                                     >
                                                         <Edit3 size={18} />
                                                     </button>
                                                     <button
                                                         onClick={() => handleDelete(blog.id)}
-                                                        className="p-2 rounded-lg bg-red-500/10 text-red-500 hover:bg-red-500 hover:text-white transition-all"
+                                                        className="p-3 rounded-xl bg-red-50 border border-red-100 text-red-500 hover:bg-red-500 hover:text-white hover:border-red-500 transition-all shadow-sm"
                                                     >
                                                         <Trash2 size={18} />
                                                     </button>
@@ -272,43 +272,43 @@ export default function Admin() {
                         {/* Mobile Card Layout */}
                         <div className="md:hidden divide-y divide-brand-border">
                             {isFetching ? (
-                                <div className="p-10 text-center">
-                                    <div className="w-8 h-8 border-2 border-brand-accent/30 border-t-brand-accent rounded-full animate-spin mx-auto" />
+                                <div className="p-16 text-center">
+                                    <div className="w-8 h-8 border-4 border-brand-accent/10 border-t-brand-accent rounded-full animate-spin mx-auto" />
                                 </div>
                             ) : blogs.length === 0 ? (
-                                <div className="p-10 text-center text-brand-secondary text-sm">
+                                <div className="p-16 text-center text-brand-secondary text-sm font-light italic">
                                     No blog posts found.
                                 </div>
                             ) : blogs.map((blog) => (
-                                <div key={blog.id} className="p-6 space-y-4">
-                                    <div className="flex gap-4">
-                                        <div className="w-16 h-16 rounded-xl bg-brand-border overflow-hidden flex-shrink-0">
+                                <div key={blog.id} className="p-8 space-y-6">
+                                    <div className="flex gap-6">
+                                        <div className="w-20 h-20 rounded-2xl bg-brand-bg overflow-hidden flex-shrink-0 border border-brand-border shadow-sm">
                                             <img src={blog.cover_image || '/placeholder.png'} alt="" className="w-full h-full object-cover" />
                                         </div>
                                         <div className="min-w-0 flex-grow">
-                                            <div className="flex justify-between items-start mb-1">
-                                                <span className="text-[8px] font-bold uppercase tracking-widest text-brand-secondary">{blog.category}</span>
-                                                <span className={`text-[8px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full ${blog.status === 'published' ? 'bg-green-500/10 text-green-500' : 'bg-yellow-500/10 text-yellow-500'}`}>
+                                            <div className="flex justify-between items-start mb-2">
+                                                <span className="text-[10px] font-black uppercase tracking-widest text-brand-secondary opacity-40">{blog.category}</span>
+                                                <span className={`text-[8px] font-black uppercase tracking-widest px-3 py-1 rounded-full border ${blog.status === 'published' ? 'bg-emerald-50 border-emerald-100 text-emerald-600' : 'bg-orange-50 border-orange-100 text-orange-600'}`}>
                                                     {blog.status}
                                                 </span>
                                             </div>
-                                            <p className="font-bold text-white text-sm line-clamp-2 leading-tight">{blog.title}</p>
+                                            <p className="font-black text-brand-primary text-base line-clamp-2 leading-tight uppercase tracking-tight">{blog.title}</p>
                                         </div>
                                     </div>
-                                    <div className="flex justify-between items-center pt-2">
-                                        <span className="text-[10px] text-brand-secondary flex items-center gap-1">
-                                            <Clock size={10} /> {new Date(blog.created_at).toLocaleDateString()}
+                                    <div className="flex justify-between items-center pt-4 border-t border-brand-bg">
+                                        <span className="text-[10px] text-brand-secondary font-bold uppercase tracking-widest opacity-40 flex items-center gap-2">
+                                            <Clock size={12} /> {new Date(blog.created_at).toLocaleDateString()}
                                         </span>
-                                        <div className="flex gap-2">
+                                        <div className="flex gap-3">
                                             <button
                                                 onClick={() => handleEdit(blog)}
-                                                className="p-2 rounded-lg bg-blue-500/10 text-blue-500"
+                                                className="p-3 rounded-xl bg-brand-bg border border-brand-border text-brand-primary"
                                             >
                                                 <Edit3 size={16} />
                                             </button>
                                             <button
                                                 onClick={() => handleDelete(blog.id)}
-                                                className="p-2 rounded-lg bg-red-500/10 text-red-500"
+                                                className="p-3 rounded-xl bg-red-50 border border-red-100 text-red-500"
                                             >
                                                 <Trash2 size={16} />
                                             </button>
@@ -323,33 +323,35 @@ export default function Admin() {
                         key="editor"
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -20 }}
+                        exit={{ opacity: 0, scale: 0.98 }}
                         className="max-w-4xl"
                     >
-                        <div className="bg-brand-card rounded-[32px] md:rounded-[40px] p-8 md:p-16 border border-brand-border shadow-2xl card-glow text-white relative overflow-hidden">
+                        <div className="bg-white rounded-[48px] p-10 md:p-16 border border-brand-border shadow-2xl relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-80 h-80 bg-brand-accent/5 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2" />
+                            
                             {/* Success Overlay */}
                             <AnimatePresence>
                                 {formState === 'success' && (
                                     <motion.div
                                         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                                        className="absolute inset-0 z-50 bg-brand-bg flex flex-col items-center justify-center text-center p-8"
+                                        className="absolute inset-0 z-50 bg-white flex flex-col items-center justify-center text-center p-12"
                                     >
-                                        <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-green-500/10 flex items-center justify-center mb-6">
-                                            <CheckCircle2 size={32} className="text-green-500" />
+                                        <div className="w-24 h-24 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-8 shadow-sm">
+                                            <CheckCircle2 size={40} className="text-emerald-500" />
                                         </div>
-                                        <h3 className="text-2xl md:text-3xl font-bold mb-2">Saved Successfully!</h3>
-                                        <p className="text-brand-secondary text-sm md:text-base font-light">The blog post has been updated in the global vault.</p>
+                                        <h3 className="text-4xl font-black mb-3 text-brand-primary uppercase tracking-tighter">Saved Successfully</h3>
+                                        <p className="text-brand-secondary text-lg font-light leading-none">The insight has been archived in the global vault.</p>
                                     </motion.div>
                                 )}
                             </AnimatePresence>
 
-                            <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-12 tracking-tighter uppercase text-white">
-                                {currentId ? 'Edit' : 'Create New'} <br /><span className="text-brand-accent">Blog Post</span>
+                            <h2 className="text-4xl font-black mb-16 tracking-tighter uppercase text-brand-primary">
+                                {currentId ? 'Edit' : 'Create New'} <br /><span className="text-brand-accent">Insight Post</span>
                             </h2>
 
-                            <form onSubmit={handleSubmit} className="space-y-10">
+                            <form onSubmit={handleSubmit} className="space-y-12 relative z-10">
                                 <div className="space-y-4">
-                                    <label htmlFor="blog-title" className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-brand-secondary ml-4 cursor-pointer">
+                                    <label htmlFor="blog-title" className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-brand-secondary ml-6 opacity-40 cursor-pointer">
                                         <Type size={14} /> Post Title
                                     </label>
                                     <input
@@ -357,29 +359,34 @@ export default function Admin() {
                                         required type="text"
                                         value={formData.title}
                                         onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                                        placeholder="The Future of AI..."
-                                        className="w-full bg-white/5 border border-brand-border rounded-2xl px-6 md:px-8 py-4 md:py-5 focus:outline-none focus:border-brand-accent transition-all text-white text-sm md:text-base"
+                                        placeholder="The Future of AI Intelligence..."
+                                        className="w-full bg-brand-bg border border-brand-border rounded-2xl px-8 py-5 focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-all text-brand-primary text-base font-bold uppercase tracking-tight placeholder:text-brand-secondary/20"
                                     />
                                 </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                                     <div className="space-y-4">
-                                        <label className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-brand-secondary ml-4">
+                                        <label className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-brand-secondary ml-6 opacity-40">
                                             <Tag size={14} /> Category
                                         </label>
-                                        <select
-                                            value={formData.category}
-                                            onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                                            className="w-full bg-white/5 border border-brand-border rounded-2xl px-8 py-5 focus:outline-none focus:border-brand-accent transition-all text-white appearance-none"
-                                        >
-                                            <option value="Tech">Tech</option>
-                                            <option value="Business">Business</option>
-                                            <option value="Development">Development</option>
-                                            <option value="AI">AI</option>
-                                        </select>
+                                        <div className="relative group">
+                                            <select
+                                                value={formData.category}
+                                                onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                                                className="w-full bg-brand-bg border border-brand-border rounded-2xl px-10 py-5 focus:outline-none focus:border-brand-accent transition-all text-brand-primary font-bold uppercase tracking-widest text-xs appearance-none cursor-pointer"
+                                            >
+                                                <option value="Tech">Tech</option>
+                                                <option value="Business">Business</option>
+                                                <option value="Development">Development</option>
+                                                <option value="AI">AI</option>
+                                            </select>
+                                            <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-brand-secondary/40">
+                                                <Plus size={16} />
+                                            </div>
+                                        </div>
                                     </div>
                                     <div className="space-y-4">
-                                        <label className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-brand-secondary ml-4">
+                                        <label className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-brand-secondary ml-6 opacity-40">
                                             <Clock size={14} /> Read Time
                                         </label>
                                         <input
@@ -387,13 +394,13 @@ export default function Admin() {
                                             value={formData.read_time}
                                             onChange={(e) => setFormData({ ...formData, read_time: e.target.value })}
                                             placeholder="5 min read"
-                                            className="w-full bg-white/5 border border-brand-border rounded-2xl px-6 md:px-8 py-4 md:py-5 focus:outline-none focus:border-brand-accent transition-all text-white text-sm md:text-base"
+                                            className="w-full bg-brand-bg border border-brand-border rounded-2xl px-8 py-5 focus:outline-none focus:border-brand-accent transition-all text-brand-primary text-base font-bold placeholder:text-brand-secondary/20"
                                         />
                                     </div>
                                 </div>
 
                                 <div className="space-y-4">
-                                    <label htmlFor="blog-image" className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-brand-secondary ml-4 cursor-pointer">
+                                    <label htmlFor="blog-image" className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-brand-secondary ml-6 opacity-40 cursor-pointer">
                                         <ImageIcon size={14} /> Cover Image URL
                                     </label>
                                     <input
@@ -402,29 +409,29 @@ export default function Admin() {
                                         value={formData.cover_image}
                                         onChange={(e) => setFormData({ ...formData, cover_image: e.target.value })}
                                         placeholder="https://images.unsplash.com/..."
-                                        className="w-full bg-white/5 border border-brand-border rounded-2xl px-6 md:px-8 py-4 md:py-5 focus:outline-none focus:border-brand-accent transition-all text-white text-sm md:text-base"
+                                        className="w-full bg-brand-bg border border-brand-border rounded-2xl px-8 py-5 focus:outline-none focus:border-brand-accent transition-all text-brand-primary text-sm font-medium placeholder:text-brand-secondary/20"
                                     />
                                 </div>
 
                                 <div className="space-y-4">
                                     <div className="flex justify-between items-center mb-2">
-                                        <label htmlFor="blog-excerpt" className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-brand-secondary ml-4 cursor-pointer">
+                                        <label htmlFor="blog-excerpt" className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-brand-secondary ml-6 opacity-40 cursor-pointer">
                                             <AlignLeft size={14} /> Short Excerpt
                                         </label>
-                                        <span className="text-[10px] text-brand-secondary">{formData.excerpt.length}/200</span>
+                                        <span className="text-[10px] font-black text-brand-secondary opacity-40">{formData.excerpt.length}/200</span>
                                     </div>
                                     <textarea
                                         id="blog-excerpt"
                                         required rows={3} maxLength={200}
                                         value={formData.excerpt}
                                         onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
-                                        placeholder="Catchy summary for the card..."
-                                        className="w-full bg-white/5 border border-brand-border rounded-2xl px-6 md:px-8 py-4 md:py-5 focus:outline-none focus:border-brand-accent transition-all text-white resize-none text-sm md:text-base"
+                                        placeholder="Catchy summary for the insight card..."
+                                        className="w-full bg-brand-bg border border-brand-border rounded-2xl px-8 py-5 focus:outline-none focus:border-brand-accent transition-all text-brand-primary resize-none text-base font-medium leading-relaxed placeholder:text-brand-secondary/20"
                                     />
                                 </div>
 
                                 <div className="space-y-4">
-                                    <label htmlFor="blog-content" className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-brand-secondary ml-4 cursor-pointer">
+                                    <label htmlFor="blog-content" className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-brand-secondary ml-6 opacity-40 cursor-pointer">
                                         <FileText size={14} /> Detailed Content
                                     </label>
                                     <textarea
@@ -433,25 +440,25 @@ export default function Admin() {
                                         value={formData.content}
                                         onChange={(e) => setFormData({ ...formData, content: e.target.value })}
                                         placeholder="# Chapter 1: The Beginning..."
-                                        className="w-full bg-white/5 border border-brand-border rounded-2xl px-6 md:px-8 py-4 md:py-5 focus:outline-none focus:border-brand-accent transition-all text-white font-mono text-sm md:text-base"
+                                        className="w-full bg-brand-bg border border-brand-border rounded-2xl px-8 py-8 focus:outline-none focus:border-brand-accent transition-all text-brand-primary font-mono text-base leading-relaxed placeholder:text-brand-secondary/20"
                                     />
                                 </div>
 
-                                <div className="flex flex-col md:flex-row gap-6">
-                                    <div className="flex-grow flex items-center justify-between md:justify-start gap-4 bg-white/5 border border-brand-border rounded-3xl px-6 md:px-8 py-4">
-                                        <span className="text-[10px] font-bold uppercase tracking-widest text-brand-secondary">Status</span>
-                                        <div className="flex gap-2">
+                                <div className="flex flex-col md:flex-row gap-8 pt-6">
+                                    <div className="flex-grow flex items-center justify-between md:justify-start gap-6 bg-brand-bg/50 border border-brand-border rounded-3xl px-8 py-5">
+                                        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-secondary opacity-40">Status</span>
+                                        <div className="flex gap-4">
                                             <button
                                                 type="button"
                                                 onClick={() => setFormData({ ...formData, status: 'draft' })}
-                                                className={`px-4 md:px-6 py-2 rounded-xl text-[10px] font-bold uppercase tracking-[0.2em] transition-all ${formData.status === 'draft' ? 'bg-yellow-500 text-white shadow-lg shadow-yellow-500/20' : 'text-brand-secondary hover:text-white'}`}
+                                                className={`px-8 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-[0.3em] transition-all border ${formData.status === 'draft' ? 'bg-orange-500 border-orange-500 text-white shadow-xl shadow-orange-500/30' : 'bg-white border-brand-border text-brand-secondary hover:text-brand-primary hover:border-brand-primary'}`}
                                             >
                                                 Draft
                                             </button>
                                             <button
                                                 type="button"
                                                 onClick={() => setFormData({ ...formData, status: 'published' })}
-                                                className={`px-4 md:px-6 py-2 rounded-xl text-[10px] font-bold uppercase tracking-[0.2em] transition-all ${formData.status === 'published' ? 'bg-green-500 text-white shadow-lg shadow-green-500/20' : 'text-brand-secondary hover:text-white'}`}
+                                                className={`px-8 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-[0.3em] transition-all border ${formData.status === 'published' ? 'bg-brand-accent border-brand-accent text-white shadow-xl shadow-brand-accent/30' : 'bg-white border-brand-border text-brand-secondary hover:text-brand-primary hover:border-brand-primary'}`}
                                             >
                                                 Publish
                                             </button>
@@ -461,12 +468,12 @@ export default function Admin() {
                                     <button
                                         type="submit"
                                         disabled={formState === 'submitting'}
-                                        className="w-full md:w-auto px-8 md:px-16 py-4 md:py-6 rounded-[20px] md:rounded-[30px] bg-brand-accent text-white font-bold text-lg md:text-xl hover:scale-[1.02] transition-all flex items-center justify-center gap-4 disabled:opacity-50 shadow-2xl shadow-brand-accent/20"
+                                        className="w-full md:w-auto px-16 py-6 rounded-3xl bg-brand-deep text-white font-black text-xl hover:scale-[1.05] transition-all flex items-center justify-center gap-6 disabled:opacity-50 shadow-2xl shadow-brand-deep/30 uppercase tracking-tighter"
                                     >
                                         {formState === 'submitting' ? (
-                                            <span className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                            <span className="w-8 h-8 border-4 border-white/30 border-t-white rounded-full animate-spin" />
                                         ) : (
-                                            <>{currentId ? 'Update' : 'Post'} Blog <Send size={20} /></>
+                                            <>{currentId ? 'Update' : 'Post'} Insight <Send size={24} /></>
                                         )}
                                     </button>
                                 </div>

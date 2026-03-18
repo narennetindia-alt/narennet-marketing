@@ -42,47 +42,47 @@ export default function BusinessEcosystem() {
             icon: <BarChart3 className="w-6 h-6 text-white" />,
             title: "Owner Dashboard App",
             features: ["Revenue analytics", "Business insights", "Notifications"],
-            theme: "bg-orange-600",
+            theme: "bg-blue-600",
             mockupColor: "from-brand-accent/80 to-brand-accent"
         },
         {
             icon: <Briefcase className="w-6 h-6 text-white" />,
             title: "Employee App",
             features: ["Task management", "Attendance tracking", "Project updates"],
-            theme: "bg-blue-600",
-            mockupColor: "from-brand-card to-[#111]"
+            theme: "bg-brand-primary",
+            mockupColor: "from-brand-card to-brand-deep"
         },
         {
             icon: <Target className="w-6 h-6 text-white" />,
             title: "Sales Team App",
             features: ["Lead tracking", "Client communication", "Deal updates"],
-            theme: "bg-emerald-600",
-            mockupColor: "from-[#222] to-black"
+            theme: "bg-brand-accent",
+            mockupColor: "from-brand-deep to-black"
         },
         {
             icon: <Users className="w-6 h-6 text-white" />,
             title: "Client Portal App",
             features: ["Orders", "Invoices", "Support requests"],
-            theme: "bg-violet-600",
+            theme: "bg-indigo-600",
             mockupColor: "from-[#1a1a1a] to-[#0a0a0a]"
         }
     ];
 
     const integrations = [
         { name: "WhatsApp Business", icon: <MessageSquare size={32} className="text-brand-accent" /> },
-        { name: "SMS Gateway", icon: <MessageSquare size={32} className="text-white" /> },
+        { name: "SMS Gateway", icon: <MessageSquare size={32} className="text-brand-primary" /> },
         { name: "Payment Gateways", icon: <CreditCard size={32} className="text-brand-accent" /> },
-        { name: "Email Systems", icon: <Mail size={32} className="text-white" /> },
+        { name: "Email Systems", icon: <Mail size={32} className="text-brand-primary" /> },
         { name: "REST APIs", icon: <Network size={32} className="text-brand-secondary" /> }
     ];
 
     return (
         <div className="flex flex-col min-h-screen bg-brand-bg text-brand-primary overflow-hidden selection:bg-brand-accent/30">
             
-            {/* 1. HERO SECTION */}
-            <section className="relative pt-40 pb-32 px-6 overflow-hidden">
+            {/* 1. HERO SECTION — DARK */}
+            <section className="relative pt-40 pb-32 px-6 overflow-hidden bg-brand-deep">
                 {/* Tech Gradient / Network Animation Background */}
-                <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-brand-accent/20 rounded-full blur-[120px] mix-blend-screen opacity-50 animate-blob pointer-events-none" />
+                <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-brand-accent/20 rounded-full blur-[150px] mix-blend-screen opacity-50 animate-blob pointer-events-none" />
                 <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-brand-accent/10 rounded-full blur-[150px] mix-blend-screen opacity-50 animate-blob animation-delay-2000 pointer-events-none" />
                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none" />
 
@@ -94,14 +94,14 @@ export default function BusinessEcosystem() {
                         className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-brand-accent mb-8"
                     >
                         <Shield size={16} />
-                        <span className="text-sm font-semibold tracking-wide uppercase text-brand-primary">Enterprise Grade SaaS</span>
+                        <span className="text-sm font-semibold tracking-wide uppercase text-white/90">Enterprise Grade SaaS</span>
                     </motion.div>
 
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.1 }}
-                        className="text-5xl md:text-7xl lg:text-[100px] font-bold tracking-tighter text-white mb-6 leading-[0.9]"
+                        className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white mb-6 leading-[0.9]"
                     >
                         NarenNet Company <br className="hidden md:block" />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-white to-brand-accent">Cloud Platform</span>
@@ -111,7 +111,7 @@ export default function BusinessEcosystem() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-2xl md:text-3xl text-brand-primary font-medium mb-6 uppercase tracking-tight"
+                        className="text-2xl md:text-3xl text-brand-accent font-medium mb-6 uppercase tracking-tight"
                     >
                         The Complete SaaS Ecosystem
                     </motion.h2>
@@ -120,7 +120,7 @@ export default function BusinessEcosystem() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
-                        className="text-lg md:text-xl text-brand-secondary max-w-3xl font-light leading-relaxed mb-12"
+                        className="text-lg md:text-xl text-white/60 max-w-3xl font-light leading-relaxed mb-12"
                     >
                         Run your entire company from one connected cloud platform including CRM, ERP, HR, Sales Automation, and AI-powered analytics.
                     </motion.p>
@@ -135,13 +135,13 @@ export default function BusinessEcosystem() {
                             href="https://businessecosystem-narennet.netlify.app/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full sm:w-auto px-10 py-5 bg-white text-black rounded-full font-bold text-lg hover:scale-105 transition-all flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(255,255,255,0.3)]"
+                            className="w-full sm:w-auto px-10 py-5 bg-brand-accent text-white rounded-xl font-bold text-lg hover:scale-105 transition-all flex items-center justify-center gap-3 shadow-lg shadow-brand-accent/25"
                         >
                             View Demo <ArrowRight size={20} />
                         </a>
                         <Link
                             to="/contact"
-                            className="w-full sm:w-auto px-10 py-5 bg-white/5 border border-white/10 text-white rounded-full font-bold text-lg hover:bg-white/10 transition-colors flex items-center justify-center"
+                            className="w-full sm:w-auto px-10 py-5 bg-white/5 border border-white/10 text-white rounded-xl font-bold text-lg hover:bg-white/10 transition-colors flex items-center justify-center"
                         >
                             Book Free Consultation
                         </Link>
@@ -152,20 +152,16 @@ export default function BusinessEcosystem() {
                         initial={{ opacity: 0, scale: 0.95, y: 40 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.5 }}
-                        className="w-full max-w-6xl mt-24 relative"
+                        className="w-full max-w-6xl mt-20 relative"
                     >
-                        {/* Gradient mask at the bottom to blend into the next section */}
-                        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-brand-bg to-transparent z-20 pointer-events-none" />
-                        
-                        <div className="aspect-[16/9] rounded-[40px] border border-white/10 bg-[#050505] overflow-hidden shadow-[0_0_100px_rgba(242,125,38,0.15)] relative p-2 md:p-4">
-                            {/* Dashboard Mockup Layout */}
-                            <div className="w-full h-full rounded-[24px] md:rounded-[32px] border border-white/10 bg-[#0a0a0a] overflow-hidden flex flex-col relative z-10 shadow-2xl">
-                                {/* Browser Chrome / Header UI */}
+                        <div className="aspect-[16/9] rounded-[30px] border border-brand-accent/20 bg-brand-deep overflow-hidden shadow-2xl relative p-2 md:p-3">
+                            <div className="w-full h-full rounded-[22px] border border-white/10 bg-brand-deep overflow-hidden flex flex-col relative z-10 shadow-2xl">
+                                {/* Browser Chrome */}
                                 <div className="h-10 md:h-12 border-b border-white/10 flex items-center px-4 md:px-6 gap-4 bg-white/[0.02]">
                                     <div className="flex gap-1.5 md:gap-2">
-                                        <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#FF5F56] shadow-[0_0_5px_rgba(255,95,86,0.3)]" />
-                                        <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#FFBD2E] shadow-[0_0_5px_rgba(255,189,46,0.3)]" />
-                                        <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#27C93F] shadow-[0_0_5px_rgba(39,201,63,0.3)]" />
+                                        <div className="w-2.5 h-2.5 rounded-full bg-red-500/80 shadow-md" />
+                                        <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 shadow-md" />
+                                        <div className="w-2.5 h-2.5 rounded-full bg-green-500/80 shadow-md" />
                                     </div>
                                     <div className="mx-auto flex items-center justify-center w-full max-w-md hidden sm:flex">
                                         <div className="w-full bg-white/5 border border-white/10 rounded-lg h-7 flex items-center px-4">
@@ -175,10 +171,9 @@ export default function BusinessEcosystem() {
                                     </div>
                                 </div>
                                 {/* The Actual Mockup Component */}
-                                <div className="flex-1 bg-[#050505] relative overflow-hidden">
+                                <div className="flex-1 bg-brand-deep relative overflow-hidden">
                                      <DashboardMockup />
-                                     {/* Subtle glass overlay for that premium feel */}
-                                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+                                     <div className="absolute inset-0 bg-gradient-to-t from-brand-deep/40 to-transparent pointer-events-none" />
                                 </div>
                             </div>
                         </div>
@@ -186,26 +181,26 @@ export default function BusinessEcosystem() {
                 </div>
             </section>
 
-            {/* 2. COMPANY ECOSYSTEM OVERVIEW */}
-            <section className="py-24 px-6 relative z-20">
+            {/* 2. COMPANY ECOSYSTEM OVERVIEW — LIGHT */}
+            <section className="py-24 px-6 relative z-20 bg-white">
                 <div className="container-wide max-w-7xl mx-auto">
                     <div className="text-center max-w-4xl mx-auto mb-20">
-                        <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Ecosystem Overview</h2>
+                        <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-brand-primary">Ecosystem Overview</h2>
                         <p className="text-xl text-brand-secondary font-light">
                             NarenNet connects every part of your business into one intelligent cloud ecosystem where data flows automatically between departments.
                         </p>
                     </div>
 
                     {/* Visual Architecture Diagram */}
-                    <div className="relative max-w-4xl mx-auto aspect-square md:aspect-video rounded-[40px] border border-white/5 bg-black/50 overflow-hidden flex items-center justify-center p-8 shadow-2xl">
+                    <div className="relative max-w-4xl mx-auto aspect-square md:aspect-video rounded-[40px] border border-brand-border bg-brand-deep overflow-hidden flex items-center justify-center p-8 shadow-2xl">
                         {/* Animated connecting lines (svg) */}
-                        <svg className="absolute inset-0 w-full h-full opacity-30" style={{ filter: 'drop-shadow(0 0 8px rgba(242, 125, 38, 0.5))' }}>
-                            <motion.line x1="50%" y1="50%" x2="50%" y2="15%" stroke="#F27D26" strokeWidth="2" strokeDasharray="10 10" initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
-                            <motion.line x1="50%" y1="50%" x2="85%" y2="30%" stroke="#F27D26" strokeWidth="2" strokeDasharray="10 10" initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
-                            <motion.line x1="50%" y1="50%" x2="85%" y2="70%" stroke="#F27D26" strokeWidth="2" strokeDasharray="10 10" initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
-                            <motion.line x1="50%" y1="50%" x2="50%" y2="85%" stroke="#F27D26" strokeWidth="2" strokeDasharray="10 10" initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
-                            <motion.line x1="50%" y1="50%" x2="15%" y2="70%" stroke="#F27D26" strokeWidth="2" strokeDasharray="10 10" initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
-                            <motion.line x1="50%" y1="50%" x2="15%" y2="30%" stroke="#F27D26" strokeWidth="2" strokeDasharray="10 10" initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
+                        <svg className="absolute inset-0 w-full h-full opacity-30" style={{ filter: 'drop-shadow(0 0 8px rgba(14, 165, 233, 0.5))' }}>
+                            <motion.line x1="50%" y1="50%" x2="50%" y2="15%" stroke="#0EA5E9" strokeWidth="2" strokeDasharray="10 10" initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
+                            <motion.line x1="50%" y1="50%" x2="85%" y2="30%" stroke="#0EA5E9" strokeWidth="2" strokeDasharray="10 10" initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
+                            <motion.line x1="50%" y1="50%" x2="85%" y2="70%" stroke="#0EA5E9" strokeWidth="2" strokeDasharray="10 10" initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
+                            <motion.line x1="50%" y1="50%" x2="50%" y2="85%" stroke="#0EA5E9" strokeWidth="2" strokeDasharray="10 10" initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
+                            <motion.line x1="50%" y1="50%" x2="15%" y2="70%" stroke="#0EA5E9" strokeWidth="2" strokeDasharray="10 10" initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
+                            <motion.line x1="50%" y1="50%" x2="15%" y2="30%" stroke="#0EA5E9" strokeWidth="2" strokeDasharray="10 10" initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
                         </svg>
 
                         {/* Center Hub */}
@@ -213,7 +208,7 @@ export default function BusinessEcosystem() {
                             initial={{ scale: 0 }}
                             whileInView={{ scale: 1 }}
                             viewport={{ once: true }}
-                            className="absolute z-20 w-32 h-32 md:w-48 md:h-48 rounded-full bg-brand-accent/20 border-2 border-brand-accent flex items-center justify-center backdrop-blur-md shadow-[0_0_50px_rgba(242,125,38,0.3)] filter backdrop-brightness-125 text-white"
+                            className="absolute z-20 w-32 h-32 md:w-48 md:h-48 rounded-full bg-brand-accent/20 border-2 border-brand-accent flex items-center justify-center backdrop-blur-md shadow-[0_0_50px_rgba(14,165,233,0.3)] filter backdrop-brightness-125 text-white"
                         >
                             <div className="w-24 h-24 md:w-36 md:h-36 rounded-full bg-brand-accent/30 flex flex-col items-center justify-center animate-pulse duration-3000">
                                 <CloudLightning className="w-10 h-10 md:w-16 md:h-16 text-white mb-2" />
@@ -237,7 +232,7 @@ export default function BusinessEcosystem() {
                                 viewport={{ once: true }}
                                 transition={{ delay: node.delay, type: 'spring', stiffness: 100 }}
                                 style={{ left: node.left, top: node.top }}
-                                className="absolute -translate-x-1/2 -translate-y-1/2 z-10 w-24 h-24 md:w-32 md:h-32 bg-white/[0.03] backdrop-blur-xl rounded-full md:rounded-[2rem] shadow-lg border border-white/10 flex flex-col items-center justify-center gap-2 hover:scale-110 hover:bg-white/[0.08] hover:border-brand-accent transition-all cursor-default group text-center p-2"
+                                className="absolute -translate-x-1/2 -translate-y-1/2 z-10 w-24 h-24 md:w-32 md:h-32 bg-white/5 backdrop-blur-xl rounded-full md:rounded-[2rem] shadow-lg border border-white/20 flex flex-col items-center justify-center gap-2 hover:scale-110 hover:bg-white/10 hover:border-brand-accent transition-all cursor-default group text-center p-2"
                             >
                                 <node.icon className="w-6 h-6 md:w-8 md:h-8 text-brand-secondary group-hover:text-brand-accent transition-colors" />
                                 <span className="font-bold text-white text-[10px] md:text-sm leading-tight px-1">{node.name}</span>
@@ -247,12 +242,12 @@ export default function BusinessEcosystem() {
                 </div>
             </section>
 
-            {/* 3. COMPANY SOFTWARE DEMOS */}
-            <section className="py-24 px-6 relative bg-[#050505]">
+            {/* 3. COMPANY SOFTWARE DEMOS — LIGHT GRAY */}
+            <section className="py-24 px-6 relative bg-brand-card">
                 <div className="container-wide max-w-7xl mx-auto">
                     <div className="text-center max-w-3xl mx-auto mb-16">
                         <span className="text-brand-accent font-bold tracking-wider uppercase text-sm mb-4 block">Core Modules</span>
-                        <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Explore Our Software</h2>
+                        <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-brand-primary">Explore Our Software</h2>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
@@ -263,25 +258,24 @@ export default function BusinessEcosystem() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.1 }}
-                                className="group p-8 md:p-10 rounded-[40px] bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition-all duration-300 relative overflow-hidden flex flex-col h-full"
+                                className="group p-8 md:p-10 rounded-[40px] bg-white border border-brand-border hover:shadow-2xl transition-all duration-300 relative overflow-hidden flex flex-col h-full"
                             >
-                                {/* Decorative background element */}
-                                <div className="absolute top-0 right-0 w-64 h-64 bg-brand-accent/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 opacity-0 transition-opacity group-hover:opacity-100" />
+                                <div className="absolute top-0 right-0 w-64 h-64 bg-brand-accent/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 opacity-0 transition-opacity group-hover:opacity-100" />
                                 
                                 <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_200px] gap-8 h-full">
                                     <div className="flex flex-col h-full">
                                         <div className="flex items-center gap-6 mb-8">
-                                            <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 shrink-0">
+                                            <div className="w-16 h-16 rounded-2xl bg-brand-accent/10 flex items-center justify-center border border-brand-accent/20 shrink-0">
                                                 {product.icon}
                                             </div>
-                                            <h3 className="text-3xl font-bold text-white normal-case tracking-normal">{product.title}</h3>
+                                            <h3 className="text-3xl font-bold text-brand-primary normal-case tracking-normal">{product.title}</h3>
                                         </div>
                                         
                                         <p className="text-brand-secondary mb-8 text-lg font-light leading-relaxed">{product.description}</p>
                                         
                                         <ul className="space-y-4 mb-10 flex-1">
                                             {product.features.map((item, i) => (
-                                                <li key={i} className="flex items-center gap-4 text-brand-secondary font-light text-lg">
+                                                <li key={i} className="flex items-center gap-4 text-brand-secondary font-medium text-lg">
                                                     <CheckCircle2 size={20} className="text-brand-accent shrink-0" />
                                                     {item}
                                                 </li>
@@ -293,102 +287,34 @@ export default function BusinessEcosystem() {
                                                 href="https://businessecosystem-narennet.netlify.app/" 
                                                 target="_blank" 
                                                 rel="noopener noreferrer"
-                                                className="w-full py-5 rounded-full border border-white/10 text-white font-bold hover:bg-white hover:text-black transition-colors flex items-center justify-center gap-2"
+                                                className="w-full py-5 rounded-xl bg-brand-bg border border-brand-border text-brand-primary font-bold hover:bg-brand-accent hover:text-white hover:border-brand-accent transition-all flex items-center justify-center gap-2"
                                             >
                                                 View Demo <ArrowRight size={18} />
                                             </a>
                                         </div>
                                     </div>
 
-                                    {/* Interactive Native CSS Mockup */}
-                                    <div className="hidden lg:block relative w-full h-full min-h-[350px] rounded-3xl border border-white/10 bg-[#0a0a0a] overflow-hidden shadow-2xl skew-y-3 group-hover:skew-y-0 transition-transform duration-700 scale-[1.3] translate-x-12 translate-y-12 group-hover:translate-x-10 group-hover:translate-y-10 group-hover:scale-[1.35]">
+                                    {/* Interactive Mockup */}
+                                    <div className="hidden lg:block relative w-full h-full min-h-[350px] rounded-3xl border border-brand-border bg-brand-deep overflow-hidden shadow-2xl skew-y-3 group-hover:skew-y-0 transition-transform duration-700 scale-[1.3] translate-x-12 translate-y-12 group-hover:translate-x-10 group-hover:translate-y-10 group-hover:scale-[1.35]">
                                         <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/5 to-transparent pointer-events-none z-20" />
-                                        
                                         <div className="w-full h-full flex flex-col relative z-10">
-                                            {/* Mockup Top Bar */}
-                                            <div className="w-full h-10 flex items-center gap-2 border-b border-white/10 px-4 bg-black/50">
-                                                <div className="w-2 h-2 rounded-full bg-[#FF5F56] opacity-60" />
-                                                <div className="w-2 h-2 rounded-full bg-[#FFBD2E] opacity-60" />
-                                                <div className="w-2 h-2 rounded-full bg-[#27C93F] opacity-60" />
-                                                <div className="ml-auto w-24 h-2 bg-white/5 rounded-full" />
+                                            <div className="w-full h-10 flex items-center gap-2 border-b border-white/5 px-4 bg-black/50">
+                                                <div className="w-2 h-2 rounded-full bg-red-500/60" />
+                                                <div className="w-2 h-2 rounded-full bg-yellow-500/60" />
+                                                <div className="w-2 h-2 rounded-full bg-green-500/60" />
                                             </div>
-                                            
-                                            {/* Specialized Mini-Screens */}
-                                            <div className="flex-1 relative bg-[#050505] overflow-hidden p-4">
-                                                {idx === 0 && ( // CRM
-                                                    <div className="space-y-3">
-                                                        <div className="flex items-center justify-between">
-                                                            <div className="h-4 w-20 bg-brand-accent/20 rounded border border-brand-accent/30" />
-                                                            <div className="h-3 w-10 bg-white/10 rounded" />
-                                                        </div>
-                                                        <div className="grid grid-cols-2 gap-2">
-                                                            <div className="h-16 bg-white/5 rounded-xl border border-white/5 px-2 py-1">
-                                                                <div className="w-8 h-1 bg-white/10 rounded mb-2" />
-                                                                <div className="w-12 h-3 bg-white/80 rounded" />
-                                                            </div>
-                                                            <div className="h-16 bg-brand-accent/10 rounded-xl border border-brand-accent/20 px-2 py-1">
-                                                                <div className="w-8 h-1 bg-brand-accent/40 rounded mb-2" />
-                                                                <div className="w-12 h-3 bg-white rounded" />
-                                                            </div>
-                                                        </div>
-                                                        <div className="space-y-1.5 pt-2">
-                                                            {[1, 2, 3].map(i => (
-                                                                <div key={i} className="h-6 bg-white/5 rounded-lg border border-white/5 flex items-center px-2 gap-2">
-                                                                    <div className="w-2 h-2 rounded-full bg-brand-accent" />
-                                                                    <div className="w-16 h-1 bg-white/20 rounded" />
-                                                                </div>
-                                                            ))}
-                                                        </div>
-                                                    </div>
-                                                )}
-                                                {idx === 1 && ( // ERP
-                                                    <div className="flex flex-col gap-3">
-                                                        <div className="h-20 bg-brand-accent/5 rounded-xl border border-brand-accent/20 flex items-center justify-center gap-4">
-                                                            <div className="w-8 h-8 rounded-full border-2 border-brand-accent border-t-transparent" />
-                                                            <div className="space-y-1">
-                                                                <div className="w-12 h-2 bg-white/80 rounded" />
-                                                                <div className="w-8 h-1 bg-white/20 rounded" />
-                                                            </div>
-                                                        </div>
-                                                        <div className="space-y-2">
-                                                            <div className="h-8 bg-white/5 rounded-lg border border-white/10" />
-                                                            <div className="h-8 bg-white/5 rounded-lg border border-white/10" />
-                                                            <div className="h-8 bg-white/5 rounded-lg border border-white/10" />
-                                                        </div>
-                                                    </div>
-                                                )}
-                                                {idx === 2 && ( // HR
-                                                     <div className="space-y-3">
-                                                        <div className="flex items-center gap-3 mb-4">
-                                                            <div className="w-10 h-10 rounded-full bg-white/10" />
-                                                            <div className="space-y-1">
-                                                                <div className="w-16 h-2 bg-white/80 rounded" />
-                                                                <div className="w-10 h-1 bg-white/20 rounded" />
-                                                            </div>
-                                                        </div>
-                                                        <div className="grid grid-cols-3 gap-2">
-                                                            {[1, 2, 3].map(i => (
-                                                                <div key={i} className="h-12 bg-white/5 rounded-lg border border-white/5" />
-                                                            ))}
-                                                        </div>
-                                                        <div className="h-12 bg-white/5 rounded-lg border border-white/5 flex items-center px-3 justify-between">
-                                                            <div className="w-12 h-1.5 bg-brand-accent rounded" />
-                                                            <div className="w-6 h-6 rounded-full bg-brand-accent/20" />
-                                                        </div>
-                                                    </div>
-                                                )}
-                                                {idx === 3 && ( // Billing
-                                                    <div className="space-y-4">
-                                                       <div className="h-24 bg-gradient-to-br from-brand-accent/20 to-transparent rounded-2xl border border-brand-accent/20 flex flex-col justify-center px-4">
-                                                            <div className="w-10 h-1 bg-white/20 rounded mb-2" />
-                                                            <div className="w-20 h-5 bg-white rounded" />
-                                                       </div>
-                                                       <div className="grid grid-cols-2 gap-3">
-                                                            <div className="h-20 bg-white/5 rounded-xl border border-white/5" />
-                                                            <div className="h-20 bg-white/5 rounded-xl border border-white/5" />
-                                                       </div>
-                                                    </div>
-                                                )}
+                                            <div className="flex-1 relative bg-brand-deep overflow-hidden p-4">
+                                                {/* Specialized content inside mockup */}
+                                                <div className="space-y-3 opacity-80">
+                                                   <div className="h-4 w-20 bg-brand-accent/20 rounded border border-brand-accent/30" />
+                                                   <div className="grid grid-cols-2 gap-2">
+                                                      <div className="h-16 bg-white/5 rounded-xl border border-white/5" />
+                                                      <div className="h-16 bg-brand-accent/10 rounded-xl border border-brand-accent/20" />
+                                                   </div>
+                                                   {[1, 2, 3].map(i => (
+                                                      <div key={i} className="h-6 bg-white/5 rounded-lg border border-white/5" />
+                                                   ))}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -399,14 +325,14 @@ export default function BusinessEcosystem() {
                 </div>
             </section>
 
-            {/* 4. MOBILE BUSINESS APPS */}
-            <section className="py-32 px-6 relative overflow-hidden">
-                <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-brand-accent/10 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none" />
+            {/* 4. MOBILE BUSINESS APPS — WHITE */}
+            <section className="py-32 px-6 relative overflow-hidden bg-white">
+                <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-brand-accent/5 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none" />
                 
                 <div className="container-wide max-w-7xl mx-auto">
                     <div className="text-center max-w-4xl mx-auto mb-20">
                         <span className="text-brand-accent font-bold tracking-wider uppercase text-sm mb-4 block">Mobile First</span>
-                        <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Business Apps for Teams</h2>
+                        <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-brand-primary">Business Apps for Teams</h2>
                         <p className="text-xl text-brand-secondary font-light">Native mobile applications that keep your entire organization connected, no matter where they are working from.</p>
                     </div>
 
@@ -418,39 +344,27 @@ export default function BusinessEcosystem() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.1 }}
-                                className="bg-white/[0.02] rounded-[40px] p-8 border border-white/5 flex flex-col group relative overflow-hidden"
+                                className="bg-brand-card rounded-[40px] p-8 border border-brand-border flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all"
                             >
-                                <h3 className="text-2xl font-bold text-white w-full mb-6 z-10 relative break-words leading-tight normal-case tracking-normal">{app.title}</h3>
+                                <h3 className="text-2xl font-bold text-brand-primary w-full mb-6 z-10 relative break-words leading-tight normal-case tracking-normal">{app.title}</h3>
                                 
                                 <div className="space-y-4 mb-8 z-10 relative flex-1">
                                     {app.features.map((feat, i) => (
-                                        <div key={i} className="flex items-start gap-3 text-sm text-brand-secondary">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-brand-accent mt-1.5 shrink-0 shadow-[0_0_8px_rgba(242,125,38,0.8)]" />
+                                        <div key={i} className="flex items-start gap-3 text-sm text-brand-secondary font-medium">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-brand-accent mt-1.5 shrink-0" />
                                             <span>{feat}</span>
                                         </div>
                                     ))}
                                 </div>
 
-                                {/* Phone Mockup inside the card */}
                                 <div className="relative w-full aspect-[9/16] mt-4 z-10 translate-y-8 group-hover:translate-y-4 transition-transform duration-500">
-                                    <div className="absolute inset-0 bg-black rounded-[32px] p-1.5 md:p-2 border border-white/20 shadow-[0_0_30px_rgba(0,0,0,0.8)]">
-                                        <div className="w-full h-full rounded-[24px] md:rounded-[26px] bg-[#050505] flex flex-col relative overflow-hidden">
-                                            {/* iPhone Notch */}
-                                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[40%] h-[20px] bg-black rounded-b-2xl z-20 flex justify-center items-end pb-1">
-                                                <div className="w-8 h-1 bg-white/10 rounded-full" />
-                                            </div>
-                                            
-                                            {/* Live Mobile View inside Iframe - REMOVED */}
-                                            {/* Recreated Custom Mockups from Demo Site */}
-                                            {/* Unified Premium Mobile App Mockup */}
+                                    <div className="absolute inset-0 bg-brand-deep rounded-[32px] p-1.5 md:p-2 border border-brand-accent/20 shadow-2xl">
+                                        <div className="w-full h-full rounded-[24px] md:rounded-[26px] bg-brand-deep flex flex-col relative overflow-hidden">
                                             <MobileAppMockup 
                                                 persona={['owner', 'employee', 'sales', 'client'][idx] as AppPersona} 
                                                 theme={app.theme}
                                                 appName={app.title}
                                             />
-                                            
-                                            {/* Home indicator */}
-                                            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-1/3 h-1 rounded-full bg-white/30 z-20" />
                                         </div>
                                     </div>
                                 </div>
@@ -460,8 +374,8 @@ export default function BusinessEcosystem() {
                 </div>
             </section>
 
-            {/* 5. AI BUSINESS AUTOMATION */}
-            <section className="py-32 px-6 bg-[#050505]">
+            {/* 5. AI BUSINESS AUTOMATION — DARK */}
+            <section className="py-32 px-6 bg-brand-deep">
                 <div className="container-wide max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
                     <div className="flex-1">
                         <motion.div
@@ -470,32 +384,31 @@ export default function BusinessEcosystem() {
                             viewport={{ once: true }}
                             className="relative"
                         >
-                            <div className="absolute inset-0 bg-brand-accent/20 rounded-[40px] translate-x-4 translate-y-4 filter blur-sm" />
-                            <div className="relative bg-brand-card border border-white/5 rounded-[40px] p-8 md:p-12 shadow-2xl">
+                            <div className="absolute inset-0 bg-brand-accent/10 rounded-[40px] translate-x-4 translate-y-4 filter blur-sm" />
+                            <div className="relative bg-brand-deep border border-brand-accent/20 rounded-[40px] p-8 md:p-12 shadow-2xl">
                                 <div className="absolute top-8 right-8 w-16 h-16 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center">
                                     <Bot className="w-8 h-8 text-brand-accent" />
                                 </div>
                                 <h4 className="text-2xl font-bold text-white mb-8 normal-case tracking-normal">Predictive Analytics</h4>
                                 
-                                {/* Abstract Data Viz */}
                                 <div className="space-y-8">
                                     {[ 
                                         { label: "Sales Probabilities", val: "87%", width: "87%", color: "bg-brand-accent" },
-                                        { label: "Churn Risk", val: "12%", width: "12%", color: "bg-white" },
-                                        { label: "Cash Flow Prediction", val: "+24%", width: "65%", color: "bg-brand-secondary" }
+                                        { label: "Churn Risk", val: "12%", width: "12%", color: "bg-white/40" },
+                                        { label: "Cash Flow Prediction", val: "+24%", width: "65%", color: "bg-blue-400" }
                                     ].map((stat, i) => (
                                         <div key={i}>
                                             <div className="flex justify-between text-sm font-medium mb-3">
-                                                <span className="text-brand-secondary font-mono">{stat.label}</span>
+                                                <span className="text-white/40 font-mono tracking-widest uppercase text-xs">{stat.label}</span>
                                                 <span className="text-white font-bold font-mono">{stat.val}</span>
                                             </div>
-                                            <div className="w-full h-2 bg-white/5 rounded-full overflow-hidden">
+                                            <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
                                                 <motion.div 
                                                     initial={{ width: 0 }}
                                                     whileInView={{ width: stat.width }}
                                                     viewport={{ once: true }}
                                                     transition={{ duration: 1, delay: 0.2 + i * 0.1 }}
-                                                    className={`h-full ${stat.color} rounded-full`}
+                                                    className={`h-full ${stat.color} rounded-full shadow-[0_0_10px_rgba(14,165,233,0.5)]`}
                                                 />
                                             </div>
                                         </div>
@@ -505,27 +418,27 @@ export default function BusinessEcosystem() {
                         </motion.div>
                     </div>
 
-                    <div className="flex-1 space-y-8">
+                    <div className="flex-1 space-y-8 text-left">
                         <div>
                             <span className="text-brand-accent font-bold tracking-wider uppercase text-sm mb-4 block">Artificial Intelligence</span>
-                            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight leading-tight">AI-Powered Intelligence</h2>
-                            <p className="text-xl text-brand-secondary font-light leading-relaxed">
+                            <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight leading-tight text-white">AI-Powered Intelligence</h2>
+                            <p className="text-xl text-white/50 font-light leading-relaxed">
                                 Stop guessing and start knowing. Our embedded AI agents analyze your company data across all modules to provide actionable insights.
                             </p>
                         </div>
 
-                        <ul className="space-y-6">
+                        <ul className="space-y-4">
                             {[
                                 "Automated reports generated weekly",
                                 "Smart sales predictions based on historical data",
                                 "Customer behavior insights and churn warnings",
                                 "Business performance analytics and anomalies"
                             ].map((item, i) => (
-                                <li key={i} className="flex items-start gap-4 p-6 rounded-2xl bg-white/[0.02] border border-white/5">
+                                <li key={i} className="flex items-start gap-4 p-5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
                                     <div className="mt-1">
                                         <Zap size={20} className="text-brand-accent" />
                                     </div>
-                                    <span className="text-lg text-brand-primary font-light">{item}</span>
+                                    <span className="text-lg text-white/80 font-medium">{item}</span>
                                 </li>
                             ))}
                         </ul>
@@ -533,11 +446,11 @@ export default function BusinessEcosystem() {
                 </div>
             </section>
 
-            {/* 6. BUSINESS INTEGRATIONS */}
-            <section className="py-32 px-6 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-accent/5 to-transparent z-0" />
+            {/* 6. BUSINESS INTEGRATIONS — WHITE */}
+            <section className="py-32 px-6 relative overflow-hidden bg-white">
+                <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-brand-deep to-transparent opacity-5 z-0" />
                 <div className="container-wide max-w-7xl mx-auto text-center relative z-10">
-                    <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Connect With Your Tools</h2>
+                    <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-brand-primary">Connect With Your Tools</h2>
                     <p className="text-xl text-brand-secondary font-light max-w-2xl mx-auto mb-20 leading-relaxed">
                         Seamlessly sync NarenNet with the applications you already use to create a truly unified workflow.
                     </p>
@@ -550,48 +463,47 @@ export default function BusinessEcosystem() {
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.1, type: "spring" }}
-                                className="w-40 h-40 bg-white/5 backdrop-blur-md rounded-3xl border border-white/10 hover:border-brand-accent/50 hover:bg-white/10 transition-all flex flex-col items-center justify-center gap-6 group"
+                                className="w-40 h-40 bg-brand-card border border-brand-border rounded-3xl hover:border-brand-accent/50 hover:bg-white transition-all flex flex-col items-center justify-center gap-6 group shadow-sm hover:shadow-xl"
                             >
                                 <div className="group-hover:scale-110 transition-transform">
                                     {int.icon}
                                 </div>
-                                <span className="font-semibold text-sm text-brand-secondary group-hover:text-white uppercase tracking-wider">{int.name}</span>
+                                <span className="font-bold text-xs text-brand-secondary group-hover:text-brand-primary uppercase tracking-wider">{int.name}</span>
                             </motion.div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* 7. FINAL CTA */}
-            <section className="py-32 px-6 relative overflow-hidden border-t border-white/5">
+            {/* 7. FINAL CTA — DARK */}
+            <section className="py-32 px-6 relative overflow-hidden bg-brand-deep border-t border-white/5">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brand-accent/10 z-0" />
                 
                 <div className="container-wide max-w-5xl mx-auto relative z-10 text-center">
-                    <h2 className="text-5xl md:text-7xl lg:text-[80px] font-bold tracking-tighter mb-8 leading-none">
+                    <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-8 leading-none text-white">
                         Upgrade Your Company with <br/>
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-white">NarenNet Cloud</span>
                     </h2>
-                    <p className="text-xl md:text-3xl text-brand-secondary mb-16 font-light max-w-3xl mx-auto">
+                    <p className="text-xl md:text-2xl text-white/50 mb-16 font-light max-w-3xl mx-auto">
                         Transform how your business operates with an intelligent SaaS ecosystem built for modern companies.
                     </p>
                     
                     <div className="flex flex-col sm:flex-row justify-center gap-6">
                         <Link
                             to="/contact"
-                            className="px-12 py-6 bg-white text-black rounded-full font-bold text-xl hover:scale-105 transition-all shadow-[0_0_40px_rgba(255,255,255,0.2)] flex items-center justify-center gap-3"
+                            className="px-12 py-6 bg-brand-accent text-white rounded-xl font-bold text-xl hover:scale-105 transition-all shadow-xl shadow-brand-accent/25 flex items-center justify-center gap-3"
                         >
                             Request Demo <ArrowRight size={24} />
                         </Link>
                         <Link
                             to="/contact"
-                            className="px-12 py-6 bg-white/5 border border-white/10 text-white rounded-full font-bold text-xl hover:bg-white/10 transition-colors flex items-center justify-center gap-3"
+                            className="px-12 py-6 bg-white/5 border border-white/10 text-white rounded-xl font-bold text-xl hover:bg-white/10 transition-colors flex items-center justify-center gap-3"
                         >
                             Talk to Our Team
                         </Link>
                     </div>
                 </div>
             </section>
-
         </div>
     );
 }

@@ -18,7 +18,7 @@ export default function CTASection({ title, subtitle, buttonText, buttonLink = '
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto bg-gradient-to-br from-white/10 to-white/5 border border-white/20 rounded-3xl p-12 md:p-20 text-center backdrop-blur-2xl shadow-2xl relative overflow-hidden"
+          className="max-w-4xl mx-auto bg-brand-deep border border-brand-accent/20 rounded-3xl p-12 md:p-20 text-center shadow-2xl relative overflow-hidden"
         >
           {/* Decorative shapes inside CTA */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-brand-accent/20 rounded-full blur-[80px]" />
@@ -27,7 +27,7 @@ export default function CTASection({ title, subtitle, buttonText, buttonLink = '
           <h2 className="text-4xl md:text-6xl font-display font-black text-white mb-6 relative z-10">
             {title}
           </h2>
-          <p className="text-xl text-brand-secondary mb-12 max-w-2xl mx-auto relative z-10">
+          <p className="text-xl text-white/60 mb-12 max-w-2xl mx-auto relative z-10">
             {subtitle}
           </p>
           <Link 

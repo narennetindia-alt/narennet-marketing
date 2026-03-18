@@ -16,10 +16,10 @@ export default function HeroSection({ title, subtitle, description, primaryCta, 
   return (
     <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-brand-bg">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.03)_0%,transparent_100%)]" />
-        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-brand-accent/5 blur-[120px] rounded-full" />
-        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-purple-500/5 blur-[120px] rounded-full" />
+      <div className="absolute inset-0 bg-brand-deep">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.05)_0%,transparent_100%)]" />
+        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-brand-accent/10 blur-[120px] rounded-full" />
+        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-blue-500/10 blur-[120px] rounded-full" />
       </div>
 
       <div className="container-wide relative z-10 text-center px-6">
@@ -61,7 +61,7 @@ export default function HeroSection({ title, subtitle, description, primaryCta, 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25 }}
-            className="text-lg md:text-xl text-brand-secondary max-w-3xl mx-auto mb-12"
+            className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto mb-12"
           >
             {description}
           </motion.p>

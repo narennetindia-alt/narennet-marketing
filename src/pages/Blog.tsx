@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Search } from 'lucide-react';
 import { blogPosts, BlogPost } from '../data/blogPosts';
 
 export default function Blog() {
@@ -9,7 +9,6 @@ export default function Blog() {
   const [subscribed, setSubscribed] = useState(false);
 
   useEffect(() => {
-    // Simulate a brief loading state for smooth transitions
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 500);
@@ -36,17 +35,18 @@ export default function Blog() {
   }
 
   return (
-    <div className="flex flex-col bg-brand-bg">
-      {/* Hero Section */}
-      <section className="relative pt-48 pb-32 overflow-hidden bg-brand-bg text-white min-h-[60vh] flex items-center border-b border-brand-border">
+    <div className="flex flex-col bg-brand-bg text-brand-primary min-h-screen">
+      {/* 1. HERO SECTION — DARK */}
+      <section className="relative pt-48 pb-32 overflow-hidden bg-brand-deep text-white min-h-[60vh] flex items-center">
         {/* Vertical Rail Text */}
-        <div className="absolute right-0 top-0 h-full w-12 md:w-24 border-l border-brand-border flex items-center justify-center overflow-hidden pointer-events-none">
-          <div className="writing-mode-vertical text-[10px] font-bold text-gray-200 uppercase tracking-[0.5em] select-none whitespace-nowrap">
+        <div className="absolute right-0 top-0 h-full w-12 md:w-24 border-l border-white/10 flex items-center justify-center overflow-hidden pointer-events-none">
+          <div className="writing-mode-vertical text-[10px] font-bold text-white/10 uppercase tracking-[0.5em] select-none whitespace-nowrap">
             INSIGHTS — 2026
           </div>
         </div>
+        <div className="absolute top-1/2 left-1/4 w-[600px] h-[600px] bg-brand-accent/20 rounded-full blur-[130px] -z-10 opacity-30" />
 
-        <div className="container-wide px-6 relative z-10">
+        <div className="container-wide px-6 relative z-10 w-full">
           <div className="max-w-4xl relative">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -61,18 +61,18 @@ export default function Blog() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-6xl md:text-9xl font-bold mb-10 leading-[0.9] md:leading-[0.85] tracking-tighter uppercase text-white"
+              className="text-6xl md:text-9xl font-black mb-10 leading-[0.9] md:leading-[0.85] tracking-tighter uppercase text-white"
             >
               Latest <br />
               Insights & <br />
-              <span className="text-brand-accent">Updates</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-white">Updates</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-xl md:text-3xl text-brand-secondary max-w-2xl leading-tight font-light"
+              className="text-xl md:text-3xl text-white/50 max-w-2xl leading-tight font-light"
             >
               Exploring the intersection of business, technology, and artificial intelligence.
             </motion.p>
@@ -80,8 +80,8 @@ export default function Blog() {
         </div>
       </section>
 
-      {/* Featured Post Section */}
-      <section className="py-32 bg-white/5 border-b border-brand-border">
+      {/* 2. FEATURED POST — LIGHT GRAY */}
+      <section className="py-32 bg-brand-card/30 border-b border-brand-border">
         <div className="container-wide px-6">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -91,7 +91,7 @@ export default function Blog() {
             className="group relative grid grid-cols-1 lg:grid-cols-12 gap-16 items-center"
           >
             <div className="lg:col-span-7">
-              <Link to={`/blog/${featuredPost.id}`} className="block relative aspect-[16/9] rounded-[40px] md:rounded-[60px] overflow-hidden shadow-2xl">
+              <Link to={`/blog/${featuredPost.id}`} className="block relative aspect-[16/9] rounded-[40px] md:rounded-[60px] overflow-hidden shadow-2xl border-4 border-white">
                 <img
                   src={featuredPost.image}
                   alt={featuredPost.title}
@@ -100,26 +100,26 @@ export default function Blog() {
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-700" />
                 <div className="absolute top-6 left-6 md:top-10 md:left-10">
-                  <span className="px-6 py-2 rounded-full bg-brand-accent text-white text-[10px] font-bold uppercase tracking-[0.2em]">
+                  <span className="px-6 py-2 rounded-full bg-brand-accent text-white text-[10px] font-black uppercase tracking-[0.2em] shadow-lg">
                     Featured Article
                   </span>
                 </div>
               </Link>
             </div>
 
-            <div className="lg:col-span-5 space-y-8">
+            <div className="lg:col-span-5 space-y-8 text-brand-primary">
               <div className="flex items-center gap-4">
-                <span className="text-brand-accent font-mono text-[10px] uppercase tracking-[0.2em] font-bold">{featuredPost.date}</span>
+                <span className="text-brand-accent font-mono text-[10px] uppercase tracking-[0.2em] font-black">{featuredPost.date}</span>
                 <div className="w-1 h-1 bg-brand-border rounded-full" />
-                <span className="text-brand-secondary font-mono text-[10px] uppercase tracking-[0.2em]">{featuredPost.readTime}</span>
+                <span className="text-brand-secondary font-mono text-[10px] uppercase tracking-[0.2em] font-bold">{featuredPost.readTime}</span>
               </div>
-              <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-[0.95] md:leading-[0.9] uppercase text-white group-hover:text-brand-accent transition-colors">
+              <h2 className="text-4xl md:text-6xl font-black tracking-tighter leading-[0.95] md:leading-[1] uppercase group-hover:text-brand-accent transition-colors">
                 <Link to={`/blog/${featuredPost.id}`}>{featuredPost.title}</Link>
               </h2>
               <p className="text-xl text-brand-secondary font-light leading-relaxed">
                 {featuredPost.excerpt}
               </p>
-              <Link to={`/blog/${featuredPost.id}`} className="inline-flex items-center gap-4 bg-brand-accent text-white px-10 py-5 rounded-2xl font-bold uppercase tracking-widest text-xs hover:scale-105 transition-all shadow-xl shadow-brand-accent/20">
+              <Link to={`/blog/${featuredPost.id}`} className="inline-flex items-center gap-4 bg-brand-deep text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-all shadow-xl shadow-brand-deep/20">
                 Read Article <ArrowRight size={16} />
               </Link>
             </div>
@@ -127,14 +127,14 @@ export default function Blog() {
         </div>
       </section>
 
-      {/* Other Posts Grid */}
+      {/* 3. POST GRID — WHITE */}
       <section className="bg-brand-bg py-32">
         <div className="container-wide px-6">
-          <div className="flex items-center justify-between mb-24">
-            <h2 className="text-4xl font-bold tracking-tighter uppercase text-white">Recent <br /> Archive</h2>
-            <div className="flex gap-4">
-              {['All', 'Tech', 'Business', 'Development'].map((cat) => (
-                <button key={cat} className="px-6 py-2 rounded-full border border-brand-border text-[10px] font-bold uppercase tracking-widest hover:border-brand-accent hover:text-brand-accent transition-all text-brand-secondary">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-24 gap-8">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase text-brand-primary">Recent <br /> Archive</h2>
+            <div className="flex flex-wrap gap-4">
+              {['All', 'Tech', 'Business', 'SaaS', 'AI'].map((cat) => (
+                <button key={cat} className="px-6 py-2.5 rounded-full border border-brand-border text-[10px] font-black uppercase tracking-widest hover:border-brand-accent hover:text-brand-accent hover:bg-brand-accent/5 transition-all text-brand-secondary">
                   {cat}
                 </button>
               ))}
@@ -151,26 +151,26 @@ export default function Blog() {
                 transition={{ duration: 0.6, delay: (i % 2) * 0.1 }}
               >
                 <Link to={`/blog/${post.id}`} className="group block space-y-8">
-                  <div className="aspect-[16/10] rounded-[48px] overflow-hidden relative shadow-lg">
+                  <div className="aspect-[16/10] rounded-[48px] overflow-hidden relative shadow-lg border border-brand-border bg-white">
                     <img
                       src={post.image}
                       alt={post.title}
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                      className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute top-8 left-8">
-                      <span className="px-4 py-2 rounded-full bg-white/90 backdrop-blur-md border border-white/20 text-[10px] font-bold uppercase tracking-widest text-black">
+                      <span className="px-4 py-2 rounded-xl bg-white/90 backdrop-blur-md border border-brand-border text-[10px] font-black uppercase tracking-widest text-brand-primary shadow-sm">
                         {post.category}
                       </span>
                     </div>
                   </div>
                   <div className="space-y-4">
                     <div className="flex items-center gap-4">
-                      <span className="text-brand-accent font-mono text-[10px] uppercase tracking-[0.2em] font-bold">{post.date}</span>
+                      <span className="text-brand-accent font-mono text-[10px] uppercase tracking-[0.2em] font-black">{post.date}</span>
                       <div className="w-1 h-1 bg-brand-border rounded-full" />
-                      <span className="text-brand-secondary font-mono text-[10px] uppercase tracking-[0.2em]">{post.readTime}</span>
+                      <span className="text-brand-secondary font-mono text-[10px] uppercase tracking-[0.2em] font-bold">{post.readTime}</span>
                     </div>
-                    <h3 className="text-3xl md:text-4xl font-bold text-white group-hover:text-brand-accent transition-colors leading-tight tracking-tight uppercase">
+                    <h3 className="text-3xl md:text-4xl font-black text-brand-primary group-hover:text-brand-accent transition-colors leading-tight tracking-tight uppercase">
                       {post.title}
                     </h3>
                     <p className="text-brand-secondary text-lg font-light leading-relaxed line-clamp-2">
@@ -182,35 +182,35 @@ export default function Blog() {
             ))}
           </div>
 
-          {/* Newsletter */}
-          <div className="mt-48 p-10 md:p-32 rounded-[40px] md:rounded-[60px] bg-black text-white relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-accent/10 blur-[120px] rounded-full -z-10 group-hover:bg-brand-accent/20 transition-colors duration-700" />
+          {/* NEWSLETTER — DARK CARD */}
+          <div className="mt-48 p-12 md:p-32 rounded-[60px] md:rounded-[80px] bg-brand-deep text-white relative overflow-hidden group shadow-2xl">
+            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-accent/10 blur-[130px] rounded-full -z-10 group-hover:bg-brand-accent/20 transition-colors duration-700" />
             <div className="max-w-3xl">
-              <div className="text-brand-accent font-mono text-sm uppercase tracking-[0.3em] mb-8">Newsletter</div>
-              <h2 className="text-4xl md:text-8xl font-bold mb-10 tracking-tighter uppercase leading-[0.9] md:leading-[0.85]">Stay ahead <br /> of the curve.</h2>
-              <p className="text-white/60 text-lg md:text-xl mb-16 font-light leading-relaxed max-w-xl">
+              <div className="text-brand-accent font-mono text-sm uppercase tracking-[0.3em] font-black mb-8">Newsletter</div>
+              <h2 className="text-4xl md:text-8xl font-black mb-10 tracking-tighter uppercase leading-[0.9] md:leading-[0.85] text-white">Stay ahead <br /> of the curve.</h2>
+              <p className="text-white/50 text-lg md:text-xl mb-16 font-light leading-relaxed max-w-xl">
                 Get the latest insights on business automation and AI delivered straight to your inbox every month.
               </p>
               {subscribed ? (
-                <div className="flex items-center gap-4 text-emerald-500 bg-emerald-500/10 border border-emerald-500/20 px-10 py-8 rounded-[32px] max-w-xl animate-in fade-in slide-in-from-bottom-4">
+                <div className="flex items-center gap-4 text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 px-10 py-8 rounded-[32px] max-w-xl animate-in fade-in slide-in-from-bottom-4">
                   <CheckCircle2 className="flex-shrink-0" />
                   <div>
                     <h3 className="font-bold text-xl mb-1 text-white uppercase tracking-tight">You're on the list!</h3>
-                    <p className="text-emerald-500/80 font-light">Thanks for subscribing to our newsletter.</p>
+                    <p className="text-white/40 font-light">Thanks for subscribing to our newsletter.</p>
                   </div>
                 </div>
               ) : (
                 <form
                   onSubmit={(e) => { e.preventDefault(); setSubscribed(true); }}
-                  className="flex flex-col sm:flex-row gap-4 max-w-xl"
+                  className="flex flex-col md:flex-row gap-4 max-w-2xl"
                 >
                   <input
                     type="email"
                     required
                     placeholder="Your email address"
-                    className="flex-grow bg-white/10 border border-white/10 rounded-2xl px-8 py-5 text-white focus:outline-none focus:border-brand-accent transition-colors text-lg"
+                    className="flex-grow bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-white focus:outline-none focus:border-brand-accent transition-colors text-lg font-medium"
                   />
-                  <button className="bg-brand-accent text-white px-12 py-5 rounded-2xl font-bold uppercase tracking-widest text-sm hover:scale-105 transition-transform shadow-2xl shadow-brand-accent/20">
+                  <button className="bg-brand-accent text-white px-12 py-5 rounded-2xl font-black uppercase tracking-widest text-sm hover:scale-105 transition-transform shadow-2xl shadow-brand-accent/30">
                     Subscribe
                   </button>
                 </form>

@@ -12,8 +12,8 @@ export default function HospitalEcosystemDiagram() {
   ];
 
   return (
-    <section className="py-24 bg-brand-bg relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(242,125,38,0.05)_0%,transparent_100%)]" />
+    <section className="py-24 bg-brand-deep relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.05)_0%,transparent_100%)]" />
 
       <div className="container-wide px-6">
         <div className="text-center max-w-3xl mx-auto mb-20">
@@ -21,7 +21,7 @@ export default function HospitalEcosystemDiagram() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-display font-bold text-white mb-6 uppercase"
+            className="text-4xl md:text-5xl font-display font-bold text-white mb-6 uppercase tracking-tight"
           >
             Platform Overview
           </motion.h2>
@@ -30,7 +30,7 @@ export default function HospitalEcosystemDiagram() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-lg text-brand-secondary"
+            className="text-lg text-white/50"
           >
             A seamlessly integrated clinical and operational ecosystem.
           </motion.p>
@@ -38,12 +38,12 @@ export default function HospitalEcosystemDiagram() {
 
         <div className="relative w-full max-w-4xl mx-auto aspect-square md:aspect-video rounded-3xl border border-white/10 bg-black/50 overflow-hidden flex items-center justify-center p-8 glass">
           {/* Animated SVG Connections */}
-          <svg className="absolute inset-0 w-full h-full opacity-30" style={{ filter: 'drop-shadow(0 0 8px rgba(242,125,38,0.5))' }}>
+          <svg className="absolute inset-0 w-full h-full opacity-30" style={{ filter: 'drop-shadow(0 0 8px rgba(14,165,233,0.5))' }}>
             {nodes.map((node, i) => (
               <motion.line 
                 key={i}
                 x1="50%" y1="50%" x2={node.left} y2={node.top} 
-                stroke="#F27D26" strokeWidth="2" strokeDasharray="10 10"
+                stroke="#0EA5E9" strokeWidth="2" strokeDasharray="10 10"
                 initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} 
               />
             ))}
@@ -54,7 +54,7 @@ export default function HospitalEcosystemDiagram() {
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
-            className="absolute z-20 w-32 h-32 md:w-56 md:h-56 rounded-full bg-brand-accent/20 border-2 border-brand-accent flex items-center justify-center backdrop-blur-md shadow-[0_0_50px_rgba(242,125,38,0.3)]"
+            className="absolute z-20 w-32 h-32 md:w-56 md:h-56 rounded-full bg-brand-accent/20 border-2 border-brand-accent flex items-center justify-center backdrop-blur-md shadow-[0_0_50px_rgba(14,165,233,0.3)]"
           >
             <div className="w-24 h-24 md:w-44 md:h-44 rounded-full bg-brand-accent/30 flex flex-col items-center justify-center text-center p-4">
               <Network className="w-8 h-8 md:w-12 md:h-12 text-white mb-2" />

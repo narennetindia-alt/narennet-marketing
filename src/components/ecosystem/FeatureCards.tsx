@@ -18,7 +18,7 @@ export default function FeatureCards({ features, title, subtitle }: { features: 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-display font-bold text-white mb-6"
+            className="text-3xl md:text-5xl font-display font-bold text-brand-primary mb-6"
           >
             {title}
           </motion.h2>
@@ -52,7 +52,7 @@ export default function FeatureCards({ features, title, subtitle }: { features: 
                   <feature.icon className="w-6 h-6 text-brand-accent" />
                 </div>
                 
-                <h3 className="text-xl font-bold text-white mb-4">{feature.title}</h3>
+                <h3 className="text-xl font-bold text-brand-primary mb-4">{feature.title}</h3>
                 
                 {feature.description && (
                   <p className="text-brand-secondary text-sm mb-6 leading-relaxed">
@@ -63,7 +63,7 @@ export default function FeatureCards({ features, title, subtitle }: { features: 
                 {feature.features && (
                   <ul className="space-y-3">
                     {feature.features.map((item, i) => (
-                      <li key={i} className="flex items-center gap-3 text-sm text-gray-400">
+                      <li key={i} className="flex items-center gap-3 text-sm text-brand-secondary font-medium">
                         <div className="w-1.5 h-1.5 rounded-full bg-brand-accent" />
                         {item}
                       </li>
