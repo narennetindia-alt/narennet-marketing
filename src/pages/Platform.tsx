@@ -21,7 +21,7 @@ export default function Platform() {
         <meta name="description" content="Discover how NarenNet's Platform Infrastructure connects cloud, AI, automation, and mobile tools securely." />
       </Helmet>
 
-      <div className="min-h-screen bg-brand-bg pt-20">
+      <div className="min-h-screen bg-brand-bg">
         <HeroSection 
           title="The Digital Ecosystem Engine"
           subtitle="A powerful, interconnected architecture designed to run entire industries. See how everything connects seamlessly."

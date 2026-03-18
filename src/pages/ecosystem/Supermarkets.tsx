@@ -97,7 +97,7 @@ export default function Supermarkets() {
         <meta name="description" content="Premium supermarket billing software that never stops. Offline-first, auto-sync, and high-speed POS." />
       </Helmet>
 
-      <div className="min-h-screen bg-brand-bg selection:bg-brand-accent/30 selection:text-brand-accent text-brand-primary font-sans overflow-x-hidden pt-20">
+      <div className="min-h-screen bg-brand-bg selection:bg-brand-accent/30 selection:text-brand-accent text-brand-primary font-sans overflow-x-hidden">
         
         {/* Floating WhatsApp CTA */}
         <a 

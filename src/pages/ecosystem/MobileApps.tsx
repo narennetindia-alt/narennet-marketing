@@ -52,7 +52,7 @@ export default function MobileApps() {
         <meta name="keywords" content="business mobile apps platform, enterprise mobile apps, AI business apps, business ecosystem apps" />
       </Helmet>
 
-      <div className="min-h-screen bg-brand-bg pt-20">
+      <div className="min-h-screen bg-brand-bg">
         <HeroSection 
           title="Mobile Apps That Power Your Business Ecosystem"
           subtitle="One mobile platform that connects hospitals, supermarkets, businesses, and customers in a unified digital ecosystem."
