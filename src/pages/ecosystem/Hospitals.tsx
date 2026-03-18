@@ -29,6 +29,7 @@ import CTASection from '../../components/ecosystem/CTASection';
 import LeadCaptureModal from '../../components/LeadCaptureModal';
 import HospitalDashboardMockup from '../../components/mockups/HospitalDashboardMockup';
 import MobileAppMockup from '../../components/mockups/MobileAppMockup';
+import dr_rajesh from '../../assets/dr-rajesh.png';
 import { useState, useEffect } from 'react';
 
 export default function Hospitals() {
@@ -95,12 +96,14 @@ export default function Hospitals() {
           title="The Future of Digital Healthcare"
           subtitle="Hospital Management Reimagined"
           description="A complete clinical and operational ecosystem designed for modern medical institutions. Scale your healthcare services with AI-driven insights and zero-downtime infrastructure."
-          primaryCta="Experience the Demo"
-          secondaryCta="Download Brochure"
+          primaryCta="Experience Free Demo"
+          primaryCtaLink="https://hospitaldemo-narennet.netlify.app/"
+          secondaryCta="Free Consult"
+          secondaryCtaLink="/contact"
         >
           <div className="max-w-6xl mx-auto mt-12">
             <div className="relative rounded-[32px] overflow-hidden border border-white/10 bg-brand-deep shadow-2xl p-4 md:p-8">
-              <div className="aspect-[16/10] md:aspect-[16/9]">
+              <div className="aspect-[4/3] md:aspect-[16/9]">
                 <HospitalDashboardMockup />
               </div>
             </div>
@@ -171,7 +174,13 @@ export default function Hospitals() {
                 "NarenNet has completely digitized our operations. The offline capability is a lifesaver in areas with spotty internet."
               </h2>
               <div className="flex items-center justify-center gap-4">
-                 <div className="w-12 h-12 rounded-full bg-brand-primary/10 border border-brand-border" />
+                 <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-brand-accent shadow-lg">
+                    <img 
+                      src={dr_rajesh} 
+                      alt="Dr. Rajesh Kumar" 
+                      className="w-full h-full object-cover"
+                    />
+                 </div>
                  <div className="text-left">
                     <div className="font-bold text-brand-primary underline decoration-brand-accent decoration-2 underline-offset-4">Dr. Rajesh Kumar</div>
                     <div className="text-xs text-brand-secondary font-bold uppercase tracking-wider">Chief Medical Officer, City Care Hospital</div>
@@ -267,14 +276,20 @@ export default function Hospitals() {
                          </div>
                        ))}
                     </div>
-                    <a 
-                      href="https://hospitaldemo-narennet.netlify.app/patient-portal" 
-                      target="_blank" 
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-4 border-2 border-emerald-600 text-emerald-600 px-10 py-5 rounded-2xl font-bold hover:bg-emerald-600 hover:text-white transition-all shadow-xl shadow-emerald-600/10"
-                    >
-                      Explore Patient Portal <ArrowRight size={20} />
-                    </a>
+                    <div>
+                       <h3 className="text-2xl font-bold mb-4 text-brand-primary">Explore Business App</h3>
+                       <p className="text-brand-secondary mb-8">
+                         Our unified enterprise platform for healthcare management and coordination.
+                       </p>
+                        <div className="text-left">
+                         <Link 
+                           to="/super-business-app"
+                           className="inline-flex items-center gap-2 text-brand-accent font-bold hover:gap-4 transition-all"
+                         >
+                           Go to Business App <ArrowRight size={16} />
+                         </Link>
+                       </div>
+                     </div>
                  </div>
               </div>
            </div>

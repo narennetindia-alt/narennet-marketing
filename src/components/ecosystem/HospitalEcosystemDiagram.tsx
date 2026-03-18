@@ -71,10 +71,10 @@ export default function HospitalEcosystemDiagram() {
               viewport={{ once: true }}
               transition={{ delay: node.delay, type: 'spring', stiffness: 100 }}
               style={{ left: node.left, top: node.top }}
-              className="absolute -translate-x-1/2 -translate-y-1/2 z-10 w-20 h-20 md:w-32 md:h-32 rounded-full bg-white/5 border border-white/20 backdrop-blur-xl flex flex-col items-center justify-center hover:bg-white/10 hover:border-brand-accent transition-all cursor-pointer group text-center"
+              className="absolute -translate-x-1/2 -translate-y-1/2 z-10 w-14 h-14 sm:w-20 sm:h-20 md:w-32 md:h-32 rounded-full bg-white/5 border border-white/20 backdrop-blur-xl flex flex-col items-center justify-center hover:bg-white/10 hover:border-brand-accent transition-all cursor-pointer group text-center"
             >
-              <node.icon className="w-5 h-5 md:w-8 md:h-8 text-brand-secondary group-hover:text-brand-accent transition-colors mb-2" />
-              <span className="text-[8px] md:text-[10px] font-bold text-white tracking-widest uppercase leading-tight px-1">{node.label}</span>
+              <node.icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-8 md:h-8 text-brand-secondary group-hover:text-brand-accent transition-colors mb-1 md:mb-2" />
+              <span className="text-[6px] sm:text-[8px] md:text-[10px] font-bold text-white tracking-widest uppercase leading-tight px-1">{node.label}</span>
             </motion.div>
           ))}
         </div>

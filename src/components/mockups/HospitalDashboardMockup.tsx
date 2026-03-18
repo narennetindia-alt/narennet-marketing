@@ -7,6 +7,8 @@ import {
   FileText, FlaskConical, Calendar
 } from 'lucide-react';
 
+import dr_rajesh from '../../assets/dr-rajesh.png';
+
 interface MetricCardProps {
   label: string;
   value: string;
@@ -57,10 +59,16 @@ export default function HospitalDashboardMockup() {
           </div>
           <div className="h-4 w-[1px] bg-white/10 hidden sm:block" />
           <div className="flex items-center gap-2 cursor-pointer group">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-blue-500 to-emerald-400 p-[1px]">
-              <div className="w-full h-full rounded-full bg-[#0B1521] flex items-center justify-center overflow-hidden">
-                <Users size={14} className="text-blue-400" />
-              </div>
+            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-blue-500 to-emerald-400 p-[1px] overflow-hidden">
+              <img 
+                src={dr_rajesh} 
+                alt="Dr. Rajesh" 
+                className="w-full h-full object-cover rounded-full"
+              />
+            </div>
+            <div className="hidden sm:block">
+              <p className="text-[10px] font-bold text-white leading-none">Dr. Rajesh K.</p>
+              <p className="text-[8px] text-white/40 font-medium">Chief Surgeon</p>
             </div>
             <ChevronDown size={14} className="text-white/40 group-hover:text-white transition-colors" />
           </div>

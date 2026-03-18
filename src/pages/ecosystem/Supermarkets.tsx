@@ -190,7 +190,7 @@ export default function Supermarkets() {
               transition={{ duration: 0.8 }}
               className="relative p-2 md:p-4"
             >
-              <div className="aspect-[16/10] md:aspect-[16/7]">
+              <div className="aspect-[4/3] md:aspect-[16/7]">
                 <SupermarketDashboardMockup />
               </div>
             </motion.div>
@@ -375,7 +375,7 @@ export default function Supermarkets() {
                            {tab.id === 'crm' && "Capture customer numbers to build loyalty. Send automated WhatsApp campaigns."}
                            {tab.id === 'analytics' && "Visualize your store's health. Identify slow items and monitor cashier performance."}
                            {tab.id === 'admin' && "Run your empire from your phone. Tweak pricing across all branches simultaneously."}
-                           {tab.id === 'erp' && "Seamlessly sink data with Tally, Zoho Books, or custom legacy systems."}
+                           {tab.id === 'erp' && "Seamlessly sync data with Tally, Zoho Books, or custom legacy systems."}
                         </p>
                         <ul className="grid grid-cols-1 gap-4">
                           {tabFeatures[tab.id].map((feat, idx) => (

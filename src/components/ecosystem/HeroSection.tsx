@@ -6,13 +6,14 @@ interface HeroSectionProps {
   subtitle: string;
   description?: string;
   primaryCta: string;
+  primaryCtaLink?: string;
   secondaryCta?: string;
   secondaryCtaLink?: string;
   badge?: string;
   children?: React.ReactNode;
 }
 
-export default function HeroSection({ title, subtitle, description, primaryCta, secondaryCta, secondaryCtaLink, badge, children }: HeroSectionProps) {
+export default function HeroSection({ title, subtitle, description, primaryCta, primaryCtaLink, secondaryCta, secondaryCtaLink, badge, children }: HeroSectionProps) {
   return (
     <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
       {/* Background Elements */}
@@ -73,9 +74,15 @@ export default function HeroSection({ title, subtitle, description, primaryCta, 
           transition={{ delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
         >
-          <button className="w-full sm:w-auto px-8 py-4 bg-brand-accent text-white rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-brand-accent/90 transition-all shadow-lg shadow-brand-accent/25">
-            {primaryCta}
-          </button>
+          {primaryCtaLink ? (
+            <a href={primaryCtaLink} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-4 bg-brand-accent text-white rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-brand-accent/90 transition-all shadow-lg shadow-brand-accent/25 text-center">
+              {primaryCta}
+            </a>
+          ) : (
+            <button className="w-full sm:w-auto px-8 py-4 bg-brand-accent text-white rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-brand-accent/90 transition-all shadow-lg shadow-brand-accent/25">
+              {primaryCta}
+            </button>
+          )}
           {secondaryCta && (
             secondaryCtaLink ? (
               <a href={secondaryCtaLink} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 text-white rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-white/10 transition-all text-center">

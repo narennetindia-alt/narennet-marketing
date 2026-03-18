@@ -81,10 +81,10 @@ export default function EcosystemDiagram() {
               viewport={{ once: true }}
               transition={{ delay: node.delay, type: 'spring', stiffness: 100 }}
               style={{ left: node.left, top: node.top }}
-              className="absolute -translate-x-1/2 -translate-y-1/2 z-10 w-20 h-20 md:w-28 md:h-28 rounded-full bg-white/5 border border-white/20 backdrop-blur-xl flex flex-col items-center justify-center hover:bg-white/10 hover:border-brand-accent transition-all cursor-pointer group text-center"
+              className="absolute -translate-x-1/2 -translate-y-1/2 z-10 w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 rounded-full bg-white/5 border border-white/20 backdrop-blur-xl flex flex-col items-center justify-center hover:bg-white/10 hover:border-brand-accent transition-all cursor-pointer group text-center"
             >
-              <node.icon className="w-6 h-6 md:w-8 md:h-8 text-brand-secondary group-hover:text-brand-accent transition-colors mb-2" />
-              <span className="text-[9px] md:text-xs font-bold text-white tracking-widest uppercase leading-tight px-1">{node.label}</span>
+              <node.icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-brand-secondary group-hover:text-brand-accent transition-colors mb-1 md:mb-2" />
+              <span className="text-[7px] sm:text-[9px] md:text-xs font-bold text-white tracking-widest uppercase leading-tight px-1">{node.label}</span>
             </motion.div>
           ))}
         </div>

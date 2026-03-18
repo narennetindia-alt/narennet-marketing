@@ -59,8 +59,9 @@ export default function MobileApps() {
         <HeroSection 
           title="Mobile Apps That Power Your Business Ecosystem"
           subtitle="One mobile platform that connects hospitals, supermarkets, businesses, and customers in a unified digital ecosystem."
-          primaryCta="Download Demo"
-          secondaryCta="Request Mobile Solution"
+          primaryCta="Experience Free Demo"
+          secondaryCta="Free Consult"
+          primaryCtaLink="https://hospitaldemo-narennet.netlify.app/"
           badge="Unified Mobile Experience"
         >
           <div className="max-w-md mx-auto relative group mt-16 scale-90 md:scale-100">

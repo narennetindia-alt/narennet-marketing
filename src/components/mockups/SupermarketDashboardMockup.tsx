@@ -143,7 +143,7 @@ export default function SupermarketDashboardMockup() {
                 { name: 'Counter #02', action: 'New Invoice Managed', time: 'Just now', value: '+₹2,450', color: 'text-emerald-400' },
                 { name: 'Barcode Scan', action: 'Dairy Batch Updated', time: '5 mins ago', value: '42 Units', color: 'text-brand-accent' },
                 { name: 'Counter #01', action: 'Checkout in Progress', time: '12 mins ago', value: '18 Items', color: 'text-white/60' },
-                { name: 'Stock Alert', action: 'Cooking Oil Low', time: '25 mins ago', value: 'Critial Level', color: 'text-rose-400' },
+                { name: 'Stock Alert', action: 'Cooking Oil Low', time: '25 mins ago', value: 'Critical Level', color: 'text-rose-400' },
               ].map((activity, i) => (
                 <div key={i} className="p-4 flex items-center justify-between hover:bg-white/[0.02] transition-colors group">
                   <div className="flex items-center gap-4">
