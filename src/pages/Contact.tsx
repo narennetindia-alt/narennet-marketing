@@ -229,7 +229,7 @@ export default function Contact() {
                     <div>
                       <p className="text-brand-accent text-xs uppercase tracking-[0.2em] mb-2 font-black">Email</p>
                       <p className="text-xl md:text-2xl font-black text-brand-primary break-all">hello@narennet.cloud</p>
-                      <p className="text-white/40 text-sm font-medium mt-1">Response within 24 hours</p>
+                      <p className="text-brand-secondary/60 text-sm font-medium mt-1">Response within 24 hours</p>
                     </div>
                   </div>
                   
@@ -240,7 +240,7 @@ export default function Contact() {
                     <div>
                       <p className="text-brand-accent text-xs uppercase tracking-[0.2em] mb-2 font-black">Call / WhatsApp</p>
                       <p className="text-2xl font-black text-brand-primary">+91 84389 66728</p>
-                      <p className="text-white/40 text-sm font-medium mt-1">Mon - Sat, 9am - 7pm</p>
+                      <p className="text-brand-secondary/60 text-sm font-medium mt-1">Mon - Sat, 9am - 7pm</p>
                     </div>
                   </div>
                 </div>

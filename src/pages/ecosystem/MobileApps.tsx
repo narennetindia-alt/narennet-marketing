@@ -68,7 +68,7 @@ export default function MobileApps() {
         />
 
         {/* Visual Showcase Section */}
-        <section className="py-24 bg-brand-bg relative overflow-hidden">
+        <section className="py-24 bg-brand-deep relative overflow-hidden text-white">
              <div className="container-wide px-6">
                 <div className="text-center max-w-3xl mx-auto mb-16">
                     <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">

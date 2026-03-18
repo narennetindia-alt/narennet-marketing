@@ -228,11 +228,19 @@ export default function Hospitals() {
                             className="absolute inset-0 w-full h-full object-cover opacity-80"
                           />
                           <div className="absolute inset-0 bg-brand-deep/60 backdrop-blur-[2px]" />
-                          <div className="relative z-10 text-center text-white p-8">
-                             <Clock className="w-12 h-12 text-brand-accent mx-auto mb-6" />
-                             <h3 className="text-2xl font-bold mb-2 uppercase tracking-widest text-brand-accent">Live Link Coming Soon</h3>
-                             <p className="text-white/60 text-sm max-w-xs mx-auto">We are currently updating our public demo instance with the latest clinical features.</p>
-                          </div>
+                           <div className="relative z-10 text-center text-white p-8">
+                              <PlayCircle className="w-12 h-12 text-brand-accent mx-auto mb-6" />
+                              <h3 className="text-2xl font-bold mb-4 uppercase tracking-widest text-brand-accent">Live Demo Available</h3>
+                              <p className="text-white/80 text-sm max-w-xs mx-auto mb-8">Experience the full clinical workflow of NarenNet Hospital Management System.</p>
+                              <a 
+                                href="https://hospitaldemo-narennet.netlify.app/" 
+                                target="_blank" 
+                                rel="noreferrer"
+                                className="inline-flex items-center gap-2 bg-brand-accent text-white px-8 py-3 rounded-full font-bold hover:scale-105 transition-all shadow-lg shadow-brand-accent/20"
+                              >
+                                Launch Demo <ArrowRight size={18} />
+                              </a>
+                           </div>
                        </div>
                     </div>
                  </div>
