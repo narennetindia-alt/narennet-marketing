@@ -147,7 +147,7 @@ export default function TrustBadges() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight"
+            className="text-3xl md:text-5xl font-bold text-brand-primary mb-6 tracking-tight"
           >
             Trusted by Leading Organizations
           </motion.h2>
@@ -173,14 +173,14 @@ export default function TrustBadges() {
                   className="relative group/badge cursor-pointer"
                   onClick={() => setSelectedCompany(company)}
                 >
-                  <div className="px-8 py-5 md:px-10 md:py-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-300 md:group-hover/badge:scale-105 group-hover/badge:border-white/20 group-hover/badge:bg-white/10 group-hover/badge:shadow-[0_0_20px_rgba(255,255,255,0.05)]">
-                    <span className="text-lg md:text-xl font-display font-medium text-brand-secondary group-hover/badge:text-white transition-colors">
+                  <div className="px-8 py-5 md:px-10 md:py-6 rounded-2xl border border-brand-border bg-brand-card transition-all duration-300 md:group-hover/badge:scale-105 group-hover/badge:border-brand-accent/30 group-hover/badge:bg-brand-accent/5 group-hover/badge:shadow-lg">
+                    <span className="text-lg md:text-xl font-display font-medium text-brand-secondary group-hover/badge:text-brand-primary transition-colors">
                       {company}
                     </span>
                   </div>
                   {/* Tooltip */}
                   <div className="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover/badge:opacity-100 transition-all duration-300 pointer-events-none scale-95 group-hover/badge:scale-100 z-10">
-                    <div className="bg-brand-card/90 backdrop-blur-md border border-brand-border px-4 py-2 rounded-lg text-xs md:text-sm text-brand-secondary whitespace-nowrap shadow-xl">
+                    <div className="bg-brand-primary text-white border border-brand-primary px-4 py-2 rounded-lg text-xs md:text-sm whitespace-nowrap shadow-xl">
                       CRM & ERP Solutions Delivered
                     </div>
                   </div>
@@ -198,7 +198,7 @@ export default function TrustBadges() {
             transition={{ delay: 0.2 }}
             className="text-center mb-24"
         >
-          <p className="inline-flex items-center gap-3 text-sm md:text-base font-bold tracking-wide text-white bg-brand-accent/20 px-8 py-4 rounded-full border border-brand-accent/30 shadow-[0_0_20px_rgba(var(--brand-accent-rgb),0.2)]">
+          <p className="inline-flex items-center gap-3 text-sm md:text-base font-bold tracking-wide text-brand-primary bg-brand-accent/20 px-8 py-4 rounded-full border border-brand-accent/30 shadow-[0_0_20px_rgba(14,165,233,0.2)]">
             <span className="w-2.5 h-2.5 rounded-full bg-brand-accent animate-pulse"></span>
             Helping organizations scale with AI-powered systems
           </p>
@@ -216,7 +216,7 @@ export default function TrustBadges() {
               className="flex flex-col items-center justify-center p-8 md:p-10 rounded-[32px] bg-brand-card/40 border border-brand-border backdrop-blur-sm relative overflow-hidden group shadow-lg"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="text-6xl md:text-7xl font-bold text-white mb-4 tracking-tighter flex items-center">
+              <div className="text-6xl md:text-7xl font-bold text-brand-primary mb-4 tracking-tighter flex items-center">
                 <Counter value={metric.value} suffix={metric.suffix} />
               </div>
               <div className="text-sm md:text-base tracking-[0.2em] uppercase text-brand-secondary/80 font-bold">

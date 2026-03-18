@@ -176,12 +176,12 @@ export default function Supermarkets() {
           </div>
         </section>
 
-        <div className="mt-[-80px] relative z-[30]">
+        <div className="relative z-[30]">
            <TrustBadges />
         </div>
 
         {/* Demo Dashboard Mockup Section — LIGHT */}
-        <section className="pb-32 relative z-20 px-6 mt-[-60px]">
+        <section className="py-32 relative z-20 px-6">
           <div className="container-wide max-w-6xl mx-auto">
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
