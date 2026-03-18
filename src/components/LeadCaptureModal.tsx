@@ -5,9 +5,10 @@ import { X, CheckCircle2, ArrowRight, Loader2 } from 'lucide-react';
 interface LeadCaptureModalProps {
   isOpen: boolean;
   onClose: () => void;
+  type?: 'hospital' | 'supermarket' | 'generic';
 }
 
-export default function LeadCaptureModal({ isOpen, onClose }: LeadCaptureModalProps) {
+export default function LeadCaptureModal({ isOpen, onClose, type = 'generic' }: LeadCaptureModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -56,55 +57,61 @@ export default function LeadCaptureModal({ isOpen, onClose }: LeadCaptureModalPr
             {/* Content Swapper */}
             <div className="p-8 md:p-10">
               {!isSuccess ? (
-                <div className="flex flex-col">
+                <div className="flex flex-col text-brand-primary">
                   {/* Header */}
                   <div className="mb-8">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-accent/20 border border-brand-accent/30 text-brand-accent text-[10px] font-bold uppercase tracking-[0.2em] mb-4">
-                      Limited Time Offer
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-brand-accent text-[10px] font-bold uppercase tracking-[0.2em] mb-4">
+                      {type === 'hospital' ? 'Healthcare Innovation' : 'Retail Transformation'}
                     </div>
-                    <h3 className="text-3xl font-bold text-white mb-3">Get Your 14-Day Free Preview</h3>
+                    <h3 className="text-3xl font-bold text-brand-primary mb-3">
+                      {type === 'hospital' ? 'Modernize Your Hospital' : 'Scale Your Supermarket'}
+                    </h3>
                     <p className="text-brand-secondary leading-relaxed">
-                      Scale your supermarket operations with our premium ecosystem. No credit card required, instant setup.
+                      {type === 'hospital' 
+                        ? 'Transform patient care with our premium healthcare ecosystem. Smart records, instant OPD, and AI-powered billing.' 
+                        : 'Scale your supermarket operations with our premium ecosystem. No credit card required, instant setup.'}
                     </p>
                   </div>
 
                   {/* Form */}
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="space-y-1.5">
-                      <label htmlFor="name" className="text-xs font-bold text-white/50 uppercase tracking-widest pl-1">Full Name</label>
+                      <label htmlFor="name" className="text-xs font-bold text-brand-secondary uppercase tracking-widest pl-1">Full Name</label>
                       <input
                         required
                         type="text"
                         id="name"
                         placeholder="John Doe"
-                        className="w-full bg-brand-card border border-brand-border rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-brand-accent/50 transition-colors"
+                        className="w-full bg-brand-card border border-brand-border rounded-xl px-4 py-3 text-brand-primary placeholder:text-brand-primary/20 focus:outline-none focus:border-brand-accent/50 transition-colors"
                       />
                     </div>
                     <div className="space-y-1.5">
-                      <label htmlFor="email" className="text-xs font-bold text-white/50 uppercase tracking-widest pl-1">Business Email</label>
+                      <label htmlFor="email" className="text-xs font-bold text-brand-secondary uppercase tracking-widest pl-1">Business Email</label>
                       <input
                         required
                         type="email"
                         id="email"
-                        placeholder="john@supermarket.com"
-                        className="w-full bg-brand-card border border-brand-border rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-brand-accent/50 transition-colors"
+                        placeholder={type === 'hospital' ? "dr.john@hospital.com" : "john@supermarket.com"}
+                        className="w-full bg-brand-card border border-brand-border rounded-xl px-4 py-3 text-brand-primary placeholder:text-brand-primary/20 focus:outline-none focus:border-brand-accent/50 transition-colors"
                       />
                     </div>
                     <div className="space-y-1.5 pb-2">
-                      <label htmlFor="store" className="text-xs font-bold text-white/50 uppercase tracking-widest pl-1">Store Name / Branch Count</label>
+                      <label htmlFor="store" className="text-xs font-bold text-brand-secondary uppercase tracking-widest pl-1">
+                        {type === 'hospital' ? 'Hospital Name / Bed Capacity' : 'Store Name / Branch Count'}
+                      </label>
                       <input
                         required
                         type="text"
                         id="store"
-                        placeholder="Naren Stores (5 Branches)"
-                        className="w-full bg-brand-card border border-brand-border rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-brand-accent/50 transition-colors"
+                        placeholder={type === 'hospital' ? "City Care (250 Beds)" : "Naren Stores (5 Branches)"}
+                        className="w-full bg-brand-card border border-brand-border rounded-xl px-4 py-3 text-brand-primary placeholder:text-brand-primary/20 focus:outline-none focus:border-brand-accent/50 transition-colors"
                       />
                     </div>
 
                     <button
                       disabled={isSubmitting}
                       type="submit"
-                      className="w-full bg-brand-accent text-white py-4 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-white hover:text-black transition-all shadow-lg shadow-brand-accent/20 disabled:opacity-50 group"
+                      className="w-full bg-brand-accent text-white py-4 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-brand-primary hover:text-white transition-all shadow-lg shadow-brand-accent/20 disabled:opacity-50 group"
                     >
                       {isSubmitting ? (
                         <>
@@ -119,7 +126,7 @@ export default function LeadCaptureModal({ isOpen, onClose }: LeadCaptureModalPr
                     </button>
                     
                     <p className="text-center text-[10px] text-brand-secondary/60 mt-4 italic uppercase tracking-wider">
-                      Already used by 50+ leading retail chains
+                      {type === 'hospital' ? 'Trusted by 100+ Multi-specialty Hospitals' : 'Already used by 50+ leading retail chains'}
                     </p>
                   </form>
                 </div>
@@ -132,9 +139,9 @@ export default function LeadCaptureModal({ isOpen, onClose }: LeadCaptureModalPr
                   <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mb-6 shadow-[0_0_40px_rgba(34,197,94,0.3)]">
                     <CheckCircle2 size={40} className="text-green-500" />
                   </div>
-                  <h3 className="text-3xl font-bold text-white mb-3">Request Received!</h3>
+                  <h3 className="text-3xl font-bold text-brand-primary mb-3">Request Received!</h3>
                   <p className="text-brand-secondary max-w-xs mx-auto mb-8">
-                    Our sales engineers will contact you within 24 hours to initialize your cloud environment.
+                    Our {type === 'hospital' ? 'healthcare consultants' : 'sales engineers'} will contact you within 24 hours.
                   </p>
                   <button
                     onClick={onClose}

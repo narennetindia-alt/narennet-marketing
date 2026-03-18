@@ -288,7 +288,11 @@ export default function Hospitals() {
         />
       </div>
 
-      <LeadCaptureModal isOpen={isLeadModalOpen} onClose={() => setIsLeadModalOpen(false)} />
+      <LeadCaptureModal 
+        isOpen={isLeadModalOpen} 
+        onClose={() => setIsLeadModalOpen(false)} 
+        type="hospital"
+      />
     </>
   );
 }

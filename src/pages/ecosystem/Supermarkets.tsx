@@ -422,7 +422,11 @@ export default function Supermarkets() {
         </section>
       </div>
 
-      <LeadCaptureModal isOpen={isLeadModalOpen} onClose={() => setIsLeadModalOpen(false)} />
+      <LeadCaptureModal 
+        isOpen={isLeadModalOpen} 
+        onClose={() => setIsLeadModalOpen(false)} 
+        type="supermarket"
+      />
     </>
   );
 }
