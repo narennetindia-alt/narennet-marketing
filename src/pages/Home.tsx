@@ -2,405 +2,739 @@ import { motion } from 'motion/react';
 import {
   ArrowRight,
   CreditCard,
-  LayoutDashboard,
+  Package,
+  Users,
   BarChart3,
+  Settings,
+  WifiOff,
+  RefreshCw,
+  Store,
+  Stethoscope,
+  GraduationCap,
+  CheckCircle2,
+  AlertTriangle,
+  Clock,
+  DatabaseZap,
+  MessageCircle,
+  Star,
+  ChevronRight,
   Zap,
   ShieldCheck,
-  Trophy,
-  Users,
-  TrendingUp,
-  Shield,
-  CheckCircle2,
-  Plus,
-  Minus,
-  ChevronDown,
-  Binary,
-  Store,
-  Utensils,
-  Globe,
-  Cpu,
-  Code2,
-  Smartphone
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { faqs as allFaqs } from '../data/faqs';
-import TrustBadges from '../components/TrustBadges';
 
-const homeFaqs = allFaqs.slice(0, 3);
+// ─────────────────────────── DATA ───────────────────────────
 
-const partners = [
-  'Google', 'Microsoft', 'Amazon', 'Meta', 'Netflix', 'Apple', 'Stripe', 'Spotify'
+const stats = [
+  { value: '50+', label: 'Businesses' },
+  { value: '99.9%', label: 'Uptime' },
+  { value: '3–5 days', label: 'Setup Time' },
+];
+
+const clients = [
+  'FreshMart', 'City Hospital', 'BrightMinds School', 'QuickStore',
+  'MedCare Clinic', 'PeakRetail', 'EduHub', 'MegaGrocer',
+  'FreshMart', 'City Hospital', 'BrightMinds School', 'QuickStore',
+  'MedCare Clinic', 'PeakRetail', 'EduHub', 'MegaGrocer',
+];
+
+const painPoints = [
+  {
+    icon: <AlertTriangle size={28} className="text-red-400" />,
+    title: 'Manual Billing Errors',
+    description: 'Hand-written bills and manual entries cause costly mistakes and delays.',
+  },
+  {
+    icon: <Clock size={28} className="text-yellow-400" />,
+    title: 'Slow Checkout',
+    description: 'Long queues and slow billing frustrate customers and hurt revenue.',
+  },
+  {
+    icon: <Package size={28} className="text-blue-400" />,
+    title: 'Inventory Confusion',
+    description: 'Overstocking and stockouts happen when inventory tracking is manual.',
+  },
+  {
+    icon: <WifiOff size={28} className="text-purple-400" />,
+    title: 'Internet Dependency',
+    description: 'Your entire business halts when the connection drops — not anymore.',
+  },
 ];
 
 const features = [
   {
-    title: 'SmartOS Suite',
-    description: 'AI-powered ERP, CRM, and HR system for enterprise-grade management.',
-    icon: <Binary className="text-brand-accent" />,
-    size: 'col-span-1 md:col-span-2 row-span-1',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200'
+    icon: <CreditCard size={24} className="text-brand-accent" />,
+    title: 'Billing System',
+    description: 'Fast, accurate billing with GST, receipts, and thermal print support.',
   },
   {
-    title: 'Retail POS',
-    description: 'Smart billing, barcode, and theft detection for modern stores.',
-    icon: <Store className="text-brand-accent" />,
-    size: 'col-span-1 row-span-1',
-    image: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80&w=600'
+    icon: <Package size={24} className="text-brand-accent" />,
+    title: 'Inventory Management',
+    description: 'Real-time stock tracking, low-stock alerts, and barcode scanning.',
   },
   {
-    title: 'AI eCommerce',
-    description: 'Instant AI store builder with automated SEO and marketing.',
-    icon: <Globe className="text-brand-accent" />,
-    size: 'col-span-1 row-span-1',
-    image: 'https://images.unsplash.com/photo-1523474253046-2cd2c78b6ad1?auto=format&fit=crop&q=80&w=600'
+    icon: <Users size={24} className="text-brand-accent" />,
+    title: 'CRM',
+    description: 'Manage customer profiles, purchase history, and loyalty programs.',
   },
   {
-    title: 'Security & Cloud',
-    description: 'Enterprise-grade protection, firewall hardening, and server deployment.',
-    icon: <ShieldCheck className="text-brand-accent" />,
-    size: 'col-span-1 md:col-span-2 row-span-1',
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200'
+    icon: <BarChart3 size={24} className="text-brand-accent" />,
+    title: 'Analytics Dashboard',
+    description: 'Visual sales reports, top products, and daily revenue summaries.',
+  },
+  {
+    icon: <Settings size={24} className="text-brand-accent" />,
+    title: 'Admin Control Panel',
+    description: 'Multi-branch management, staff access control, and system settings.',
   },
 ];
 
-const processSteps = [
+const demos = [
+  {
+    icon: <Store size={32} className="text-brand-accent" />,
+    industry: 'Supermarket ERP',
+    description: 'Complete billing, stock, and loyalty management for supermarkets and retail stores.',
+    link: '/ecosystem/supermarkets',
+    gradient: 'from-orange-500/10 to-transparent',
+  },
+  {
+    icon: <Stethoscope size={32} className="text-brand-accent" />,
+    industry: 'Hospital Management',
+    description: 'OPD, pharmacy, lab, and patient records management for clinics and hospitals.',
+    link: '/ecosystem/hospitals',
+    gradient: 'from-blue-500/10 to-transparent',
+  },
+  {
+    icon: <GraduationCap size={32} className="text-brand-accent" />,
+    industry: 'School ERP',
+    description: 'Student admissions, fee management, attendance, and academic reports.',
+    link: '/contact',
+    gradient: 'from-violet-500/10 to-transparent',
+  },
+];
+
+const steps = [
   {
     number: '01',
-    title: 'Discovery',
-    description: 'We analyze your current business operations and identify pain points.'
+    title: 'Book a Free Demo',
+    description: 'See the system live with your industry use case in under 30 minutes.',
+    icon: <MessageCircle size={20} className="text-brand-accent" />,
   },
   {
     number: '02',
-    title: 'Strategy',
-    description: 'Our team designs a custom software ecosystem tailored to your needs.'
+    title: 'Customize for Your Business',
+    description: 'Our team configures billing, inventory, and modules to match your exact needs.',
+    icon: <Settings size={20} className="text-brand-accent" />,
   },
   {
     number: '03',
-    title: 'Implementation',
-    description: 'We deploy the systems and provide comprehensive training for your staff.'
+    title: 'Go Live in 3–5 Days',
+    description: 'We install, train your staff, and ensure a smooth, confident launch.',
+    icon: <Zap size={20} className="text-brand-accent" />,
   },
-  {
-    number: '04',
-    title: 'Growth',
-    description: 'Continuous optimization and AI-driven insights to scale your business.'
-  }
 ];
 
-interface FAQ {
-  question: string;
-  answer: string;
-}
+const testimonials = [
+  {
+    name: 'Ravi Kumar',
+    business: 'FreshMart Supermarket, Dharmapuri',
+    result: 'Our billing time dropped by 70% and stock errors are almost zero now.',
+    rating: 5,
+  },
+  {
+    name: 'Dr. Priya Shankar',
+    business: 'MedCare Clinic, Salem',
+    result: 'Managing patient records, OPD queues, and pharmacy has never been this seamless.',
+    rating: 5,
+  },
+  {
+    name: 'Anand Raj',
+    business: 'BrightMinds School, Krishnagiri',
+    result: 'Fee collection, attendance, and reports are all in one place. Parents love the app.',
+    rating: 5,
+  },
+];
 
-interface AccordionProps {
-  question: string;
-  answer: string;
-}
+// ─────────────────────────── COMPONENTS ───────────────────────────
 
-function AccordionItem({ question, answer }: AccordionProps) {
-  const [isOpen, setIsOpen] = useState(false);
+function SectionLabel({ children }: { children: string }) {
   return (
-    <div className="border-b border-brand-border">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full py-6 flex items-center justify-between text-left hover:text-brand-accent transition-colors text-white"
-      >
-        <span className="text-xl font-bold">{question}</span>
-        {isOpen ? <Minus size={20} /> : <Plus size={20} />}
-      </button>
-      <motion.div
-        initial={false}
-        animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
-        className="overflow-hidden"
-      >
-        <p className="pb-6 text-brand-secondary leading-relaxed">
-          {answer}
-        </p>
-      </motion.div>
-    </div>
+    <span className="inline-flex items-center gap-2 text-brand-accent font-mono text-xs uppercase tracking-[0.3em] mb-4">
+      <span className="w-4 h-px bg-brand-accent" />
+      {children}
+    </span>
   );
 }
 
+// ─────────────────────────── PAGE ───────────────────────────
+
 export default function Home() {
   return (
-    <div className="flex flex-col">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-32 md:pt-40 lg:pt-20 overflow-hidden bg-brand-bg text-white">
-        {/* Vertical Rail Text */}
-        <div className="absolute right-0 top-0 h-full w-12 md:w-32 lg:w-48 bg-white/5 border-l border-brand-border flex items-center justify-center overflow-hidden pointer-events-none">
-          <div className="writing-mode-vertical text-[10vw] md:text-[8vw] lg:text-[15vw] font-bold text-white/[0.03] uppercase tracking-tighter select-none whitespace-nowrap">
-            SOFTWARE
-          </div>
+    <div className="flex flex-col overflow-hidden">
+
+      {/* ══════════════════════════════════════════════════════
+          1. HERO SECTION
+      ══════════════════════════════════════════════════════ */}
+      <section className="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden bg-brand-bg">
+        {/* Background grid glow */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-brand-accent/5 rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[100px]" />
         </div>
 
-        <div className="container-wide px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Content (Desktop) / Bottom Content (Mobile) */}
-          <div className="lg:col-span-7 relative flex flex-col justify-end md:justify-start min-h-[50vh] md:min-h-0 z-20 order-2 lg:order-1 pt-10 md:pt-0">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="absolute -left-16 top-4 text-brand-accent/60 font-mono text-lg hidden xl:block"
-            >
-              01.
-            </motion.div>
+        <div className="container-wide relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-            {/* Glass Card on Mobile, Transparent on Desktop */}
-            <div className="bg-brand-card/60 backdrop-blur-2xl md:bg-transparent md:backdrop-blur-none p-8 md:p-0 rounded-t-[40px] md:rounded-none border-t border-brand-border md:border-none -mx-6 md:mx-0 shadow-[0_-20px_40px_rgba(0,0,0,0.2)] md:shadow-none">
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
+            {/* Left — Copy */}
+            <div>
+              {/* Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-                className="text-[12vw] md:text-[10vw] lg:text-[6vw] font-bold leading-[0.8] md:leading-[0.85] tracking-tighter uppercase mb-6 text-white"
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center gap-2 bg-brand-accent/10 border border-brand-accent/20 text-brand-accent px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-6"
               >
-                NarenNet <br />
-                <span className="text-brand-accent">Technologies</span>
+                <WifiOff size={12} />
+                Offline Mode + Auto Sync
+              </motion.div>
+
+              <motion.h1
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                className="text-[clamp(2.4rem,6vw,4.5rem)] font-bold leading-[1.05] tracking-tight text-white mb-6 normal-case"
+              >
+                All-in-One ERP & CRM for{' '}
+                <span className="text-brand-accent">Growing Businesses</span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.15 }}
-                className="text-base md:text-xl text-brand-secondary font-light max-w-2xl mb-8 md:mb-12 leading-relaxed"
+                transition={{ duration: 0.7, delay: 0.2 }}
+                className="text-brand-secondary text-lg leading-relaxed max-w-xl mb-10"
               >
-                NarenNet Technologies is a Chennai-based AI and enterprise software company founded by Narendhiran C. We build robust ERP platforms, smart POS solutions, and scalable SaaS infrastructure.
+                Manage billing, inventory, customers, and analytics in one powerful
+                system — <strong className="text-white">even works without internet.</strong>
               </motion.p>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="flex flex-col sm:flex-row sm:items-center gap-6 md:gap-8"
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="flex flex-col sm:flex-row gap-4"
               >
                 <Link
                   to="/contact"
-                  className="group relative flex items-center justify-between bg-brand-accent text-white pl-8 pr-2 py-2 rounded-2xl overflow-hidden shadow-xl shadow-brand-accent/20 w-full sm:w-auto"
+                  className="group flex items-center justify-center gap-3 bg-brand-accent hover:bg-brand-accent/90 text-white px-8 py-4 rounded-2xl font-bold text-sm uppercase tracking-wider transition-all shadow-lg shadow-brand-accent/25 hover:shadow-brand-accent/40 hover:scale-[1.02]"
                 >
-                  <span className="font-bold uppercase tracking-widest text-sm mr-6">Get in touch</span>
-                  <div className="w-12 h-12 bg-black/20 rounded-xl flex items-center justify-center group-hover:bg-black/40 transition-colors">
-                    <ArrowRight size={20} className="-rotate-45 group-hover:rotate-0 transition-transform" />
-                  </div>
+                  View Live Demo
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
-
-                <div className="flex items-center justify-center gap-3 group cursor-pointer w-full sm:w-auto pb-4 md:pb-0">
-                  <span className="text-brand-secondary text-sm md:text-lg font-medium group-hover:text-brand-accent transition-colors uppercase tracking-widest">Explore Services</span>
-                  <div className="w-5 h-5 rounded-full border border-brand-border flex items-center justify-center group-hover:border-brand-accent transition-colors">
-                    <ChevronDown size={12} className="group-hover:translate-y-0.5 transition-transform" />
-                  </div>
-                </div>
+                <a
+                  href="https://wa.me/918438966728?text=Hi%20NarenNet%2C%20I%20want%20to%20learn%20more%20about%20your%20ERP%20system."
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group flex items-center justify-center gap-3 bg-brand-card hover:bg-white/5 border border-brand-border hover:border-green-500/40 text-white px-8 py-4 rounded-2xl font-bold text-sm uppercase tracking-wider transition-all"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-green-400">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.121.554 4.112 1.524 5.837L.057 23.743a.5.5 0 0 0 .6.6l5.906-1.467A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.944 9.944 0 0 1-5.098-1.4l-.363-.216-3.754.932.948-3.753-.234-.382A9.944 9.944 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+                  </svg>
+                  Chat on WhatsApp
+                </a>
               </motion.div>
-            </div>
-          </div>
 
-          {/* Right Visuals */}
-          <div className="lg:col-span-5 relative h-[400px] md:h-[500px] lg:h-[700px] flex items-center justify-center order-1 lg:order-2 md:mt-0 mt-8 mb-[-40px] md:mb-0 scale-90 md:scale-100">
-            {/* 3D Sphere Placeholder */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-              className="relative w-full max-w-[300px] md:max-w-[450px] aspect-square rounded-full bg-gradient-to-br from-brand-accent/10 to-transparent border border-brand-border flex items-center justify-center"
-            >
-              <div className="absolute inset-0 rounded-full border border-brand-border animate-pulse" />
-              <div className="absolute inset-4 rounded-full border border-brand-border animate-spin-slow" />
-
-              {/* Maze Pattern Simulation */}
-              <div className="w-3/4 h-3/4 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] rounded-full" />
-
-              {/* Floating Bubbles */}
+              {/* Trust micro-stats */}
               <motion.div
-                animate={{ y: [0, -20, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-10 -left-10 w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/5 backdrop-blur-md border border-brand-border shadow-sm"
-              />
-              <motion.div
-                animate={{ y: [0, 30, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute top-1/4 -right-8 md:-right-12 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 backdrop-blur-md border border-brand-border shadow-sm"
-              />
-              <motion.div
-                animate={{ y: [0, -15, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute bottom-10 left-1/4 w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/5 backdrop-blur-md border border-brand-border shadow-sm"
-              />
-            </motion.div>
-
-            {/* Widgets - Hidden on smallest mobile screens for cleaner layout */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="hidden sm:block absolute top-10 right-0 w-40 md:w-48 p-4 bg-brand-card/80 backdrop-blur-xl border border-brand-border rounded-2xl shadow-xl z-20"
-            >
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-[10px] uppercase tracking-widest text-brand-secondary font-bold">Analysis...</span>
-                <div className="w-2 h-2 bg-brand-accent rounded-full animate-pulse" />
-              </div>
-              <div className="h-10 md:h-12 flex items-end gap-1">
-                {[40, 70, 45, 90, 65, 80, 50].map((h, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ height: 0 }}
-                    animate={{ height: `${h}%` }}
-                    transition={{ duration: 1, delay: 0.5 + (i * 0.1), repeat: Infinity, repeatType: 'reverse' }}
-                    className="flex-1 bg-brand-accent/20 rounded-t-sm"
-                  />
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.7, delay: 0.5 }}
+                className="flex items-center gap-6 mt-10 pt-10 border-t border-brand-border"
+              >
+                {stats.map((s) => (
+                  <div key={s.label}>
+                    <div className="text-2xl font-bold text-white">{s.value}</div>
+                    <div className="text-xs text-brand-secondary uppercase tracking-wider">{s.label}</div>
+                  </div>
                 ))}
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
 
+            {/* Right — Dashboard Mockup */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="absolute bottom-10 md:bottom-10 right-0 w-56 md:w-64 p-4 md:p-6 bg-brand-card/80 backdrop-blur-xl border border-brand-border rounded-2xl shadow-xl z-20"
+              transition={{ duration: 0.9, delay: 0.2 }}
+              className="relative hidden lg:block"
             >
-              <div className="flex items-center justify-between mb-2 md:mb-4">
-                <span className="text-[9px] md:text-[10px] uppercase tracking-widest text-brand-secondary font-bold">Testing...</span>
-                <span className="text-[9px] md:text-[10px] text-brand-accent font-mono">v2.4.0</span>
+              {/* Main dashboard card */}
+              <div className="relative bg-brand-card border border-brand-border rounded-3xl p-6 shadow-2xl">
+                {/* Top bar */}
+                <div className="flex items-center justify-between mb-6">
+                  <div>
+                    <p className="text-[10px] text-brand-secondary uppercase tracking-widest">Sales Dashboard</p>
+                    <p className="text-white font-bold text-lg">Today's Overview</p>
+                  </div>
+                  <div className="flex items-center gap-2 bg-green-500/10 border border-green-500/20 px-3 py-1 rounded-full">
+                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                    <span className="text-green-400 text-xs font-bold">Offline Ready</span>
+                  </div>
+                </div>
+
+                {/* KPI Row */}
+                <div className="grid grid-cols-3 gap-3 mb-6">
+                  {[
+                    { label: 'Revenue', val: '₹48,230', up: true },
+                    { label: 'Orders', val: '142', up: true },
+                    { label: 'Stock Items', val: '1,847', up: false },
+                  ].map((kpi) => (
+                    <div key={kpi.label} className="bg-brand-bg rounded-2xl p-4 border border-brand-border">
+                      <p className="text-[9px] text-brand-secondary uppercase tracking-widest mb-1">{kpi.label}</p>
+                      <p className="text-white font-bold text-lg">{kpi.val}</p>
+                      <p className={`text-[9px] font-bold mt-1 ${kpi.up ? 'text-green-400' : 'text-brand-secondary'}`}>
+                        {kpi.up ? '↑ +12.4%' : '→ Stable'}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Mini chart */}
+                <div className="mb-6">
+                  <p className="text-[9px] text-brand-secondary uppercase tracking-widest mb-3">Weekly Revenue</p>
+                  <div className="h-16 flex items-end gap-1.5">
+                    {[55, 72, 48, 88, 65, 92, 76].map((h, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ height: 0 }}
+                        animate={{ height: `${h}%` }}
+                        transition={{ duration: 1, delay: 0.6 + i * 0.08, ease: 'easeOut' }}
+                        className={`flex-1 rounded-t-md ${i === 5 ? 'bg-brand-accent' : 'bg-brand-accent/25'}`}
+                      />
+                    ))}
+                  </div>
+                  <div className="flex justify-between mt-1">
+                    {['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((d, i) => (
+                      <span key={i} className="flex-1 text-center text-[8px] text-brand-secondary">{d}</span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Recent transactions */}
+                <div>
+                  <p className="text-[9px] text-brand-secondary uppercase tracking-widest mb-3">Recent Transactions</p>
+                  <div className="space-y-2">
+                    {[
+                      { name: 'Invoice #4821', amount: '₹1,240', time: '2 min ago', status: 'Paid' },
+                      { name: 'Invoice #4820', amount: '₹3,890', time: '18 min ago', status: 'Paid' },
+                      { name: 'Invoice #4819', amount: '₹640', time: '1 hr ago', status: 'Pending' },
+                    ].map((tx) => (
+                      <div key={tx.name} className="flex items-center justify-between p-3 rounded-xl bg-brand-bg border border-brand-border">
+                        <div>
+                          <p className="text-white text-[11px] font-bold">{tx.name}</p>
+                          <p className="text-brand-secondary text-[9px]">{tx.time}</p>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-white text-[11px] font-bold">{tx.amount}</p>
+                          <span className={`text-[8px] font-bold px-2 py-0.5 rounded-full ${tx.status === 'Paid' ? 'bg-green-500/10 text-green-400' : 'bg-yellow-500/10 text-yellow-400'}`}>
+                            {tx.status}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-              <div className="space-y-1 md:space-y-2 font-mono text-[9px] md:text-[10px] text-brand-secondary">
-                <p className="text-brand-accent">// Init index</p>
-                <p>end = block_size - 1</p>
-                <p className="text-brand-accent">// Init ending list</p>
-                <p>start = 0</p>
-              </div>
+
+              {/* Floating sync badge */}
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                className="absolute -top-4 -right-6 bg-brand-card border border-green-500/30 rounded-2xl px-4 py-3 flex items-center gap-2 shadow-xl"
+              >
+                <RefreshCw size={14} className="text-green-400 animate-spin" style={{ animationDuration: '2s' }} />
+                <span className="text-green-400 text-xs font-bold">Auto-syncing…</span>
+              </motion.div>
+
+              {/* Floating offline badge */}
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+                className="absolute -bottom-4 -left-6 bg-brand-card border border-brand-border rounded-2xl px-4 py-3 flex items-center gap-2 shadow-xl"
+              >
+                <ShieldCheck size={14} className="text-brand-accent" />
+                <span className="text-white text-xs font-bold">Works Offline</span>
+              </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Trust Badges Section */}
-      <TrustBadges />
-
-      {/* Bento Grid Features */}
-      <section className="section-padding bg-brand-bg">
+      {/* ══════════════════════════════════════════════════════
+          2. TRUST SECTION
+      ══════════════════════════════════════════════════════ */}
+      <section className="py-16 border-y border-brand-border bg-brand-card/30">
         <div className="container-wide">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-10 mb-20">
-            <div className="max-w-2xl">
-              <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">What we do</h2>
-              <p className="text-brand-secondary text-lg md:text-xl font-light leading-relaxed">
-                We provide a comprehensive suite of tools designed to automate your business and drive growth.
-              </p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center text-brand-secondary text-xs uppercase tracking-[0.3em] mb-10 font-bold"
+          >
+            Trusted by growing businesses across India
+          </motion.p>
+          {/* Marquee */}
+          <div className="relative overflow-hidden mask-fade">
+            <div className="animate-marquee flex gap-12 whitespace-nowrap">
+              {clients.map((c, i) => (
+                <span key={i} className="text-brand-secondary/60 text-sm font-bold uppercase tracking-widest shrink-0">
+                  {c}
+                </span>
+              ))}
             </div>
-            <Link to="/solutions" className="text-brand-accent font-bold flex items-center gap-2 hover:gap-4 transition-all uppercase tracking-widest text-[10px]">
-              View all solutions <ArrowRight size={16} />
-            </Link>
-          </div>
-
-          {/* Horizontal Scrolling on Mobile, Grid on Desktop */}
-          <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory hide-scrollbar grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 pb-8 md:pb-0 -mx-6 md:mx-0 px-6 md:px-0">
-            {features.map((feature, idx) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className={`${feature.size} min-w-[85vw] md:min-w-0 snap-center shrink-0 p-8 md:p-10 rounded-[30px] md:rounded-[40px] bg-brand-card border border-brand-border card-glow group relative overflow-hidden flex flex-col justify-end min-h-[350px] md:min-h-[300px] shadow-2xl md:shadow-none`}
-              >
-                <img
-                  src={(feature as any).image}
-                  alt={feature.title}
-                  className="absolute inset-0 w-full h-full object-cover opacity-30 md:opacity-20 group-hover:opacity-40 transition-opacity duration-700"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-card via-brand-card/90 md:via-brand-card/80 to-transparent" />
-
-                <div className="relative z-10">
-                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-brand-accent/10 flex items-center justify-center mb-6 md:mb-10 lg:group-hover:scale-110 transition-transform hidden md:flex">
-                    {feature.icon}
-                  </div>
-                  <div className="flex items-center gap-3 md:block mb-3 md:mb-4">
-                     <div className="w-10 h-10 rounded-xl bg-brand-accent/20 flex items-center justify-center md:hidden shrink-0">
-                       {feature.icon}
-                     </div>
-                     <h3 className="text-2xl md:text-3xl font-bold text-white shrink-0">{feature.title}</h3>
-                  </div>
-                  <p className="text-brand-secondary text-base md:text-lg leading-relaxed font-light">{feature.description}</p>
-                </div>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="section-padding bg-brand-card/30 border-y border-brand-border">
-        <div className="container-wide">
-          <h2 className="text-5xl md:text-6xl font-bold mb-16 md:mb-24 text-center text-white">Our process</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 relative">
-            {/* Mobile Vertical Timeline Line */}
-            <div className="absolute left-6 top-8 bottom-8 w-px bg-brand-border md:hidden z-0" />
-            
-            {processSteps.map((step, idx) => (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="relative pl-20 md:pl-0"
-              >
-                {/* Mobile Timeline Node */}
-                <div className="absolute left-4 top-1 w-5 h-5 rounded-full bg-brand-card border-4 border-brand-accent md:hidden z-10 shadow-[0_0_15px_rgba(255,87,34,0.4)]" />
-
-                <div className="text-6xl md:text-8xl font-display font-bold text-brand-accent/10 md:text-brand-accent/5 absolute top-0 md:-top-10 left-16 md:-left-4 md:block">
-                  {step.number}
-                </div>
-                <div className="relative z-10 mt-1 md:mt-0">
-                  <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-6 text-white">{step.title}</h3>
-                  <p className="text-brand-secondary leading-relaxed font-light text-sm md:text-base">
-                    {step.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
+      {/* ══════════════════════════════════════════════════════
+          3. PROBLEM SECTION
+      ══════════════════════════════════════════════════════ */}
       <section className="section-padding bg-brand-bg">
-        <div className="container-wide max-w-4xl">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+        <div className="container-wide">
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <SectionLabel>The Problem</SectionLabel>
+            <h2 className="text-[clamp(1.8rem,4vw,3.5rem)] font-bold text-white leading-tight normal-case mb-4">
+              Running your business shouldn't{' '}
+              <span className="text-brand-accent">be this hard</span>
+            </h2>
+            <p className="text-brand-secondary text-lg">
+              Most businesses are stuck with outdated tools, manual processes, and no real-time visibility.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {painPoints.map((pt, idx) => (
+              <motion.div
+                key={pt.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="group p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-brand-accent/30 transition-all"
+              >
+                <div className="w-12 h-12 rounded-xl bg-brand-bg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  {pt.icon}
+                </div>
+                <h3 className="text-white font-bold text-base normal-case mb-2">{pt.title}</h3>
+                <p className="text-brand-secondary text-sm leading-relaxed">{pt.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
+          4. SOLUTION / FEATURES
+      ══════════════════════════════════════════════════════ */}
+      <section className="section-padding bg-brand-card/20 border-y border-brand-border">
+        <div className="container-wide">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-brand-accent font-mono text-sm uppercase tracking-[0.3em] mb-3">Got questions?</p>
-              <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tighter uppercase">Frequently Asked</h2>
-            </div>
-            <Link
-              to="/faq"
-              className="flex-shrink-0 inline-flex items-center gap-2 text-brand-accent border border-brand-accent/30 px-6 py-3 rounded-full text-sm font-bold hover:bg-brand-accent hover:text-white transition-all"
-            >
-              View all FAQs <ArrowRight size={16} />
-            </Link>
-          </div>
-          <div className="space-y-2">
-            {homeFaqs.map((faq, idx) => (
-              <AccordionItem key={idx} question={faq.question} answer={faq.answer} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="section-padding">
-        <div className="container-wide">
-          <div className="p-10 md:p-20 rounded-[40px] md:rounded-[60px] bg-gradient-to-br from-brand-accent to-blue-700 text-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
-            <div className="relative z-10">
-              <h2 className="text-4xl md:text-7xl font-bold mb-10 text-white">Ready to start?</h2>
-              <p className="text-white/80 text-xl max-w-2xl mx-auto mb-14 font-light">
-                Join the smart ecosystem and transform your business operations today.
+              <SectionLabel>The Solution</SectionLabel>
+              <h2 className="text-[clamp(1.8rem,4vw,3.5rem)] font-bold text-white leading-tight normal-case mb-4">
+                Everything you need in{' '}
+                <span className="text-brand-accent">one system</span>
+              </h2>
+              <p className="text-brand-secondary text-lg leading-relaxed mb-8">
+                NarenNet gives you a complete business operating system — billing, inventory, CRM,
+                analytics, and admin — all communicating in real time, all within one platform.
               </p>
-              <Link to="/contact" className="inline-flex items-center gap-3 bg-brand-accent text-white px-12 py-6 rounded-full font-bold text-xl hover:scale-105 transition-transform shadow-2xl shadow-brand-accent/20">
-                Get in touch <ArrowRight size={24} />
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 text-brand-accent font-bold text-sm uppercase tracking-wider hover:gap-4 transition-all"
+              >
+                Get a personalized demo <ArrowRight size={16} />
               </Link>
             </div>
+
+            <div className="space-y-3">
+              {features.map((f, idx) => (
+                <motion.div
+                  key={f.title}
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
+                  className="group flex items-start gap-4 p-5 rounded-2xl bg-brand-card border border-brand-border hover:border-brand-accent/30 transition-all"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-brand-accent/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                    {f.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-white font-bold text-sm normal-case mb-0.5">{f.title}</h3>
+                    <p className="text-brand-secondary text-sm leading-relaxed">{f.description}</p>
+                  </div>
+                  <ChevronRight size={14} className="text-brand-secondary/40 group-hover:text-brand-accent transition-colors ml-auto shrink-0 mt-1" />
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
+
+      {/* ══════════════════════════════════════════════════════
+          5. USP — OFFLINE MODE
+      ══════════════════════════════════════════════════════ */}
+      <section className="py-24 px-6 bg-brand-bg relative overflow-hidden">
+        {/* Radial glow */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-brand-accent/8 rounded-full blur-[100px]" />
+        </div>
+
+        <div className="container-wide relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <div className="rounded-[32px] border border-brand-accent/20 bg-gradient-to-br from-brand-accent/5 via-brand-card to-brand-card p-10 md:p-16 text-center">
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="relative inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-brand-accent/10 border border-brand-accent/20 mb-8 mx-auto"
+              >
+                <WifiOff size={36} className="text-brand-accent" />
+                <motion.div
+                  animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0, 0.3] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="absolute inset-0 rounded-2xl border border-brand-accent/40"
+                />
+              </motion.div>
+
+              <SectionLabel>Unique Advantage</SectionLabel>
+
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-[clamp(2rem,5vw,4rem)] font-bold text-white leading-tight normal-case mb-4"
+              >
+                Works even{' '}
+                <span className="text-brand-accent">without internet</span>
+              </motion.h2>
+
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-brand-secondary text-xl leading-relaxed max-w-xl mx-auto mb-12"
+              >
+                Continue billing, managing stock, and serving customers even when the internet is
+                down. Once reconnected, everything{' '}
+                <strong className="text-white">automatically syncs</strong> to the cloud.
+              </motion.p>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center">
+                    <CheckCircle2 size={18} className="text-green-400" />
+                  </div>
+                  <span className="text-white font-medium">Full offline billing</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center">
+                    <RefreshCw size={18} className="text-green-400" />
+                  </div>
+                  <span className="text-white font-medium">Auto-sync on reconnect</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center">
+                    <DatabaseZap size={18} className="text-green-400" />
+                  </div>
+                  <span className="text-white font-medium">Zero data loss</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
+          6. DEMO SECTION
+      ══════════════════════════════════════════════════════ */}
+      <section className="section-padding bg-brand-card/20 border-y border-brand-border">
+        <div className="container-wide">
+          <div className="text-center mb-14">
+            <SectionLabel>Live Demos</SectionLabel>
+            <h2 className="text-[clamp(1.8rem,4vw,3.5rem)] font-bold text-white leading-tight normal-case mb-4">
+              See it in action
+            </h2>
+            <p className="text-brand-secondary text-lg max-w-xl mx-auto">
+              Explore industry-specific demos crafted for your exact business type.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {demos.map((demo, idx) => (
+              <motion.div
+                key={demo.industry}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className={`group relative p-8 rounded-3xl bg-gradient-to-br ${demo.gradient} bg-brand-card border border-brand-border hover:border-brand-accent/40 transition-all flex flex-col`}
+              >
+                <div className="w-14 h-14 rounded-2xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  {demo.icon}
+                </div>
+                <h3 className="text-white font-bold text-xl normal-case mb-3">{demo.industry}</h3>
+                <p className="text-brand-secondary text-sm leading-relaxed flex-grow mb-8">
+                  {demo.description}
+                </p>
+                <Link
+                  to={demo.link}
+                  className="self-start flex items-center gap-2 bg-brand-accent text-white px-5 py-2.5 rounded-xl text-sm font-bold uppercase tracking-wider hover:bg-brand-accent/90 hover:gap-3 transition-all"
+                >
+                  View Demo <ArrowRight size={14} />
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
+          7. HOW IT WORKS
+      ══════════════════════════════════════════════════════ */}
+      <section className="section-padding bg-brand-bg">
+        <div className="container-wide">
+          <div className="text-center mb-16">
+            <SectionLabel>How It Works</SectionLabel>
+            <h2 className="text-[clamp(1.8rem,4vw,3.5rem)] font-bold text-white leading-tight normal-case mb-4">
+              Up and running in{' '}
+              <span className="text-brand-accent">3 simple steps</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            {/* Connector line (desktop) */}
+            <div className="hidden md:block absolute top-10 left-[calc(33.33%+1rem)] right-[calc(33.33%+1rem)] h-px bg-gradient-to-r from-brand-accent/30 via-brand-accent/60 to-brand-accent/30" />
+
+            {steps.map((step, idx) => (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.15 }}
+                className="relative text-center"
+              >
+                {/* Step number circle */}
+                <div className="relative inline-flex w-20 h-20 items-center justify-center rounded-full bg-brand-card border-2 border-brand-accent/30 mb-6 mx-auto">
+                  <span className="text-brand-accent font-mono font-bold text-xl">{step.number}</span>
+                  <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-brand-card border border-brand-border flex items-center justify-center">
+                    {step.icon}
+                  </div>
+                </div>
+                <h3 className="text-white font-bold text-lg normal-case mb-3">{step.title}</h3>
+                <p className="text-brand-secondary text-sm leading-relaxed max-w-xs mx-auto">
+                  {step.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
+          8. TESTIMONIALS
+      ══════════════════════════════════════════════════════ */}
+      <section className="section-padding bg-brand-card/20 border-y border-brand-border">
+        <div className="container-wide">
+          <div className="text-center mb-14">
+            <SectionLabel>Testimonials</SectionLabel>
+            <h2 className="text-[clamp(1.8rem,4vw,3.5rem)] font-bold text-white leading-tight normal-case mb-4">
+              Businesses love NarenNet
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials.map((t, idx) => (
+              <motion.div
+                key={t.name}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="p-7 rounded-3xl bg-brand-card border border-brand-border flex flex-col gap-5"
+              >
+                {/* Stars */}
+                <div className="flex gap-1">
+                  {Array.from({ length: t.rating }).map((_, i) => (
+                    <Star key={i} size={14} className="text-brand-accent fill-brand-accent" />
+                  ))}
+                </div>
+                <p className="text-white leading-relaxed text-base flex-grow">
+                  "{t.result}"
+                </p>
+                <div className="pt-4 border-t border-brand-border">
+                  <p className="text-white font-bold text-sm">{t.name}</p>
+                  <p className="text-brand-secondary text-xs mt-1">{t.business}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
+          9. FINAL CTA
+      ══════════════════════════════════════════════════════ */}
+      <section className="section-padding bg-brand-bg">
+        <div className="container-wide">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="relative rounded-[40px] overflow-hidden bg-gradient-to-br from-brand-accent via-orange-600 to-orange-700 p-12 md:p-20 text-center"
+          >
+            {/* Subtle texture */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(255,255,255,0.08),transparent_60%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.05),transparent_50%)]" />
+
+            <div className="relative z-10">
+              <h2 className="text-[clamp(1.8rem,5vw,4rem)] font-bold text-white leading-tight normal-case mb-4">
+                Start managing your business smarter today
+              </h2>
+              <p className="text-white/80 text-xl max-w-xl mx-auto mb-10">
+                Join 50+ businesses that already trust NarenNet to power their daily operations.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  to="/contact"
+                  className="group flex items-center justify-center gap-3 bg-white text-brand-accent px-8 py-4 rounded-2xl font-bold text-sm uppercase tracking-wider hover:bg-white/90 hover:scale-[1.02] transition-all shadow-xl"
+                >
+                  Get Free Demo <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <a
+                  href="https://wa.me/918438966728?text=Hi%20NarenNet%2C%20I%20want%20to%20book%20a%20free%20demo."
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-center gap-3 bg-white/10 border border-white/20 text-white px-8 py-4 rounded-2xl font-bold text-sm uppercase tracking-wider hover:bg-white/20 transition-all"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.121.554 4.112 1.524 5.837L.057 23.743a.5.5 0 0 0 .6.6l5.906-1.467A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.944 9.944 0 0 1-5.098-1.4l-.363-.216-3.754.932.948-3.753-.234-.382A9.944 9.944 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+                  </svg>
+                  Talk on WhatsApp
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
     </div>
   );
 }
-
