@@ -22,12 +22,13 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
 import HeroSection from '../../components/ecosystem/HeroSection';
 import FeatureCards from '../../components/ecosystem/FeatureCards';
 import HospitalEcosystemDiagram from '../../components/ecosystem/HospitalEcosystemDiagram';
 import CTASection from '../../components/ecosystem/CTASection';
 import LeadCaptureModal from '../../components/LeadCaptureModal';
+import HospitalDashboardMockup from '../../components/mockups/HospitalDashboardMockup';
+import MobileAppMockup from '../../components/mockups/MobileAppMockup';
 import { useState, useEffect } from 'react';
 
 export default function Hospitals() {
@@ -85,7 +86,7 @@ export default function Hospitals() {
         <meta name="description" content="Next-generation cloud-based hospital management system for clinics and multispecialty hospitals." />
       </Helmet>
 
-      <div className="min-h-screen bg-brand-bg text-brand-primary selection:bg-brand-accent/30 selection:text-brand-accent">
+      <div className="min-h-screen bg-brand-bg text-brand-primary selection:bg-brand-accent/30 selection:text-brand-accent pb-20">
         <Navbar />
 
         {/* Hero Section — DARK */}
@@ -97,15 +98,10 @@ export default function Hospitals() {
           primaryCta="Experience the Demo"
           secondaryCta="Download Brochure"
         >
-          <div className="max-w-5xl mx-auto mt-12">
-            <div className="relative rounded-2xl md:rounded-[32px] overflow-hidden border border-brand-accent/20 bg-brand-deep shadow-2xl">
-              <div className="aspect-video bg-gradient-to-br from-brand-deep to-brand-primary p-4 md:p-8 flex items-center justify-center">
-                 <div className="text-center group cursor-pointer">
-                    <div className="w-20 h-20 rounded-full bg-brand-accent/10 border border-brand-accent/50 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                       <PlayCircle size={48} className="text-brand-accent" />
-                    </div>
-                    <span className="text-white font-bold tracking-widest uppercase text-sm">Watch Platform Tour</span>
-                 </div>
+          <div className="max-w-6xl mx-auto mt-12">
+            <div className="relative rounded-[32px] overflow-hidden border border-white/10 bg-brand-deep shadow-2xl p-4 md:p-8">
+              <div className="aspect-[16/10] md:aspect-[16/9]">
+                <HospitalDashboardMockup />
               </div>
             </div>
           </div>
@@ -211,38 +207,74 @@ export default function Hospitals() {
                          </div>
                        ))}
                     </div>
-                    <Link 
-                      to="/contact" 
-                      className="inline-flex items-center gap-4 bg-brand-accent text-white px-10 py-5 rounded-2xl font-bold hover:scale-105 transition-all shadow-xl shadow-brand-accent/20"
-                    >
-                      Book a Personalized Demo <ArrowRight size={20} />
-                    </Link>
+                    <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                      <Link 
+                        to="/contact" 
+                        className="inline-flex items-center justify-center gap-4 bg-brand-accent text-white px-10 py-5 rounded-2xl font-bold hover:scale-105 transition-all shadow-xl shadow-brand-accent/20"
+                      >
+                        Book a Personalized Demo <ArrowRight size={20} />
+                      </Link>
+                      <a 
+                        href="https://hospitaldemo-narennet.netlify.app/" 
+                        target="_blank" 
+                        rel="noreferrer"
+                        className="inline-flex items-center justify-center gap-4 border-2 border-brand-accent text-brand-accent px-10 py-5 rounded-2xl font-bold hover:bg-brand-accent hover:text-white transition-all shadow-xl shadow-brand-accent/10"
+                      >
+                        Launch Live Demo <PlayCircle size={20} />
+                      </a>
+                    </div>
                  </div>
                  <div className="relative group">
-                    <div className="absolute inset-0 bg-brand-accent/10 blur-[100px] rounded-full group-hover:bg-brand-accent/20 transition-colors" />
-                    <div className="relative rounded-3xl border border-brand-border bg-brand-card overflow-hidden shadow-2xl p-2">
-                       <div className="bg-white rounded-[22px] overflow-hidden aspect-[4/3] flex items-center justify-center relative">
-                          <img 
-                            src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?q=80&w=2072&auto=format&fit=crop" 
-                            alt="Hospital Dashboard"
-                            className="absolute inset-0 w-full h-full object-cover opacity-80"
-                          />
-                          <div className="absolute inset-0 bg-brand-deep/60 backdrop-blur-[2px]" />
-                           <div className="relative z-10 text-center text-white p-8">
-                              <PlayCircle className="w-12 h-12 text-brand-accent mx-auto mb-6" />
-                              <h3 className="text-2xl font-bold mb-4 uppercase tracking-widest text-brand-accent">Live Demo Available</h3>
-                              <p className="text-white/80 text-sm max-w-xs mx-auto mb-8">Experience the full clinical workflow of NarenNet Hospital Management System.</p>
-                              <a 
-                                href="https://hospitaldemo-narennet.netlify.app/" 
-                                target="_blank" 
-                                rel="noreferrer"
-                                className="inline-flex items-center gap-2 bg-brand-accent text-white px-8 py-3 rounded-full font-bold hover:scale-105 transition-all shadow-lg shadow-brand-accent/20"
-                              >
-                                Launch Demo <ArrowRight size={18} />
-                              </a>
-                           </div>
-                       </div>
+                    <div className="absolute inset-0 bg-blue-500/10 blur-[100px] rounded-full group-hover:bg-blue-500/20 transition-colors" />
+                    <div className="relative h-[600px] w-full max-w-[320px] mx-auto scale-90 md:scale-100 transition-transform">
+                       <MobileAppMockup persona="hospital" theme="bg-blue-600" />
                     </div>
+                  </div>
+              </div>
+           </div>
+        </section>
+
+        {/* Patient Experience — LIGHT GRAY */}
+        <section className="py-24 bg-brand-card">
+           <div className="container-wide px-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                 <div className="order-2 lg:order-1 relative group">
+                    <div className="absolute inset-0 bg-emerald-500/10 blur-[100px] rounded-full group-hover:bg-emerald-500/20 transition-colors" />
+                    <div className="relative h-[600px] w-full max-w-[320px] mx-auto scale-90 md:scale-100 transition-transform">
+                       <MobileAppMockup persona="patient" theme="bg-emerald-600" />
+                    </div>
+                 </div>
+                 <div className="order-1 lg:order-2">
+                    <h2 className="text-4xl md:text-5xl font-bold text-brand-primary mb-6 leading-tight">
+                       Empower Your <br />
+                       <span className="text-emerald-600">Patients</span>
+                    </h2>
+                    <p className="text-lg text-brand-secondary mb-10 leading-relaxed font-medium">
+                       Give your patients the digital tools they deserve. From instant booking to direct access to medical records, ensure a seamless healthcare journey.
+                    </p>
+                    <div className="space-y-6 mb-12">
+                       {[
+                         { t: 'Instant Appointments', d: 'Reduce wait times with smart scheduling and instant booking.' },
+                         { t: 'Secure Health Records', d: '24/7 access to lab reports, prescriptions, and medical history.' },
+                         { t: 'Automated Reminders', d: 'Never miss a dose with intelligent medication and follow-up alerts.' }
+                       ].map(f => (
+                         <div key={f.t} className="flex gap-4">
+                            <CheckCircle2 className="text-emerald-600 shrink-0 mt-1" size={20} />
+                            <div>
+                               <h4 className="font-bold text-brand-primary">{f.t}</h4>
+                               <p className="text-brand-secondary text-sm">{f.d}</p>
+                            </div>
+                         </div>
+                       ))}
+                    </div>
+                    <a 
+                      href="https://hospitaldemo-narennet.netlify.app/patient-portal" 
+                      target="_blank" 
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-4 border-2 border-emerald-600 text-emerald-600 px-10 py-5 rounded-2xl font-bold hover:bg-emerald-600 hover:text-white transition-all shadow-xl shadow-emerald-600/10"
+                    >
+                      Explore Patient Portal <ArrowRight size={20} />
+                    </a>
                  </div>
               </div>
            </div>
@@ -254,8 +286,6 @@ export default function Hospitals() {
           subtitle="Join the digital revolution in healthcare. Our team will handle the entire migration, training, and setup for your institution."
           buttonText="Get a Custom Quote"
         />
-
-        <Footer />
       </div>
 
       <LeadCaptureModal isOpen={isLeadModalOpen} onClose={() => setIsLeadModalOpen(false)} />

@@ -1,15 +1,17 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
 import { 
-  Users, Briefcase, CreditCard, 
+  Users, Briefcase, 
   BarChart3, LayoutDashboard, Settings, 
   Zap, Smartphone, CheckCircle2,
   Package, LineChart, TrendingUp,
   Search, Bell, Signal, Battery, Clock,
-  ChevronRight
+  ChevronRight, Stethoscope, Activity, FileText, Heart,
+  Calendar, CreditCard
 } from 'lucide-react';
+import drRajesh from '../../assets/dr-rajesh.png';
 
-export type AppPersona = 'owner' | 'employee' | 'sales' | 'client' | 'customer';
+export type AppPersona = 'owner' | 'employee' | 'sales' | 'client' | 'customer' | 'hospital' | 'patient';
 
 interface MobileAppMockupProps {
   persona: AppPersona;
@@ -40,6 +42,8 @@ export default function MobileAppMockup({
       case 'sales': return 'Sales Force';
       case 'client': return 'Business Client';
       case 'customer': return 'Supermarket App';
+      case 'hospital': return 'HealthCare Portal';
+      case 'patient': return 'Patient Care';
       default: return 'Business App';
     }
   };
@@ -51,6 +55,8 @@ export default function MobileAppMockup({
       case 'sales': return <TrendingUp size={20} />;
       case 'client': return <Briefcase size={20} />;
       case 'customer': return <Package size={20} />;
+      case 'hospital': return <Stethoscope size={20} />;
+      case 'patient': return <Heart size={20} />;
       default: return <Smartphone size={20} />;
     }
   };
@@ -330,6 +336,78 @@ export default function MobileAppMockup({
             </div>
           )}
 
+          {persona === 'hospital' && (
+            <div className="space-y-3 flex-1 flex flex-col pt-2">
+              <div className="bg-white rounded-2xl p-3 shadow-sm border border-slate-100 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full overflow-hidden border border-brand-accent/20 bg-slate-50">
+                  <img src={drRajesh} alt="Dr. Rajesh Kumar" className="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div className="text-[11px] font-bold text-slate-900 leading-tight">Dr. Rajesh Kumar</div>
+                  <div className="text-[9px] text-slate-400 font-medium">Chief Medical Officer</div>
+                </div>
+                <div className="ml-auto flex items-center gap-1">
+                  <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
+                  <span className="text-[9px] font-bold text-emerald-600">On Duty</span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2">
+                <div className="bg-blue-50/50 border border-blue-100 rounded-xl p-3">
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <Users size={12} className="text-blue-600" />
+                    <span className="text-[10px] font-bold text-blue-900">Patients</span>
+                  </div>
+                  <div className="text-lg font-black text-blue-900">42</div>
+                  <div className="text-[8px] text-blue-600 font-bold uppercase tracking-wider mt-0.5">+5 new today</div>
+                </div>
+                <div className="bg-emerald-50/50 border border-emerald-100 rounded-xl p-3">
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <Activity size={12} className="text-emerald-600" />
+                    <span className="text-[10px] font-bold text-emerald-900">OPD Status</span>
+                  </div>
+                  <div className="text-lg font-black text-emerald-900">Live</div>
+                  <div className="text-[8px] text-emerald-600 font-bold uppercase tracking-wider mt-0.5">Token #184</div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-xl p-3 border border-slate-100 flex-1 overflow-hidden flex flex-col">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Recent Records</span>
+                  <FileText size={12} className="text-slate-400" />
+                </div>
+                <div className="space-y-2 overflow-hidden">
+                  <AnimatePresence mode="popLayout">
+                    <motion.div 
+                      key={ticker % 4}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      className="p-2.5 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-between"
+                    >
+                      <div className="flex flex-col">
+                        <span className="text-[10px] font-bold text-slate-800">MRN #4829</span>
+                        <span className="text-[9px] text-slate-500">Blood Test Report</span>
+                      </div>
+                      <span className="text-[9px] font-bold text-blue-600 bg-blue-100/50 px-1.5 py-0.5 rounded">View</span>
+                    </motion.div>
+                    <motion.div 
+                      key={(ticker + 1) % 4}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      className="p-2.5 rounded-lg bg-white border border-slate-50 flex items-center justify-between"
+                    >
+                      <div className="flex flex-col">
+                        <span className="text-[10px] font-bold text-slate-800">MRN #4830</span>
+                        <span className="text-[9px] text-slate-500">OPD Consultation</span>
+                      </div>
+                      <span className="text-[9px] font-bold text-emerald-600 bg-emerald-100/50 px-1.5 py-0.5 rounded italic">Completed</span>
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
+              </div>
+            </div>
+          )}
+
           {persona === 'client' && (
             <div className="space-y-3 flex-1 flex flex-col">
               <div className="flex gap-2 pb-1 overflow-x-auto hide-scrollbar">
@@ -376,6 +454,67 @@ export default function MobileAppMockup({
                     );
                   })}
                 </AnimatePresence>
+              </div>
+            </div>
+          )}
+
+          {persona === 'patient' && (
+            <div className="space-y-4 flex-1 flex flex-col pt-2 p-4">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex flex-col">
+                  <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Good Morning,</span>
+                  <span className="text-sm font-black text-slate-900">Naren Kumar</span>
+                </div>
+                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center border border-blue-200">
+                   <Users size={18} className="text-blue-600" />
+                </div>
+              </div>
+
+              <div className="bg-emerald-500 rounded-2xl p-4 text-white shadow-lg shadow-emerald-500/20 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -translate-y-12 translate-x-12 blur-2xl" />
+                <div className="relative z-10">
+                  <div className="flex items-center gap-2 mb-1 opacity-80">
+                    <Clock size={12} />
+                    <span className="text-[9px] font-bold uppercase tracking-widest">Next Medication</span>
+                  </div>
+                  <h3 className="text-lg font-bold">Metformin 500mg</h3>
+                  <p className="text-[10px] opacity-90 mt-1">Take after lunch • 1:30 PM</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                 <div className="bg-white border border-slate-100 rounded-[20px] p-3 shadow-sm hover:border-brand-accent/30 transition-colors cursor-pointer group">
+                    <div className="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                       <Calendar size={18} className="text-orange-500" />
+                    </div>
+                    <span className="text-[11px] font-bold text-slate-900 block">Book Appointment</span>
+                 </div>
+                 <div className="bg-white border border-slate-100 rounded-[20px] p-3 shadow-sm hover:border-brand-accent/30 transition-colors cursor-pointer group">
+                    <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                       <FileText size={18} className="text-blue-500" />
+                    </div>
+                    <span className="text-[11px] font-bold text-slate-900 block">Lab Reports</span>
+                 </div>
+              </div>
+
+              <div className="mt-auto bg-slate-900 rounded-2xl p-4 text-white border border-white/10">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-2">
+                    <Activity size={14} className="text-rose-400" />
+                    <span className="text-[10px] font-bold uppercase tracking-wider">Health Vitals</span>
+                  </div>
+                  <TrendingUp size={12} className="text-emerald-400" />
+                </div>
+                <div className="text-xl font-bold flex items-baseline gap-1">
+                  72 <span className="text-[10px] text-white/40 font-medium">BPM</span>
+                </div>
+                <div className="w-full h-1 bg-white/10 rounded-full mt-3 overflow-hidden">
+                   <motion.div 
+                      animate={{ x: [-100, 100] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                      className="w-1/2 h-full bg-rose-500 rounded-full shadow-[0_0_8px_rgba(244,63,94,0.5)]"
+                   />
+                </div>
               </div>
             </div>
           )}

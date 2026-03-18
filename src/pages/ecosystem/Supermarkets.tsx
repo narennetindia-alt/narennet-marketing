@@ -24,6 +24,7 @@ import {
 import TrustBadges from '../../components/TrustBadges';
 import LeadCaptureModal from '../../components/LeadCaptureModal';
 import MobileAppMockup from '../../components/mockups/MobileAppMockup';
+import SupermarketDashboardMockup from '../../components/mockups/SupermarketDashboardMockup';
 
 export default function Supermarkets() {
   const [activeTab, setActiveTab] = useState('billing');
@@ -187,98 +188,10 @@ export default function Supermarkets() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
-              className="relative rounded-2xl md:rounded-[40px] border border-brand-border bg-brand-card shadow-2xl overflow-hidden group"
+              className="relative p-2 md:p-4"
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-transparent to-transparent z-10 opacity-60" />
-              <div className="bg-brand-card border-b border-brand-border p-4 flex items-center gap-4">
-                <div className="flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                  <div className="w-3 h-3 rounded-full bg-green-500/80" />
-                </div>
-                <div className="flex-1 text-center">
-                  <div className="inline-flex items-center gap-2 bg-brand-primary/5 rounded-md px-4 py-1 text-xs text-brand-secondary font-mono">
-                    <Monitor size={12} /> pos.narennet.cloud
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-4 md:p-8 aspect-[4/3] md:aspect-[21/9] bg-white relative flex overflow-hidden">
-                <div className="hidden md:flex flex-col w-48 border-r border-brand-border h-full gap-4 pr-4">
-                  <div className="h-8 bg-brand-card rounded-lg mb-2 flex items-center px-3">
-                    <div className="h-3 w-20 bg-brand-primary/10 rounded"></div>
-                  </div>
-                  <div className="h-10 bg-brand-accent/10 rounded-lg border border-brand-accent/20 flex items-center px-3 gap-2">
-                    <div className="h-4 w-4 bg-brand-accent rounded"></div>
-                    <div className="h-2 w-16 bg-brand-accent rounded"></div>
-                  </div>
-                  {[20, 20, 20].map((w, i) => (
-                    <div key={i} className="h-10 bg-brand-card hover:bg-brand-primary/5 rounded-lg flex items-center px-3 gap-2">
-                      <div className="h-4 w-4 bg-brand-primary/10 rounded"></div>
-                      <div className={`h-2 w-${w} bg-brand-primary/10 rounded`}></div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex-1 md:pl-6 flex flex-col gap-4">
-                  <div className="flex gap-4">
-                    <div className="flex-1 h-12 bg-brand-card border border-brand-border rounded-xl flex items-center px-4">
-                      <div className="w-5 h-5 rounded-full bg-brand-secondary/20"></div>
-                      <div className="w-32 h-2 ml-3 bg-brand-secondary/10 rounded"></div>
-                    </div>
-                    <div className="w-12 h-12 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center">
-                       <div className="w-5 h-5 bg-brand-accent/50 rounded-full"></div>
-                    </div>
-                  </div>
-
-                  <div className="flex-1 flex gap-4 overflow-hidden">
-                    <div className="flex-[2] grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-max overflow-hidden">
-                      {[...Array(8)].map((_, i) => (
-                        <div key={i} className="bg-brand-card border border-brand-border rounded-xl p-3 flex flex-col gap-3 h-[140px] shadow-sm">
-                           <div className="flex-1 bg-brand-primary/5 rounded-lg w-full"></div>
-                           <div className="h-2 w-2/3 bg-brand-secondary/20 rounded"></div>
-                           <div className="h-2 w-1/3 bg-brand-accent/40 rounded"></div>
-                        </div>
-                      ))}
-                    </div>
-                    
-                    <div className="hidden md:flex flex-1 bg-brand-card border border-brand-border rounded-xl flex-col p-5 shadow-lg relative overflow-hidden">
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-brand-accent/5 rounded-full blur-[40px] -z-10" />
-                      <div className="flex justify-between items-center mb-5 border-b border-brand-border pb-3">
-                         <div className="h-3 w-20 bg-brand-primary/40 rounded"></div>
-                         <div className="h-3 w-10 bg-brand-primary/20 rounded"></div>
-                      </div>
-                      <div className="flex-1 flex flex-col gap-4">
-                        {[...Array(3)].map((_, i) => (
-                          <div key={i} className="flex gap-3 items-center">
-                            <div className="w-10 h-10 bg-brand-primary/5 rounded-md"></div>
-                            <div className="flex-1 flex flex-col gap-2">
-                              <div className="h-2 w-3/4 bg-brand-secondary/30 rounded"></div>
-                              <div className="h-2 w-1/3 bg-brand-secondary/20 rounded"></div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="mt-4 pt-4 border-t border-brand-border flex flex-col gap-3">
-                         <div className="h-12 w-full bg-brand-accent rounded-xl mt-3 flex items-center justify-center">
-                           <div className="h-2 w-20 bg-white rounded"></div>
-                         </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                 <div className="absolute inset-0 bg-brand-bg/40 backdrop-blur-[2px] flex items-center justify-center z-20">
-                    <a 
-                      href="https://narennetstoredemo.netlify.app/"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="bg-brand-deep text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-3 transition-all hover:scale-105 shadow-xl"
-                    >
-                      <PlayCircle size={24} className="text-brand-accent" />
-                      Open Full Interactive Demo
-                    </a>
-                 </div>
+              <div className="aspect-[16/10] md:aspect-[16/7]">
+                <SupermarketDashboardMockup />
               </div>
             </motion.div>
           </div>
