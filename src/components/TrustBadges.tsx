@@ -261,7 +261,7 @@ export default function TrustBadges() {
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-accent/20 border border-brand-accent/30 text-brand-accent text-xs font-bold uppercase tracking-widest mb-4">
                     Case Study
                   </div>
-                  <h3 className="text-3xl md:text-5xl font-bold text-white mb-2">{selectedCompany}</h3>
+                  <h3 className="text-3xl md:text-5xl font-bold text-brand-primary mb-2">{selectedCompany}</h3>
                   <p className="text-brand-secondary text-lg">{caseStudies[selectedCompany].industry}</p>
                 </div>
 
@@ -269,15 +269,15 @@ export default function TrustBadges() {
                 <div className="space-y-8">
                   {/* Problem & Solution */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="p-6 rounded-2xl bg-white/5 border border-white/5">
-                      <h4 className="text-sm font-bold text-white uppercase tracking-widest mb-3">The Challenge</h4>
+                    <div className="p-6 rounded-2xl bg-brand-bg border border-brand-border">
+                      <h4 className="text-sm font-bold text-brand-primary uppercase tracking-widest mb-3">The Challenge</h4>
                       <p className="text-brand-secondary leading-relaxed">
                         {caseStudies[selectedCompany].problem}
                       </p>
                     </div>
                     <div className="p-6 rounded-2xl bg-brand-accent/10 border border-brand-accent/20">
                       <h4 className="text-sm font-bold text-brand-accent uppercase tracking-widest mb-3">Our Solution</h4>
-                      <p className="text-white leading-relaxed">
+                      <p className="text-brand-primary leading-relaxed">
                         {caseStudies[selectedCompany].solution}
                       </p>
                     </div>
@@ -285,12 +285,12 @@ export default function TrustBadges() {
 
                   {/* Results */}
                   <div>
-                    <h4 className="text-sm font-bold text-white uppercase tracking-widest mb-4 text-center md:text-left">Key Results</h4>
+                    <h4 className="text-sm font-bold text-brand-primary uppercase tracking-widest mb-4 text-center md:text-left">Key Results</h4>
                     <ul className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                       {caseStudies[selectedCompany].results.map((result, idx) => (
-                        <li key={idx} className="flex flex-col items-center md:items-start text-center md:text-left gap-3 p-5 rounded-2xl bg-white/5 border border-white/5 shadow-inner">
+                        <li key={idx} className="flex flex-col items-center md:items-start text-center md:text-left gap-3 p-5 rounded-2xl bg-brand-bg border border-brand-border shadow-sm">
                           <CheckCircle2 className="text-brand-accent shrink-0" size={28} />
-                          <span className="text-white font-medium text-sm md:text-base leading-snug">{result}</span>
+                          <span className="text-brand-primary font-medium text-sm md:text-base leading-snug">{result}</span>
                         </li>
                       ))}
                     </ul>
@@ -298,7 +298,7 @@ export default function TrustBadges() {
 
                   {/* Testimonial */}
                   <div className="relative p-8 rounded-2xl bg-gradient-to-br from-white/10 to-transparent border border-white/10 text-center mt-8">
-                    <p className="text-xl md:text-2xl font-light text-white italic relative z-10">
+                    <p className="text-xl md:text-2xl font-light text-brand-primary italic relative z-10">
                       "{caseStudies[selectedCompany].testimonial}"
                     </p>
                   </div>
