@@ -24,7 +24,7 @@ export default function Founder() {
                     className="mb-24"
                 >
                     <div className="flex flex-col md:flex-row gap-8 sm:gap-12 items-center md:items-center text-center md:text-left">
-                        <div className="relative group shrink-0">
+                        <div className="relative group shrink-0 w-full md:w-auto flex justify-center">
                             <div className="absolute -inset-4 bg-brand-accent/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                             <div className="w-32 h-32 sm:w-48 sm:h-48 rounded-[40px] bg-brand-deep border-4 border-white shadow-2xl flex items-center justify-center relative z-10 overflow-hidden mx-auto">
                                 <span className="text-5xl sm:text-7xl text-white font-black">NC</span>

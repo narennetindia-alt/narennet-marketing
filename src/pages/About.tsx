@@ -162,7 +162,7 @@ export default function About() {
                   </div>
                 </div>
 
-                <div className="order-1 lg:order-2 flex justify-center">
+                <div className="order-1 lg:order-2 flex justify-center w-full">
                   <div className="relative w-full max-w-lg aspect-[4/5] rounded-[80px] overflow-hidden border-2 border-brand-accent/20 shadow-[0_0_50px_rgba(14,165,233,0.15)] group">
                     <img
                       src="/ceo-naren.jpeg"
