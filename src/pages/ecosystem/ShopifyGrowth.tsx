@@ -27,6 +27,9 @@ import RetailSyncMockup from '../../components/mockups/RetailSyncMockup';
 import PharmaEcosystemMockup from '../../components/mockups/PharmaEcosystemMockup';
 import BrandGrowthMockup from '../../components/mockups/BrandGrowthMockup';
 import MobileEcosystemMockup from '../../components/mockups/MobileEcosystemMockup';
+import ActionAdminMockup from '../../components/mockups/ActionAdminMockup';
+import ActionStoreMockup from '../../components/mockups/ActionStoreMockup';
+import ActionSyncMockup from '../../components/mockups/ActionSyncMockup';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Navbar from '../../components/Navbar';
@@ -211,19 +214,19 @@ export default function ShopifyGrowth() {
                 {
                   title: 'Admin Panel Software',
                   desc: 'Complete control over inventory, orders, and staff performance with real-time data sync.',
-                  component: <DashboardMockup />,
+                  component: <ActionAdminMockup />,
                   badge: 'Backend Control'
                 },
                 {
                   title: 'High-Converting Store',
                   desc: 'Mobile-first storefronts designed to maximize LTV and minimize acquisition costs.',
-                  component: <MobileEcosystemMockup />,
+                  component: <ActionStoreMockup />,
                   badge: 'Frontend Excellence'
                 },
                 {
                   title: 'Growth Analytics',
                   desc: 'Deep insights into revenue attribution, customer behavior, and retail profitability.',
-                  component: <EcosystemLegacyMockup />,
+                  component: <ActionSyncMockup />,
                   badge: 'Intelligence'
                 }
               ].map((item, i) => (
@@ -242,7 +245,7 @@ export default function ShopifyGrowth() {
                     <h3 className="text-2xl font-bold mb-3 text-white">{item.title}</h3>
                     <p className="text-slate-300 text-sm mb-8 leading-relaxed font-medium">{item.desc}</p>
                   </div>
-                  <div className="mt-auto aspect-[4/3] relative bg-brand-bg/5 backdrop-blur-md border-t border-white/10 overflow-hidden transform group-hover:scale-[1.05] transition-transform duration-700">
+                  <div className="mt-auto aspect-[16/10] relative bg-brand-bg/5 backdrop-blur-md border-t border-white/10 overflow-hidden transform group-hover:scale-[1.05] transition-transform duration-700">
                      {item.component}
                   </div>
                 </motion.div>
