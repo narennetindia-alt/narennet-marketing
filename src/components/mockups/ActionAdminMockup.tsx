@@ -44,29 +44,29 @@ export default function ActionAdminMockup() {
        </div>
 
        {/* Centered Chart Visualization */}
-       <div className="flex-1 bg-white/5 border border-white/10 rounded-3xl p-6 relative group overflow-hidden">
-          <div className="flex justify-between items-baseline mb-4">
-             <div className="text-2xl font-black text-white">₹12.4M</div>
-             <div className="text-[10px] font-black text-emerald-400 flex items-center gap-1">
-                <TrendingUp size={10} /> +15.2%
+       <div className="flex-1 bg-white/[0.03] border border-white/10 rounded-3xl p-6 relative group overflow-hidden">
+          <div className="flex justify-between items-baseline mb-6">
+             <div className="text-3xl font-black text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">₹12.4M</div>
+             <div className="text-xs font-black text-emerald-400 flex items-center gap-1 bg-emerald-500/10 px-2 py-1 rounded-lg">
+                <TrendingUp size={12} /> +15.2%
              </div>
           </div>
           
-          <div className="flex items-end justify-between gap-1.5 h-20">
+          <div className="flex items-end justify-between gap-2 h-24">
              {[40, 60, 45, 80, 55, 70, 90, 65, 50, 85, 100].map((h, i) => (
                 <motion.div 
                    key={i}
                    initial={{ height: 0 }}
                    animate={{ height: `${h}%` }}
                    transition={{ delay: i * 0.05, duration: 1 }}
-                   className={`w-full rounded-t-[4px] ${i === 6 ? 'bg-brand-accent shadow-[0_0_15px_rgba(14,165,233,0.5)]' : 'bg-white/10'}`}
+                   className={`w-full rounded-t-lg ${i === 6 ? 'bg-brand-accent shadow-[0_0_20px_rgba(14,165,233,0.6)]' : 'bg-white/10'}`}
                 />
              ))}
           </div>
        </div>
 
        {/* Floating Metric Overlay */}
-       <div className="grid grid-cols-2 gap-3">
+       <div className="grid grid-cols-2 gap-4">
           <MiniMetric label="Active Leads" value="2,842" icon={Users} color="text-brand-accent" />
           <MiniMetric label="Orders/h" value="142" icon={BarChart3} color="text-white" />
        </div>

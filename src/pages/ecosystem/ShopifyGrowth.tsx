@@ -202,11 +202,16 @@ export default function ShopifyGrowth() {
         />
 
         {/* OUR SYSTEM IN ACTION SECTION */}
-        <section id="action" className="py-24 bg-brand-deep text-white overflow-hidden">
-          <div className="container-wide px-6">
+        <section id="action" className="py-32 bg-brand-deep relative overflow-hidden">
+          {/* Background Glow for Visibility */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.08)_0%,transparent_70%)] pointer-events-none" />
+          
+          <div className="container-wide px-6 relative z-10">
             <div className="text-center max-w-3xl mx-auto mb-20">
-              <h2 className="text-3xl md:text-6xl font-black mb-6 tracking-tight">Our System in <span className="text-brand-accent">Action</span></h2>
-              <p className="text-lg text-slate-300">Experience the power of a fully integrated eCommerce ecosystem designed for retail leaders.</p>
+              <h2 className="text-4xl md:text-7xl font-black mb-6 tracking-tighter text-white">
+                Our System in <span className="text-brand-accent drop-shadow-[0_0_20px_rgba(14,165,233,0.3)]">Action</span>
+              </h2>
+              <p className="text-xl text-slate-200 font-medium">Experience the power of a fully integrated eCommerce ecosystem designed for retail leaders.</p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -245,7 +250,8 @@ export default function ShopifyGrowth() {
                     <h3 className="text-2xl font-bold mb-3 text-white">{item.title}</h3>
                     <p className="text-slate-300 text-sm mb-8 leading-relaxed font-medium">{item.desc}</p>
                   </div>
-                  <div className="mt-auto aspect-[16/10] relative bg-brand-bg/5 backdrop-blur-md border-t border-white/10 overflow-hidden transform group-hover:scale-[1.05] transition-transform duration-700">
+                  <div className="mt-auto aspect-[16/10] relative bg-slate-900/50 backdrop-blur-md border-t border-white/10 overflow-hidden transform group-hover:scale-[1.05] transition-transform duration-700">
+                     <div className="absolute inset-0 bg-gradient-to-tr from-brand-accent/5 to-transparent pointer-events-none" />
                      {item.component}
                   </div>
                 </motion.div>

@@ -33,15 +33,15 @@ export default function ActionSyncMockup() {
           {/* Physical POS Node */}
           <motion.div 
             whileHover={{ scale: 1.1 }}
-            className="flex flex-col gap-3 items-center"
+            className="flex flex-col gap-4 items-center"
           >
-             <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center relative group">
-                <Box size={24} className="text-slate-400 group-hover:text-white transition-colors" />
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-slate-950 flex items-center justify-center">
-                   <CheckCircle2 size={10} className="text-white" />
+             <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center relative group">
+                <Box size={28} className="text-slate-200 group-hover:text-white transition-colors" />
+                <div className="absolute -top-1 -right-1 w-5 h-5 bg-emerald-500 rounded-full border-2 border-slate-950 flex items-center justify-center">
+                   <CheckCircle2 size={12} className="text-white" />
                 </div>
              </div>
-             <div className="text-[10px] font-black text-white/40 uppercase tracking-widest text-center">Retail POS</div>
+             <div className="text-[11px] font-black text-white opacity-60 uppercase tracking-widest text-center leading-none">Retail POS</div>
           </motion.div>
 
           {/* Sync Central Core */}
