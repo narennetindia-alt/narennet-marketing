@@ -23,9 +23,10 @@ import {
 } from 'lucide-react';
 import EcosystemLegacyMockup from '../../components/mockups/EcosystemLegacyMockup';
 import DashboardMockup from '../../components/mockups/DashboardMockup';
-import MobileAppMockup from '../../components/mockups/MobileAppMockup';
-import SupermarketDashboardMockup from '../../components/mockups/SupermarketDashboardMockup';
-import HospitalDashboardMockup from '../../components/mockups/HospitalDashboardMockup';
+import RetailSyncMockup from '../../components/mockups/RetailSyncMockup';
+import PharmaEcosystemMockup from '../../components/mockups/PharmaEcosystemMockup';
+import BrandGrowthMockup from '../../components/mockups/BrandGrowthMockup';
+import MobileEcosystemMockup from '../../components/mockups/MobileEcosystemMockup';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Navbar from '../../components/Navbar';
@@ -216,13 +217,13 @@ export default function ShopifyGrowth() {
                 {
                   title: 'High-Converting Store',
                   desc: 'Mobile-first storefronts designed to maximize LTV and minimize acquisition costs.',
-                  component: <MobileAppMockup persona="customer" />,
+                  component: <MobileEcosystemMockup />,
                   badge: 'Frontend Excellence'
                 },
                 {
                   title: 'Growth Analytics',
                   desc: 'Deep insights into revenue attribution, customer behavior, and retail profitability.',
-                  component: <SupermarketDashboardMockup />,
+                  component: <EcosystemLegacyMockup />,
                   badge: 'Intelligence'
                 }
               ].map((item, i) => (
@@ -239,7 +240,7 @@ export default function ShopifyGrowth() {
                       {item.badge}
                     </span>
                     <h3 className="text-2xl font-bold mb-3 text-white">{item.title}</h3>
-                    <p className="text-slate-400 text-sm mb-8 leading-relaxed font-medium">{item.desc}</p>
+                    <p className="text-slate-300 text-sm mb-8 leading-relaxed font-medium">{item.desc}</p>
                   </div>
                   <div className="mt-auto aspect-[4/3] relative bg-brand-bg/5 backdrop-blur-md border-t border-white/10 overflow-hidden transform group-hover:scale-[1.05] transition-transform duration-700">
                      {item.component}
@@ -293,8 +294,8 @@ export default function ShopifyGrowth() {
           <div className="container-wide px-6 relative z-10">
              <div className="text-center max-w-3xl mx-auto mb-24">
                 <span className="text-[10px] font-black text-brand-accent uppercase tracking-[0.3em] mb-4 block">Vertical Excellence</span>
-                <h2 className="text-4xl md:text-6xl font-black text-brand-primary mb-6 tracking-tighter italic">World-Class <span className="text-brand-accent">Solutions</span></h2>
-                <p className="text-lg text-brand-secondary font-medium">Precision-engineered ecosystems for industries that demand the absolute best.</p>
+                <h2 className="text-4xl md:text-6xl font-black text-brand-primary mb-6 tracking-tighter italic">World-Class <span className="text-brand-accent italic font-black">Solutions</span></h2>
+                <p className="text-lg text-brand-secondary font-bold">Precision-engineered ecosystems for industries that demand the absolute best.</p>
              </div>
 
              <div className="space-y-40">
@@ -304,7 +305,7 @@ export default function ShopifyGrowth() {
                     problem: 'Disconnected POS and online inventory leading to overselling and operational chaos.',
                     solution: 'Real-time bidirectional inventory sync between physical storefronts and the Shopify ecosystem.',
                     result: '99.9% Stock Accuracy',
-                    mockup: <SupermarketDashboardMockup />,
+                    mockup: <RetailSyncMockup />,
                     reversed: false
                   },
                   {
@@ -312,7 +313,7 @@ export default function ShopifyGrowth() {
                     problem: 'Fragmented patient data and manual prescription verification leading to delays.',
                     solution: 'HIPAA-aligned D2C ecosystem with automated AI-driven prescription verification logic.',
                     result: '70% Ops Efficiency',
-                    mockup: <HospitalDashboardMockup />,
+                    mockup: <PharmaEcosystemMockup />,
                     reversed: true
                   },
                   {
@@ -320,7 +321,7 @@ export default function ShopifyGrowth() {
                     problem: 'Exploding CAC and declining customer LTV in a generic storefront environment.',
                     solution: 'High-LTV growth engine with personalized loyalty micro-services and logic-first checkout.',
                     result: '1.5x AOV Growth',
-                    mockup: <DashboardMockup />,
+                    mockup: <BrandGrowthMockup />,
                     reversed: false
                   }
                 ].map((useCase, i) => (
