@@ -779,6 +779,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 8.5 FEATURED GUIDE */}
+      <section className="py-20 bg-white border-t border-brand-border">
+        <div className="container-wide">
+          <div className="max-w-4xl mx-auto rounded-[32px] p-8 md:p-12 bg-brand-card border border-brand-accent/20 flex flex-col md:flex-row items-center gap-10">
+            <div className="w-full md:w-1/3 aspect-square rounded-2xl overflow-hidden shadow-lg">
+              <img 
+                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=600" 
+                alt="Offline POS Software India"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="flex-grow text-center md:text-left">
+              <SectionLabel>Featured Guide</SectionLabel>
+              <h3 className="text-2xl md:text-3xl font-bold text-brand-primary mb-4 normal-case">
+                Is Your POS Ready for India's Internet Outages?
+              </h3>
+              <p className="text-brand-secondary mb-6 text-base leading-relaxed">
+                Discover why <strong>offline-first architecture</strong> is no longer optional for Indian retail. 
+                Learn how to prevent revenue loss during peak hours with our 2026 guide.
+              </p>
+              <Link
+                to="/blog/offline-pos-software-india"
+                className="inline-flex items-center gap-2 font-bold text-brand-accent hover:gap-4 transition-all"
+              >
+                Read the Guide <ArrowRight size={18} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 9. FINAL CTA — DARK */}
       <section className="section-padding bg-white">
         <div className="container-wide">

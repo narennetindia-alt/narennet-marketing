@@ -472,6 +472,36 @@ export default function Supermarkets() {
           </div>
         </section>
 
+        {/* Related Strategy Guide */}
+        <section className="py-20 bg-brand-card">
+          <div className="container-wide max-w-4xl mx-auto px-6">
+            <div className="rounded-[32px] p-8 md:p-12 bg-white border border-brand-accent/20 flex flex-col md:flex-row items-center gap-10">
+              <div className="w-full md:w-1/3 aspect-square rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=600" 
+                  alt="Offline POS Guide"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex-grow text-center md:text-left">
+                <div className="text-xs font-bold uppercase tracking-widest mb-3 text-brand-accent">Must Read Guide</div>
+                <h3 className="text-2xl md:text-3xl font-bold text-brand-primary mb-4">
+                  Why Your Supermarket Billing Should Never Stop
+                </h3>
+                <p className="text-brand-secondary mb-6 text-base leading-relaxed">
+                  Deep dive into why <strong>offline-first architecture</strong> is the real competitive advantage for Indian retail in 2026.
+                </p>
+                <Link
+                  to="/blog/offline-pos-software-india"
+                  className="inline-flex items-center gap-2 font-bold text-brand-accent hover:gap-4 transition-all"
+                >
+                  Read Strategy Guide <ArrowRight size={18} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CTA — WHITE SECTION */}
         <section className="py-32 px-6 relative overflow-hidden bg-white">
           <div className="container-wide max-w-5xl mx-auto text-center relative z-10">

@@ -4,6 +4,7 @@ import { seoBlogs3 } from './blogs/seoBlogs3';
 import { seoBlogs4 } from './blogs/seoBlogs4';
 import { seoBlogs5 } from './blogs/seoBlogs5';
 import { seoBlogs6 } from './blogs/seoBlogs6';
+import { seoBlogs7 } from './blogs/seoBlogs7';
 
 export interface BlogPost {
   id: string;
@@ -342,5 +343,6 @@ A Business Ecosystem Platform is the evolution of both. It breaks down the wall 
   ...seoBlogs3,
   ...seoBlogs4,
   ...seoBlogs5,
-  ...seoBlogs6
+  ...seoBlogs6,
+  ...seoBlogs7
 ];
