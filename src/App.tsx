@@ -34,6 +34,9 @@ import Hospitals from "./pages/ecosystem/Hospitals";
 import Supermarkets from "./pages/ecosystem/Supermarkets";
 import MobileApps from "./pages/ecosystem/MobileApps";
 import Platform from "./pages/Platform";
+import PricingRetailPOS from "./pages/seo/PricingRetailPOS";
+import PricingHospital from "./pages/seo/PricingHospital";
+import PricingERP from "./pages/seo/PricingERP";
 
 /* Admin Pages */
 import Dashboard from "./pages/admin/Dashboard";
@@ -166,6 +169,11 @@ function AppContent() {
               <Route path="/ecosystem/supermarkets" element={<Supermarkets />} />
               <Route path="/ecosystem/mobile-apps" element={<MobileApps />} />
               <Route path="/platform" element={<Platform />} />
+
+              {/* SEO Pricing Landing Pages */}
+              <Route path="/pricing-retail-pos-india" element={<PricingRetailPOS />} />
+              <Route path="/hospital-management-software-pricing" element={<PricingHospital />} />
+              <Route path="/erp-software-pricing-india" element={<PricingERP />} />
             </>
           )}
 
