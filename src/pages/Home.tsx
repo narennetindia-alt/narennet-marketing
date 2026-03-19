@@ -26,9 +26,10 @@ import { Link } from 'react-router-dom';
 // ─────────────────────────── DATA ────────────────────────────────────────────
 
 const stats = [
-  { value: '50+', label: 'Businesses' },
-  { value: '99.9%', label: 'Uptime' },
-  { value: '3–5 days', label: 'Setup Time' },
+  { value: '50+', label: 'Businesses Served' },
+  { value: '99.7%', label: 'Uptime SLA' },
+  { value: '72 hrs', label: 'Deploy Time' },
+  { value: '10K+', label: 'Bills / Day' },
 ];
 
 const clients = [
@@ -209,7 +210,7 @@ export default function Home() {
                 style={{ borderColor: 'rgba(14,165,233, 0.4)', color: 'var(--color-brand-accent)', background: 'rgba(14,165,233, 0.12)' }}
               >
                 <WifiOff size={12} />
-                Offline Mode + Auto Sync
+                India's #1 Autonomous AI ERP — Offline-First
               </motion.div>
 
               <motion.h1
@@ -218,19 +219,28 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="text-[clamp(2.4rem,5.5vw,4.2rem)] font-bold leading-[1.05] tracking-tight text-white mb-6 normal-case"
               >
-                All-in-One ERP & CRM for{' '}
-                <span className="text-brand-accent">Growing Businesses</span>
+                Autonomous AI ERP That Runs Your Retail Business —{' '}
+                <span className="text-brand-accent">Even Without Internet</span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-lg leading-relaxed max-w-xl mb-10 text-white/70"
+                className="text-lg leading-relaxed max-w-xl mb-4 text-white/70"
               >
-                Manage billing, inventory, customers, and analytics in one powerful
-                system —{' '}
-                <strong className="text-white font-semibold">even works without internet.</strong>
+                SmartOS + Offline-first Retail POS built for Indian supermarkets & MSMEs.{' '}
+                <strong className="text-white font-semibold">Deploy in 72 hours. No IT team needed.</strong>
+              </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.25 }}
+                className="text-sm font-semibold mb-10 px-4 py-2 rounded-xl inline-block"
+                style={{ background: 'rgba(239,68,68,0.12)', color: '#fca5a5', border: '1px solid rgba(239,68,68,0.25)' }}
+              >
+                ⚡ Most POS systems stop when internet fails. Ours doesn't.
               </motion.p>
 
               <motion.div
@@ -243,18 +253,16 @@ export default function Home() {
                   to="/contact"
                   className="group flex items-center justify-center gap-3 px-10 py-5 rounded-2xl font-bold text-sm uppercase tracking-wider text-white transition-all hover:scale-[1.02] bg-brand-accent shadow-[0_8px_32px_rgba(14,165,233,0.4)] hover:bg-white hover:text-brand-primary hover:shadow-none"
                 >
-                  View Live Demo
+                  Book Free Consultation
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <a
-                  href={waLink}
-                  target="_blank"
-                  rel="noreferrer"
+                <Link
+                  to="/ecosystem/supermarkets"
                   className="group flex items-center justify-center gap-3 px-10 py-5 rounded-2xl font-bold text-sm uppercase tracking-wider text-white transition-all border border-white/20 bg-white/5 hover:bg-white/10"
                 >
-                  <WhatsAppIcon cls="w-4 h-4 text-green-400" />
-                  Chat on WhatsApp
-                </a>
+                  <WhatsAppIcon cls="w-4 h-4 text-brand-accent" />
+                  View Live Demo
+                </Link>
               </motion.div>
 
               <motion.div
@@ -551,6 +559,104 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* 5b. SMARTOS INTELLIGENCE — DARK */}
+      <section
+        className="py-24 px-6 md:py-32 md:px-12 lg:px-24 relative overflow-hidden"
+        style={{ background: 'linear-gradient(135deg, #071525 0%, #0a1f38 60%, #071525 100%)' }}
+      >
+        <div className="absolute inset-0 pointer-events-none opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '36px 36px' }} />
+        <div className="absolute bottom-0 left-1/4 w-[600px] h-[300px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, var(--color-brand-accent)12 0%, transparent 70%)' }} />
+
+        <div className="container-wide relative z-10">
+          <div className="text-center mb-4">
+            <SectionLabel dark>SmartOS Intelligence</SectionLabel>
+          </div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-[clamp(1.8rem,4.5vw,3.2rem)] font-bold text-white leading-tight normal-case text-center mb-4"
+          >
+            ERP Dashboards Don't Make Decisions —{' '}
+            <span className="text-brand-accent">SmartOS Does</span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-center text-white/50 text-base mb-3 max-w-xl mx-auto"
+          >
+            Built in Chennai. Running in 14+ stores across Tamil Nadu & Karnataka.
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="text-center text-sm font-bold uppercase tracking-widest mb-16"
+            style={{ color: 'var(--color-brand-accent)' }}
+          >
+            vs. SAP (12-month deploy, ₹30L+) • vs. Zoho (no autonomous actions)
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+              {
+                step: '01',
+                icon: <BarChart3 size={28} />,
+                title: 'AI Predicts Demand',
+                description: 'SmartOS analyzes 18 months of POS data to forecast stockouts 7 days before they happen — with 87% accuracy on 30-day horizons.',
+              },
+              {
+                step: '02',
+                icon: <RefreshCw size={28} />,
+                title: 'AI Automates Workflows',
+                description: 'Autonomous reorder engine triggers purchase orders without manual approval. Avg stores see 34% stockout reduction in 60 days.',
+              },
+              {
+                step: '03',
+                icon: <ShieldCheck size={28} />,
+                title: 'AI Protects Revenue',
+                description: 'Real-time shrinkage detection flags discount abuse, void anomalies, and post-close adjustments. Avg 74% reduction in void transaction rates.',
+              },
+            ].map((item, idx) => (
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.12 }}
+                className="relative p-8 rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-sm hover:border-brand-accent/30 hover:bg-white/8 transition-all group"
+              >
+                <div className="text-[10px] font-mono font-bold uppercase tracking-[0.4em] mb-5" style={{ color: 'var(--color-brand-accent)' }}>{item.step}</div>
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 text-brand-accent bg-brand-accent/10 border border-brand-accent/20 group-hover:bg-brand-accent group-hover:text-white transition-all">
+                  {item.icon}
+                </div>
+                <h3 className="font-bold text-white text-lg normal-case mb-3">{item.title}</h3>
+                <p className="text-white/55 text-sm leading-relaxed">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-center mt-14"
+          >
+            <Link
+              to="/ecosystem/supermarkets"
+              className="inline-flex items-center gap-3 px-10 py-5 rounded-2xl font-bold text-sm uppercase tracking-wider text-white bg-brand-accent shadow-[0_8px_32px_rgba(14,165,233,0.35)] hover:scale-[1.03] transition-all"
+            >
+              See SmartOS in Action <ArrowRight size={16} />
+            </Link>
+          </motion.div>
         </div>
       </section>
 

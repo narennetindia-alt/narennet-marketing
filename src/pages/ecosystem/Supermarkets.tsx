@@ -94,8 +94,8 @@ export default function Supermarkets() {
   return (
     <>
       <Helmet>
-        <title>Smart Supermarket Software | NarenNet</title>
-        <meta name="description" content="Premium supermarket billing software that never stops. Offline-first, auto-sync, and high-speed POS." />
+        <title>Offline-First Retail POS & AI Supermarket Software | NarenNet SmartOS</title>
+        <meta name="description" content="NarenNet Retail POS: offline-first billing, auto-sync, AI theft detection, and GST compliance for Indian supermarkets. 10,000+ bills/day. Zero downtime. Deploy in 72 hours." />
       </Helmet>
 
       <div className="min-h-screen bg-brand-bg selection:bg-brand-accent/30 selection:text-brand-accent text-brand-primary font-sans overflow-x-hidden">
@@ -170,8 +170,27 @@ export default function Supermarkets() {
                 to="/contact" 
                 className="group w-full sm:w-auto flex items-center justify-center gap-3 bg-white/5 border border-white/20 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-colors backdrop-blur-sm"
               >
-                Get Started <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                Book Free Consultation <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </Link>
+            </motion.div>
+
+            {/* Urgency + Proof numbers */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.45 }}
+              className="mt-8 flex flex-col items-center gap-4"
+            >
+              <p className="text-sm font-bold px-5 py-2.5 rounded-xl"
+                style={{ background: 'rgba(239,68,68,0.12)', color: '#fca5a5', border: '1px solid rgba(239,68,68,0.25)' }}
+              >
+                ⚡ Most POS systems stop when internet fails. Ours doesn't.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-6 text-white/50 text-xs font-bold uppercase tracking-widest">
+                <span className="flex items-center gap-2"><CheckCircle2 size={14} className="text-green-400" /> 10,000+ bills processed without interruption</span>
+                <span className="flex items-center gap-2"><CheckCircle2 size={14} className="text-green-400" /> Zero downtime billing</span>
+                <span className="flex items-center gap-2"><CheckCircle2 size={14} className="text-green-400" /> 72-hour deployment</span>
+              </div>
             </motion.div>
           </div>
         </section>
@@ -260,6 +279,65 @@ export default function Supermarkets() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Problem → Solution → Proof — BRAND DEEP */}
+        <section className="py-20 bg-white border-b border-brand-border">
+          <div className="container-wide max-w-6xl mx-auto px-6">
+            <div className="text-center mb-14">
+              <p className="text-xs font-bold uppercase tracking-[0.3em] mb-3" style={{ color: 'var(--color-brand-accent)' }}>Why SmartOS Wins</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-primary">The Problem Most POS Systems Ignore</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
+              {/* Problems */}
+              {[
+                { color: '#EF4444', label: 'Problem', title: 'Billing stops during internet failure', desc: 'Standard cloud POS systems freeze when connectivity drops — costing you customers, queues, and sales.' },
+                { color: '#EF4444', label: 'Problem', title: 'Inventory mismatch kills margins', desc: 'Manual stock tracking leads to overselling ghost inventory and running out of fast-moving SKUs at peak hours.' },
+              ].map((item, i) => (
+                <div key={i} className="flex gap-5 p-7 rounded-2xl bg-red-50 border border-red-100">
+                  <div className="w-10 h-10 rounded-xl shrink-0 flex items-center justify-center" style={{ background: '#EF444420', color: '#EF4444' }}>
+                    <Zap size={20} />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: '#EF4444' }}>{item.label}</p>
+                    <h4 className="font-bold text-brand-primary mb-2">{item.title}</h4>
+                    <p className="text-sm text-brand-secondary leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+              {/* Solutions */}
+              {[
+                { title: 'Offline-first POS — bills keep running', desc: 'Our local-first architecture stores transactions on-device. When internet returns, everything auto-syncs. Zero data loss, zero queue freeze.' },
+                { title: 'AI Auto-sync inventory system', desc: 'SmartOS predicts stockouts 7 days ahead and triggers autonomous reorders. Avg. 34% stockout reduction in 60 days of deployment.' },
+              ].map((item, i) => (
+                <div key={i} className="flex gap-5 p-7 rounded-2xl bg-green-50 border border-green-100">
+                  <div className="w-10 h-10 rounded-xl shrink-0 flex items-center justify-center bg-green-100 text-green-600">
+                    <CheckCircle2 size={20} />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-widest mb-1 text-green-600">Solution</p>
+                    <h4 className="font-bold text-brand-primary mb-2">{item.title}</h4>
+                    <p className="text-sm text-brand-secondary leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Proof Stats Bar */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-8 rounded-[24px] bg-brand-deep">
+              {[
+                { value: '10K+', label: 'Bills / Day Processed' },
+                { value: '99.7%', label: 'Uptime SLA' },
+                { value: '74%', label: 'Void Rate Reduction' },
+                { value: '72 hrs', label: 'Avg Deploy Time' },
+              ].map((stat) => (
+                <div key={stat.label} className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-brand-accent mb-1">{stat.value}</div>
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-white/50">{stat.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -397,10 +475,11 @@ export default function Supermarkets() {
         {/* CTA — WHITE SECTION */}
         <section className="py-32 px-6 relative overflow-hidden bg-white">
           <div className="container-wide max-w-5xl mx-auto text-center relative z-10">
-            <h2 className="text-4xl md:text-6xl font-bold text-brand-primary mb-8">Ready for Premium Performance?</h2>
-            <p className="text-xl text-brand-secondary max-w-2xl mx-auto mb-14 font-medium">
-              Join top retailers upgrading to NarenNet. Setup takes less than 24 hours.
+            <h2 className="text-4xl md:text-6xl font-bold text-brand-primary mb-8">Stop Losing Revenue to Internet Downtime</h2>
+            <p className="text-xl text-brand-secondary max-w-2xl mx-auto mb-5 font-medium">
+              Join top retailers across Tamil Nadu & Karnataka who switched to NarenNet. Setup in 72 hours — no IT team needed.
             </p>
+            <p className="text-sm font-bold uppercase tracking-widest text-brand-accent mb-12">vs. SAP (12-month deploy) • vs. Zoho (no offline mode) • vs. Excel (no AI)</p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
               <Link 
                 to="/contact"

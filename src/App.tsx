@@ -3,9 +3,10 @@ import {
   Routes,
   Route,
   Navigate,
-  useLocation
+  useLocation,
+  Link
 } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 
 /* Layout Components */
@@ -57,7 +58,41 @@ function ScrollToTop() {
   return null;
 }
 
-/* Floating WhatsApp Button */
+/* Floating Book Demo Button */
+function FloatingBookDemo() {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setVisible(true), 2000);
+    return () => clearTimeout(t);
+  }, []);
+  if (!visible) return null;
+  return (
+    <Link
+      to="/contact"
+      aria-label="Book a free demo"
+      className="fixed bottom-6 left-6 z-[999] group"
+    >
+      <motion.div
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.4, type: 'spring' }}
+        whileHover={{ scale: 1.07 }}
+        whileTap={{ scale: 0.97 }}
+        className="relative flex items-center gap-2.5 px-5 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-white shadow-2xl"
+        style={{ background: 'var(--color-brand-accent)', boxShadow: '0 8px 32px rgba(14,165,233,0.45)' }}
+      >
+        <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-green-400 border-2 border-brand-deep animate-pulse" />
+        🗓 Book Free Demo
+      </motion.div>
+      {/* Tooltip */}
+      <div className="absolute bottom-full left-0 mb-3 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+        <div className="bg-gray-900 text-white text-xs font-bold px-3 py-2 rounded-xl whitespace-nowrap shadow-xl">
+          Free 30-min consultation
+        </div>
+      </div>
+    </Link>
+  );
+}
 function FloatingWhatsApp() {
   return (
     <a
@@ -181,6 +216,9 @@ function AppContent() {
 
       {/* Floating WhatsApp — hidden on admin routes */}
       {!isAdminRoute && !isAdminOnly && <FloatingWhatsApp />}
+
+      {/* Floating Book Demo — hidden on admin routes */}
+      {!isAdminRoute && !isAdminOnly && <FloatingBookDemo />}
     </div>
   );
 }
