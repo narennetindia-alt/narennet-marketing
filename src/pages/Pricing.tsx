@@ -213,7 +213,7 @@ export default function Pricing() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-xl md:text-2xl text-white/60 max-w-2xl mx-auto leading-relaxed font-medium mb-12"
+            className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto leading-relaxed font-medium mb-12"
           >
             Choose your industry or get a fully customized AI-powered system built for your business.
           </motion.p>
@@ -248,7 +248,7 @@ export default function Pricing() {
                 className={`flex items-center gap-3 px-6 py-3.5 rounded-2xl font-bold text-sm transition-all whitespace-nowrap shadow-sm border ${
                   activeIndustry === id 
                   ? 'bg-brand-primary text-white border-brand-primary shadow-lg' 
-                  : 'bg-white text-brand-secondary border-brand-border hover:border-brand-accent/50'
+                  : 'bg-white text-brand-primary border-brand-border hover:border-brand-accent/50'
                 }`}
               >
                 {id === 'retail' && <Store size={18} />}
@@ -302,7 +302,7 @@ export default function Pricing() {
                     <h3 className={`text-2xl font-bold mb-4 tracking-tight ${plan.popular ? 'text-white' : 'text-brand-primary'}`}>{plan.name}</h3>
                     <div className="flex items-baseline justify-center gap-1">
                       <span className={`text-5xl font-bold tracking-tighter ${plan.popular ? 'text-white' : 'text-brand-primary'}`}>{plan.price}</span>
-                      <span className={`text-sm font-bold ${plan.popular ? 'text-white/40' : 'text-brand-secondary'}`}>{plan.period}</span>
+                      <span className={`text-sm font-bold ${plan.popular ? 'text-white/70' : 'text-brand-secondary'}`}>{plan.period}</span>
                     </div>
                     <p className={`mt-4 text-sm font-medium ${plan.popular ? 'text-white/60' : 'text-brand-secondary'}`}>{plan.description}</p>
                   </div>
@@ -342,7 +342,7 @@ export default function Pricing() {
           <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
               <span className="text-brand-accent font-bold text-sm uppercase tracking-widest mb-6 block">Specialized Software Delivery</span>
-              <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-[1.1] tracking-tighter">Built Around Your Business — <span className="text-brand-accent">Not Templates</span></h2>
+              <h2 className="text-white text-4xl md:text-6xl font-bold mb-8 leading-[1.1] tracking-tighter">Built Around Your Business — <span className="text-brand-accent">Not Templates</span></h2>
               <p className="text-xl text-white/70 mb-10 font-medium leading-relaxed">
                 We don’t sell generic software boxes. We build industrial-grade AI systems that solve real, messy business problems. 
               </p>
@@ -409,7 +409,7 @@ export default function Pricing() {
       </section>
 
       {/* 6. FAQ SECTION — SEO BOOST */}
-      <section className="py-32 bg-white">
+      <section id="faq" className="py-32 bg-white scroll-mt-32">
         <div className="container-wide px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-24">
