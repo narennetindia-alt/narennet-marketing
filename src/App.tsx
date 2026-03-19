@@ -73,7 +73,7 @@ function FloatingBookDemo() {
     <Link
       to="/contact"
       aria-label="Book a free demo"
-      className="fixed bottom-6 left-6 z-[999] group"
+      className="fixed md:bottom-6 bottom-28 left-6 z-[999] group"
     >
       <motion.div
         initial={{ scale: 0, opacity: 0 }}
@@ -103,7 +103,7 @@ function FloatingWhatsApp() {
       target="_blank"
       rel="noreferrer"
       aria-label="Chat on WhatsApp"
-      className="fixed bottom-6 right-6 z-[999] group"
+      className="fixed md:bottom-6 bottom-28 right-6 z-[999] group"
     >
       <motion.div
         initial={{ scale: 0, opacity: 0 }}
