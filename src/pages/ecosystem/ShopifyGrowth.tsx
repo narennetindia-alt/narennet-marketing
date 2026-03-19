@@ -21,6 +21,7 @@ import {
   MousePointer2,
   Lock
 } from 'lucide-react';
+import EcosystemLegacyMockup from '../../components/mockups/EcosystemLegacyMockup';
 import DashboardMockup from '../../components/mockups/DashboardMockup';
 import MobileAppMockup from '../../components/mockups/MobileAppMockup';
 import SupermarketDashboardMockup from '../../components/mockups/SupermarketDashboardMockup';
@@ -168,41 +169,23 @@ export default function ShopifyGrowth() {
           secondaryCta="Watch Demo"
           secondaryCtaLink="#action"
         >
-          <div className="max-w-6xl mx-auto mt-12 px-6">
-             {/* Stats and Hero Mockup */}
-             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {[
-                    { label: 'Revenue Growth', value: '45%+', icon: TrendingUp },
-                    { label: 'Checkout Speed', value: '-2.5s', icon: Zap },
-                    { label: 'Operations Efficiency', value: '70%+', icon: Activity },
-                    { label: 'Trust Factor', value: '10x', icon: ShieldCheck }
-                  ].map((stat, i) => (
-                    <motion.div 
-                      key={i}
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.5 + (i * 0.1) }}
-                      className="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-3xl"
-                    >
-                       <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
-                       <div className="text-brand-secondary text-[10px] font-bold uppercase tracking-widest">{stat.label}</div>
-                    </motion.div>
-                  ))}
-                </div>
+          <div className="max-w-7xl mx-auto mt-16 px-6">
+             <div className="relative rounded-[40px] overflow-hidden border border-white/20 shadow-[0_0_100px_rgba(14,165,233,0.15)] bg-slate-950 aspect-[16/8] lg:aspect-[21/9] group">
+                <EcosystemLegacyMockup />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent pointer-events-none" />
                 
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.8 }}
-                  className="relative hidden lg:block"
-                >
-                  <div className="absolute inset-0 bg-brand-accent/20 blur-[100px] rounded-full" />
-                  <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/20 shadow-2xl bg-brand-deep group">
-                    <DashboardMockup />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </div>
-                </motion.div>
+                {/* Overlaid Floaties for Context */}
+                <div className="absolute bottom-8 left-8 flex gap-4">
+                   {[
+                     { label: 'Revenue Growth', value: '+45%', color: 'text-emerald-400' },
+                     { label: 'Efficiency', value: '+70%', color: 'text-brand-accent' }
+                   ].map((s, i) => (
+                      <div key={i} className="px-4 py-2 bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl">
+                         <div className="text-[10px] text-white/40 font-bold uppercase tracking-widest">{s.label}</div>
+                         <div className={`text-xl font-black ${s.color}`}>{s.value}</div>
+                      </div>
+                   ))}
+                </div>
              </div>
           </div>
         </HeroSection>
@@ -219,7 +202,7 @@ export default function ShopifyGrowth() {
           <div className="container-wide px-6">
             <div className="text-center max-w-3xl mx-auto mb-20">
               <h2 className="text-3xl md:text-6xl font-black mb-6 tracking-tight">Our System in <span className="text-brand-accent">Action</span></h2>
-              <p className="text-lg text-brand-secondary">Experience the power of a fully integrated eCommerce ecosystem designed for retail leaders.</p>
+              <p className="text-lg text-slate-300">Experience the power of a fully integrated eCommerce ecosystem designed for retail leaders.</p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -249,16 +232,16 @@ export default function ShopifyGrowth() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.2 }}
-                  className="bg-white/5 border border-white/10 rounded-[40px] overflow-hidden group hover:border-brand-accent/50 transition-all flex flex-col"
+                  className="bg-white/5 border border-white/10 rounded-[40px] overflow-hidden group hover:border-brand-accent/50 transition-all flex flex-col h-full"
                 >
-                  <div className="p-8 pb-0">
-                    <span className="inline-block px-3 py-1 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-[10px] font-bold text-brand-accent uppercase tracking-widest mb-4">
+                  <div className="p-10 pb-4">
+                    <span className="inline-block px-3 py-1 rounded-full bg-brand-accent/20 border border-brand-accent/30 text-[10px] font-black text-brand-accent uppercase tracking-[0.2em] mb-4">
                       {item.badge}
                     </span>
-                    <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
-                    <p className="text-brand-secondary text-sm mb-8 leading-relaxed">{item.desc}</p>
+                    <h3 className="text-2xl font-bold mb-3 text-white">{item.title}</h3>
+                    <p className="text-slate-400 text-sm mb-8 leading-relaxed font-medium">{item.desc}</p>
                   </div>
-                  <div className="mt-auto aspect-[4/3] relative bg-brand-bg/50 border-t border-white/10 overflow-hidden transform group-hover:scale-[1.02] transition-transform">
+                  <div className="mt-auto aspect-[4/3] relative bg-brand-bg/5 backdrop-blur-md border-t border-white/10 overflow-hidden transform group-hover:scale-[1.05] transition-transform duration-700">
                      {item.component}
                   </div>
                 </motion.div>
@@ -268,32 +251,32 @@ export default function ShopifyGrowth() {
         </section>
 
         {/* COMPARISON SECTION */}
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-brand-bg">
           <div className="container-wide px-6">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold text-brand-primary mb-6">Traditional Shopify vs. <span className="text-brand-accent">NarenNet Ecosystem</span></h2>
-              <p className="text-lg text-brand-secondary">Why settle for a store when you can have a business engine?</p>
+              <h2 className="text-3xl md:text-5xl font-bold text-brand-primary mb-6 italic tracking-tighter">Legacy <span className="text-brand-accent">vs.</span> Ecosystem</h2>
+              <p className="text-lg text-brand-secondary font-medium">Why settle for a store when you can have a business engine?</p>
             </div>
             
-            <div className="max-w-5xl mx-auto bg-brand-card border border-brand-border rounded-[40px] overflow-hidden shadow-2xl">
-               <div className="grid grid-cols-3 bg-brand-deep text-white p-8 font-bold uppercase tracking-widest text-xs">
-                  <div>Feature</div>
-                  <div className="text-center opacity-50">Standard Setup</div>
-                  <div className="text-center text-brand-accent underline underline-offset-8">Our Ecosystem</div>
+            <div className="max-w-5xl mx-auto bg-white border border-brand-border rounded-[48px] overflow-hidden shadow-[0_32px_80px_rgba(11,31,58,0.08)]">
+               <div className="grid grid-cols-3 bg-brand-deep text-white p-10 font-black uppercase tracking-[0.2em] text-[10px]">
+                  <div>System Architecture</div>
+                  <div className="text-center opacity-40">Traditional Setup</div>
+                  <div className="text-center text-brand-accent">NarenNet Ecosystem</div>
                </div>
                <div className="divide-y divide-brand-border">
                   {[
-                    { f: 'Customization', s: 'Limited to Theme', e: 'Unlimited / Custom Backend' },
-                    { f: 'Business Automation', s: 'Manual / Basic Apps', e: 'Fully Automated Workflows' },
-                    { f: 'Scalability', s: 'Becomes Heavy & Slow', e: 'Scalable Architecture' },
-                    { f: 'Multi-Branch Sync', s: 'Complex / Expensive', e: 'Native ERP Integration' },
-                    { f: 'Conversion Focus', s: 'Generic Layouts', e: 'Psychology-Driven UX' }
+                    { f: 'Customization', s: 'Limited to Theme', e: 'Unlimited / Logic-First' },
+                    { f: 'Business Automation', s: 'Manual Apps', e: 'Deep Native Workflows' },
+                    { f: 'Scalability', s: 'Performance Bottlenecks', e: 'Distributed Architecture' },
+                    { f: 'Multi-Branch Sync', s: 'External Tools', e: 'Unified ERP Logic' },
+                    { f: 'Customer LTV', s: 'Disconnected Data', e: 'Data-Driven Retention' }
                   ].map((row, i) => (
-                    <div key={i} className="grid grid-cols-3 p-8 items-center hover:bg-white transition-colors">
-                       <div className="font-bold text-brand-primary">{row.f}</div>
-                       <div className="text-center text-brand-secondary text-sm">{row.s}</div>
-                       <div className="text-center font-bold text-brand-accent flex items-center justify-center gap-2">
-                          <CheckCircle2 size={16} /> {row.e}
+                    <div key={i} className="grid grid-cols-3 p-10 items-center hover:bg-brand-card transition-all group">
+                       <div className="font-black text-brand-primary text-sm uppercase tracking-wider">{row.f}</div>
+                       <div className="text-center text-brand-secondary text-sm font-medium">{row.s}</div>
+                       <div className="text-center font-bold text-brand-accent flex items-center justify-center gap-3">
+                          <CheckCircle2 size={18} className="drop-shadow-[0_0_8px_rgba(14,165,233,0.3)]" /> {row.e}
                        </div>
                     </div>
                   ))}
@@ -303,64 +286,68 @@ export default function ShopifyGrowth() {
         </section>
 
         {/* USE CASE SECTION */}
-        <section className="py-24 bg-brand-bg border-y border-brand-border">
-          <div className="container-wide px-6">
-             <div className="text-center max-w-3xl mx-auto mb-16">
-                <h2 className="text-3xl md:text-5xl font-bold text-brand-primary mb-6">Built for High-Ticket Verticals</h2>
-                <p className="text-lg text-brand-secondary">We specialize in complex industries that require more than just a cart.</p>
+        <section className="py-32 bg-white relative overflow-hidden">
+          {/* Background Decorative Element */}
+          <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-card skew-x-[-12deg] translate-x-1/2 -z-1" />
+          
+          <div className="container-wide px-6 relative z-10">
+             <div className="text-center max-w-3xl mx-auto mb-24">
+                <span className="text-[10px] font-black text-brand-accent uppercase tracking-[0.3em] mb-4 block">Vertical Excellence</span>
+                <h2 className="text-4xl md:text-6xl font-black text-brand-primary mb-6 tracking-tighter italic">World-Class <span className="text-brand-accent">Solutions</span></h2>
+                <p className="text-lg text-brand-secondary font-medium">Precision-engineered ecosystems for industries that demand the absolute best.</p>
              </div>
 
-             <div className="space-y-24">
+             <div className="space-y-40">
                 {[
                   {
                     title: 'Supermarkets & Hyperlocals',
-                    problem: 'Disconnected POS and online inventory leading to overselling.',
-                    solution: 'Real-time inventory sync between physical store and Shopify storefront.',
-                    result: '99% Stock accuracy and 2x faster order fulfillment.',
+                    problem: 'Disconnected POS and online inventory leading to overselling and operational chaos.',
+                    solution: 'Real-time bidirectional inventory sync between physical storefronts and the Shopify ecosystem.',
+                    result: '99.9% Stock Accuracy',
                     mockup: <SupermarketDashboardMockup />,
                     reversed: false
                   },
                   {
                     title: 'Hospitals & Pharmacy Chains',
-                    problem: 'Manual prescription handling and fragmented patient data.',
-                    solution: 'Direct-to-Consumer ecosystem with automated prescription verification.',
-                    result: '70% Reduction in manual processing and automated doorstep delivery.',
+                    problem: 'Fragmented patient data and manual prescription verification leading to delays.',
+                    solution: 'HIPAA-aligned D2C ecosystem with automated AI-driven prescription verification logic.',
+                    result: '70% Ops Efficiency',
                     mockup: <HospitalDashboardMockup />,
                     reversed: true
                   },
                   {
                     title: 'Premium Retail Brands',
-                    problem: 'High customer acquisition cost and low returning customer rate.',
-                    solution: 'D2C Growth Engine with personalized loyalty logic and high-LTV checkout.',
-                    result: '40% Increase in Retention and 1.5x higher Average Order Value (AOV).',
+                    problem: 'Exploding CAC and declining customer LTV in a generic storefront environment.',
+                    solution: 'High-LTV growth engine with personalized loyalty micro-services and logic-first checkout.',
+                    result: '1.5x AOV Growth',
                     mockup: <DashboardMockup />,
                     reversed: false
                   }
                 ].map((useCase, i) => (
-                  <div key={i} className={`flex flex-col ${useCase.reversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-16`}>
-                    <div className="flex-1 space-y-8">
-                       <h3 className="text-3xl md:text-4xl font-bold text-brand-primary">{useCase.title}</h3>
-                       <div className="space-y-6">
-                          <div className="p-6 bg-rose-50 border border-rose-100 rounded-2xl">
-                             <h4 className="text-sm font-bold text-rose-600 uppercase tracking-widest mb-2 flex items-center gap-2">
-                                <AlertCircle size={16} /> The Problem
+                  <div key={i} className={`flex flex-col ${useCase.reversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-16 lg:gap-24`}>
+                    <div className="flex-1 space-y-10">
+                       <h3 className="text-3xl md:text-5xl font-black text-brand-primary leading-tight tracking-tighter">{useCase.title}</h3>
+                       <div className="space-y-8">
+                          <div className="relative pl-8 border-l-2 border-rose-200">
+                             <h4 className="text-[10px] font-black text-rose-500 uppercase tracking-widest mb-2 flex items-center gap-2">
+                                <AlertCircle size={14} /> Critical Problem
                              </h4>
-                             <p className="text-brand-primary font-medium">{useCase.problem}</p>
+                             <p className="text-brand-primary font-bold text-lg leading-relaxed">{useCase.problem}</p>
                           </div>
-                          <div className="p-6 bg-emerald-50 border border-emerald-100 rounded-2xl">
-                             <h4 className="text-sm font-bold text-emerald-600 uppercase tracking-widest mb-2 flex items-center gap-2">
-                                <CheckCircle2 size={16} /> Our Solution
+                          <div className="relative pl-8 border-l-2 border-emerald-200">
+                             <h4 className="text-[10px] font-black text-emerald-500 uppercase tracking-widest mb-2 flex items-center gap-2">
+                                <CheckCircle2 size={14} /> Ecosystem Solution
                              </h4>
-                             <p className="text-brand-primary font-medium">{useCase.solution}</p>
+                             <p className="text-brand-primary font-bold text-lg leading-relaxed">{useCase.solution}</p>
                           </div>
-                          <div className="pt-4 flex items-center gap-4">
-                             <div className="text-4xl font-black text-brand-accent">{useCase.result.split(' ')[0]}</div>
-                             <div className="text-sm font-bold text-brand-secondary leading-tight">{useCase.result.split(' ').slice(1).join(' ')}</div>
+                          <div className="pt-6 flex items-baseline gap-4 group">
+                             <div className="text-5xl font-black text-brand-accent group-hover:scale-110 transition-transform">{useCase.result.split(' ')[0]}</div>
+                             <div className="text-xs font-black text-brand-secondary uppercase tracking-[0.2em]">{useCase.result.split(' ').slice(1).join(' ')}</div>
                           </div>
                        </div>
                     </div>
-                    <div className="flex-1 w-full aspect-video bg-white rounded-3xl border border-brand-border shadow-2xl overflow-hidden relative group">
-                        <div className="absolute inset-x-0 top-0 h-1 bg-brand-accent transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-700" />
+                    <div className="flex-1 w-full aspect-video bg-slate-950 rounded-[48px] border border-brand-border/20 shadow-[0_50px_100px_rgba(11,31,58,0.15)] overflow-hidden relative group">
+                        <div className="absolute inset-0 bg-brand-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                         {useCase.mockup}
                     </div>
                   </div>
@@ -370,13 +357,14 @@ export default function ShopifyGrowth() {
         </section>
 
         {/* PROCESS SECTION */}
-        <section className="py-24 bg-white border-b border-brand-border">
+        <section className="py-24 bg-brand-card border-y border-brand-border">
           <div className="container-wide px-6">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold text-brand-primary mb-6">Execution & <span className="text-brand-accent">Approval</span> Worklow</h2>
-              <p className="text-lg text-brand-secondary">A structured, data-backed process ensuring quality at every milestone.</p>
+              <span className="text-[10px] font-black text-brand-accent uppercase tracking-[0.2em] mb-4 block">The Workflow</span>
+              <h2 className="text-3xl md:text-5xl font-black text-brand-primary mb-6">Execution & <span className="text-brand-accent">Precision</span></h2>
+              <p className="text-lg text-brand-secondary font-medium">A structured, data-backed process ensuring excellence at every milestone.</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
               {[
                 { step: '01', title: 'Consultation', desc: 'Deep dive into your retail goals and ecosystem audit.' },
                 { step: '02', title: 'Architecture', desc: 'Designing your store, admin, and automation logic.' },
@@ -384,10 +372,10 @@ export default function ShopifyGrowth() {
                 { step: '04', title: 'Deployment', desc: 'Rigorous testing followed by a seamless go-live transition.' }
               ].map((item, i) => (
                 <div key={i} className="relative group">
-                   <div className="text-6xl font-black text-brand-accent/5 absolute -top-8 -left-4 group-hover:text-brand-accent/10 transition-colors">{item.step}</div>
-                   <div className="relative">
-                      <h3 className="text-xl font-bold text-brand-primary mb-3">{item.title}</h3>
-                      <p className="text-brand-secondary text-sm leading-relaxed">{item.desc}</p>
+                   <div className="text-7xl font-black text-brand-accent/5 absolute -top-8 -left-4 group-hover:text-brand-accent/10 transition-colors pointer-events-none">{item.step}</div>
+                   <div className="relative pt-4">
+                      <h3 className="text-xl font-bold text-brand-primary mb-3 group-hover:text-brand-accent transition-colors">{item.title}</h3>
+                      <p className="text-brand-secondary text-sm leading-relaxed font-medium">{item.desc}</p>
                    </div>
                 </div>
               ))}
@@ -396,19 +384,19 @@ export default function ShopifyGrowth() {
         </section>
 
         {/* RESULTS SECTION */}
-        <section className="py-24 bg-brand-deep text-white">
+        <section className="py-24 bg-brand-deep text-white border-b border-white/5">
           <div className="container-wide px-6">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">What You’ll Get in 30 Days</h2>
-              <p className="text-brand-secondary">We don't just build stores; we build revenue machines.</p>
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">What You’ll Get in 30 Days</h2>
+              <p className="text-slate-300 text-lg">We don't just build stores; we build revenue machines.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {results.map((result, i) => (
-                <div key={i} className="flex gap-4">
+                <div key={i} className="flex gap-4 p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-accent/30 transition-colors">
                   <CheckCircle2 className="text-brand-accent shrink-0" size={24} />
                   <div>
-                    <h3 className="text-xl font-bold mb-2">{result.title}</h3>
-                    <p className="text-brand-secondary text-sm">{result.desc}</p>
+                    <h3 className="text-lg font-bold text-white mb-2">{result.title}</h3>
+                    <p className="text-slate-400 text-sm leading-relaxed">{result.desc}</p>
                   </div>
                 </div>
               ))}
@@ -499,11 +487,12 @@ export default function ShopifyGrowth() {
         </section>
 
         {/* PRICING SECTION */}
-        <section className="py-24 bg-brand-card">
+        <section className="py-24 bg-brand-bg border-b border-brand-border">
           <div className="container-wide px-6">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold text-brand-primary mb-6">Strategic Investment Packages</h2>
-              <p className="text-lg text-brand-secondary">Transparent pricing designed to pay for itself through automated growth.</p>
+              <span className="text-[10px] font-black text-brand-accent uppercase tracking-[0.2em] mb-4 block">Pricing</span>
+              <h2 className="text-3xl md:text-6xl font-black text-brand-primary mb-6 italic tracking-tighter">Strategic <span className="text-brand-accent">Investment</span></h2>
+              <p className="text-lg text-brand-secondary font-medium">Transparent pricing designed to pay for itself through automated growth.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {pricing.map((plan, i) => (
