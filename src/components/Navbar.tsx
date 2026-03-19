@@ -29,13 +29,9 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const isLightPage = [
-    '/blog', 
     '/pricing-retail-pos-india', 
     '/hospital-management-software-pricing', 
     '/erp-software-pricing-india',
-    '/contact',
-    '/faq',
-    '/about'
   ].some(path => location.pathname === path || location.pathname.startsWith(path + '/'));
 
   return (
