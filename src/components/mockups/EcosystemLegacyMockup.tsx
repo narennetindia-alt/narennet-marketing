@@ -19,14 +19,14 @@ export default function EcosystemLegacyMockup() {
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-accent/10 blur-[100px] rounded-full" />
       </div>
 
-      <div className="relative grid grid-cols-12 gap-4 h-full">
-        {/* Main Dashboard Area (8 cols) */}
-        <div className="col-span-12 lg:col-span-8 flex flex-col gap-4">
+      <div className="relative grid grid-cols-12 gap-3 md:gap-4 h-full">
+        {/* Main Dashboard Area (12 cols on mobile, 8 on desktop) */}
+        <div className="col-span-12 lg:col-span-8 flex flex-col gap-3 md:gap-4">
           {/* Header Stats */}
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
              {[
                { label: 'Live Sales', value: '₹2.4L', color: 'text-emerald-400' },
-               { label: 'Active Users', value: '1.2k', color: 'text-blue-400' },
+               { label: 'Active Users', value: '1.2k', color: 'text-blue-400', mobileHidden: true },
                { label: 'Conversion', value: '4.8%', color: 'text-brand-accent' }
              ].map((s, i) => (
                <motion.div 
@@ -34,10 +34,10 @@ export default function EcosystemLegacyMockup() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white/5 border border-white/10 p-3 rounded-2xl backdrop-blur-md"
+                className={`bg-white/5 border border-white/10 p-2 md:p-3 rounded-xl md:rounded-2xl backdrop-blur-md ${s.mobileHidden ? 'hidden md:block' : ''}`}
                >
-                 <div className="text-[10px] text-slate-400 uppercase tracking-tighter mb-1 font-bold">{s.label}</div>
-                 <div className={`text-lg font-black ${s.color}`}>{s.value}</div>
+                 <div className="text-[8px] md:text-[10px] text-slate-400 uppercase tracking-tighter mb-0.5 md:mb-1 font-bold">{s.label}</div>
+                 <div className={`text-sm md:text-lg font-black ${s.color}`}>{s.value}</div>
                </motion.div>
              ))}
           </div>
@@ -65,19 +65,19 @@ export default function EcosystemLegacyMockup() {
                 ))}
              </div>
              
-             {/* Floating Badge */}
+             {/* Floating Badge - Scaled and hidden on small mobiles */}
              <motion.div 
               animate={{ y: [0, -5, 0] }}
               transition={{ duration: 4, repeat: Infinity }}
-              className="absolute top-1/2 right-10 bg-black/60 border border-white/10 p-3 rounded-2xl backdrop-blur-xl shadow-2xl"
+              className="absolute bottom-4 right-4 md:top-1/2 md:right-10 bg-black/80 border border-white/10 p-2 md:p-3 rounded-xl md:rounded-2xl backdrop-blur-xl shadow-2xl scale-75 md:scale-100"
              >
-                <div className="flex items-center gap-3">
-                   <div className="w-8 h-8 rounded-full bg-brand-accent/20 flex items-center justify-center">
-                      <Zap size={14} className="text-brand-accent" />
+                <div className="flex items-center gap-2 md:gap-3">
+                   <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-brand-accent/20 flex items-center justify-center">
+                      <Zap size={12} className="text-brand-accent" />
                    </div>
                    <div>
-                      <div className="text-[9px] text-slate-400 uppercase mb-0.5 font-bold">Automation Status</div>
-                      <div className="text-xs text-white font-bold">100% Active</div>
+                      <div className="text-[8px] md:text-[9px] text-slate-400 uppercase mb-0.5 font-bold">Automation</div>
+                      <div className="text-[10px] md:text-xs text-white font-bold whitespace-nowrap">100% Active</div>
                    </div>
                 </div>
              </motion.div>

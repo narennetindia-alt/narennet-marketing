@@ -11,7 +11,7 @@ import {
 
 export default function BrandGrowthMockup() {
   return (
-    <div className="relative w-full h-full bg-slate-100 overflow-hidden font-sans p-8 overflow-y-auto custom-scrollbar">
+    <div className="relative w-full h-full bg-slate-100 overflow-hidden font-sans p-4 md:p-8 overflow-y-auto custom-scrollbar">
        {/* Background Stats Pattern */}
        <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
           <div className="grid grid-cols-6 gap-20">
@@ -22,29 +22,29 @@ export default function BrandGrowthMockup() {
        </div>
 
        <div className="relative z-10 h-full flex flex-col">
-          <div className="flex justify-between items-center mb-10">
+          <div className="flex justify-between items-center mb-6 md:mb-10">
              <div>
-                <h4 className="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em] mb-1">D2C Growth Engine</h4>
-                <p className="text-2xl font-black text-slate-900 tracking-tighter">Premium Brand Analytics</p>
+                <h4 className="text-slate-400 text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] mb-0.5 md:mb-1">D2C Growth</h4>
+                <p className="text-lg md:text-2xl font-black text-slate-900 tracking-tighter">Premium Analytics</p>
              </div>
-             <div className="px-4 py-2 bg-brand-accent/10 border border-brand-accent/20 rounded-2xl flex items-center gap-2">
-                <Target size={16} className="text-brand-accent" />
-                <span className="text-[11px] font-black text-brand-accent">98.2% LTV Goal</span>
+             <div className="px-3 md:px-4 py-1.5 md:py-2 bg-brand-accent/10 border border-brand-accent/20 rounded-xl md:rounded-2xl flex items-center gap-1.5 md:gap-2">
+                <Target className="w-3.5 h-3.5 md:w-4 md:h-4 text-brand-accent" />
+                <span className="text-[9px] md:text-[11px] font-black text-brand-accent uppercase md:normal-case">LTV Goal</span>
              </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 flex-1">
              <div className="space-y-6">
                 {/* Retention Card */}
-                <div className="bg-white border border-slate-200 rounded-[32px] p-6 shadow-xl shadow-slate-200/50">
-                   <div className="flex items-center justify-between mb-4">
-                      <div className="text-[10px] text-slate-400 font-black uppercase">Returning Customers</div>
-                      <Users size={16} className="text-brand-accent" />
+                <div className="bg-white border border-slate-200 rounded-2xl md:rounded-[32px] p-4 md:p-6 shadow-xl shadow-slate-200/50">
+                   <div className="flex items-center justify-between mb-2 md:mb-4">
+                      <div className="text-[8px] md:text-[10px] text-slate-400 font-black uppercase">Retention</div>
+                      <Users className="w-3.5 h-3.5 md:w-4 md:h-4 text-brand-accent" />
                    </div>
-                   <div className="text-3xl font-black text-slate-900">72.4%</div>
-                   <div className="flex items-center gap-2 mt-2">
-                       <TrendingUp size={14} className="text-emerald-500" />
-                       <span className="text-[11px] font-bold text-emerald-500">+18% vs Last Month</span>
+                   <div className="text-xl md:text-3xl font-black text-slate-900">72.4%</div>
+                   <div className="flex items-center gap-1 md:gap-2 mt-2">
+                       <TrendingUp className="w-3 h-3 md:w-3.5 md:h-3.5 text-emerald-500" />
+                       <span className="text-[9px] md:text-[11px] font-bold text-emerald-500">+18% Growth</span>
                    </div>
                 </div>
 

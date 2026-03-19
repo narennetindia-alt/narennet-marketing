@@ -173,13 +173,13 @@ export default function ShopifyGrowth() {
           secondaryCta="Watch Demo"
           secondaryCtaLink="#action"
         >
-          <div className="max-w-7xl mx-auto mt-16 px-6">
-             <div className="relative rounded-[40px] overflow-hidden border border-white/20 shadow-[0_0_100px_rgba(14,165,233,0.15)] bg-slate-950 aspect-[16/8] lg:aspect-[21/9] group">
+          <div className="max-w-7xl mx-auto mt-12 md:mt-16 px-4 md:px-6">
+             <div className="relative rounded-[32px] md:rounded-[40px] overflow-hidden border border-white/20 shadow-[0_0_100px_rgba(14,165,233,0.15)] bg-slate-950 aspect-[4/3] md:aspect-[16/8] lg:aspect-[21/9] group">
                 <EcosystemLegacyMockup />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent pointer-events-none" />
                 
-                {/* Overlaid Floaties for Context */}
-                <div className="absolute bottom-8 left-8 flex gap-4">
+                {/* Overlaid Floaties for Context - Hidden on Mobile */}
+                <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 hidden sm:flex gap-4">
                    {[
                      { label: 'Revenue Growth', value: '+45%', color: 'text-emerald-400' },
                      { label: 'Efficiency', value: '+70%', color: 'text-brand-accent' }
@@ -202,16 +202,16 @@ export default function ShopifyGrowth() {
         />
 
         {/* OUR SYSTEM IN ACTION SECTION */}
-        <section id="action" className="py-32 bg-brand-deep relative overflow-hidden">
+        <section id="action" className="py-20 md:py-32 bg-brand-deep relative overflow-hidden">
           {/* Background Glow for Visibility */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.08)_0%,transparent_70%)] pointer-events-none" />
           
-          <div className="container-wide px-6 relative z-10">
-            <div className="text-center max-w-3xl mx-auto mb-20">
-              <h2 className="text-4xl md:text-7xl font-black mb-6 tracking-tighter text-white">
+          <div className="container-wide px-4 md:px-6 relative z-10">
+            <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+              <h2 className="text-4xl sm:text-5xl md:text-7xl font-black mb-6 tracking-tighter text-white">
                 Our System in <span className="text-brand-accent drop-shadow-[0_0_20px_rgba(14,165,233,0.3)]">Action</span>
               </h2>
-              <p className="text-xl text-slate-200 font-medium">Experience the power of a fully integrated eCommerce ecosystem designed for retail leaders.</p>
+              <p className="text-lg md:text-xl text-slate-200 font-medium">Experience the power of a fully integrated eCommerce ecosystem designed for retail leaders.</p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -250,7 +250,7 @@ export default function ShopifyGrowth() {
                     <h3 className="text-2xl font-bold mb-3 text-white">{item.title}</h3>
                     <p className="text-slate-300 text-sm mb-8 leading-relaxed font-medium">{item.desc}</p>
                   </div>
-                  <div className="mt-auto aspect-[16/10] relative bg-slate-900/50 backdrop-blur-md border-t border-white/10 overflow-hidden transform group-hover:scale-[1.05] transition-transform duration-700">
+                  <div className="mt-auto aspect-[16/10] sm:aspect-square md:aspect-[16/10] relative bg-slate-900/50 backdrop-blur-md border-t border-white/10 overflow-hidden transform group-hover:scale-[1.05] transition-transform duration-700">
                      <div className="absolute inset-0 bg-gradient-to-tr from-brand-accent/5 to-transparent pointer-events-none" />
                      {item.component}
                   </div>
@@ -261,18 +261,19 @@ export default function ShopifyGrowth() {
         </section>
 
         {/* COMPARISON SECTION */}
-        <section className="py-24 bg-brand-bg">
-          <div className="container-wide px-6">
+        <section className="py-20 md:py-32 bg-brand-bg relative overflow-hidden">
+          <div className="container-wide px-4 md:px-6 relative z-10">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold text-brand-primary mb-6 italic tracking-tighter">Legacy <span className="text-brand-accent">vs.</span> Ecosystem</h2>
-              <p className="text-lg text-brand-secondary font-medium">Why settle for a store when you can have a business engine?</p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-brand-primary mb-6 italic tracking-tighter uppercase underline decoration-brand-accent underline-offset-8">Legacy <span className="text-brand-accent">vs.</span> Ecosystem</h2>
+              <p className="text-lg text-brand-secondary font-bold">Why settle for a store when you can have a business engine?</p>
             </div>
             
-            <div className="max-w-5xl mx-auto bg-white border border-brand-border rounded-[48px] overflow-hidden shadow-[0_32px_80px_rgba(11,31,58,0.08)]">
+            {/* Desktop Table View */}
+            <div className="hidden md:block max-w-5xl mx-auto bg-white border border-brand-border rounded-[48px] overflow-hidden shadow-[0_32px_80px_rgba(11,31,58,0.08)]">
                <div className="grid grid-cols-3 bg-brand-deep text-white p-10 font-black uppercase tracking-[0.2em] text-[10px]">
                   <div>System Architecture</div>
                   <div className="text-center opacity-40">Traditional Setup</div>
-                  <div className="text-center text-brand-accent">NarenNet Ecosystem</div>
+                  <div className="text-center text-brand-accent font-black drop-shadow-[0_0_10px_rgba(14,165,233,0.5)]">NarenNet Ecosystem</div>
                </div>
                <div className="divide-y divide-brand-border">
                   {[
@@ -286,11 +287,45 @@ export default function ShopifyGrowth() {
                        <div className="font-black text-brand-primary text-sm uppercase tracking-wider">{row.f}</div>
                        <div className="text-center text-brand-secondary text-sm font-medium">{row.s}</div>
                        <div className="text-center font-bold text-brand-accent flex items-center justify-center gap-3">
-                          <CheckCircle2 size={18} className="drop-shadow-[0_0_8px_rgba(14,165,233,0.3)]" /> {row.e}
+                          <CheckCircle2 size={18} className="drop-shadow-[0_0_8px_rgba(14,165,233,0.3)] shadow-brand-accent" /> {row.e}
                        </div>
                     </div>
                   ))}
                </div>
+            </div>
+
+            {/* Mobile Card-Based View */}
+            <div className="md:hidden space-y-6">
+               {[
+                 { f: 'Customization', s: 'Limited to Theme', e: 'Unlimited Experience' },
+                 { f: 'Business Automation', s: 'Manual Apps', e: 'Deep Native Logic' },
+                 { f: 'Scalability', s: 'Slow Performance', e: 'High-Performance Engine' },
+                 { f: 'Multi-Branch Sync', s: 'External Tools', e: 'Unified ERP' },
+                 { f: 'Customer LTV', s: 'Disconnected', e: 'Data-Driven Growth' }
+               ].map((row, i) => (
+                 <motion.div 
+                   key={i}
+                   initial={{ opacity: 0, x: -20 }}
+                   whileInView={{ opacity: 1, x: 0 }}
+                   viewport={{ once: true }}
+                   transition={{ delay: i * 0.1 }}
+                   className="bg-white border border-brand-border p-6 rounded-3xl shadow-sm"
+                 >
+                    <div className="text-[10px] font-black text-brand-secondary uppercase tracking-[0.2em] mb-4">{row.f}</div>
+                    <div className="flex flex-col gap-4">
+                       <div className="bg-slate-50 p-4 rounded-2xl flex items-center justify-between opacity-60">
+                          <span className="text-[10px] font-bold text-slate-400 uppercase">Legacy</span>
+                          <span className="text-xs font-bold text-slate-600">{row.s}</span>
+                       </div>
+                       <div className="bg-brand-accent/5 border border-brand-accent/20 p-4 rounded-2xl flex items-center justify-between">
+                          <span className="text-[10px] font-black text-brand-accent uppercase tracking-widest">NarenNet</span>
+                          <span className="text-xs font-black text-brand-primary flex items-center gap-2">
+                             <CheckCircle2 size={12} className="text-brand-accent" /> {row.e}
+                          </span>
+                       </div>
+                    </div>
+                 </motion.div>
+               ))}
             </div>
           </div>
         </section>

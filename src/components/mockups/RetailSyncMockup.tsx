@@ -11,23 +11,23 @@ import {
 
 export default function RetailSyncMockup() {
   return (
-    <div className="relative w-full h-full bg-slate-900 overflow-hidden font-sans p-6 overflow-y-auto custom-scrollbar">
+    <div className="relative w-full h-full bg-slate-900 overflow-hidden font-sans p-4 md:p-6 overflow-y-auto custom-scrollbar">
        {/* Top Revenue Header */}
        <div className="flex justify-between items-center mb-6">
           <div>
-             <h4 className="text-white text-xs font-black uppercase tracking-widest opacity-40">Retail Sync Engine</h4>
-             <p className="text-lg font-black text-white">Supermarket #04 Live</p>
+             <h4 className="text-white text-[8px] md:text-xs font-black uppercase tracking-widest opacity-40">Retail Sync Engine</h4>
+             <p className="text-sm md:text-lg font-black text-white">Supermarket #04 Live</p>
           </div>
           <div className="flex gap-2">
              <div className="px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-black rounded-lg">LIVE SYNC</div>
           </div>
        </div>
 
-       <div className="grid grid-cols-12 gap-4">
-          {/* Main Inventory Controller */}
-          <div className="col-span-12 lg:col-span-7 bg-white/5 border border-white/10 rounded-3xl p-6 backdrop-blur-xl">
-             <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-2xl bg-brand-accent/20 flex items-center justify-center">
+        <div className="grid grid-cols-12 gap-3 md:gap-4">
+           {/* Main Inventory Controller */}
+           <div className="col-span-12 lg:col-span-7 bg-white/5 border border-white/10 rounded-2xl md:rounded-3xl p-4 md:p-6 backdrop-blur-xl">
+              <div className="flex items-center gap-3 mb-6">
+                 <div className="w-8 h-8 md:w-10 md:h-10 rounded-xl md:rounded-2xl bg-brand-accent/20 flex items-center justify-center">
                    <Package size={20} className="text-brand-accent" />
                 </div>
                 <div>

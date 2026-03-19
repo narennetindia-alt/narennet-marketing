@@ -11,7 +11,7 @@ import {
 
 export default function PharmaEcosystemMockup() {
   return (
-    <div className="relative w-full h-full bg-slate-950 overflow-hidden font-sans p-8 overflow-y-auto custom-scrollbar">
+    <div className="relative w-full h-full bg-slate-950 overflow-hidden font-sans p-4 md:p-8 overflow-y-auto custom-scrollbar">
        {/* Background Medical Pattern */}
        <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
           <div className="grid grid-cols-8 gap-10 rotate-12">
@@ -22,24 +22,24 @@ export default function PharmaEcosystemMockup() {
        </div>
 
        <div className="relative z-10">
-          <div className="flex justify-between items-start mb-10">
+          <div className="flex justify-between items-start mb-6 md:mb-10">
              <div>
-                <h4 className="text-white text-xs font-black uppercase tracking-[0.2em] opacity-40 mb-1">Health Distribution Network</h4>
-                <p className="text-2xl font-black text-white italic tracking-tighter">Pharmacy Ecosystem</p>
+                <h4 className="text-white text-[8px] md:text-xs font-black uppercase tracking-[0.2em] opacity-40 mb-1">Health Distribution</h4>
+                <p className="text-lg md:text-2xl font-black text-white italic tracking-tighter">Pharmacy Ecosystem</p>
              </div>
-             <div className="w-12 h-12 rounded-2xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center">
-                <ShieldCheck size={24} className="text-brand-accent" />
+             <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center">
+                <ShieldCheck className="w-5 h-5 md:w-6 md:h-6 text-brand-accent" />
              </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
              {/* Prescription Processing Flow */}
-             <div className="bg-white/5 border border-white/10 rounded-[32px] p-6 backdrop-blur-xl relative group">
-                <div className="flex items-center gap-3 mb-6">
-                   <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center">
-                      <FileText size={16} className="text-emerald-400" />
+             <div className="bg-white/5 border border-white/10 rounded-2xl md:rounded-[32px] p-4 md:p-6 backdrop-blur-xl relative group">
+                <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+                   <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                      <FileText size={12} md:size={16} className="text-emerald-400" />
                    </div>
-                   <h5 className="text-white font-bold text-sm">Prescription Engine</h5>
+                   <h5 className="text-white font-bold text-[10px] md:text-sm">Prescription Engine</h5>
                 </div>
                 
                 <div className="space-y-4">
