@@ -17,7 +17,7 @@ const navLinks = [
     ]
   },
   { name: 'Platform', path: '/platform' },
-  { name: 'Services', path: '/solutions' },
+  { name: 'Pricing', path: '/pricing' },
   { name: 'About', path: '/about' },
   { name: 'Blog', path: '/blog' },
   { name: 'Launches', path: '/launches' },
