@@ -28,10 +28,20 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const isLightPage = [
     '/pricing-retail-pos-india', 
     '/hospital-management-software-pricing', 
     '/erp-software-pricing-india',
+    '/pricing'
   ].some(path => location.pathname === path || location.pathname.startsWith(path + '/'));
 
   const isNavDark = scrolled || isLightPage;

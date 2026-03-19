@@ -81,11 +81,11 @@ function FloatingBookDemo() {
         transition={{ duration: 0.4, type: 'spring' }}
         whileHover={{ scale: 1.07 }}
         whileTap={{ scale: 0.97 }}
-        className="relative flex items-center gap-2.5 px-4 md:px-5 py-3 md:py-3.5 rounded-2xl font-bold text-[10px] md:text-xs uppercase tracking-wider text-white shadow-2xl"
+        className="relative flex items-center justify-center gap-2.5 w-12 h-12 md:w-auto md:h-auto md:px-5 md:py-3.5 rounded-full md:rounded-2xl font-bold text-[10px] md:text-xs uppercase tracking-wider text-white shadow-2xl transition-all"
         style={{ background: 'var(--color-brand-accent)', boxShadow: '0 8px 32px rgba(14,165,233,0.45)' }}
       >
         <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-green-400 border-2 border-brand-deep animate-pulse" />
-        <span className="text-sm md:text-base">🗓</span>
+        <span className="text-lg md:text-base">🗓</span>
         <span className="hidden md:inline">Book Free Demo</span>
       </motion.div>
     </Link>

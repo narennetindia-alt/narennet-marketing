@@ -96,15 +96,14 @@ export default function BusinessEcosystem() {
                         <Shield size={16} />
                         <span className="text-sm font-semibold tracking-wide uppercase text-white/90">Enterprise Grade SaaS</span>
                     </motion.div>
-
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.1 }}
-                        className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white mb-6 leading-[0.9]"
+                        className="text-4xl sm:text-7xl lg:text-8xl font-bold md:tracking-tighter text-white mb-6 leading-[1.1] md:leading-[0.95]"
                     >
                         NarenNet Company <br className="hidden md:block" />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-white to-brand-accent">Cloud Platform</span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-white to-brand-accent block sm:inline">Cloud Platform</span>
                     </motion.h1>
 
                     <motion.h2
