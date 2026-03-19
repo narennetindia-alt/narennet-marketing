@@ -41,7 +41,7 @@ export default function Founder() {
                             >
                                 Visionary & Architect
                             </motion.div>
-                            <h1 className="text-2xl sm:text-7xl font-black text-brand-primary mb-6 tracking-tighter leading-tight capitalize sm:normal-case">
+                            <h1 className="text-2xl sm:text-7xl font-black text-brand-primary mb-6 tracking-tighter leading-tight whitespace-nowrap sm:whitespace-normal">
                                 Narendhiran C
                             </h1>
                             <p className="text-xl sm:text-2xl text-brand-secondary font-light mb-8 max-w-xl mx-auto md:mx-0">

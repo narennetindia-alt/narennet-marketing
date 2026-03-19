@@ -133,7 +133,7 @@ export default function About() {
                   <div className="inline-flex items-center gap-3 text-brand-accent font-mono text-[11px] uppercase tracking-[0.3em] font-bold mb-10">
                     Meet the Founder & CEO
                   </div>
-                  <h2 className="text-3xl sm:text-5xl md:text-7xl font-black mb-6 tracking-tighter text-white leading-tight capitalize sm:normal-case">Narendhiran C</h2>
+                  <h2 className="text-xl sm:text-5xl md:text-7xl font-black mb-6 tracking-tighter text-white leading-tight text-center sm:whitespace-normal">Narendhiran C</h2>
                   <p className="text-brand-accent font-medium text-lg md:text-3xl mb-12">Founder and CEO, NarenNet</p>
 
                   <div className="space-y-6 md:space-y-10 text-white/50 text-sm md:text-2xl leading-relaxed mb-16 font-light max-w-xl mx-auto lg:mx-0">
