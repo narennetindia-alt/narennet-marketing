@@ -56,9 +56,9 @@ export default function ActionStoreMockup() {
              </div>
 
              {/* Price & CTA */}
-             <div className="flex items-center justify-between pt-2">
-                <div className="text-xs font-black text-slate-900">₹24,999</div>
-                <div className="px-3 py-1.5 bg-brand-accent text-white text-[9px] font-black rounded-lg shadow-lg shadow-brand-accent/30">BUY NOW</div>
+             <div className="flex items-center justify-between pt-4">
+                <div className="text-lg font-black text-slate-900 leading-none">₹24,999</div>
+                <div className="px-4 py-2 bg-brand-accent text-white text-[10px] font-black rounded-xl shadow-lg shadow-brand-accent/40">BUY NOW</div>
              </div>
 
              {/* Trust Badge */}
