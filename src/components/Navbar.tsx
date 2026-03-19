@@ -13,7 +13,8 @@ const navLinks = [
       { name: 'Super Business App', path: '/super-business-app' },
       { name: 'Hospitals', path: '/ecosystem/hospitals' },
       { name: 'Supermarkets', path: '/ecosystem/supermarkets' },
-      { name: 'Mobile Apps Engine', path: '/ecosystem/mobile-apps' }
+      { name: 'Mobile Apps Engine', path: '/ecosystem/mobile-apps' },
+      { name: 'Shopify Growth System', path: '/ecosystem/shopify-growth' }
     ]
   },
   { name: 'Platform', path: '/platform' },

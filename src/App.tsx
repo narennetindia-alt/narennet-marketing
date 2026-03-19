@@ -33,6 +33,7 @@ import SuperBusinessApp from "./pages/SuperBusinessApp";
 import Hospitals from "./pages/ecosystem/Hospitals";
 import Supermarkets from "./pages/ecosystem/Supermarkets";
 import MobileApps from "./pages/ecosystem/MobileApps";
+import ShopifyGrowth from "./pages/ecosystem/ShopifyGrowth";
 import Platform from "./pages/Platform";
 import PricingRetailPOS from "./pages/seo/PricingRetailPOS";
 import PricingHospital from "./pages/seo/PricingHospital";
@@ -157,6 +158,7 @@ function AppContent() {
               <Route path="/ecosystem/hospitals" element={<Hospitals />} />
               <Route path="/ecosystem/supermarkets" element={<Supermarkets />} />
               <Route path="/ecosystem/mobile-apps" element={<MobileApps />} />
+              <Route path="/ecosystem/shopify-growth" element={<ShopifyGrowth />} />
               <Route path="/platform" element={<Platform />} />
 
               {/* SEO Pricing Landing Pages */}
