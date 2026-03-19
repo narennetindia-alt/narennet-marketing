@@ -126,17 +126,17 @@ export default function About() {
           </section>
 
           {/* 4. FOUNDER SHOWCASE — DARK GRADIENT */}
-          <section className="mb-48 py-32 border-y border-brand-border relative overflow-hidden bg-brand-deep rounded-[80px] text-white">
-            <div className="container px-12 lg:px-24">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
-                <div className="order-2 lg:order-1">
+          <section className="mb-48 py-20 md:py-32 border-y border-brand-border relative overflow-hidden bg-brand-deep rounded-[40px] md:rounded-[80px] text-white">
+            <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+              <div className="flex flex-col lg:grid lg:grid-cols-2 gap-20 lg:gap-32 items-center">
+                <div className="order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left w-full">
                   <div className="inline-flex items-center gap-3 text-brand-accent font-mono text-[11px] uppercase tracking-[0.3em] font-bold mb-10">
                     Meet the Founder & CEO
                   </div>
-                  <h2 className="text-7xl font-black mb-6 tracking-tighter text-white">Narendhiran C</h2>
-                  <p className="text-brand-accent font-medium text-3xl mb-12">Founder and CEO, NarenNet</p>
+                  <h2 className="text-3xl sm:text-5xl md:text-7xl font-black mb-6 tracking-tighter text-white leading-tight capitalize sm:normal-case">Narendhiran C</h2>
+                  <p className="text-brand-accent font-medium text-lg md:text-3xl mb-12">Founder and CEO, NarenNet</p>
 
-                  <div className="space-y-10 text-white/50 text-lg md:text-2xl leading-relaxed mb-16 font-light">
+                  <div className="space-y-6 md:space-y-10 text-white/50 text-sm md:text-2xl leading-relaxed mb-16 font-light max-w-xl mx-auto lg:mx-0">
                     <p>
                       A visionary tech entrepreneur with a deep passion for building intelligent, scalable SaaS solutions. Naren has spent over a decade identifying inefficiencies in retail and enterprise operations.
                     </p>
@@ -146,18 +146,18 @@ export default function About() {
                   </div>
 
                   <div className="relative p-8 md:p-12 rounded-[40px] md:rounded-[50px] bg-white/5 backdrop-blur-md border border-white/10 mb-16 shadow-2xl">
-                    <Quote size={40} className="absolute -top-6 -left-6 md:-top-8 md:-left-8 text-brand-accent opacity-30" />
-                    <p className="text-xl md:text-3xl italic font-light leading-relaxed text-white/90">
+                    <Quote size={30} className="absolute -top-4 -left-4 md:-top-8 md:-left-8 text-brand-accent opacity-30" />
+                    <p className="text-lg md:text-3xl italic font-light leading-relaxed text-white/90">
                       "Our goal isn't just to build software; it's to build the operating system for the next generation of Indian businesses."
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-12">
-                    <a href="https://www.linkedin.com/in/narennet" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-white/40 hover:text-brand-accent transition-all uppercase tracking-[0.3em] text-[11px] font-bold">
-                      <Linkedin size={20} /> LinkedIn
+                  <div className="flex items-center justify-center lg:justify-start gap-8 md:gap-12">
+                    <a href="https://www.linkedin.com/in/narennet" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-white/40 hover:text-brand-accent transition-all uppercase tracking-[0.3em] text-[10px] md:text-[11px] font-bold">
+                      <Linkedin size={18} /> LinkedIn
                     </a>
-                    <a href="https://twitter.com/narennet" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-white/40 hover:text-brand-accent transition-all uppercase tracking-[0.3em] text-[11px] font-bold">
-                      <Twitter size={20} /> Twitter
+                    <a href="https://twitter.com/narennet" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-white/40 hover:text-brand-accent transition-all uppercase tracking-[0.3em] text-[10px] md:text-[11px] font-bold">
+                      <Twitter size={18} /> Twitter
                     </a>
                   </div>
                 </div>
@@ -171,9 +171,9 @@ export default function About() {
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-deep/80 via-transparent to-transparent opacity-60" />
-                    <div className="absolute bottom-16 left-16 text-white">
-                      <p className="font-black text-5xl tracking-tighter">Narendhiran C</p>
-                      <p className="text-brand-accent uppercase tracking-[0.3em] text-[11px] mt-4 font-bold">Founder and CEO</p>
+                    <div className="absolute bottom-10 left-0 right-0 md:left-16 md:right-auto text-white text-center md:text-left px-6 md:px-0">
+                      <p className="font-black text-2xl sm:text-5xl tracking-tighter whitespace-nowrap">Narendhiran C</p>
+                      <p className="text-brand-accent uppercase tracking-[0.3em] text-[10px] md:text-[11px] mt-4 font-bold">Founder and CEO</p>
                     </div>
                   </div>
                 </div>

@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 
 export default function Founder() {
     return (
-        <div className="bg-brand-bg min-h-screen pt-32 pb-16 text-brand-primary">
-            <div className="max-w-5xl mx-auto px-6 lg:px-8">
+        <div className="bg-brand-bg min-h-screen pt-32 pb-16 text-brand-primary overflow-hidden">
+            <div className="w-full max-w-5xl mx-auto px-6 lg:px-8">
 
                 {/* Back Link */}
                 <Link
                     to="/about"
-                    className="inline-flex items-center text-brand-secondary hover:text-brand-accent transition-colors mb-12 font-bold text-sm uppercase tracking-widest"
+                    className="inline-flex items-center text-brand-secondary hover:text-brand-accent transition-colors mb-12 font-bold text-sm uppercase tracking-widest mx-auto md:mx-0"
                 >
                     <ArrowLeft className="w-4 h-4 mr-2" />
                     Back to About Us
@@ -23,16 +23,16 @@ export default function Founder() {
                     transition={{ duration: 0.6 }}
                     className="mb-24"
                 >
-                    <div className="flex flex-col md:flex-row gap-12 items-start md:items-center">
-                        <div className="relative group">
+                    <div className="flex flex-col md:flex-row gap-8 sm:gap-12 items-center md:items-center text-center md:text-left">
+                        <div className="relative group shrink-0">
                             <div className="absolute -inset-4 bg-brand-accent/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                            <div className="w-32 h-32 sm:w-48 sm:h-48 rounded-[40px] bg-brand-deep border-4 border-white shadow-2xl flex items-center justify-center shrink-0 relative z-10 overflow-hidden">
+                            <div className="w-32 h-32 sm:w-48 sm:h-48 rounded-[40px] bg-brand-deep border-4 border-white shadow-2xl flex items-center justify-center relative z-10 overflow-hidden mx-auto">
                                 <span className="text-5xl sm:text-7xl text-white font-black">NC</span>
                                 <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/20 to-transparent" />
                             </div>
                         </div>
 
-                        <div className="flex-grow">
+                        <div className="flex-grow w-full">
                             <motion.div 
                                 initial={{ opacity: 0, x: 20 }}
                                 animate={{ opacity: 1, x: 0 }}
@@ -41,13 +41,13 @@ export default function Founder() {
                             >
                                 Visionary & Architect
                             </motion.div>
-                            <h1 className="text-5xl sm:text-7xl font-black text-brand-primary mb-6 tracking-tighter leading-none">
+                            <h1 className="text-2xl sm:text-7xl font-black text-brand-primary mb-6 tracking-tighter leading-tight capitalize sm:normal-case">
                                 Narendhiran C
                             </h1>
-                            <p className="text-2xl text-brand-secondary font-light mb-8 max-w-xl">
+                            <p className="text-xl sm:text-2xl text-brand-secondary font-light mb-8 max-w-xl mx-auto md:mx-0">
                                 Founder & CEO of <span className="text-brand-accent font-black">NarenNet Technologies</span>
                             </p>
-                            <div className="flex gap-8">
+                            <div className="flex justify-center md:justify-start gap-8">
                                 <a href="https://www.linkedin.com/in/narennet" target="_blank" rel="noopener noreferrer" className="text-brand-secondary hover:text-brand-accent transition-all flex items-center gap-2 font-bold uppercase tracking-widest text-[11px]">
                                     <span className="w-8 h-8 rounded-lg bg-brand-card flex items-center justify-center border border-brand-border"><ExternalLink size={14} /></span> LinkedIn
                                 </a>
