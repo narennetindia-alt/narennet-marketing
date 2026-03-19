@@ -28,15 +28,15 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const isLightPage = [
+    '/blog', 
+    '/pricing-retail-pos-india', 
+    '/hospital-management-software-pricing', 
+    '/erp-software-pricing-india',
+    '/contact',
+    '/faq',
+    '/about'
+  ].some(path => location.pathname === path || location.pathname.startsWith(path + '/'));
 
   return (
     <>
@@ -47,8 +47,9 @@ export default function Navbar() {
           <div className="w-10 h-10 overflow-hidden rounded-xl bg-white flex items-center justify-center group-hover:rotate-[15deg] transition-transform duration-500 shadow-lg shadow-brand-accent/20">
             <img src={logo} alt="NarenNet" className="w-full h-full object-cover" />
           </div>
-          <span className={`text-2xl font-display font-bold tracking-tighter uppercase transition-colors ${scrolled ? 'text-black' : 'text-white'}`}>NarenNet</span>
+          <span className={`text-2xl font-display font-bold tracking-tighter uppercase transition-colors ${(scrolled || isLightPage) ? 'text-black' : 'text-white'}`}>NarenNet</span>
         </Link>
+
 
         {/* Desktop Nav Links */}
         <div className={`hidden lg:flex items-center gap-1 xl:gap-2 rounded-full px-3 py-2 border transition-all ${scrolled ? 'bg-black/5 border-black/5' : 'bg-white/5 border-white/10'} backdrop-blur-md shadow-sm`}>
@@ -64,7 +65,7 @@ export default function Navbar() {
                 className={`px-4 py-2 rounded-full text-[11px] uppercase tracking-[0.2em] font-bold transition-all flex items-center gap-1 ${
                   (location.pathname === link.path || link.dropdown?.some(d => d.path === location.pathname)) 
                     ? 'text-brand-accent bg-brand-accent/10' 
-                    : (scrolled ? 'text-gray-600 hover:bg-black/5 hover:text-black' : 'text-gray-200 hover:bg-white/10 hover:text-white')
+                    : (scrolled || isLightPage ? 'text-gray-600 hover:bg-black/5 hover:text-black' : 'text-gray-200 hover:bg-white/10 hover:text-white')
                   }`}
               >
                 {link.name}
@@ -100,13 +101,13 @@ export default function Navbar() {
 
         {/* Right Actions */}
         <div className="hidden lg:flex items-center gap-4 xl:gap-6 shrink-0">
-          <div className={`flex items-center gap-6 transition-colors ${scrolled ? 'text-gray-500' : 'text-gray-600'}`}>
+          <div className={`flex items-center gap-6 transition-colors ${(scrolled || isLightPage) ? 'text-gray-500' : 'text-gray-600'}`}>
             <a href="#" className="hover:text-brand-accent transition-colors"><Send size={18} /></a>
             <a href="#" className="hover:text-brand-accent transition-colors"><MessageCircle size={18} /></a>
           </div>
 
           <Link to="/contact" className="group flex items-center gap-4">
-            <span className={`text-[11px] uppercase tracking-[0.2em] font-bold group-hover:text-brand-accent transition-colors ${scrolled ? 'text-black' : 'text-white'}`}>Get in touch</span>
+            <span className={`text-[11px] uppercase tracking-[0.2em] font-bold group-hover:text-brand-accent transition-colors ${(scrolled || isLightPage) ? 'text-black' : 'text-white'}`}>Get in touch</span>
             <div className="w-10 h-10 bg-brand-accent rounded-xl flex items-center justify-center group-hover:bg-brand-accent/80 transition-colors shadow-lg shadow-brand-accent/20">
               <Edit3 size={18} className="text-white" />
             </div>
