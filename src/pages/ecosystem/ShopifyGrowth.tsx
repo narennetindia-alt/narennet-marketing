@@ -15,10 +15,16 @@ import {
   Search,
   CreditCard,
   Gauge,
+  Database,
+  Activity,
   BarChart3,
   MousePointer2,
   Lock
 } from 'lucide-react';
+import DashboardMockup from '../../components/mockups/DashboardMockup';
+import MobileAppMockup from '../../components/mockups/MobileAppMockup';
+import SupermarketDashboardMockup from '../../components/mockups/SupermarketDashboardMockup';
+import HospitalDashboardMockup from '../../components/mockups/HospitalDashboardMockup';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Navbar from '../../components/Navbar';
@@ -50,30 +56,30 @@ export default function ShopifyGrowth() {
     { title: 'Slow Speed', desc: 'Every second of delay costs you sales. Most Shopify themes are heavy.', icon: Gauge }
   ];
 
-  const solutions = [
+  const ecosystemFeatures = [
     {
-      title: 'Conversion-Focused Redesign',
-      description: 'We optimize every pixel for sales, from product pages to checkout.',
+      title: 'Conversion-Focused Storefront',
+      description: 'We build high-performance Shopify stores optimized for maximum sales and premium customer experience.',
       icon: MousePointer2,
       features: ['Landing Page Optimization', 'Mobile-First Design', 'A/B Tested Layouts']
     },
     {
-      title: 'Payment Gateway Setup',
-      description: 'Expert integration of Razorpay, Stripe, and COD to minimize drops.',
-      icon: Lock,
-      features: ['Razorpay/Stripe Setup', 'WhatsApp COD Verification', 'Abandoned Cart Recovery']
+      title: 'Custom Admin & ERP',
+      description: 'Take full control with an eCommerce admin panel software that manages inventory, orders, and staff across branches.',
+      icon: Database,
+      features: ['Inventory Synchronization', 'Branch Management', 'Retail ERP Integration']
     },
     {
-      title: 'Performance SEO',
-      description: 'Rank for high-intent keywords and get free traffic that actually converts.',
+      title: 'Business Automation',
+      description: 'Automate your retail operations, from WhatsApp order verification to automated abandoned cart recovery.',
+      icon: Zap,
+      features: ['WhatsApp Automation', 'Automated Logistics', 'Retail Workflow Logic']
+    },
+    {
+      title: 'Performance SEO & Scale',
+      description: 'Rank for high-intent keywords to get free traffic that converts into long-term loyal customers.',
       icon: TrendingUp,
       features: ['Technical SEO Audit', 'Keyword Strategy', 'Product Page SEO']
-    },
-    {
-      title: 'Speed & Optimization',
-      description: 'Lightning-fast load times for better ranking and user experience.',
-      icon: Zap,
-      features: ['Image Optimization', 'App Bloat Removal', 'Lazy Loading Config']
     }
   ];
 
@@ -86,52 +92,59 @@ export default function ShopifyGrowth() {
 
   const pricing = [
     {
-      name: 'Starter',
-      price: '₹5,000',
-      description: 'Perfect for new stores looking to fix basics.',
-      features: ['Store Audit', 'Trust Badge Setup', 'Speed Optimization Basics', 'WhatsApp Button Setup']
+      name: 'Optimized Store',
+      price: '₹7,500',
+      description: 'Perfect for established stores needing a conversion and SEO overhaul.',
+      features: ['Store Audit & Fixes', 'Precision SEO Setup', 'Speed Optimization', 'WhatsApp Growth Audit']
     },
     {
-      name: 'Growth',
-      price: '₹10,000 - ₹15,000',
-      description: 'Comprehensive optimization for scaling stores.',
-      features: ['Conversion Redesign', 'Technical SEO Setup', 'Payment Gateway Fixes', 'Abandoned Cart Strategy', '24/7 Support']
+      name: 'Ecosystem Build',
+      price: '₹15,000 - ₹25,000',
+      description: 'The complete system: Store + Custom Admin + Automation for scaling brands.',
+      features: ['Conversion Redesign', 'Custom Admin Panel', 'Retail ERP Integration', 'WhatsApp Automation', '24/7 Priority Support']
     }
   ];
 
   return (
     <>
       <Helmet>
-        <title>Shopify Store Optimization & SEO Services | Increase Sales in 30 Days</title>
-        <meta name="description" content="Fix your Shopify store design, payment issues, and SEO. Increase traffic, conversions, and revenue. Get a free Shopify audit today." />
+        <title>Custom eCommerce Development & Shopify Ecosystem Builder | NarenNet</title>
+        <meta name="description" content="Scale your retail brand with a complete eCommerce ecosystem. We build custom online stores, admin panel software, and scalable eCommerce platforms with business automation." />
         <script type="application/ld+json">
           {`
             {
               "@context": "https://schema.org",
               "@type": "Service",
-              "name": "Shopify Growth System",
+              "name": "eCommerce Ecosystem & Shopify Growth",
               "provider": {
                 "@type": "Organization",
                 "name": "NarenNet"
               },
-              "description": "Comprehensive Shopify store optimization including SEO, CRO, and payment gateway setup.",
-              "areaServed": "India",
+              "description": "Comprehensive eCommerce ecosystem development including custom admin panels, Shopify optimization, and business automation.",
+              "areaServed": "Global",
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
-                "name": "Shopify Services",
+                "name": "eCommerce Development Services",
                 "itemListElement": [
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Shopify SEO"
+                      "name": "Shopify Development & SEO"
                     }
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Shopify CRO"
+                      "name": "Custom eCommerce Admin Panels"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Business Automation for Retail"
                     }
                   }
                 ]
@@ -146,71 +159,241 @@ export default function ShopifyGrowth() {
 
         {/* HERO SECTION */}
         <HeroSection
-          badge="Guaranteed Results in 30 Days"
-          title="Fix Your Shopify Store & Start Getting Sales"
-          subtitle="Stop Losing Customers to Poor Design and Payment Issues"
-          description="We specialize in fixing the common roadblocks that kill Shopify sales. From payment gateway errors to poor SEO, we optimize everything to help you scale profitably."
-          primaryCta="Get Free Store Audit"
+          badge="Upgrade to a Scalable eCommerce Ecosystem"
+          title="Beyond Shopify: Building High-Performance Retail Engines"
+          subtitle="Stop Managing Just a Store. Start Running Your Business with Automation."
+          description="We specialize in custom eCommerce development and business automation. From high-converting Shopify stores to scalable eCommerce platforms with custom admin panels, we build the system that fuels your growth."
+          primaryCta="Build Your Ecosystem"
           primaryCtaLink="#audit"
-          secondaryCta="Chat on WhatsApp"
-          secondaryCtaLink="https://wa.me/918438966728?text=Hi%20NarenNet%2C%20I%20want%20to%20get%20a%20free%20audit%20for%20my%20Shopify%20store."
+          secondaryCta="Watch Demo"
+          secondaryCtaLink="#action"
         >
           <div className="max-w-6xl mx-auto mt-12 px-6">
-             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {[
-                  { label: 'Avg. Revenue Boost', value: '45%', icon: TrendingUp },
-                  { label: 'Checkout Speed', value: '-2.5s', icon: Zap },
-                  { label: 'Trust Factor', value: '10x', icon: ShieldCheck }
-                ].map((stat, i) => (
-                  <motion.div 
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 + (i * 0.1) }}
-                    className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-3xl text-center"
-                  >
-                     <div className="text-4xl font-bold text-white mb-2">{stat.value}</div>
-                     <div className="text-brand-secondary text-xs font-bold uppercase tracking-widest">{stat.label}</div>
-                  </motion.div>
-                ))}
+             {/* Stats and Hero Mockup */}
+             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {[
+                    { label: 'Revenue Growth', value: '45%+', icon: TrendingUp },
+                    { label: 'Checkout Speed', value: '-2.5s', icon: Zap },
+                    { label: 'Operations Efficiency', value: '70%+', icon: Activity },
+                    { label: 'Trust Factor', value: '10x', icon: ShieldCheck }
+                  ].map((stat, i) => (
+                    <motion.div 
+                      key={i}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.5 + (i * 0.1) }}
+                      className="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-3xl"
+                    >
+                       <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
+                       <div className="text-brand-secondary text-[10px] font-bold uppercase tracking-widest">{stat.label}</div>
+                    </motion.div>
+                  ))}
+                </div>
+                
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.8 }}
+                  className="relative hidden lg:block"
+                >
+                  <div className="absolute inset-0 bg-brand-accent/20 blur-[100px] rounded-full" />
+                  <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/20 shadow-2xl bg-brand-deep group">
+                    <DashboardMockup />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                </motion.div>
              </div>
           </div>
         </HeroSection>
 
-        {/* PROBLEM SECTION */}
-        <section className="py-24 bg-white border-b border-brand-border">
+        {/* SOLUTION SECTION */}
+        <FeatureCards 
+          title="Everything You Need to Scale"
+          subtitle="Our data-driven ecosystem approach focuses on conversion, automation, and long-term organic growth."
+          features={ecosystemFeatures}
+        />
+
+        {/* OUR SYSTEM IN ACTION SECTION */}
+        <section id="action" className="py-24 bg-brand-deep text-white overflow-hidden">
           <div className="container-wide px-6">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold text-brand-primary mb-6">Why Your Shopify Store Is Not Making Sales</h2>
-              <p className="text-lg text-brand-secondary">Most Shopify owners struggle with these 5 critical issues. Are you one of them?</p>
+            <div className="text-center max-w-3xl mx-auto mb-20">
+              <h2 className="text-3xl md:text-6xl font-black mb-6 tracking-tight">Our System in <span className="text-brand-accent">Action</span></h2>
+              <p className="text-lg text-brand-secondary">Experience the power of a fully integrated eCommerce ecosystem designed for retail leaders.</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-              {problems.map((problem, i) => (
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  title: 'Admin Panel Software',
+                  desc: 'Complete control over inventory, orders, and staff performance with real-time data sync.',
+                  component: <DashboardMockup />,
+                  badge: 'Backend Control'
+                },
+                {
+                  title: 'High-Converting Store',
+                  desc: 'Mobile-first storefronts designed to maximize LTV and minimize acquisition costs.',
+                  component: <MobileAppMockup persona="customer" />,
+                  badge: 'Frontend Excellence'
+                },
+                {
+                  title: 'Growth Analytics',
+                  desc: 'Deep insights into revenue attribution, customer behavior, and retail profitability.',
+                  component: <SupermarketDashboardMockup />,
+                  badge: 'Intelligence'
+                }
+              ].map((item, i) => (
                 <motion.div 
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="p-8 rounded-3xl bg-brand-card border border-brand-border hover:shadow-xl transition-all group"
+                  transition={{ delay: i * 0.2 }}
+                  className="bg-white/5 border border-white/10 rounded-[40px] overflow-hidden group hover:border-brand-accent/50 transition-all flex flex-col"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center mb-6 group-hover:bg-brand-accent group-hover:text-white transition-colors">
-                    <problem.icon size={24} className="text-brand-accent group-hover:text-white transition-colors" />
+                  <div className="p-8 pb-0">
+                    <span className="inline-block px-3 py-1 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-[10px] font-bold text-brand-accent uppercase tracking-widest mb-4">
+                      {item.badge}
+                    </span>
+                    <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
+                    <p className="text-brand-secondary text-sm mb-8 leading-relaxed">{item.desc}</p>
                   </div>
-                  <h3 className="text-xl font-bold text-brand-primary mb-3">{problem.title}</h3>
-                  <p className="text-brand-secondary text-sm leading-relaxed">{problem.desc}</p>
+                  <div className="mt-auto aspect-[4/3] relative bg-brand-bg/50 border-t border-white/10 overflow-hidden transform group-hover:scale-[1.02] transition-transform">
+                     {item.component}
+                  </div>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* SOLUTION SECTION */}
-        <FeatureCards 
-          title="We Fix What’s Actually Stopping Your Sales"
-          subtitle="Our data-driven approach focuses on conversion and long-term organic growth."
-          features={solutions}
-        />
+        {/* COMPARISON SECTION */}
+        <section className="py-24 bg-white">
+          <div className="container-wide px-6">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-3xl md:text-5xl font-bold text-brand-primary mb-6">Traditional Shopify vs. <span className="text-brand-accent">NarenNet Ecosystem</span></h2>
+              <p className="text-lg text-brand-secondary">Why settle for a store when you can have a business engine?</p>
+            </div>
+            
+            <div className="max-w-5xl mx-auto bg-brand-card border border-brand-border rounded-[40px] overflow-hidden shadow-2xl">
+               <div className="grid grid-cols-3 bg-brand-deep text-white p-8 font-bold uppercase tracking-widest text-xs">
+                  <div>Feature</div>
+                  <div className="text-center opacity-50">Standard Setup</div>
+                  <div className="text-center text-brand-accent underline underline-offset-8">Our Ecosystem</div>
+               </div>
+               <div className="divide-y divide-brand-border">
+                  {[
+                    { f: 'Customization', s: 'Limited to Theme', e: 'Unlimited / Custom Backend' },
+                    { f: 'Business Automation', s: 'Manual / Basic Apps', e: 'Fully Automated Workflows' },
+                    { f: 'Scalability', s: 'Becomes Heavy & Slow', e: 'Scalable Architecture' },
+                    { f: 'Multi-Branch Sync', s: 'Complex / Expensive', e: 'Native ERP Integration' },
+                    { f: 'Conversion Focus', s: 'Generic Layouts', e: 'Psychology-Driven UX' }
+                  ].map((row, i) => (
+                    <div key={i} className="grid grid-cols-3 p-8 items-center hover:bg-white transition-colors">
+                       <div className="font-bold text-brand-primary">{row.f}</div>
+                       <div className="text-center text-brand-secondary text-sm">{row.s}</div>
+                       <div className="text-center font-bold text-brand-accent flex items-center justify-center gap-2">
+                          <CheckCircle2 size={16} /> {row.e}
+                       </div>
+                    </div>
+                  ))}
+               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* USE CASE SECTION */}
+        <section className="py-24 bg-brand-bg border-y border-brand-border">
+          <div className="container-wide px-6">
+             <div className="text-center max-w-3xl mx-auto mb-16">
+                <h2 className="text-3xl md:text-5xl font-bold text-brand-primary mb-6">Built for High-Ticket Verticals</h2>
+                <p className="text-lg text-brand-secondary">We specialize in complex industries that require more than just a cart.</p>
+             </div>
+
+             <div className="space-y-24">
+                {[
+                  {
+                    title: 'Supermarkets & Hyperlocals',
+                    problem: 'Disconnected POS and online inventory leading to overselling.',
+                    solution: 'Real-time inventory sync between physical store and Shopify storefront.',
+                    result: '99% Stock accuracy and 2x faster order fulfillment.',
+                    mockup: <SupermarketDashboardMockup />,
+                    reversed: false
+                  },
+                  {
+                    title: 'Hospitals & Pharmacy Chains',
+                    problem: 'Manual prescription handling and fragmented patient data.',
+                    solution: 'Direct-to-Consumer ecosystem with automated prescription verification.',
+                    result: '70% Reduction in manual processing and automated doorstep delivery.',
+                    mockup: <HospitalDashboardMockup />,
+                    reversed: true
+                  },
+                  {
+                    title: 'Premium Retail Brands',
+                    problem: 'High customer acquisition cost and low returning customer rate.',
+                    solution: 'D2C Growth Engine with personalized loyalty logic and high-LTV checkout.',
+                    result: '40% Increase in Retention and 1.5x higher Average Order Value (AOV).',
+                    mockup: <DashboardMockup />,
+                    reversed: false
+                  }
+                ].map((useCase, i) => (
+                  <div key={i} className={`flex flex-col ${useCase.reversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-16`}>
+                    <div className="flex-1 space-y-8">
+                       <h3 className="text-3xl md:text-4xl font-bold text-brand-primary">{useCase.title}</h3>
+                       <div className="space-y-6">
+                          <div className="p-6 bg-rose-50 border border-rose-100 rounded-2xl">
+                             <h4 className="text-sm font-bold text-rose-600 uppercase tracking-widest mb-2 flex items-center gap-2">
+                                <AlertCircle size={16} /> The Problem
+                             </h4>
+                             <p className="text-brand-primary font-medium">{useCase.problem}</p>
+                          </div>
+                          <div className="p-6 bg-emerald-50 border border-emerald-100 rounded-2xl">
+                             <h4 className="text-sm font-bold text-emerald-600 uppercase tracking-widest mb-2 flex items-center gap-2">
+                                <CheckCircle2 size={16} /> Our Solution
+                             </h4>
+                             <p className="text-brand-primary font-medium">{useCase.solution}</p>
+                          </div>
+                          <div className="pt-4 flex items-center gap-4">
+                             <div className="text-4xl font-black text-brand-accent">{useCase.result.split(' ')[0]}</div>
+                             <div className="text-sm font-bold text-brand-secondary leading-tight">{useCase.result.split(' ').slice(1).join(' ')}</div>
+                          </div>
+                       </div>
+                    </div>
+                    <div className="flex-1 w-full aspect-video bg-white rounded-3xl border border-brand-border shadow-2xl overflow-hidden relative group">
+                        <div className="absolute inset-x-0 top-0 h-1 bg-brand-accent transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-700" />
+                        {useCase.mockup}
+                    </div>
+                  </div>
+                ))}
+             </div>
+          </div>
+        </section>
+
+        {/* PROCESS SECTION */}
+        <section className="py-24 bg-white border-b border-brand-border">
+          <div className="container-wide px-6">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-3xl md:text-5xl font-bold text-brand-primary mb-6">Execution & <span className="text-brand-accent">Approval</span> Worklow</h2>
+              <p className="text-lg text-brand-secondary">A structured, data-backed process ensuring quality at every milestone.</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              {[
+                { step: '01', title: 'Consultation', desc: 'Deep dive into your retail goals and ecosystem audit.' },
+                { step: '02', title: 'Architecture', desc: 'Designing your store, admin, and automation logic.' },
+                { step: '03', title: 'Development', desc: 'Building your high-performance ecosystem on Shopify/Custom.' },
+                { step: '04', title: 'Deployment', desc: 'Rigorous testing followed by a seamless go-live transition.' }
+              ].map((item, i) => (
+                <div key={i} className="relative group">
+                   <div className="text-6xl font-black text-brand-accent/5 absolute -top-8 -left-4 group-hover:text-brand-accent/10 transition-colors">{item.step}</div>
+                   <div className="relative">
+                      <h3 className="text-xl font-bold text-brand-primary mb-3">{item.title}</h3>
+                      <p className="text-brand-secondary text-sm leading-relaxed">{item.desc}</p>
+                   </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* RESULTS SECTION */}
         <section className="py-24 bg-brand-deep text-white">
@@ -319,8 +502,8 @@ export default function ShopifyGrowth() {
         <section className="py-24 bg-brand-card">
           <div className="container-wide px-6">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold text-brand-primary mb-6">Simple Growth Plans</h2>
-              <p className="text-brand-secondary">Transparent pricing designed to pay for itself in sales boost.</p>
+              <h2 className="text-3xl md:text-5xl font-bold text-brand-primary mb-6">Strategic Investment Packages</h2>
+              <p className="text-lg text-brand-secondary">Transparent pricing designed to pay for itself through automated growth.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {pricing.map((plan, i) => (
@@ -348,20 +531,20 @@ export default function ShopifyGrowth() {
 
         {/* FINAL CTA */}
         <CTASection 
-          title="Ready to Scale Your Shopify Store?"
-          subtitle="Stop guessing and start growing. Our team handles the entire technical setup so you can focus on your brand."
-          buttonText="Claim Your Free Audit Now"
+          title="Stop Building Stores. Start Building a Legacy."
+          subtitle="Ready to scale your retail engine? Our team handles the entire technical ecosystem so you can focus on your brand."
+          buttonText="Build Your Ecosystem Now"
         />
 
         {/* STICKY WHATSAPP CTA FOR MOBILE */}
         <div className="lg:hidden fixed bottom-24 left-6 right-6 z-[60]">
            <a 
-            href="https://wa.me/918438966728?text=Hi%20NarenNet%2C%20I%20want%20to%20fix%20my%20Shopify%20store." 
+            href="https://wa.me/918438966728?text=Hi%20NarenNet%2C%20I%20want%20to%20scale%20my%20eCommerce%20business." 
             target="_blank" 
             rel="noreferrer"
             className="w-full bg-green-500 text-white p-4 rounded-2xl font-bold flex items-center justify-center gap-3 shadow-2xl shadow-green-500/40"
            >
-             <MessageCircle size={20} /> Chat with Shopify Expert
+             <MessageCircle size={20} /> Professional Consultation
            </a>
         </div>
       </div>
