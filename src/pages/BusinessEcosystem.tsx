@@ -218,10 +218,10 @@ export default function BusinessEcosystem() {
 
                         {/* Satellites */}
                         {[
-                            { name: "CRM System", icon: Users, delay: 0.2, left: "50%", top: "15%" },
-                            { name: "ERP System", icon: Database, delay: 0.3, left: "85%", top: "30%" },
-                            { name: "HR Management", icon: Briefcase, delay: 0.4, left: "85%", top: "70%" },
-                            { name: "Sales Auto", icon: Zap, delay: 0.5, left: "50%", top: "85%" },
+                            { name: "CRM", icon: Users, delay: 0.2, left: "50%", top: "15%" },
+                            { name: "ERP", icon: Database, delay: 0.3, left: "85%", top: "30%" },
+                            { name: "HR", icon: Briefcase, delay: 0.4, left: "85%", top: "70%" },
+                            { name: "Sales", icon: Zap, delay: 0.5, left: "50%", top: "85%" },
                             { name: "Finance", icon: CreditCard, delay: 0.6, left: "15%", top: "70%" },
                             { name: "Analytics", icon: PieChart, delay: 0.7, left: "15%", top: "30%" }
                         ].map((node, i) => (
@@ -232,10 +232,10 @@ export default function BusinessEcosystem() {
                                 viewport={{ once: true }}
                                 transition={{ delay: node.delay, type: 'spring', stiffness: 100 }}
                                 style={{ left: node.left, top: node.top }}
-                                className="absolute -translate-x-1/2 -translate-y-1/2 z-10 w-24 h-24 md:w-32 md:h-32 bg-white/5 backdrop-blur-xl rounded-full md:rounded-[2rem] shadow-lg border border-white/20 flex flex-col items-center justify-center gap-2 hover:scale-110 hover:bg-white/10 hover:border-brand-accent transition-all cursor-default group text-center p-2"
+                                className="absolute -translate-x-1/2 -translate-y-1/2 z-10 w-20 h-20 md:w-32 md:h-32 bg-white/5 backdrop-blur-xl rounded-full md:rounded-[2rem] shadow-lg border border-white/20 flex flex-col items-center justify-center gap-1 md:gap-2 hover:scale-110 hover:bg-white/10 hover:border-brand-accent transition-all cursor-default group text-center p-2"
                             >
-                                <node.icon className="w-6 h-6 md:w-8 md:h-8 text-brand-secondary group-hover:text-brand-accent transition-colors" />
-                                <span className="font-bold text-white text-[10px] md:text-sm leading-tight px-1">{node.name}</span>
+                                <node.icon className="w-5 h-5 md:w-8 md:h-8 text-brand-secondary group-hover:text-brand-accent transition-colors" />
+                                <span className="font-bold text-white text-[9px] md:text-sm leading-tight px-1">{node.name}</span>
                             </motion.div>
                         ))}
                     </div>

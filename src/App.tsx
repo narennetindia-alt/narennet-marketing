@@ -65,15 +65,15 @@ function ScrollToTop() {
 function FloatingBookDemo() {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
-    const t = setTimeout(() => setVisible(true), 2000);
-    return () => clearTimeout(t);
+    const timer = setTimeout(() => setVisible(true), 1500);
+    return () => clearTimeout(timer);
   }, []);
   if (!visible) return null;
   return (
     <Link
       to="/contact"
       aria-label="Book a free demo"
-      className="fixed md:bottom-6 bottom-28 left-6 z-[999] group"
+      className="fixed md:bottom-6 bottom-24 left-6 z-[999] group"
     >
       <motion.div
         initial={{ scale: 0, opacity: 0 }}
@@ -81,18 +81,13 @@ function FloatingBookDemo() {
         transition={{ duration: 0.4, type: 'spring' }}
         whileHover={{ scale: 1.07 }}
         whileTap={{ scale: 0.97 }}
-        className="relative flex items-center gap-2.5 px-5 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-white shadow-2xl"
+        className="relative flex items-center gap-2.5 px-4 md:px-5 py-3 md:py-3.5 rounded-2xl font-bold text-[10px] md:text-xs uppercase tracking-wider text-white shadow-2xl"
         style={{ background: 'var(--color-brand-accent)', boxShadow: '0 8px 32px rgba(14,165,233,0.45)' }}
       >
         <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-green-400 border-2 border-brand-deep animate-pulse" />
-        🗓 Book Free Demo
+        <span className="text-sm md:text-base">🗓</span>
+        <span className="hidden md:inline">Book Free Demo</span>
       </motion.div>
-      {/* Tooltip */}
-      <div className="absolute bottom-full left-0 mb-3 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-        <div className="bg-gray-900 text-white text-xs font-bold px-3 py-2 rounded-xl whitespace-nowrap shadow-xl">
-          Free 30-min consultation
-        </div>
-      </div>
     </Link>
   );
 }
@@ -103,7 +98,7 @@ function FloatingWhatsApp() {
       target="_blank"
       rel="noreferrer"
       aria-label="Chat on WhatsApp"
-      className="fixed md:bottom-6 bottom-28 right-6 z-[999] group"
+      className="fixed md:bottom-6 bottom-24 right-6 z-[999] group"
     >
       <motion.div
         initial={{ scale: 0, opacity: 0 }}
@@ -111,21 +106,15 @@ function FloatingWhatsApp() {
         transition={{ duration: 0.4, delay: 1.5, type: 'spring' }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="relative w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-2xl shadow-green-500/40"
+        className="relative w-12 h-12 md:w-14 md:h-14 bg-green-500 rounded-full flex items-center justify-center shadow-2xl shadow-green-500/40"
       >
         {/* Pulse rings */}
         <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-30" />
-        <svg viewBox="0 0 24 24" fill="white" className="w-7 h-7 relative z-10">
+        <svg viewBox="0 0 24 24" fill="white" className="w-6 h-6 md:w-7 md:h-7 relative z-10">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
           <path d="M12 0C5.373 0 0 5.373 0 12c0 2.121.554 4.112 1.524 5.837L.057 23.743a.5.5 0 0 0 .6.6l5.906-1.467A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.944 9.944 0 0 1-5.098-1.4l-.363-.216-3.754.932.948-3.753-.234-.382A9.944 9.944 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
         </svg>
       </motion.div>
-      {/* Tooltip */}
-      <div className="absolute bottom-full right-0 mb-3 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-        <div className="bg-gray-900 text-white text-xs font-bold px-3 py-2 rounded-xl whitespace-nowrap shadow-xl">
-          Chat on WhatsApp
-        </div>
-      </div>
     </a>
   );
 }
