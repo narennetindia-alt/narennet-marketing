@@ -34,10 +34,34 @@ import Hospitals from "./pages/ecosystem/Hospitals";
 import Supermarkets from "./pages/ecosystem/Supermarkets";
 import MobileApps from "./pages/ecosystem/MobileApps";
 import ShopifyGrowth from "./pages/ecosystem/ShopifyGrowth";
+import SupermarketAudit from "./pages/ecosystem/SupermarketAudit";
 import Platform from "./pages/Platform";
 import PricingRetailPOS from "./pages/seo/PricingRetailPOS";
 import PricingHospital from "./pages/seo/PricingHospital";
 import PricingERP from "./pages/seo/PricingERP";
+import HospitalPreview from "./pages/HospitalPreview";
+
+/* New Hospital Pages */
+import PillarPage from "./pages/hospitals/PillarPage";
+import RegionalHubTN from "./pages/hospitals/RegionalHubTN";
+import CityChennai from "./pages/hospitals/CityChennai";
+import CityCoimbatore from "./pages/hospitals/CityCoimbatore";
+import CityMadurai from "./pages/hospitals/CityMadurai";
+import CitySalem from "./pages/hospitals/CitySalem";
+import CityTrichy from "./pages/hospitals/CityTrichy";
+import CityNagercoil from "./pages/hospitals/CityNagercoil";
+import ModuleOPD from "./pages/hospitals/ModuleOPD";
+import ModuleBilling from "./pages/hospitals/ModuleBilling";
+import ModuleIPD from "./pages/hospitals/ModuleIPD";
+import ModuleEMR from "./pages/hospitals/ModuleEMR";
+import ModuleLIS from "./pages/hospitals/ModuleLIS";
+import ModulePharmacy from "./pages/hospitals/ModulePharmacy";
+import ModuleInsurance from "./pages/hospitals/ModuleInsurance";
+import ModuleReports from "./pages/hospitals/ModuleReports";
+import CompareMocDoc from "./pages/hospitals/CompareMocDoc";
+import CompareTraditional from "./pages/hospitals/CompareTraditional";
+import TrustSecurity from "./pages/hospitals/TrustSecurity";
+import TrustImplementation from "./pages/hospitals/TrustImplementation";
 
 /* Admin Pages */
 import Dashboard from "./pages/admin/Dashboard";
@@ -159,12 +183,36 @@ function AppContent() {
               <Route path="/ecosystem/supermarkets" element={<Supermarkets />} />
               <Route path="/ecosystem/mobile-apps" element={<MobileApps />} />
               <Route path="/ecosystem/shopify-growth" element={<ShopifyGrowth />} />
+              <Route path="/ecosystem/supermarket-audit" element={<SupermarketAudit />} />
               <Route path="/platform" element={<Platform />} />
 
               {/* SEO Pricing Landing Pages */}
               <Route path="/pricing-retail-pos-india" element={<PricingRetailPOS />} />
               <Route path="/hospital-management-software-pricing" element={<PricingHospital />} />
               <Route path="/erp-software-pricing-india" element={<PricingERP />} />
+              <Route path="/hospital-preview" element={<HospitalPreview />} />
+
+              {/* Hospital Content System - Batch 1 */}
+              <Route path="/hospital-management-software" element={<PillarPage />} />
+              <Route path="/hospital-management-software-tamil-nadu" element={<RegionalHubTN />} />
+              <Route path="/hospital-management-software-chennai" element={<CityChennai />} />
+              <Route path="/hospital-management-software-coimbatore" element={<CityCoimbatore />} />
+              <Route path="/hospital-management-software-madurai" element={<CityMadurai />} />
+              <Route path="/hospital-management-software-salem" element={<CitySalem />} />
+              <Route path="/hospital-management-software-trichy" element={<CityTrichy />} />
+              <Route path="/hospital-management-software-nagercoil" element={<CityNagercoil />} />
+              <Route path="/opd-management-software" element={<ModuleOPD />} />
+              <Route path="/hospital-billing-software" element={<ModuleBilling />} />
+              <Route path="/ipd-management-software" element={<ModuleIPD />} />
+              <Route path="/emr-software" element={<ModuleEMR />} />
+              <Route path="/lis-integration" element={<ModuleLIS />} />
+              <Route path="/pharmacy-management-software" element={<ModulePharmacy />} />
+              <Route path="/hospital-insurance-management" element={<ModuleInsurance />} />
+              <Route path="/hospital-mis-reports" element={<ModuleReports />} />
+              <Route path="/compare/narennet-vs-mocdoc" element={<CompareMocDoc />} />
+              <Route path="/compare/narennet-vs-traditional-billing" element={<CompareTraditional />} />
+              <Route path="/trust/hospital-data-security" element={<TrustSecurity />} />
+              <Route path="/trust/hospital-software-implementation" element={<TrustImplementation />} />
             </>
           )}
 
